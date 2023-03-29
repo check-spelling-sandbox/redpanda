@@ -122,7 +122,7 @@ connections in one second. This is okay as long as all clients are well-behaved 
 system is carefully sized for its workload, neither of which are reliably true
 in real life deployments.
 
-### Run backround fiber
+### Run background fiber
 We can run background fiber each second to refresh tokens count in semaphore.
 In thins case we will avoid getting and comparing time for each connection,
 and only fiber will run signal()
