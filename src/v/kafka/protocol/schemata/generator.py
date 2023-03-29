@@ -976,7 +976,7 @@ class Field:
                 break
         if type(d) is dict:
             # We got to the end of this field's path and `sensitive_map` has
-            # sensitive decendents defined. This field is an ancestor of a
+            # sensitive descendants defined. This field is an ancestor of a
             # sensitive field, but it itself isn't sensitive.
             return False
         assert d is None or d is True, \
