@@ -274,7 +274,7 @@ readers_cache::entry::make_cached_reader(readers_cache* cache) {
 readers_cache::~readers_cache() {
     vassert(
       _readers.empty() && _in_use.empty(),
-      "readers cache have to be closed before destorying");
+      "readers cache have to be closed before destroying");
 }
 
 ss::future<>

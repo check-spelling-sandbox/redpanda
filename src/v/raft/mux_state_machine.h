@@ -121,7 +121,7 @@ public:
         co_await raft::state_machine::stop();
         vassert(
           _pending == 0,
-          "destorying state machine with {} pending replicate requests",
+          "destroying state machine with {} pending replicate requests",
           _pending);
     }
 

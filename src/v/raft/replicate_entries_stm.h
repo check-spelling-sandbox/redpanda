@@ -101,7 +101,7 @@ public:
 
     /**
      * Waits for all related background future to finish - required to be called
-     * before destorying the stm
+     * before destroying the stm
      */
     ss::future<> wait_for_shutdown();
 
