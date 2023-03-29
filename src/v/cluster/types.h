@@ -3201,7 +3201,7 @@ struct node_decommission_progress {
  * Negative values are used for hardcoded domains, positive values are reserved
  * for future use as user assigned domains, and may be used for a feature that
  * would allow users to designate certain topics to have their partition
- * replicas and leaders evenly distrbuted regardless of other topics.
+ * replicas and leaders evenly distributed regardless of other topics.
  */
 using partition_allocation_domain
   = named_type<int32_t, struct partition_allocation_domain_tag>;
