@@ -60,7 +60,7 @@ storage::disk_space_alert health_monitor_frontend::get_cluster_disk_health() {
     return _cluster_disk_health;
 }
 
-// Collcts and returns current node health report according to provided
+// Collects and returns current node health report according to provided
 // filters list
 ss::future<result<node_health_report>>
 health_monitor_frontend::collect_node_health(node_report_filter f) {
