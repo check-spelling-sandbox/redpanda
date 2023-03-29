@@ -373,7 +373,7 @@ FIXTURE_TEST(updating_nodes_properties, partition_allocator_fixture) {
     register_node(1, 4);
     register_node(2, 7);
 
-    // change node 1 core coung from 4 to 10
+    // change node 1 core count from 4 to 10
     for (int i = 0; i < 50; ++i) {
         // try to allocate single partition
         auto req = make_allocation_request(1, 1);
