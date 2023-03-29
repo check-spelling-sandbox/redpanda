@@ -29,7 +29,7 @@
  * wrap the iobuf and iterator consumer in a heap allocated state structure
  * which can be moved without altering the saved iobuf::end() iterator.
  *
- * Alteratives:
+ * Alternatives:
  *
  * - Store std::distance(begin, end) instead of end. This would eliminate the
  *   issue, but requires o(n) operations in the general case. we could switch to
