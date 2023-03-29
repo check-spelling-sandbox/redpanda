@@ -436,7 +436,7 @@ size_t partition_manifest::segments_metadata_bytes() const {
 uint64_t partition_manifest::compute_cloud_log_size() const {
     auto start_iter = find(_start_offset);
 
-    // No addresable segments
+    // No addressable segments
     if (start_iter == end()) {
         return 0;
     }

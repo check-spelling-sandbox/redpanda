@@ -833,7 +833,7 @@ SEASTAR_THREAD_TEST_CASE(test_same_size_reupload_skipped) {
     // 'segment_collector' should not propose the re-upload
     // of a single segment if the compacted size is equal to
     // the size of the segment in the manifest. In that case,
-    // the resulting addresable name in cloud storage would be the
+    // the resulting addressable name in cloud storage would be the
     // same for the segment before and after compaction. This would
     // result in the deletion of the segment.
     //
