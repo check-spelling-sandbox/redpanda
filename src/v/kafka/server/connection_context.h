@@ -223,7 +223,7 @@ private:
     };
 
     /// Update throughput trackers (per-client, per-shard, and whatever are
-    /// going to emerge) on ingress traffic and claculate aggregated throttle
+    /// going to emerge) on ingress traffic and calculate aggregated throttle
     /// delays from all of them.
     delay_t record_tp_and_calculate_throttle(
       const request_header& hdr, size_t request_size);
