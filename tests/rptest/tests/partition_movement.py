@@ -284,6 +284,6 @@ class PartitionMovementMixin():
             assert e.response.status_code == 400
             return
 
-        # wait for previous assignment or new assigment if movement cannot be cancelled
+        # wait for previous assignment or new assignment if movement cannot be cancelled
         self._wait_post_cancel(topic, partition, previous_assignment,
                                new_assignment, timeout)

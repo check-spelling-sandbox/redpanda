@@ -691,7 +691,7 @@ assignments_set& topic_metadata::get_assignments() { return _assignments; }
 
 replication_factor topic_metadata::get_replication_factor() const {
     // The main idea is do not use anymore replication_factor from topic_config.
-    // replication factor is dynamic property. And it is size of assigments set.
+    // replication factor is dynamic property. And it is size of assignments set.
     // So we will return rf for 0 partition, becasue it should exist for each
     // topic
     auto it = _assignments.find(model::partition_id(0));

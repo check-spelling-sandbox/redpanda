@@ -94,7 +94,7 @@ struct allocation_node {
     /// initialized to (#cores * 7000) - 2
     uint32_t _partition_capacity;
    
-    /// each index is a CPU. A weight is roughly the number of assigments
+    /// each index is a CPU. A weight is roughly the number of assignments
     /// _weights.size() == # of cores
     std::vector<uint32_t> _weights;
 };

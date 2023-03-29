@@ -250,11 +250,11 @@ result<allocation_units> partition_balancer_planner::get_reallocation(
       ntp,
       stable_replicas);
 
-    auto stable_assigments = partition_assignment(
+    auto stable_assignments = partition_assignment(
       assignments.group, assignments.id, stable_replicas);
 
     auto reallocation = _partition_allocator.reallocate_partition(
-      std::move(constraints), stable_assigments, get_allocation_domain(ntp));
+      std::move(constraints), stable_assignments, get_allocation_domain(ntp));
 
     if (!reallocation) {
         vlog(
