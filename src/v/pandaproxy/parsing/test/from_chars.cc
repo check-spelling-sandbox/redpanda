@@ -66,7 +66,7 @@ BOOST_AUTO_TEST_CASE_TEMPLATE(
 }
 
 BOOST_AUTO_TEST_CASE_TEMPLATE(
-  fron_chars_integral_from_float, T, integral_test_types) {
+  from_chars_integral_from_float, T, integral_test_types) {
     using input_type = named_type<int8_t, struct Tag>;
     constexpr const auto string_literal{"1.2"};
     auto res_0 = pp::parse::from_chars<input_type>{}(string_literal);

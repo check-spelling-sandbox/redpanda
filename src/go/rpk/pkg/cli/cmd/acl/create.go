@@ -100,5 +100,5 @@ func (a *acls) addCreateFlags(cmd *cobra.Command) {
 	cmd.Flags().StringSliceVar(&a.allowPrincipals, allowPrincipalFlag, nil, "Principals for which these permissions will be granted (repeatable)")
 	cmd.Flags().StringSliceVar(&a.allowHosts, allowHostFlag, nil, "Hosts from which access will be granted (repeatable)")
 	cmd.Flags().StringSliceVar(&a.denyPrincipals, denyPrincipalFlag, nil, "Principal for which these permissions will be denied (repeatable)")
-	cmd.Flags().StringSliceVar(&a.denyHosts, denyHostFlag, nil, "Hosts from from access will be denied (repeatable)")
+	cmd.Flags().StringSliceVar(&a.denyHosts, denyHostFlag, nil, "Hosts from access will be denied (repeatable)")
 }
