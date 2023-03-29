@@ -2087,7 +2087,7 @@ admin_server::get_broker_handler(std::unique_ptr<ss::httpd::request> req) {
     co_return ret;
 }
 
-ss::future<ss::json::json_return_type> admin_server::decomission_broker_handler(
+ss::future<ss::json::json_return_type> admin_server::decommission_broker_handler(
   std::unique_ptr<ss::httpd::request> req) {
     model::node_id id = parse_broker_id(*req);
 
@@ -2258,7 +2258,7 @@ void admin_server::register_broker_routes() {
     register_route<superuser>(
       ss::httpd::broker_json::decommission,
       [this](std::unique_ptr<ss::httpd::request> req) {
-          return decomission_broker_handler(std::move(req));
+          return decommission_broker_handler(std::move(req));
       });
 
     register_route<superuser>(

@@ -415,7 +415,7 @@ guess_peer_listener(request_context& ctx, const cluster::node_metadata& nm) {
     }
 }
 
-// If node isolated or decomissioned it can not handle kafka requests from
+// If node isolated or decommissioned it can not handle kafka requests from
 // client, so in this case we need to signal client communicate with another
 // broker. For this we need to exclude isolated node from brokers list and
 // return -1 for controller_id, after it client will send metadata request to

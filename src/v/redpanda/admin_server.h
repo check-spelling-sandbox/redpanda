@@ -323,7 +323,7 @@ private:
     ss::future<ss::json::json_return_type>
       get_broker_handler(std::unique_ptr<ss::httpd::request>);
     ss::future<ss::json::json_return_type>
-      decomission_broker_handler(std::unique_ptr<ss::httpd::request>);
+      decommission_broker_handler(std::unique_ptr<ss::httpd::request>);
     ss::future<ss::json::json_return_type>
       get_decommission_progress_handler(std::unique_ptr<ss::httpd::request>);
 
