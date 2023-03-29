@@ -65,7 +65,7 @@ public:
         fill_overrides(rate_info.overrides);
     }
 
-    // Handlers for on-line update config calue for connection_rate
+    // Handlers for on-line update config value for connection_rate
     void update_general_rate(std::optional<int64_t> new_value) {
         if (_general_rate) {
             update_connection_rate(_general_rate, new_value);
