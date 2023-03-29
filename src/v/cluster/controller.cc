@@ -318,7 +318,7 @@ controller::start(cluster_discovery& discovery, ss::abort_source& shard0_as) {
               controller_stm_shard,
               [disk_dirty_offset, &as = as](controller_stm& stm) {
                   // we do not have to use timeout in here as all the batches to
-                  // apply have to be accesssible
+                  // apply have to be accessible
                   auto last_applied = stm.bootstrap_last_applied();
 
                   // Consistency check: on a bug-free system, the last_applied
