@@ -39,7 +39,7 @@ namespace storage {
  * padding batch that is read and then fully ignored by the parser.
  *
  * 2. flush operations are completed asynchronously when writes complete. there
- * is not reason to do this so aggresively. we could potentially reduce the
+ * is not reason to do this so aggressively. we could potentially reduce the
  * amount of flushing by using a bytes or time heuristic. we'd increase the
  * latency of each flush, but we'd dispatch less physical flush operations.
  */
