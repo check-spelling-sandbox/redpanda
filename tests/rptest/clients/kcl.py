@@ -177,7 +177,7 @@ class KCL:
                        with_types: bool = False):
         """
         :param topic: the name of the topic to describe
-        :param with_docs: if true, include documention strings in the response
+        :param with_docs: if true, include documentation strings in the response
         :param with_types: if true, include config type information in the reponse
         :return: stdout string
         """
