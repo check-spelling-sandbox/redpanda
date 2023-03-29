@@ -194,7 +194,7 @@ replicated_partition::aborted_transactions(
     //   (it's downloaded alongside the segment to SI cache). This also means
     //   that we will have the manifests hydrated on disk (since we just
     //   downloaded corresponding segments from S3 to produce batches).
-    // - if the source of data is local raft log then we should use abroted
+    // - if the source of data is local raft log then we should use aborted
     // transactions
     //   snapshot.
     //
