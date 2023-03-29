@@ -488,7 +488,7 @@ STRUCT_TYPES = [
     "CreatableTopic",
     "CreatableTopicResult",
     "CreatableReplicaAssignment",
-    "CreateableTopicConfig",
+    "CreatableTopicConfig",
     "CreatableTopicConfigs",
     "DeletableGroupResult",
     "DescribeAclsResource",

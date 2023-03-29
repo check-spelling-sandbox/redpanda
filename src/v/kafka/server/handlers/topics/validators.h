@@ -174,7 +174,7 @@ struct batch_max_bytes_limits {
         auto it = std::find_if(
           c.configs.begin(),
           c.configs.end(),
-          [](const createable_topic_config& cfg) {
+          [](const creatable_topic_config& cfg) {
               return cfg.name == topic_property_max_message_bytes;
           });
         if (it != c.configs.end() && it->value.has_value()) {
