@@ -86,7 +86,7 @@ remote_partition::borrow_result_t remote_partition::borrow_next_reader(
     auto ko = model::offset_cast(config.start_offset);
     // Two level lookup:
     // - find segment meta based on kafka offset
-    //   this allow us to avoid any abiguity in case if the segment
+    //   this allow us to avoid any ambiguity in case if the segment
     //   doesn't have any data. The 'segment_containing' method of the
     //   manifest takes this into account.
     // - find materialized segment or materialize the new one
