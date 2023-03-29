@@ -2269,8 +2269,8 @@ tx_gateway_frontend::do_commit_tm_tx(
                     //   1. a client commits a transaction
                     //   2. the transaction is committed
                     //   3. the client initiates next transaction
-                    //   4. tx cordinator reboots before the prepare phase
-                    //   5. the client retries the commit, tx coordiantor sees
+                    //   4. tx coordinator reboots before the prepare phase
+                    //   5. the client retries the commit, tx coordinator sees
                     //   prepared
                     //      state of the previous transaction
                     //   6. if we roll it forward the client will think that the
