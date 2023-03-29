@@ -125,7 +125,7 @@ ss::future<> connection_context::process_one_request() {
  * Even though we build and decode a request/response, the payload is a small
  * authentication string. https://github.com/redpanda-data/redpanda/issues/1315.
  * When this ticket is complete we'll be able to easily remove this extra
- * serialization step and and easily operate on non-encoded requests/responses.
+ * serialization step and easily operate on non-encoded requests/responses.
  */
 ss::future<> connection_context::handle_auth_v0(const size_t size) {
     vlog(klog.debug, "Processing simulated SASL authentication request");
