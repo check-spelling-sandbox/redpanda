@@ -596,7 +596,7 @@ op_context::op_context(request_context&& ctx, ss::smp_service_group ssg)
 
     /*
      * TODO: max size is multifaceted. it needs to be absolute, but also
-     * integrate with other resource contraints that are dynamic within the
+     * integrate with other resource constraints that are dynamic within the
      * kafka server itself.
      */
     bytes_left = std::min(
