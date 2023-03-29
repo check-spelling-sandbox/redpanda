@@ -65,9 +65,9 @@ struct delta_xor {
  *
  * The encoder can work only with non-decreasing integer sequences
  * with 64-bit values. It uses delta-delta algorithm to compute delta values.
- * The alg. computes delta values by subtacting consequtive values from
+ * The alg. computes delta values by subtacting consecutive values from
  * each other and then it subtracts the pre-defined step value out of every
- * delta. The step value is a minimal possible delta between two consequitive
+ * delta. The step value is a minimal possible delta between two consecutive
  * elements.
  */
 template<class ValueT>
