@@ -106,7 +106,7 @@ class IsolatedDecommissionedNodeTest(PreallocNodesTest):
     @parametrize(isolation_handler_mode=True)
     @parametrize(isolation_handler_mode=False)
     def discover_leader_for_topic_test(self, isolation_handler_mode):
-        # Idea of this test is check that producer can descover partition leader if we pass only isolated node
+        # Idea of this test is check that producer can discover partition leader if we pass only isolated node
         if not isolation_handler_mode:
             feature_name = "node_isolation"
             self.admin.put_feature(feature_name, {"state": "disabled"})
