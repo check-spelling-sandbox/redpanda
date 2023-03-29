@@ -419,7 +419,7 @@ class SISettings:
             self.cloud_storage_api_endpoint_port = 443
         else:
             logger.debug("Running in Dockerised env against Azurite. "
-                         "Using Azurite defualt credentials.")
+                         "Using Azurite default credentials.")
 
     def _load_s3_context(self, logger, test_context):
         """
