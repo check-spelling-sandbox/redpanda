@@ -56,7 +56,7 @@ compaction_key_reducer::operator()(compacted_index::entry&& e) {
             /**
              * Evict first entry, we use hash function that guarante good
              * randomness so evicting first entry is actually evicting a
-             * pseudo random elemnent
+             * pseudo random element
              */
             auto mit = _indices.begin();
             _keys_mem_usage -= mit->first.size();
