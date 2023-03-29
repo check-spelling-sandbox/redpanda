@@ -95,7 +95,7 @@ Thus, the next modifications follow:
 
 ## Why (short reason)
 
-We want other subsystems `raft` and `cluster` in particular to take advantange
+We want other subsystems `raft` and `cluster` in particular to take advantage
 of our `storage::log` and related infrastructure to persist changes to disk.
 It allows us to have one code base for persisting records and reading them from
 disk.
