@@ -49,8 +49,8 @@ const (
 	DiskIRQsAffinityStaticChecker
 	DiskIRQsAffinityChecker
 	FstrimChecker
-	NicIRQsAffinitChecker
-	NicIRQsAffinitStaticChecker
+	NicIRQsAffinityChecker
+	NicIRQsAffinityStaticChecker
 	NicRfsChecker
 	NicXpsChecker
 	NicRpsChecker
@@ -247,8 +247,8 @@ func RedpandaCheckers(
 		SynBacklogChecker:             {netCheckersFactory.NewSynBacklogChecker()},
 		ListenBacklogChecker:          {netCheckersFactory.NewListenBacklogChecker()},
 		RfsTableEntriesChecker:        {netCheckersFactory.NewRfsTableSizeChecker()},
-		NicIRQsAffinitStaticChecker:   {netCheckersFactory.NewNicIRQAffinityStaticChecker(interfaces)},
-		NicIRQsAffinitChecker:         netCheckersFactory.NewNicIRQAffinityCheckers(interfaces, irq.Default, "all"),
+		NicIRQsAffinityStaticChecker:  {netCheckersFactory.NewNicIRQAffinityStaticChecker(interfaces)},
+		NicIRQsAffinityChecker:        netCheckersFactory.NewNicIRQAffinityCheckers(interfaces, irq.Default, "all"),
 		NicRpsChecker:                 netCheckersFactory.NewNicRpsSetCheckers(interfaces, irq.Default, "all"),
 		NicRfsChecker:                 netCheckersFactory.NewNicRfsCheckers(interfaces),
 		NicXpsChecker:                 netCheckersFactory.NewNicXpsCheckers(interfaces),
