@@ -14,7 +14,7 @@
 /* This mechanism is supposed to help with the situation when
  * we have a fiber that spauns multiple fibers which in turn
  * can spaun even more fibers. It's a normal situation with the
- * Seastar but the problem has many dimentions:
+ * Seastar but the problem has many dimensions:
  * - logging is tricky since every shard runs many concurrent
  *   futures and it's hard to correlate messages with each other
  * - retrying things is also tricky because the parent fiber can
