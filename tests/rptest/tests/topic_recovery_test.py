@@ -384,7 +384,7 @@ class MissingTopicManifest(BaseCase):
     """Check the case where the topic manifest doesn't exist.
     We can't download any data but we should create an empty topic and add an error
     message to the log.
-    We need to create an empty topic because it emables the following mitigation for
+    We need to create an empty topic because it enables the following mitigation for
     the situation when only the topic manifest is missing. The user might just delete
     the topic if the high watermark is 0 after the recovery and restore it second time.
     If the segments are missing from the bucket this won't do any harm but if only the
