@@ -310,7 +310,7 @@ class OffsetDeletionTest(RedpandaTest):
         assert len(output) == 3
         assert_status(output, 'UNKNOWN_TOPIC_OR_PARTITION', missing_topic)
 
-        # Assert offset-delete errors when non-existent group is passed in
+        # Assert offset-delete errors when nonexistent group is passed in
         topic_partitions = {self.topic: [0, 1, 2]}
         output = self.rpk.offset_delete("missing", topic_partitions)
         assert output.status == 'GROUP_ID_NOT_FOUND', output.status

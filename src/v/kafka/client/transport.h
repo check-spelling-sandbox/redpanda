@@ -63,7 +63,7 @@ private:
 
         vassert(
           flex_versions::is_api_in_schema(key),
-          "Attempted to send request to non-existent API: {}",
+          "Attempted to send request to nonexistent API: {}",
           key);
 
         /// KIP-511 bumps api_versions_request/response to 3 the first flex
@@ -217,7 +217,7 @@ private:
         wr.write(_client_id);
         vassert(
           flex_versions::is_api_in_schema(key),
-          "Attempted to send request to non-existent API: {}",
+          "Attempted to send request to nonexistent API: {}",
           key);
         if (flex_versions::is_flexible_request(key, version)) {
             /// Tags are unused by the client but to be protocol compliant

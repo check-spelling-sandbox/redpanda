@@ -691,7 +691,7 @@ int16_t controller::internal_topic_replication() const {
  * - core count only increases, never decreases.
  *
  * Core count decreases are forbidden because our partition placement
- * code does not know how to re-assign partitions away from non-existent
+ * code does not know how to re-assign partitions away from nonexistent
  * cores if some cores are removed.  This may be improved in future, at
  * which time we may remove this restriction on core count decreases.
  *

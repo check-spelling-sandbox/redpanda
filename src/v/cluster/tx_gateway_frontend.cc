@@ -1809,7 +1809,7 @@ tx_gateway_frontend::remove_deleted_partitions_from_tx(
         if (result) {
             vlog(
               txlog.info,
-              "Deleted non existent partition {} from tx {}",
+              "Deleted nonexistent partition {} from tx {}",
               part.ntp,
               tx);
             tx = result.value();

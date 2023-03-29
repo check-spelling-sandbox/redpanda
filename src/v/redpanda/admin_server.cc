@@ -1717,7 +1717,7 @@ admin_server::delete_user_handler(std::unique_ptr<ss::httpd::request> req) {
         user, model::timeout_clock::now() + 5s);
     vlog(logger.debug, "Deleting user '{}' {}:{}", user, err, err.message());
     if (err == cluster::errc::user_does_not_exist) {
-        // Idempotency: removing a non-existent user is successful.
+        // Idempotency: removing a nonexistent user is successful.
         co_return ss::json::json_return_type(ss::json::json_void());
     }
     co_await throw_on_error(*req, err, model::controller_ntp);
@@ -2595,7 +2595,7 @@ admin_server::set_partition_replicas_handler(
             node_id, shard);
         if (!is_valid) {
             throw ss::httpd::bad_request_exception(fmt::format(
-              "Replica set refers to non-existent node/shard (node "
+              "Replica set refers to nonexistent node/shard (node "
               "{} "
               "shard {})",
               node_id,
