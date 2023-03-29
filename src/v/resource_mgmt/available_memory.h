@@ -98,7 +98,7 @@ public:
      *
      * This call makes a call to update_low_water_mark() immediately before
      * returning its result, so this always includes the current memory state
-     * in the LWM calculatoin.
+     * in the LWM calculation.
      *
      * @return size_t the available low-water mark as described above
      */
