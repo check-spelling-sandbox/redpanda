@@ -78,18 +78,18 @@ public:
         return _cnt_tx_manifest_downloads;
     }
 
-    /// Register backof invocation during manifest upload
+    /// Register backoff invocation during manifest upload
     void manifest_upload_backoff() { _cnt_manifest_upload_backoff++; }
 
-    /// Get backof invocation during manifest upload or download
+    /// Get backoff invocation during manifest upload or download
     uint64_t get_manifest_upload_backoffs() const {
         return _cnt_manifest_upload_backoff;
     }
 
-    /// Register backof invocation during manifest upload
+    /// Register backoff invocation during manifest upload
     void manifest_download_backoff() { _cnt_manifest_download_backoff++; }
 
-    /// Get backof invocation during manifest upload or download
+    /// Get backoff invocation during manifest upload or download
     uint64_t get_manifest_download_backoffs() const {
         return _cnt_manifest_download_backoff;
     }
