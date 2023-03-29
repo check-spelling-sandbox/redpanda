@@ -55,7 +55,7 @@ class snapshot_writer;
  * This is all managed by the consensus and the state machine middleare.  The
  * blob is written by the state machine itself. For example, a state machine may
  * write a small serialized blob, or stream data to the snapshot file. Streaming
- * may be useful in cases where the data structure permits determistic iteration
+ * may be useful in cases where the data structure permits deterministic iteration
  * such as a pre-order tree travseral. The snapshot file contains a footer that
  * records a crc of the snapshot blob itself.
  *
