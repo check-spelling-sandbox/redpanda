@@ -111,7 +111,7 @@ public:
      * The RPC server can be shutdown in two phases. First phase initiated with
      * `shutdown_input` prevents server from accepting new requests and
      * connections. In second phases `wait_for_shutdown` caller waits for all
-     * pending requests to finish. This interface is convinient as it allows
+     * pending requests to finish. This interface is convenient as it allows
      * stopping the server without waiting for downstream services to stop
      * requests processing
      */

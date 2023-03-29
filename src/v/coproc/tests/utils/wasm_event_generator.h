@@ -30,7 +30,7 @@ struct cpp_enable_payload {
     coprocessor::input_set topics;
 };
 
-/// Convienent struct for bundling together data necessary to serialize a
+/// Convenient struct for bundling together data necessary to serialize a
 /// wasm_event into a model::record. Any field set to std::nullopt will be
 /// skipped during serialization, useful for testing failure cases
 struct event {
