@@ -713,7 +713,7 @@ FIXTURE_TEST(test_last_visible_offset_relaxed_consistency, raft_test_fixture) {
     BOOST_REQUIRE_GT(updated_last_visible, last_visible);
 };
 
-FIXTURE_TEST(test_mixed_consisteny_levels, raft_test_fixture) {
+FIXTURE_TEST(test_mixed_consistency_levels, raft_test_fixture) {
     raft_group gr = raft_group(raft::group_id(0), 3);
     gr.enable_all();
     bool success = false;
