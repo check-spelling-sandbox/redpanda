@@ -195,7 +195,7 @@ std::optional<std::chrono::seconds> group_manager::offset_retention_enabled() {
 
     /*
      * log change to effective value of offset_retention_enabled flag since its
-     * value cannot easily be determiend by examining the current configuration.
+     * value cannot easily be determined by examining the current configuration.
      */
     if (_prev_offset_retention_enabled != enabled) {
         vlog(
