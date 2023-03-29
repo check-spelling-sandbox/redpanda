@@ -65,7 +65,7 @@ static void run_test_can_append_multiple_flushes(size_t fallocate_size) {
             appender.append(data.data(), data.size()).get();
         }
         // This 911 time of appending "_redpanda" causes bug
-        // Commnting next two lines make the test passing
+        // Commenting next two lines make the test passing
         expected.append(data.data(), data.size());
         appender.append(data.data(), data.size()).get();
         appender.flush().get();

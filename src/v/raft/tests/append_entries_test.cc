@@ -833,7 +833,7 @@ struct request_ordering_test_fixture : public raft_test_fixture {
               make_indexed_batch_reader(i),
               raft::replicate_options(consistency));
             // wait for request to be enqueued before dispatching next one
-            // (comenting this out should cause this test to fail)
+            // (commenting this out should cause this test to fail)
             r.request_enqueued.get0();
             results.push_back(std::move(r.replicate_finished));
         }
