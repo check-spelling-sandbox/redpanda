@@ -209,7 +209,7 @@ private:
 
         int64_t max_tokens_for_update = std::max(
           0l,
-          rate_counter->max_tokens - rate_counter->avaiable_new_connections());
+          rate_counter->max_tokens - rate_counter->available_new_connections());
 
         if (max_tokens_for_update == 0) {
             rate_counter->update_rate(0, now);
@@ -233,7 +233,7 @@ private:
     }
 
     void spawn_updating_fiber_if_needed(connection_rate_t rate_counter) {
-        if (rate_counter->avaiable_new_connections() == 0) {
+        if (rate_counter->available_new_connections() == 0) {
             // Should spawn fiber to update tokens on next second
             ssx::spawn_with_gate(
               _connection_gate,
@@ -263,7 +263,7 @@ private:
         // updating phase
         if (
           duration.count() < rate_counter->one_token_time.count()
-          || rate_counter->avaiable_new_connections() > 0) {
+          || rate_counter->available_new_connections() > 0) {
             return;
         }
 

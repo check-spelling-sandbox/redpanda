@@ -110,11 +110,11 @@ class PartitionBalancerService(EndToEndTest):
         self.logger.debug(
             f"Checking metrics for movement with disabled node: {self.redpanda.idx(disabled_node)}"
         )
-        availabale_nodes = list(
+        available_nodes = list(
             filter(lambda x: x != disabled_node, self.redpanda.nodes))
         metrics = self.redpanda.metrics_sample(
             "moving_to_node",
-            availabale_nodes,
+            available_nodes,
             metrics_endpoint=MetricsEndpoint.PUBLIC_METRICS)
         moving_to_sum = int(sum([metric.value for metric in metrics.samples]))
 
@@ -128,7 +128,7 @@ class PartitionBalancerService(EndToEndTest):
 
         metrics = self.redpanda.metrics_sample(
             "moving_from_node",
-            availabale_nodes,
+            available_nodes,
             metrics_endpoint=MetricsEndpoint.PUBLIC_METRICS)
         moving_from_sum = int(sum([metric.value
                                    for metric in metrics.samples]))
@@ -138,7 +138,7 @@ class PartitionBalancerService(EndToEndTest):
 
         metrics = self.redpanda.metrics_sample(
             "node_cancelling_movements",
-            availabale_nodes,
+            available_nodes,
             metrics_endpoint=MetricsEndpoint.PUBLIC_METRICS)
         cancelling_movements = int(
             sum([metric.value for metric in metrics.samples]))
