@@ -135,7 +135,7 @@ A cache of assignments.
 
 * Static partitioning:
   `model::parition_id::type % smp::core_count` is fragile and offers no real
-  load balacing system. For example, core0 will always do a little more work
+  load balancing system. For example, core0 will always do a little more work
   in most systems because it is the only core guaranteed to exist.
   Second, having a cluster level knowledge gives us the opportunity to optimize
   physical core placement.
