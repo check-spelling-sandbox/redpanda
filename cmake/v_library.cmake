@@ -13,7 +13,7 @@ set(V_COMMON_INCLUDE_DIRS
 # NAME: name of target (see Note)
 # HDRS: List of public header files for the library
 # SRCS: List of source files for the library
-# DEPS: List of other libraries to be linked in to the binary targets
+# DEPS: List of other libraries to be linked into the binary targets
 # COPTS: List of private compile options
 # DEFINES: List of public defines
 # LINKOPTS: List of link options

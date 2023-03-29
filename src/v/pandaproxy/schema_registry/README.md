@@ -7,7 +7,7 @@
 
 ## High level design
 
-Schema registry is built in to `pandaproxy`.
+Schema registry is built into `pandaproxy`.
 
 A single-partition topic `_schemas` is used as a backend store.
 
