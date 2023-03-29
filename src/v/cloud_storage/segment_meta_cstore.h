@@ -728,7 +728,7 @@ public:
 /// Segment metadata column for monotonic sequences.
 ///
 /// Optimized for quick append/at/find operations.
-/// Find/lower_bound/upper_bound operations are complited within
+/// Find/lower_bound/upper_bound operations are completed within
 /// single digit microsecond intervals even with millions of elements
 /// in the column. The actual decoding is only performed for a single frame.
 /// The access by index is also fast (same order of magnitued as search).

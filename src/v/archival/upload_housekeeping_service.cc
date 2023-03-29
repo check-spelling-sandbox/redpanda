@@ -452,7 +452,7 @@ ss::future<> housekeeping_workflow::stop() {
       _executed.size(),
       _running.size());
     // At this point if _running is not empty then it's expected that
-    // it'd be removed when the execution of the job will be copleted.
+    // it'd be removed when the execution of the job will be completed.
     // This is because the owner of the job is required to deregister its
     // jobs before the housekeeping service is stopped.
     co_await _exec_gate.close();
