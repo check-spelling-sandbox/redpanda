@@ -89,7 +89,7 @@ FIXTURE_TEST(remove_persistent_state_test_no_snapshot, raft_test_fixture) {
     validate_logs_replication(gr);
     auto& node = gr.get_member(model::node_id(0));
     node.consensus->stop().get0();
-    auto defered = ss::defer([&node] { stop_node(node); });
+    auto deferred = ss::defer([&node] { stop_node(node); });
     BOOST_REQUIRE_EQUAL(is_group_state_cleared(node), false);
     BOOST_REQUIRE_EQUAL(snapshot_exists(node), false);
     BOOST_REQUIRE_EQUAL(node.consensus->get_snapshot_size(), 0);
@@ -115,7 +115,7 @@ FIXTURE_TEST(remove_persistent_state_test_with_snapshot, raft_test_fixture) {
       .get0();
     node.consensus->stop().get0();
 
-    auto defered = ss::defer([&node] { stop_node(node); });
+    auto deferred = ss::defer([&node] { stop_node(node); });
     BOOST_REQUIRE_EQUAL(is_group_state_cleared(node), false);
     BOOST_REQUIRE_EQUAL(snapshot_exists(node), true);
     BOOST_REQUIRE_EQUAL(
