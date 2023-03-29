@@ -41,7 +41,7 @@ ss::future<compaction_result> self_compact_segment(
   offset_delta_time apply_offset);
 
 /*
- * Concatentate segments into a minimal new segment.
+ * Concatenate segments into a minimal new segment.
  *
  * This is effectively equivalent to acquiring the proper locks while
  * concatenating segment data into the given path and then building an open
