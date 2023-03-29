@@ -596,7 +596,7 @@ private:
         // always up to date
         model::term_id term;
         // before we replicate the first batch of a transaction we don't know
-        // its offset but we must prevent read_comitted fetch from getting it
+        // its offset but we must prevent read_committed fetch from getting it
         // so we use last seen offset to estimate it
         mt::unordered_map_t<
           absl::flat_hash_map,

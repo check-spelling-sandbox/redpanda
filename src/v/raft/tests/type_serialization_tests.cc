@@ -207,9 +207,9 @@ SEASTAR_THREAD_TEST_CASE(heartbeat_response_roundtrip) {
     for (size_t i = 0; i < group_count; ++i) {
         // Negative offsets are special, so pick range starting at 0 here
         // (heartbeat_response_negative below covers the negative case)
-        auto commited_idx = model::offset(
+        auto committed_idx = model::offset(
           random_generators::get_int(0, 1000000000));
-        auto dirty_idx = commited_idx
+        auto dirty_idx = committed_idx
                          + model::offset(random_generators::get_int(10000));
 
         reply.meta.push_back(raft::append_entries_reply{
@@ -218,7 +218,7 @@ SEASTAR_THREAD_TEST_CASE(heartbeat_response_roundtrip) {
           .node_id = raft::vnode(model::node_id(1), model::revision_id(i)),
           .group = raft::group_id(i),
           .term = model::term_id(random_generators::get_int(0, 1000)),
-          .last_flushed_log_index = commited_idx,
+          .last_flushed_log_index = committed_idx,
           .last_dirty_log_index = dirty_idx,
           .result = raft::append_entries_reply::status::success});
     }

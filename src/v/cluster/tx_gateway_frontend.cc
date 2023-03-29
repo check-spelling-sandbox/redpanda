@@ -467,7 +467,7 @@ ss::future<try_abort_reply> tx_gateway_frontend::try_abort(
       pid,
       tx_seq,
       reply.ec,
-      reply.commited,
+      reply.committed,
       reply.aborted);
 
     co_return reply;
@@ -516,7 +516,7 @@ ss::future<try_abort_reply> tx_gateway_frontend::try_abort_locally(
       pid,
       tx_seq,
       reply.ec,
-      reply.commited,
+      reply.committed,
       reply.aborted);
     co_return reply;
 }
@@ -658,7 +658,7 @@ ss::future<try_abort_reply> tx_gateway_frontend::do_try_abort(
           tx.tx_seq,
           tx.status);
         // when it's ready it means in-memory state was lost
-        // so can't be comitted and it's save to aborted
+        // so can't be committed and it's save to aborted
         co_return try_abort_reply::make_aborted();
     } else if (tx.status == tm_transaction::tx_status::preparing) {
         ssx::spawn_with_gate(_gate, [this, stm, tx, timeout] {
@@ -2575,9 +2575,9 @@ tx_gateway_frontend::do_commit_tm_tx(
 
     // We can reduce the number of disk operation if we will not write
     // preparing state on disk. But after it we should ans to client when we
-    // sure that tx will be recommited after fail. We can guarantee it only
+    // sure that tx will be recommitted after fail. We can guarantee it only
     // if we ans after marking tx prepared. Because after fail tx will be
-    // recommited again and client will see expected behavior.
+    // recommitted again and client will see expected behavior.
     // Also we do not need to support old behavior with feature flag, because
     // now we will ans client later than in old versions. So we do not break
     // anything

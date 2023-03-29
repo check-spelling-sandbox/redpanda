@@ -211,7 +211,7 @@ class Verifier {
     }
   }
 
-  static void seekTest(String connection, boolean isReadComitted)
+  static void seekTest(String connection, boolean isReadCommitted)
       throws Exception {
     SimpleProducer producer = null;
     TxConsumer consumer = null;
@@ -222,7 +222,7 @@ class Verifier {
       producer.close();
       producer = null;
 
-      consumer = new TxConsumer(connection, topic1, isReadComitted);
+      consumer = new TxConsumer(connection, topic1, isReadCommitted);
       consumer.seekToEnd();
 
       int retries = 8;
@@ -252,7 +252,7 @@ class Verifier {
     seekTest(connection, false);
   }
 
-  static void txSeekTest(String connection, boolean isReadComitted)
+  static void txSeekTest(String connection, boolean isReadCommitted)
       throws Exception {
 
     TxProducer producer = null;
@@ -265,7 +265,7 @@ class Verifier {
       producer.close();
       producer = null;
 
-      consumer = new TxConsumer(connection, topic1, isReadComitted);
+      consumer = new TxConsumer(connection, topic1, isReadCommitted);
       long position = seekOver(consumer, offset, 500, 8);
       should(
           offset < position,

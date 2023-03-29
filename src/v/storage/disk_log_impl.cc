@@ -1340,7 +1340,7 @@ ss::future<> disk_log_impl::do_truncate_prefix(truncate_prefix_config cfg) {
      *     start offset <= committed offset <= dirty offset
      *
      * However, it might be that the new starting offset is ordered
-     * between the commited and dirty offsets. When this occurs we pay a
+     * between the committed and dirty offsets. When this occurs we pay a
      * small penalty to resolve the inconsistency by flushing the log and
      * advancing the committed offset to be the same as the dirty offset.
      */

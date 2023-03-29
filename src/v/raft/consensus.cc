@@ -2709,7 +2709,7 @@ consensus::do_maybe_update_leader_commit_idx(ssx::semaphore_units u) {
     // of matchIndex[i] ≥ N, and log[N].term == currentTerm:
     // set commitIndex = N (§5.3, §5.4).
     auto majority_match = config().quorum_match([this](vnode id) {
-        // current node - we just return commited offset
+        // current node - we just return committed offset
         if (id == _self) {
             return _flushed_offset;
         }
@@ -2725,7 +2725,7 @@ consensus::do_maybe_update_leader_commit_idx(ssx::semaphore_units u) {
     /**
      * we have to make sure that we do not advance committed_index beyond the
      * point which is readable in log. Since we are not waiting for flush to
-     * happen before updating leader commited index we have to limit committed
+     * happen before updating leader committed index we have to limit committed
      * index to the log committed offset. This way we make sure that when read
      * is handled all batches up to committed offset will be visible. Allowing
      * committed offset to be greater than leader flushed offset may result in

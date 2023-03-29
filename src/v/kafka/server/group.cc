@@ -1701,7 +1701,7 @@ group::commit_tx(cluster::commit_group_tx_request r) {
         if (is_transaction_ga()) {
             vlog(
               _ctx_txlog.trace,
-              "can't find a tx {}, probably already comitted",
+              "can't find a tx {}, probably already committed",
               r.pid);
             co_return make_commit_tx_reply(cluster::tx_errc::none);
         }
@@ -1714,7 +1714,8 @@ group::commit_tx(cluster::commit_group_tx_request r) {
         // existence of {pid, tx_seq+1} implies {pid, tx_seq} is committed
         vlog(
           _ctx_txlog.trace,
-          "Already commited pid:{} tx_seq:{} - a higher tx_seq:{} was observed",
+          "Already committed pid:{} tx_seq:{} - a higher tx_seq:{} was "
+          "observed",
           r.pid,
           r.tx_seq,
           txseq_it->second);
@@ -1733,7 +1734,7 @@ group::commit_tx(cluster::commit_group_tx_request r) {
     if (prepare_it == _prepared_txs.end()) {
         vlog(
           _ctx_txlog.trace,
-          "can't find a tx {}, probably already comitted",
+          "can't find a tx {}, probably already committed",
           r.pid);
         co_return make_commit_tx_reply(cluster::tx_errc::none);
     }
@@ -1746,7 +1747,7 @@ group::commit_tx(cluster::commit_group_tx_request r) {
         vlog(
           _ctx_txlog.trace,
           "prepare for pid:{} has higher tx_seq:{} than given: {} => replaying "
-          "already comitted commit",
+          "already committed commit",
           r.pid,
           prepare_it->second.tx_seq,
           r.tx_seq);
@@ -3250,7 +3251,7 @@ group::do_try_abort_old_tx(model::producer_identity pid) {
         if (r.ec != cluster::tx_errc::none) {
             co_return r.ec;
         }
-        if (r.commited) {
+        if (r.committed) {
             auto res = co_await do_commit(_id, pid);
             if (res.ec != cluster::tx_errc::none) {
                 vlog(

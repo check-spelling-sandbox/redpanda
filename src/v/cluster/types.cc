@@ -475,8 +475,8 @@ std::ostream& operator<<(std::ostream& o, const try_abort_request& r) {
 std::ostream& operator<<(std::ostream& o, const try_abort_reply& r) {
     fmt::print(
       o,
-      "{{ commited: {}, aborted: {}, ec: {} }}",
-      bool(r.commited),
+      "{{ committed: {}, aborted: {}, ec: {} }}",
+      bool(r.committed),
       bool(r.aborted),
       r.ec);
     return o;

@@ -186,7 +186,7 @@ class RpkGroupCommandsTest(RedpandaTest):
 
         rpk_group = self.rpk.group_describe(group_1)
 
-        # We describe topics that don't have commited offsets too:
+        # We describe topics that don't have committed offsets too:
         assert len(rpk_group.partitions) == 2
         self.validate_partition(rpk_group.partitions[0], 29, 30, 1)
         self.validate_partition(rpk_group.partitions[1], 0, 30, 30)

@@ -333,7 +333,7 @@ replicate_entries_stm::wait_for_majority() {
      * we have to finish replication when committed offset is greater or
      * equal to the appended offset or when term have changed after
      * commit_index update, if that happend it means that entry might
-     * have been either commited or truncated
+     * have been either committed or truncated
      */
     auto stop_cond = [this, appended_offset, appended_term] {
         const auto current_committed_offset = _ptr->committed_offset();
@@ -395,7 +395,7 @@ result<replicate_result> replicate_entries_stm::process_result(
       appended_offset <= _ptr->_commit_index,
       "{} - Successfull replication means that committed offset passed last "
       "appended offset. Current committed offset: {}, last appended offset: "
-      "{}, initial_commited_offset: {}",
+      "{}, initial_committed_offset: {}",
       _ptr->ntp(),
       _ptr->committed_offset(),
       appended_offset,

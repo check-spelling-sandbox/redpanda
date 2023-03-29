@@ -152,7 +152,7 @@ public:
     // The method returns an optional with the state of the
     // transaction. If the append operation doesn't require
     // memory allocation the optional is null. Otherwise it
-    // will contain a transaction which need to be commited.
+    // will contain a transaction which need to be committed.
     // The actual append operation can allocate memory and
     // can throw but 'commit' method of the transaction
     // doesn't allocate and doesn't throw.
@@ -527,7 +527,7 @@ public:
     // The method returns an optional with the state of the
     // transaction. If the append operation doesn't require
     // memory allocation the optional is null. Otherwise it
-    // will contain a transaction which need to be commited.
+    // will contain a transaction which need to be committed.
     // The actual append operation can allocate memory and
     // can throw but 'commit' method of the transaction
     // doesn't allocate and doesn't throw.

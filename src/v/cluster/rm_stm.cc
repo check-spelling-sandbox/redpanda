@@ -726,7 +726,7 @@ ss::future<tx_errc> rm_stm::do_commit_tx(
             // existence of {pid, tx_seq+1} implies {pid, tx_seq} is committed
             vlog(
               _ctx_log.trace,
-              "Already commited pid:{} tx_seq:{} - a higher tx_seq:{} was "
+              "Already committed pid:{} tx_seq:{} - a higher tx_seq:{} was "
               "observed",
               pid,
               tx_seq,
@@ -781,7 +781,7 @@ ss::future<tx_errc> rm_stm::do_commit_tx(
             // existence of {pid, tx_seq+1} implies {pid, tx_seq} is committed
             vlog(
               _ctx_log.trace,
-              "Already commited pid:{} tx_seq:{} - a higher tx_seq:{} was "
+              "Already committed pid:{} tx_seq:{} - a higher tx_seq:{} was "
               "observed",
               pid,
               tx_seq,
@@ -2143,7 +2143,7 @@ ss::future<> rm_stm::do_try_abort_old_tx(model::producer_identity pid) {
         auto r = co_await _tx_gateway_frontend.local().try_abort(
           model::partition_id(0), pid, *tx_seq, _sync_timeout);
         if (r.ec == tx_errc::none) {
-            if (r.commited) {
+            if (r.committed) {
                 vlog(
                   _ctx_log.trace, "pid:{} tx_seq:{} is committed", pid, tx_seq);
                 auto batch = make_tx_control_batch(

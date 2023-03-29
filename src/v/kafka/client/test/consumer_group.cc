@@ -377,7 +377,7 @@ FIXTURE_TEST(consumer_group, kafka_client_fixture) {
         }
     }
 
-    // Check comimtted offsets match the fetched offsets
+    // Check committed offsets match the fetched offsets
     // range_assignment is allocated according to sorted member ids
     for (int i = 0; i < sorted_members.size(); ++i) {
         auto m_id = sorted_members[i];

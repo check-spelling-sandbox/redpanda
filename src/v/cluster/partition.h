@@ -107,7 +107,7 @@ public:
      * There are two important pieces in this comment:
      *
      *   1) "non-transaction message are considered decided immediately".
-     *   Since we currently use the commited_offset to report the end of log to
+     *   Since we currently use the committed_offset to report the end of log to
      *   kafka clients, simply report the next offset.
      *
      *   2) "first offset such that all lower offsets have been decided". this

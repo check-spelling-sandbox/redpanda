@@ -74,7 +74,7 @@ void replicated_partition_probe::setup_internal_metrics(const model::ntp& ntp) {
         sm::make_gauge(
           "committed_offset",
           [this] { return _partition.committed_offset(); },
-          sm::description("Partition commited offset. i.e. safely persisted on "
+          sm::description("Partition committed offset. i.e. safely persisted on "
                           "majority of replicas"),
           labels)
           .aggregate(aggregate_labels),

@@ -496,7 +496,7 @@ FIXTURE_TEST(truncated_segment_recovery, storage_test_fixture) {
 
         auto next_offsets = (*next)->offsets();
         BOOST_REQUIRE_EQUAL(next_offsets.base_offset, truncate_offset);
-        // segment commited offset has to be lower than next segment base
+        // segment committed offset has to be lower than next segment base
         // offset
         BOOST_REQUIRE_LT(offsets.committed_offset, next_offsets.base_offset);
     }
