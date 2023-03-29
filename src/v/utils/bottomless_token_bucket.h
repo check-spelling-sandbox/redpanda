@@ -45,7 +45,7 @@ public:
     using clock = ss::lowres_clock;
     using time_res_t = std::chrono::milliseconds;
 
-    // Algoritms rely on time_res_t to be subsecond
+    // Algorithms rely on time_res_t to be subsecond
     static_assert(time_res_t::period::num == 1);
 
     // Maximum supported width of a bucket ~ 25 days
