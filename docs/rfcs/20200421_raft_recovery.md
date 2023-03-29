@@ -230,7 +230,7 @@ send in `append_entries_reply`. This will be done in both the heartbeat and
     ```c++
     struct append_entries_reply {
         enum class status : uint8_t { success, failure, group_unavailable };
-        /// \brief callee's node_id; work-around for batched heartbeats
+        /// \brief callee's node_id; workaround for batched heartbeats
         model::node_id node_id;
         group_id group;
         /// \brief callee's term, for the caller to update itself

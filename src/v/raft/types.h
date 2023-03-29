@@ -311,7 +311,7 @@ struct append_entries_reply
     };
     // node id to validate on receiver
     vnode target_node_id;
-    /// \brief callee's node_id; work-around for batched heartbeats
+    /// \brief callee's node_id; workaround for batched heartbeats
     vnode node_id;
     group_id group;
     /// \brief callee's term, for the caller to update itself
