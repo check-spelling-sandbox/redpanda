@@ -22,7 +22,7 @@ import (
 )
 
 const (
-	// useMixedConfiguration can be temporarily used until .boostrap.yaml is fully supported.
+	// useMixedConfiguration can be temporarily used until .bootstrap.yaml is fully supported.
 	useMixedConfiguration = true
 
 	redpandaPropertyPrefix = "redpanda."
