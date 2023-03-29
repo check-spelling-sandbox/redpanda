@@ -74,9 +74,9 @@ class PartitionMoveInterruption(PartitionMovementMixin, EndToEndTest):
             metrics_endpoint=MetricsEndpoint.PUBLIC_METRICS)
         return int(sum([metric.value for metric in metrics.samples]))
 
-    def metrics_correct(self, prev_assignment, assignmets):
+    def metrics_correct(self, prev_assignment, assignments):
         prev_assignment_nodes = [a["node_id"] for a in prev_assignment]
-        assignment_nodes = [a["node_id"] for a in assignmets]
+        assignment_nodes = [a["node_id"] for a in assignments]
         moving_from_node_sum = 0
         moving_to_node_sum = 0
         self.logger.debug(
@@ -117,9 +117,9 @@ class PartitionMoveInterruption(PartitionMovementMixin, EndToEndTest):
 
         return moving_to_node_sum == moving_from_node_sum
 
-    def check_metrics(self, prev_assignment=[], assignmets=[]):
+    def check_metrics(self, prev_assignment=[], assignments=[]):
         return wait_until(
-            lambda: self.metrics_correct(prev_assignment, assignmets),
+            lambda: self.metrics_correct(prev_assignment, assignments),
             timeout_sec=10)
 
     def _random_move_and_cancel(self, unclean_abort):
