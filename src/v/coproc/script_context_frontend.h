@@ -25,7 +25,7 @@ namespace coproc {
 /// dispatched to a wasm engine
 using input_read_results = std::vector<process_batch_request::data>;
 
-/// Arugments to pass to 'read_from_inputs', trivially copyable
+/// Arguments to pass to 'read_from_inputs', trivially copyable
 struct input_read_args {
     script_id id;
     ssx::semaphore& read_sem;
