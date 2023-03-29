@@ -376,7 +376,7 @@ ss::future<result<bool>> script_dispatcher::heartbeat(int8_t connect_attempts) {
     if (heartbeat.value().data.size == static_cast<long>(size)) {
         co_return true;
     }
-    /// There is a discrepency between the number of registered coprocs
+    /// There is a discrepancy between the number of registered coprocs
     /// according to redpanda and according to the wasm engine.
     /// Reconcile all state from offset 0.
     co_await disable_all_coprocessors();
