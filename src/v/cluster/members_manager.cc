@@ -1333,7 +1333,7 @@ members_manager::handle_configuration_update_request(
           req.node.id());
         return ss::make_ready_future<ret_t>(errc::no_leader_controller);
     }
-    // curent node is a leader
+    // current node is a leader
     if (leader_id == _self.id()) {
         // Just update raft0 configuration
         return update_node(std::move(req.node)).then([](std::error_code ec) {

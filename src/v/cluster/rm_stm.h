@@ -70,7 +70,7 @@ public:
 
     struct prepare_marker {
         // partition of the transaction manager
-        // reposible for curent transaction
+        // reposible for current transaction
         model::partition_id tm_partition;
         // tx_seq identifies a transaction within a session
         model::tx_seq tx_seq;

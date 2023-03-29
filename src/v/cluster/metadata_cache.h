@@ -108,7 +108,7 @@ public:
     /// Returns all brokers, returns copy as the content of broker can change
     const members_table::cache_t& nodes() const;
 
-    /// Returns curent broker count
+    /// Returns current broker count
     size_t node_count() const;
 
     /// Returns all brokers, returns copy as the content of broker can change

@@ -108,7 +108,7 @@ public:
      * @brief Update the low-water mark if applicable.
      *
      * Samples the currently available memory (as-if by calling available() and
-     * update the low-water mark if the currnet value is lower than any seen so
+     * update the low-water mark if the current value is lower than any seen so
      * far.
      *
      * Calls to this method should be inserted at places where memory is likely
