@@ -42,7 +42,7 @@ namespace cluster {
 /// responsible for querying one of the cluster nodes for current leadership
 /// metadata when node has started.
 ///
-/// Used acronymes:
+/// Used acronyms:
 /// RG<num> - raft group with <num> id
 ///
 /// Exemplary dissemination scenario:
