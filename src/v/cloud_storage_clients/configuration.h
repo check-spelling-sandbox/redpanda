@@ -30,7 +30,7 @@ struct default_overrides {
     bool disable_tls = false;
 };
 
-/// Configuration options common accross cloud storage clients
+/// Configuration options common across cloud storage clients
 struct common_configuration : net::base_transport::configuration {
     /// URI of the access point
     access_point_uri uri;

@@ -60,7 +60,7 @@ FIXTURE_TEST(test_coproc_router_multi_route, coproc_bench_fixture) {
     auto drain_results = start_benchmark(std::move(test_plan)).get();
 
     /// Expect all 4 partitions to exist and verify the exact number of
-    // record  batches accross all
+    // record  batches across all
     BOOST_REQUIRE_EQUAL(drain_results.size(), 4);
     for (const auto& [_, size] : drain_results) {
         BOOST_REQUIRE_EQUAL(size, 250);

@@ -1878,7 +1878,7 @@ ss::future<std::error_code> controller_backend::shutdown_on_current_shard(
 ss::future<> controller_backend::delete_partition(
   model::ntp ntp, model::revision_id rev, partition_removal_mode mode) {
     // The partition leaders table contains partition leaders for all
-    // partitions accross the cluster. For this reason, when deleting a
+    // partitions across the cluster. For this reason, when deleting a
     // partition (i.e. removal mode is global), we need to delete from the table
     // regardless of whether a replica of 'ntp' is present on the node.
     if (mode == partition_removal_mode::global) {

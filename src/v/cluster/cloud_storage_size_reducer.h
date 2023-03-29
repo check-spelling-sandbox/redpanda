@@ -25,7 +25,7 @@ public:
 };
 
 /*
- * This utility class performs a map-reduce operation accross the cluster
+ * This utility class performs a map-reduce operation across the cluster
  * in order to determine the total number of cloud storage bytes used by
  * all partitions.
  *
