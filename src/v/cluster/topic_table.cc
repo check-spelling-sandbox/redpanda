@@ -121,8 +121,8 @@ topic_table::apply(delete_topic_cmd cmd, model::offset offset) {
               tp_nsv);
         } else {
             /// Prevent deletion of source topics that have non_replicable
-            /// topics. To delete this topic all of its non_replicable descedent
-            /// topics must first be deleted
+            /// topics. To delete this topic all of its non_replicable
+            /// descendent topics must first be deleted
             auto found = _topics_hierarchy.find(cmd.value);
             if (found != _topics_hierarchy.end() && !found->second.empty()) {
                 return ss::make_ready_future<std::error_code>(
