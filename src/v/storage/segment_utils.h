@@ -131,7 +131,7 @@ uint64_t segment_size_from_config(const storage::ntp_config&);
 
 /// \brief this is a 0-based index (i.e.: i++) of the entries we need to
 /// save starting at 0 on a *new* `.compacted_index` file this represents
-/// the fully dedupped entries, clean of truncations, etc
+/// the fully deduped entries, clean of truncations, etc
 ss::future<roaring::Roaring>
   natural_index_of_entries_to_keep(compacted_index_reader);
 
