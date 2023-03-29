@@ -598,7 +598,7 @@ func secretVolumesForTLS(
 		MountPath: mountDir,
 	})
 
-	// if mutual TLS is enabled, mount also client cerificate CA to be able to
+	// if mutual TLS is enabled, mount also client certificate CA to be able to
 	// verify client certificates
 	if len(clientCertificates) > 0 {
 		clientCertVolume := corev1.Volume{
