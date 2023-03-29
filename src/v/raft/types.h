@@ -527,7 +527,7 @@ struct snapshot_metadata {
     static_assert(
       group_configuration::current_version <= initial_version,
       "snapshot metadata is based on the assumption that group configuration "
-      "version is equal to 3, please change it accordignly");
+      "version is equal to 3, please change it accordingly");
 };
 
 struct install_snapshot_request
