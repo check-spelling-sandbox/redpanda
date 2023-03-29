@@ -117,7 +117,7 @@ store some locally cached tokens to allow them to accept connections.
   a program that constructs many Kafka clients in parallel might open more
   connections.  The relationship between clients and connections is not 1:1,
   as clients may e.g. be both a producer and a consumer, and the client may
-  open additonal connections for reading metadata.
+  open additional connections for reading metadata.
 * Explain why it's bad to have an unbounded number of connections from a
   client:
   * Each connection has some memory overhead that might exhaust redpanda memory
