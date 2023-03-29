@@ -55,7 +55,7 @@ public:
     size_t capacity() const { return _buf.size(); }
 
     const char* get() const {
-        // required for the networking layer to conver to
+        // required for the networking layer to convert to
         // scattered message without copying data
         return _buf.get();
     }
