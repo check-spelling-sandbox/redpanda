@@ -86,7 +86,7 @@ public:
         size_t half = _buf.size() / 2;
         if (_used_bytes <= half) {
             // this is an important optimization. often times during RPC
-            // serialization we append some small controll bytes, _right_
+            // serialization we append some small control bytes, _right_
             // before we append a full new chain of iobufs
             _buf = ss::temporary_buffer<char>(_buf.get(), _used_bytes);
         } else {

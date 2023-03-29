@@ -28,7 +28,7 @@ private:
     ss::sharded<api>& _api;
 };
 /**
- * PID controller to controll compaction scheduling and IO shares
+ * PID controller to control compaction scheduling and IO shares
  */
 class compaction_controller {
 public:

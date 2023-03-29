@@ -82,7 +82,7 @@ bool index_state::maybe_index(
         retval = true;
     }
 
-    // NOTE: we don't need the 'max()' trick below because we controll the
+    // NOTE: we don't need the 'max()' trick below because we control the
     // offsets ourselves and it would be a bug otherwise - see assert above
     max_offset = batch_max_offset;
 

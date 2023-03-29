@@ -45,7 +45,7 @@ private:
      * are fine with increasing latency.
      *
      * Things to consider:
-     * - per shard concurrency controll
+     * - per shard concurrency control
      * - token-bucket based throughput limitter
      */
     uint32_t _max_concurrent_append_entries;
