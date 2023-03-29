@@ -405,7 +405,7 @@ ss::future<> group_manager::do_detach_partition(model::ntp ntp) {
     auto p = it->second;
     auto units = co_await p->catchup_lock.hold_write_lock();
 
-    // Becasue shutdown group is async operation we should run it after
+    // Because shutdown group is async operation we should run it after
     // rehash for groups map
     std::vector<group_ptr> groups_for_shutdown;
     for (auto g_it = _groups.begin(); g_it != _groups.end();) {
@@ -563,7 +563,7 @@ group_manager::gc_partition_state(ss::lw_shared_ptr<attached_partition> p) {
 
     auto units = co_await p->catchup_lock.hold_write_lock();
 
-    // Becasue shutdown group is async operation we should run it after rehash
+    // Because shutdown group is async operation we should run it after rehash
     // for groups map
     std::vector<group_ptr> groups_for_shutdown;
     for (auto it = _groups.begin(); it != _groups.end();) {

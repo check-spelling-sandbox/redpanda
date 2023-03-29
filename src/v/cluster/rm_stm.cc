@@ -1533,7 +1533,7 @@ ss::future<result<kafka_result>> rm_stm::replicate_seq(
     auto units = co_await idempotent_lock->hold_read_lock();
 
     // Double check that after hold read lock rw_lock still exists in rw map.
-    // Becasue we can not continue replicate_seq if pid was deleted from state
+    // Because we can not continue replicate_seq if pid was deleted from state
     // after we lock mutex
     if (!_idempotent_producer_locks.contains(bid.pid)) {
         vlog(
@@ -1793,7 +1793,7 @@ ss::future<result<kafka_result>> rm_stm::replicate_seq(
     }
 
     // We can not do any async work after replication is finished and we marked
-    // request as finished. Becasue it can do reordering for requests. So we
+    // request as finished. Because it can do reordering for requests. So we
     // need to spawn background cleaning thread
     spawn_background_clean_for_pids(rm_stm::clear_type::idempotent_pids);
 

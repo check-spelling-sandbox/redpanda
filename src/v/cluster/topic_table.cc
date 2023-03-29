@@ -563,7 +563,7 @@ topic_table::apply(move_topic_replicas_cmd cmd, model::offset o) {
           })) {
         vlog(
           clusterlog.warn,
-          "topic: {}: Can not move replicas, becasue can not find "
+          "topic: {}: Can not move replicas, because can not find "
           "partitions",
           cmd.key);
         co_return errc::partition_not_exists;

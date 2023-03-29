@@ -2576,7 +2576,7 @@ tx_gateway_frontend::do_commit_tm_tx(
     // We can reduce the number of disk operation if we will not write
     // preparing state on disk. But after it we should ans to client when we
     // sure that tx will be recommited after fail. We can guarantee it only
-    // if we ans after marking tx prepared. Becase after fail tx will be
+    // if we ans after marking tx prepared. Because after fail tx will be
     // recommited again and client will see expected bechavior.
     // Also we do not need to support old bechavior with feature flag, because
     // now we will ans client later than in old versions. So we do not break
@@ -3395,7 +3395,7 @@ ss::future<result<tm_transaction, tx_errc>> tx_gateway_frontend::describe_tx(
         // We can just ignore this statuses
         co_return tx;
     } else if (tx.status == tm_transaction::tx_status::killed) {
-        // We can just return current tx, becasue old tx also should be expired
+        // We can just return current tx, because old tx also should be expired
         co_return tx;
     } else if (tx.status == tm_transaction::tx_status::ready) {
         auto r1 = co_await fetch_tx(tx.id, tx.etag);
