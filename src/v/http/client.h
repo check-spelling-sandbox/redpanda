@@ -123,7 +123,7 @@ public:
 
         /// Recv new portion of the payload, this method should be called untill
         /// is_done returns false. It's possible to get an empty iobuf which
-        /// should be ignored (deosn't mean EOF).
+        /// should be ignored (doesn't mean EOF).
         /// The method doesn't return bytes that belong to HTTP header or chunk
         /// headers.
         ///

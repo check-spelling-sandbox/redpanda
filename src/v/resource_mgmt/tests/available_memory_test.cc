@@ -23,7 +23,7 @@ auto& local() { return resources::available_memory::local(); }
 } // namespace
 
 // clang is pretty adept at optimizing away heap allocations, when the
-// pointer doens't escape out into the wild, which applies to allocations
+// pointer doesn't escape out into the wild, which applies to allocations
 // we want to do here, so we "sink" the value by writing it to a global
 // volatile which prevents optimization.
 void* volatile sink;
