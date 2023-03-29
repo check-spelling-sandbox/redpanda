@@ -88,7 +88,7 @@ We should reprot about current rate on each shard
 ## Impact
 
 1. Each connection will store start connection time
-2. Use clock to comapre times, but we will use ss::lower_clock
+2. Use clock to compare times, but we will use ss::lower_clock
 3. Background fiber to update rate limit in semaphore
 
 # Guide-level explanation
