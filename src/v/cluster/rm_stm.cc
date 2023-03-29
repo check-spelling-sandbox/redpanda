@@ -967,7 +967,7 @@ ss::future<tx_errc> rm_stm::do_abort_tx(
         auto origin = get_abort_origin(pid, tx_seq.value());
         if (origin == abort_origin::past) {
             // An abort request has older tx_seq. It may mean than the request
-            // was dublicated, delayed and retried later.
+            // was duplicated, delayed and retried later.
             //
             // Or it may mean that a tx coordinator
             //   - lost its state
