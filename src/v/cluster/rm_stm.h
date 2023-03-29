@@ -653,7 +653,7 @@ private:
     ss::future<> clear_old_tx_pids();
     ss::future<> clear_old_idempotent_pids();
 
-    // When a request is retried while the first appempt is still
+    // When a request is retried while the first attempt is still
     // being replicated the retried request is parked until the
     // original request is replicated.
     struct inflight_request {
