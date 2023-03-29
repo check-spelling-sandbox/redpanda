@@ -426,7 +426,7 @@ class simple_fetch_planner final : public fetch_planner::impl {
           [&resp_it, &octx, &plan, &bytes_left_in_plan](
             const fetch_session_partition& fp) {
               // if this is not an initial fetch we are allowed to skip
-              // partions that aleready have an error or we have enough data
+              // partions that already have an error or we have enough data
               if (!octx.initial_fetch) {
                   bool has_enough_data = !resp_it->empty()
                                          && octx.over_min_bytes();
