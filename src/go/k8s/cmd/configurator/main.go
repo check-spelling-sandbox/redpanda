@@ -181,7 +181,7 @@ func main() {
 	log.Printf("Configuration saved to: %s", c.configDestination)
 }
 
-var errInternalPortMissing = errors.New("port configration is missing internal port")
+var errInternalPortMissing = errors.New("port configuration is missing internal port")
 
 func getZoneLabels(nodeName string) (zone, zoneID string, err error) {
 	node, err := getNode(nodeName)

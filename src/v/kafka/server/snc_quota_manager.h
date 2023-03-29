@@ -135,7 +135,7 @@ private:
     ss::future<> quota_balancer_step();
 
     /// A step of balancer that applies any updates from configuration changes.
-    /// Spawned by configration bindings watching changes of the properties.
+    /// Spawned by configuration bindings watching changes of the properties.
     /// Runs on the balancer shard only.
     ss::future<> quota_balancer_update(
       ingress_egress_state<std::optional<quota_t>> old_node_quota_default,

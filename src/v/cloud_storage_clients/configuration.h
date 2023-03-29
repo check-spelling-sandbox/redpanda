@@ -48,7 +48,7 @@ struct s3_configuration : common_configuration {
     /// AWS secret key, optional if configuration uses temporary credentials
     std::optional<cloud_roles::private_key_str> secret_key;
 
-    /// \brief opinionated configuraiton initialization
+    /// \brief opinionated configuration initialization
     /// Generates uri field from region, initializes credentials for the
     /// transport, resolves the uri to get the server_addr.
     ///

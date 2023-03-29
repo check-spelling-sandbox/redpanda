@@ -466,7 +466,7 @@ ss::future<> cluster_discovery::discover_founding_brokers() {
     if (failed) {
         throw std::runtime_error(fmt_with_ctx(
           fmt::format,
-          "Cannot bootstrap a cluster due to seed servers configuraton "
+          "Cannot bootstrap a cluster due to seed servers configuration "
           "mismatch, check the errors above in the log for details. Brokers: "
           "{}",
           founding_brokers));

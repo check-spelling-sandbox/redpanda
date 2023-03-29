@@ -293,7 +293,7 @@ inline std::string_view map_config_name(std::string_view input) {
       .default_match(input);
 }
 
-static ss::future<std::vector<resp_resource_t>> alter_broker_configuartion(
+static ss::future<std::vector<resp_resource_t>> alter_broker_configuration(
   request_context& ctx, std::vector<req_resource_t> resources) {
     std::vector<resp_resource_t> responses;
     responses.reserve(resources.size());
@@ -453,7 +453,7 @@ ss::future<response_ptr> incremental_alter_configs_handler::handle(
     futures.push_back(alter_topic_configuration(
       ctx, std::move(groupped.topic_changes), request.data.validate_only));
     futures.push_back(
-      alter_broker_configuartion(ctx, std::move(groupped.broker_changes)));
+      alter_broker_configuration(ctx, std::move(groupped.broker_changes)));
 
     auto ret = co_await ss::when_all_succeed(futures.begin(), futures.end());
     // include authorization errors
