@@ -36,7 +36,7 @@ struct read_context {
 };
 
 /// Write state for topics that have been created stemming from an associated
-/// source, the input begint the pointer in \ref read_context
+/// source, the input begins the pointer in \ref read_context
 struct write_context {
     static constexpr int8_t version{1};
     /// Where 'key' is the materialized_ntp and offset represets an ack of the
