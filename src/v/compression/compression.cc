@@ -35,7 +35,7 @@ iobuf compressor::compress(const iobuf& io, type t) {
 iobuf compressor::uncompress(const iobuf& io, type t) {
     if (io.empty()) {
         throw std::runtime_error(
-          fmt::format("Asked to decomrpess:{} an empty buffer:{}", (int)t, io));
+          fmt::format("Asked to decompress:{} an empty buffer:{}", (int)t, io));
     }
     switch (t) {
     case type::none:
