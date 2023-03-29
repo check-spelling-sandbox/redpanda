@@ -21,7 +21,7 @@
 
 namespace coproc::wasm {
 
-/// Since c++ cannot dynamically instatiante source code aquired from a payload
+/// Since c++ cannot dynamically instatiante source code acquired from a payload
 /// over the network (like the nodejs wasm engine can), this payload is defined
 /// which instead carries a coprocessor class name and arguments for which the
 /// coproc::supervisor can use to explicity instantate the desired coproc

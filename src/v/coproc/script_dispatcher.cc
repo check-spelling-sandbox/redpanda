@@ -395,7 +395,7 @@ script_dispatcher::get_client() {
         if (!transport) {
             vlog(
               coproclog.error,
-              "script_dispatcher failed to aquire a connection to the wasm "
+              "script_dispatcher failed to acquire a connection to the wasm "
               "engine (to deploy or remove a script), retrying... ");
             co_await ss::sleep(dur);
             dur = std::min(model::timeout_clock::duration(10s), dur * 2);

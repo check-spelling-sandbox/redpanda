@@ -41,7 +41,7 @@ public:
         self_test_status status() const;
     };
 
-    /// Holds reported self_test results aquired from all brokers in a test
+    /// Holds reported self_test results acquired from all brokers in a test
     class global_test_state {
     public:
         using underlying_t
