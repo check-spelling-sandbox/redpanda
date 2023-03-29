@@ -16,7 +16,7 @@ class ExampleBase:
         # Instance of redpanda
         self._redpanda = redpanda
 
-        # The result of the internal condiiton.
+        # The result of the internal condition.
         # The internal condition is defined in the children.
         self._condition_met = False
 

@@ -61,7 +61,7 @@ def wait_until_result(condition, *args, **kwargs):
     wait_until and the final value will be returned to the caller.
 
     when a tuple is returned the first element is used as the value of the
-    conditionl, and the remaining elements in the tuple are returned to the
+    condition, and the remaining elements in the tuple are returned to the
     caller. special cases for {1,2}-tuple are handled for convenience:
 
        (cond,)          -> None
