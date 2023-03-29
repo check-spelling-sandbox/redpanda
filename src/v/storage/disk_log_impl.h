@@ -217,7 +217,7 @@ private:
     // Mutually exclude operations that do non-appending modification
     // to segments: adjacent segment compaction and truncation.  Truncation
     // repeatedly takes+releases segment read locks, and without this extra
-    // coarse grained lock, the compaction can happen in between steps.
+    // coarse-grained lock, the compaction can happen in between steps.
     // See https://github.com/redpanda-data/redpanda/issues/7118
     mutex _segment_rewrite_lock;
 
