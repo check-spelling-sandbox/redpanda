@@ -2075,7 +2075,7 @@ class BasicAuthUpgradeTest(PandaProxyEndpoints):
     ]
 
     def __init__(self, context):
-        # Dissable pandaproxy by default since it is set later in the test
+        # Disable pandaproxy by default since it is set later in the test
         super(BasicAuthUpgradeTest, self).__init__(context,
                                                    pandaproxy_config=None)
 
