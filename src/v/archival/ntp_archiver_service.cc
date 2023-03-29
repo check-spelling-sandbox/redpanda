@@ -516,7 +516,7 @@ ss::future<cloud_storage::download_result> ntp_archiver::sync_manifest() {
         // - Add all segments between old last_offset and new last_offset
         // - Compare all segments below last compacted offset with their
         //   counterparts in the old manifest and re-add them if they are
-        //   diferent.
+        //   different.
         // - Apply new start_offset if it's different
         auto offset = model::next_offset(manifest().get_last_offset());
         for (auto it = m.segment_containing(offset); it != m.end(); it++) {
