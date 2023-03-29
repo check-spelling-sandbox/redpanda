@@ -216,7 +216,7 @@ script_dispatcher::enable_coprocessors(enable_copros_request req) {
         auto itopics = enrich_topics(std::move(r.script_meta.input_topics));
         auto results = co_await add_sources(id, itopics);
 
-        /// 5. If there was a failure, we must deregisetr the coprocessor.
+        /// 5. If there was a failure, we must deregister the coprocessor.
         /// There are only 2 possibilities for this scenario:
         ///
         /// a. wasm engine didn't properly validate something that didn't
