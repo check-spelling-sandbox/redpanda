@@ -34,7 +34,7 @@ segment 1                                   segment 2
 +--+--+--+--+-----+---------+--+----+---+   +--+--+--+--+-----+---------+
 ^                        ^
 |                        |
-|                        | log_reader::iterator<continous_batch_parser>
+|                        | log_reader::iterator<continuous_batch_parser>
 |                        |
 |                        +
 | log_reader::iterator::reader<log_segment_batch_reader>
