@@ -111,7 +111,7 @@ func newGrafanaDashboardCmd() *cobra.Command {
 			if !skipDownload {
 				switch {
 				case dashboardMap[dashboard] != nil:
-					jsonOut, err := tryFromGithub(cmd.Context(), dashboard)
+					jsonOut, err := tryFromGitHub(cmd.Context(), dashboard)
 					if err == nil {
 						fmt.Println(jsonOut)
 						return
@@ -180,7 +180,7 @@ func newGrafanaDashboardCmd() *cobra.Command {
 	return cmd
 }
 
-func tryFromGithub(ctx context.Context, dashboard string) (string, error) {
+func tryFromGitHub(ctx context.Context, dashboard string) (string, error) {
 	const host = "https://raw.githubusercontent.com/redpanda-data/observability/main/grafana-dashboards/"
 	cl := httpapi.NewClient(
 		httpapi.Host(host),
