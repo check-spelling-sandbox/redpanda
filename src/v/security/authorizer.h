@@ -33,7 +33,7 @@ namespace security {
  * ==========
  *
  * A set of principals may be registered with the authorizer that are allowed to
- * perform any operation. When authorization occurs if the assocaited principal
+ * perform any operation. When authorization occurs if the associated principal
  * is found in the set of superusers then its request will be permitted. If the
  * principal is not a superuser then normal ACL authorization applies.
  */

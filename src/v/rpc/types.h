@@ -344,7 +344,7 @@ private:
 };
 
 /**
- * @brief Bundles the method_id and assoicated method name.
+ * @brief Bundles the method_id and associated method name.
  */
 struct method_info {
     /**
