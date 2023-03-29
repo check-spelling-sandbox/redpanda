@@ -45,7 +45,7 @@ struct backlog_controller_config {
 };
 /**
  * Backlog controller is PID controller implementation to manage amount of
- * seastar CPU and IO shares. This contoller works in an negative feedback loop
+ * seastar CPU and IO shares. This controller works in an negative feedback loop
  * using a backlog size as process value and amount of shares as a control
  * value.
  *
