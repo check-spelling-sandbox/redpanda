@@ -89,7 +89,7 @@ public:
     ~replicate_entries_stm();
 
     /// caller have to pass semaphore units, the apply call will do the
-    /// fine grained locking on behalf of the caller
+    /// fine-grained locking on behalf of the caller
     ss::future<result<replicate_result>>
       apply(std::vector<ssx::semaphore_units>);
 
