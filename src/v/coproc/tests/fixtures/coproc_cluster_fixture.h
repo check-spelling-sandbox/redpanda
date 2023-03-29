@@ -17,7 +17,7 @@
 
 #include <absl/container/flat_hash_map.h>
 
-/// A cluster_test_fixture with a kafka::client and convienence methods from
+/// A cluster_test_fixture with a kafka::client and convenience methods from
 /// coproc_api_fixture useful for multi-node coproc unit tests
 class coproc_cluster_fixture
   : public cluster_test_fixture
