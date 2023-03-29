@@ -47,7 +47,7 @@ struct event {
     /// Use the single arg constructor to create remove events
     event(uint64_t, std::optional<event_type> = std::nullopt);
 
-    // And the two arg consutrctor to create deploy events
+    // And the two arg constructor to create deploy events
     event(
       uint64_t, cpp_enable_payload, std::optional<event_type> = std::nullopt);
 };
