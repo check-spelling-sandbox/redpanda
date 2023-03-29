@@ -137,7 +137,7 @@ public:
 
     /// Return the offset up to which the storage layer would like to
     /// prefix truncate the log, if any.  This may be consumed as an indicator
-    /// that any truncation-delaying activitiy (like uploading to tiered
+    /// that any truncation-delaying activity (like uploading to tiered
     /// storage) could be expedited to enable local disk space to be reclaimed.
     std::optional<model::offset> eviction_requested_offset() {
         if (_log_eviction_stm) {
