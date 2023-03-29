@@ -129,6 +129,6 @@ and only fiber will run signal()
 
 ### Node limits (not shard)
 
-It will add more compexity to share info about current rate to each core.
+It will add more complexity to share info about current rate to each core.
 Also we should sharding info about ovverides and map each ip to core for saving
 info about rate per ip
