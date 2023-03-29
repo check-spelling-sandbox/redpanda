@@ -134,7 +134,7 @@ struct prod_consume_fixture : public redpanda_thread_fixture {
 };
 
 /**
- * produce/consume test simulating Hazelcast benchmart workload with small
+ * produce/consume test simulating Hazelcast benchmark workload with small
  * batches.
  */
 FIXTURE_TEST(test_produce_consume_small_batches, prod_consume_fixture) {
