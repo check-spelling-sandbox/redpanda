@@ -128,7 +128,7 @@ public:
             //
             // This is violated during parallel bootstrap with cross core
             // movements where there can be interleaved updates.In this process
-            // if there is an exact revision match, it indicates that an other
+            // if there is an exact revision match, it indicates that another
             // shard already updated the shard table and is starting up the
             // partition and the calling shard should not remove it.
             //
