@@ -77,7 +77,7 @@ public:
     ///
     /// Emmulates a single sharded script_context. The main advantage of this
     /// being its now possible to know when a fiber is 'done'. This is when all
-    /// outputs have cought up with their respective inputs.
+    /// outputs have caught up with their respective inputs.
     ///
     /// Throws ss::timed_out_error() if the described predicate isn't reached
     /// before \ref timeout expires
