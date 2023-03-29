@@ -2122,7 +2122,7 @@ void application::load_feature_table_snapshot() {
         // to decode anything it sees on the network or on disk.
         //
         // This case will have stricter enforcement in future, to protect the
-        // user from acccidentally getting a cluster into a broken state by
+        // user from accidentally getting a cluster into a broken state by
         // downgrading too far:
         // https://github.com/redpanda-data/redpanda/issues/7018
 #ifndef NDEBUG
