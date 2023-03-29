@@ -34,7 +34,7 @@ namespace storage {
  * 1. partial writes to the same physical head chunk are serialized to prevent
  * out-of-order writes clobbering previous writes. this is only relevant when
  * there are many flushes which dispatch the current head if it has any pending
- * bytes. there hasn't been any noticable performance degredation, but one
+ * bytes. there hasn't been any noticable performance degradation, but one
  * option for avoiding this is to do more aligned appends or add a special
  * padding batch that is read and then fully ignored by the parser.
  *
