@@ -1214,7 +1214,7 @@ model::broker get_update_request_target(
 ss::future<>
 members_manager::dispatch_configuration_update(model::broker broker) {
     // right after start current node has no information about the current
-    // leader (it may never receive one as its addres might have been
+    // leader (it may never receive one as its address might have been
     // changed), dispatch request to any cluster node, it will eventually
     // forward it to current leader
     bool update_success = false;
