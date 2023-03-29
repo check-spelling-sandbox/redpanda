@@ -29,7 +29,7 @@ public:
      *
      * @param cfg custom_assignable_topic_configuration that will be changed
      * @param bucket s3 bucket where the topic manifeset will be downloaded from
-     * @param as abourt source that caller can use request abort
+     * @param as abort source that caller can use request abort
      */
     ss::future<errc> set_remote_properties_in_config(
       custom_assignable_topic_configuration& cfg,
@@ -42,7 +42,7 @@ public:
      *
      * @param cfg custom_assignable_topic_configuration that will be changed
      * @param bucket s3 bucket where the topic manifeset will be downloaded from
-     * @param as abourt source that caller can use request abort
+     * @param as abort source that caller can use request abort
      */
     ss::future<errc> set_recovered_topic_properties(
       custom_assignable_topic_configuration& cfg,

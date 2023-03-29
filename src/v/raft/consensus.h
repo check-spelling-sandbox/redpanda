@@ -240,7 +240,7 @@ public:
      *   1. when a cached term matches consensus.term() call replicate using
      *      the cached term as expected_term
      *   2. otherwise:
-     *      a. abrt all incoming requests
+     *      a. abort all incoming requests
      *      b. call consensus meta() to get the latest offset and a term
      *      c. wait until the state caches up with the latest offset
      *      d. cache the term
