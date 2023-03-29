@@ -786,7 +786,7 @@ FIXTURE_TEST(test_remote_partition_read_cached_index, cloud_storage_fixture) {
     // when the remote_segment is created.
     // In order to have the segment hydrated we need to access it first and
     // then wait until eviction will collect unused remote_segment (60s).
-    // This is unreliable and lengthy, so instead of doing this this test
+    // This is unreliable and lengthy, so instead of doing this test
     // uses two remote_partition instances. First one hydrates segment in
     // the cache. The second one is used to materialize the segment.
     constexpr int num_segments = 3;
