@@ -2577,8 +2577,8 @@ tx_gateway_frontend::do_commit_tm_tx(
     // preparing state on disk. But after it we should ans to client when we
     // sure that tx will be recommited after fail. We can guarantee it only
     // if we ans after marking tx prepared. Because after fail tx will be
-    // recommited again and client will see expected bechavior.
-    // Also we do not need to support old bechavior with feature flag, because
+    // recommited again and client will see expected behavior.
+    // Also we do not need to support old behavior with feature flag, because
     // now we will ans client later than in old versions. So we do not break
     // anything
     outcome->set_value(tx_errc::none);
