@@ -1305,7 +1305,7 @@ ss::future<> consensus::do_start() {
                 vlog(_ctxlog.info, "Read bootstrap state: {}", st);
                 vlog(_ctxlog.info, "Current log offsets: {}", lstats);
 
-                // if log term is newer than the one comming from voted_for
+                // if log term is newer than the one coming from voted_for
                 // state, we reset voted_for state
                 if (lstats.dirty_offset_term > _term) {
                     _term = lstats.dirty_offset_term;

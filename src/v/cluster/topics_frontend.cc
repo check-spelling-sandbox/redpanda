@@ -133,7 +133,7 @@ cluster::errc map_errc(std::error_code ec) {
     if (ec == errc::success) {
         return errc::success;
     }
-    // error comming from raft
+    // error coming from raft
     if (ec.category() == raft::error_category()) {
         switch (static_cast<raft::errc>(ec.value())) {
         case raft::errc::timeout:
@@ -145,7 +145,7 @@ cluster::errc map_errc(std::error_code ec) {
         }
     }
 
-    // error comming from raft
+    // error coming from raft
     if (ec.category() == rpc::error_category()) {
         switch (static_cast<rpc::errc>(ec.value())) {
         case rpc::errc::client_request_timeout:

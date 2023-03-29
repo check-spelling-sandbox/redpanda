@@ -47,7 +47,7 @@ public:
 
     client_probe() = default;
 
-    /// Register incomming traffic
+    /// Register incoming traffic
     void add_inbound_bytes(uint64_t bytes) { _in += bytes; }
 
     /// Register outgoing traffic
@@ -95,7 +95,7 @@ public:
 
     void register_transport_error() { _transport_errors += 1; }
 
-    /// Return total incomming traffic
+    /// Return total incoming traffic
     uint64_t get_inbound_bytes() const { return _in; }
 
     /// Return total outgoing traffic

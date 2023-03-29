@@ -76,7 +76,7 @@ struct errc_category final : public std::error_category {
         case errc::success:
             return "Success";
         case errc::notification_wait_timeout:
-            return "Timeout waiting for append entries notification comming "
+            return "Timeout waiting for append entries notification coming "
                    "from raft 0";
         case errc::topic_invalid_partitions:
             return "Unable to assign topic partitions to current cluster "
