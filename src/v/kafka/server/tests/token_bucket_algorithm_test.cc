@@ -58,7 +58,7 @@ SEASTAR_THREAD_TEST_CASE(token_bucket_algorithm_test) {
     BOOST_CHECK_EQUAL(-40, rate.units());
 
     /// However subsequent requests should be throttled if enough tokens haven't
-    /// been added betwen the two time units
+    /// been added between the two time units
     should_delay = rate.record_and_measure(5, now + 4s);
     BOOST_CHECK_LT(should_delay, 0);
     /// Number of units remains constant as the algorithm doesn't take units

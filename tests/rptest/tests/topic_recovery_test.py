@@ -61,7 +61,7 @@ class BaseCase:
     (it's used by some validations and default create_initial_topics implementation).
     It is usually shadowed by the instance variable with the same name.
     The instance variable expected_recovered_topics contains the list of topics
-    that have to be recovered. It's needed to distinguish betweeen the recovered
+    that have to be recovered. It's needed to distinguish between the recovered
     topics and topics that created to align revision ids. By default it's equal
     to topics.
     """

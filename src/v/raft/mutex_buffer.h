@@ -15,7 +15,7 @@ namespace raft::details {
 /**
  * This class allow to buffer arguments of a callers waiting for mutex and
  * when mutex is eventually available execute all buffered calls without
- * releasing mutex in beetween single calls.
+ * releasing mutex in between single calls.
  */
 template<typename Request, typename Response>
 class mutex_buffer {

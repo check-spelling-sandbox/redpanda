@@ -30,7 +30,7 @@ namespace fmt::detail {
 // TODO(BenP): Remove this hack with next libfmt upgrade
 //
 // If a type that has both operator<< and formatter<>, the former is chosen,
-// which is not what is desired. This is a regression betwen 7.0.3 and 8.1.1
+// which is not what is desired. This is a regression between 7.0.3 and 8.1.1
 //
 // This hack disables picking operator<<, enabling the above formatter.
 //

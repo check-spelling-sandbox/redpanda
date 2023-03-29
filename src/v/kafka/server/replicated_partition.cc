@@ -314,7 +314,7 @@ ss::future<error_code> replicated_partition::validate_fetch_offset(
      * We use simple heuristic here to determine if high watermark update is
      * required.
      *
-     * We only request update if fetch_offset is in range beteween current high
+     * We only request update if fetch_offset is in range between current high
      * water mark and log end i.e. if high watermark is updated consumer will
      * receive data.
      */
