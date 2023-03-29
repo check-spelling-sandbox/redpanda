@@ -137,7 +137,7 @@ class TopicOperationsLimitingTest(RedpandaTest):
     def test_create_partition_limit_accumulation(self):
         self.client().alter_broker_config(
             {
-                "controller_log_accummulation_rps_capacity_topic_operations":
+                "controller_log_accumulation_rps_capacity_topic_operations":
                 OPERATIONS_LIMIT * 2
             },
             incremental=True)
@@ -178,7 +178,7 @@ class ControllerConfigLimitTest(RedpandaTest):
             try:
                 self.client().alter_broker_config(
                     {
-                        "controller_log_accummulation_rps_capacity_topic_operations":
+                        "controller_log_accumulation_rps_capacity_topic_operations":
                         i
                     },
                     incremental=True)
@@ -203,7 +203,7 @@ class ControllerConfigLimitTest(RedpandaTest):
         requests_amount = OPERATIONS_LIMIT * 2
         self.client().alter_broker_config(
             {
-                "controller_log_accummulation_rps_capacity_configuration_operations":
+                "controller_log_accumulation_rps_capacity_configuration_operations":
                 requests_amount
             },
             incremental=True)
@@ -216,7 +216,7 @@ class ControllerConfigLimitTest(RedpandaTest):
         for i in range(requests_amount):
             out = self.client().alter_broker_config(
                 {
-                    "controller_log_accummulation_rps_capacity_topic_operations":
+                    "controller_log_accumulation_rps_capacity_topic_operations":
                     i + 25
                 },
                 incremental=True)

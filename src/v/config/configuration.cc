@@ -1758,9 +1758,9 @@ configuration::configuration()
       "Rate limit for controller topic operations",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
       1000)
-  , controller_log_accummulation_rps_capacity_topic_operations(
+  , controller_log_accumulation_rps_capacity_topic_operations(
       *this,
-      "controller_log_accummulation_rps_capacity_topic_operations",
+      "controller_log_accumulation_rps_capacity_topic_operations",
       "Maximum capacity of rate limit accumulation"
       "in controller topic operations limit",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
@@ -1771,9 +1771,9 @@ configuration::configuration()
       "Rate limit for controller acls and users operations",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
       1000)
-  , controller_log_accummulation_rps_capacity_acls_and_users_operations(
+  , controller_log_accumulation_rps_capacity_acls_and_users_operations(
       *this,
-      "controller_log_accummulation_rps_capacity_acls_and_users_operations",
+      "controller_log_accumulation_rps_capacity_acls_and_users_operations",
       "Maximum capacity of rate limit accumulation"
       "in controller acls and users operations limit",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
@@ -1784,9 +1784,9 @@ configuration::configuration()
       "Rate limit for controller node management operations",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
       1000)
-  , controller_log_accummulation_rps_capacity_node_management_operations(
+  , controller_log_accumulation_rps_capacity_node_management_operations(
       *this,
-      "controller_log_accummulation_rps_capacity_node_management_operations",
+      "controller_log_accumulation_rps_capacity_node_management_operations",
       "Maximum capacity of rate limit accumulation"
       "in controller node management operations limit",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
@@ -1797,9 +1797,9 @@ configuration::configuration()
       "Rate limit for controller move operations",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
       1000)
-  , controller_log_accummulation_rps_capacity_move_operations(
+  , controller_log_accumulation_rps_capacity_move_operations(
       *this,
-      "controller_log_accummulation_rps_capacity_move_operations",
+      "controller_log_accumulation_rps_capacity_move_operations",
       "Maximum capacity of rate limit accumulation"
       "in controller move operations limit",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
@@ -1810,9 +1810,9 @@ configuration::configuration()
       "Rate limit for controller configuration operations",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
       1000)
-  , controller_log_accummulation_rps_capacity_configuration_operations(
+  , controller_log_accumulation_rps_capacity_configuration_operations(
       *this,
-      "controller_log_accummulation_rps_capacity_configuration_operations",
+      "controller_log_accumulation_rps_capacity_configuration_operations",
       "Maximum capacity of rate limit accumulation"
       "in controller configuration operations limit",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},

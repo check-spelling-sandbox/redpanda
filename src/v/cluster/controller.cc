@@ -186,24 +186,23 @@ controller::start(cluster_discovery& discovery, ss::abort_source& shard0_as) {
               .enable_controller_log_rate_limiting.bind(),
             config::shard_local_cfg().rps_limit_topic_operations.bind(),
             config::shard_local_cfg()
-              .controller_log_accummulation_rps_capacity_topic_operations
-              .bind(),
+              .controller_log_accumulation_rps_capacity_topic_operations.bind(),
             config::shard_local_cfg()
               .rps_limit_acls_and_users_operations.bind(),
             config::shard_local_cfg()
-              .controller_log_accummulation_rps_capacity_acls_and_users_operations
+              .controller_log_accumulation_rps_capacity_acls_and_users_operations
               .bind(),
             config::shard_local_cfg()
               .rps_limit_node_management_operations.bind(),
             config::shard_local_cfg()
-              .controller_log_accummulation_rps_capacity_node_management_operations
+              .controller_log_accumulation_rps_capacity_node_management_operations
               .bind(),
             config::shard_local_cfg().rps_limit_move_operations.bind(),
             config::shard_local_cfg()
-              .controller_log_accummulation_rps_capacity_move_operations.bind(),
+              .controller_log_accumulation_rps_capacity_move_operations.bind(),
             config::shard_local_cfg().rps_limit_configuration_operations.bind(),
             config::shard_local_cfg()
-              .controller_log_accummulation_rps_capacity_configuration_operations
+              .controller_log_accumulation_rps_capacity_configuration_operations
               .bind(),
           };
           return _stm.start_single(
