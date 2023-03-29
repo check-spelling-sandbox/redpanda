@@ -90,7 +90,7 @@ void compact_and_prefix_truncate(
 }
 
 FIXTURE_TEST(
-  test_assinging_offsets_in_single_segment_log, storage_test_fixture) {
+  test_assigning_offsets_in_single_segment_log, storage_test_fixture) {
     storage::log_manager mgr = make_log_manager();
     info("Configuration: {}", mgr.config());
     auto deferred = ss::defer([&mgr]() mutable { mgr.stop().get0(); });
