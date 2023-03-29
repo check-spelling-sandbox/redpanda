@@ -37,7 +37,7 @@ func NewEthtoolChangeCmd(
 }
 
 func (c *ethtoolChangeCommand) Execute() error {
-	log.Debugf("Chaninging interface '%s', features '%v'", c.intf, c.config)
+	log.Debugf("Changing interface '%s', features '%v'", c.intf, c.config)
 	return c.ethtool.Change(c.intf, c.config)
 }
 
