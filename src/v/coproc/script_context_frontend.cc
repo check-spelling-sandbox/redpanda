@@ -67,11 +67,11 @@ storage::log_reader_config get_reader(
     if (start > end) {
         vlog(
           coproclog.warn,
-          "Start {} detected greater then end {} for ntp: {}",
+          "Start {} detected greater than end {} for ntp: {}",
           start,
           end,
           rctx.input->ntp());
-        /// It is possible for start to be greater then end in the event input
+        /// It is possible for start to be greater than end in the event input
         /// logs haven't yet been hydrated. In this case, perform no read by
         /// setting start to end
         start = end;

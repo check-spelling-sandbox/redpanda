@@ -141,7 +141,7 @@ public:
     }
     /**
      * Waits for changes in configuration newer than requested offset, if latest
-     * configuration has offset greater then the one requested it will return
+     * configuration has offset greater than the one requested it will return
      * immediately
      */
     ss::future<offset_configuration>
