@@ -2741,7 +2741,7 @@ ss::future<stm_snapshot> rm_stm::take_snapshot() {
               [this](ss::basic_rwlock<>::holder unit) {
                   // software engineer be careful and do not cause a deadlock.
                   // take_snapshot is invoked under the persisted_stm::_op_lock
-                  // and here here we take write lock (_state_lock). most rm_stm
+                  // and here we take write lock (_state_lock). most rm_stm
                   // operations require its read lock. however they don't depend
                   // of _op_lock so things are safe now
                   return offload_aborted_txns().finally(
