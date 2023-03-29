@@ -216,7 +216,7 @@ size_t batch_cache::reclaim(size_t size) {
     /*
      * if the time since the last reclaim is < `reclaim_growth_window` --
      * typically a small value such as 3 seconds, then increase the reclaim size
-     * by around 50%. this generally handles the the memory pressure and tight
+     * by around 50%. this generally handles the memory pressure and tight
      * reclaim loops. otherwise, use the last guess if it has been less than
      * `reclaim_stable_window` and reset the process if it has been longer.
      */

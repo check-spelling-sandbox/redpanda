@@ -98,7 +98,7 @@ class ResourceLimitsTest(RedpandaTest):
             assert False
 
         # This is not exactly 1000 because of system partitions consuming
-        # some of hte allowance.
+        # some of the allowance.
         rpk.create_topic("okay", partitions=900, replicas=3)
 
     @cluster(num_nodes=3)

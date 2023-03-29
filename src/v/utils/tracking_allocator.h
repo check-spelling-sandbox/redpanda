@@ -72,7 +72,7 @@ private:
 /// tracks both the copy and the source objects.
 ///
 /// When the enclosing container is moved, the underlying mem_tracker now
-/// tracks the the object that is moved into.
+/// tracks the object that is moved into.
 ///
 /// When the enclosing container is swapped, the underlying mem_trackers
 /// are swapped.

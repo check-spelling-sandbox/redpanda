@@ -485,7 +485,7 @@ private:
           absl::node_hash_map,
           model::producer_identity,
           seq_entry_wrapper>;
-        // Note: When erasing entries from this map, use the the helper
+        // Note: When erasing entries from this map, use the helper
         // 'erase_pid_from_seq_table' that also unlinks the entry from the
         // intrusive list that tracks the LRU order. Not doing so can cause
         // crashes.

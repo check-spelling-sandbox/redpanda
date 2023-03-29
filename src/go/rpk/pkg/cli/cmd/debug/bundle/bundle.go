@@ -311,7 +311,7 @@ KUBERNETES
  - Kubernetes Resources: Kubernetes manifests for all resources in the given 
    Kubernetes namespace (via --namespace).
 
- - redpanda logs: Logs of each Pod in the the given Kubernetes namespace. If 
+ - redpanda logs: Logs of each Pod in the given Kubernetes namespace. If 
    --logs-since is passed, only the logs within the given timeframe are 
    included.
 

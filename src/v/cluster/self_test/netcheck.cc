@@ -144,7 +144,7 @@ netcheck::run_individual_benchmark(model::node_id peer) {
 
 ss::future<ss::lowres_clock::duration> netcheck::run_benchmark_fiber(
   run_fiber_opts fiber_state, model::node_id peer, metrics& m) {
-    /// run_fiber_opts manages the the RPC request timeouts to ensure that
+    /// run_fiber_opts manages the RPC request timeouts to ensure that
     /// the maximum amount of time for an individual RPC never exceeds the
     /// remaining time of the test
     while (!_cancelled && fiber_state.should_continue()) {

@@ -69,7 +69,7 @@ struct key_limited_random_batch_generator {
 // enough batch sizes (not exceeding compaction budget), compaction should
 // dedupe all the keys within a batch and the resulting log file should contain
 // a single key per batch forming a sequence of integers. A handy validate()
-// method is provided that validates the the batch state after compaction.
+// method is provided that validates the batch state after compaction.
 struct linear_int_kv_batch_generator {
     int _idx = 0;
 

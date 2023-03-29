@@ -117,7 +117,7 @@ public:
     ss::future<bool> clear_compatibility(subject sub);
 
     ///\brief Check if the provided schema is compatible with the subject and
-    /// version, according the the current compatibility.
+    /// version, according the current compatibility.
     ///
     /// If the compatibility level is transitive, then all versions are checked,
     /// otherwise checks are against the version provided and newer.

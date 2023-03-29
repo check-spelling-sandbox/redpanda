@@ -1394,7 +1394,7 @@ ss::future<> disk_log_impl::do_truncate(
 
     co_await last->flush();
     /**
-     * We look for the offset preceding the the requested truncation offset.
+     * We look for the offset preceding the requested truncation offset.
      *
      * This guarantee that the offset to file position translating consumer will
      * see at least one batch that precedes the truncation point. This will
