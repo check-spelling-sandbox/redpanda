@@ -133,7 +133,7 @@ bool adjacent_segment_run::maybe_add_segment(
         meta = {};
     }
     if (num_segments == 0) {
-        // Find the begining of the small segment
+        // Find the beginning of the small segment
         // run.
         if (s.size_bytes < max_size) {
             meta = s;

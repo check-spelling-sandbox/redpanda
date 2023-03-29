@@ -38,7 +38,7 @@ class segment_meta_frame_const_iterator
     using self_t = segment_meta_frame_const_iterator<value_t, decoder_t>;
 
 public:
-    /// Create iterator that points to the begining
+    /// Create iterator that points to the beginning
     explicit segment_meta_frame_const_iterator(
       decoder_t decoder,
       const std::array<value_t, buffer_depth>& head,

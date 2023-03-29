@@ -211,7 +211,7 @@ public:
     /// exists, return the end iterator.
     const_iterator first_addressable_segment() const;
 
-    /// Return iterator to the begining(end) of the segments list
+    /// Return iterator to the beginning(end) of the segments list
     const_iterator begin() const;
     const_iterator end() const;
     std::optional<segment_meta> last_segment() const;

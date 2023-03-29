@@ -59,7 +59,7 @@ public:
 
     /// \brief regurn next upload candidate
     ///
-    /// \param begin_inclusive is an inclusive begining of the range
+    /// \param begin_inclusive is an inclusive beginning of the range
     /// \param end_exclusive is an exclusive end of the range
     /// \param lm is a log manager
     /// \return initializd struct on success, empty struct on failure

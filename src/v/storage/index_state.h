@@ -177,7 +177,7 @@ struct index_state
         // (i.e. 'ts > first_timestamp'). For this reason, we go back one batch.
         //
         // *In the case where lower_bound places on the first batch, we'll
-        // start the timequery from the beggining of the segment as the user
+        // start the timequery from the beginning of the segment as the user
         // data batch is always indexed.
         return get_entry(dist > 0 ? dist - 1 : 0);
     }

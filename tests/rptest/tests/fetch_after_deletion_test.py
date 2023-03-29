@@ -77,7 +77,7 @@ class FetchAfterDeleteTest(RedpandaTest):
 
             return map(lambda s: json.loads(s + "}"), split)
 
-        #consume from the beggining
+        #consume from the beginning
         msgs = consume(10)
         last = list(msgs).pop()
         offset = last['offset']

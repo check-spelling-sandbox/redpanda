@@ -245,7 +245,7 @@ static ss::future<std::optional<std::error_code>> get_file_range(
     upl->base_timestamp = segment->index().base_timestamp();
     upl->max_timestamp = segment->index().max_timestamp();
     if (!end_inclusive && segment->offsets().base_offset == begin_inclusive) {
-        // Fast path, the upload is started at the begining of the segment
+        // Fast path, the upload is started at the beginning of the segment
         // and not truncted at the end.
         vlog(
           archival_log.debug,

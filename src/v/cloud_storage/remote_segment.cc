@@ -762,11 +762,11 @@ remote_segment::aborted_transactions(model::offset from, model::offset to) {
 /// translate base_offset of every segment precisely. All other
 /// offsets have to rely on state that this batch consumer maintains
 /// while scanning the segment. This is not a problem since we
-/// always have to scan the segments from the begining in shadow
+/// always have to scan the segments from the beginning in shadow
 /// indexing (the indexing to be implemented in the future). So
 /// we will always be reusing an existing segment reader (with
 /// data necessary for offset translation already present) or we
-/// will start from the begining of the segment.
+/// will start from the beginning of the segment.
 ///
 /// This consumer expects config.start_offset/max_offset to be
 /// kafka offsets. It also returns batches with kafka offsets.
@@ -855,7 +855,7 @@ public:
             return batch_consumer::consume_result::skip_batch;
         }
 
-        // The segment can be scanned from the begining so we should skip
+        // The segment can be scanned from the beginning so we should skip
         // irrelevant batches.
         if (unlikely(
               rp_to_kafka(header.last_offset()) < _config.start_offset)) {

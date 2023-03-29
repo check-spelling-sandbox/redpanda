@@ -239,7 +239,7 @@ ss::future<> metadata_dissemination_service::do_request_metadata_update(
           if (meta.next != meta.addresses.end()) {
               return ss::make_ready_future<>();
           }
-          // start from the beggining, after backoff elapsed
+          // start from the beginning, after backoff elapsed
           meta.next = std::cbegin(meta.addresses);
           return wait_for_next_retry(
             std::chrono::seconds(meta.backoff_policy.next_backoff()), _as);

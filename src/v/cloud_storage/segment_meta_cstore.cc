@@ -202,7 +202,7 @@ public:
           ix
             % static_cast<uint32_t>(::details::FOR_buffer_depth * sampling_rate)
           == 0) {
-            // At the begining of every row we need to collect
+            // At the beginning of every row we need to collect
             // a set of hints to speed up the subsequent random
             // reads.
             auto base_offset_hint = _base_offset.get_current_stream_pos();

@@ -110,7 +110,7 @@ remote_partition::borrow_result_t remote_partition::borrow_next_reader(
         }
         if (mit == _manifest.end()) {
             // Segment that matches exactly can't be found in the manifest. In
-            // this case we want to start scanning from the begining of the
+            // this case we want to start scanning from the beginning of the
             // partition if the start of the manifest is contained by the scan
             // range.
             auto so = _manifest.get_start_kafka_offset().value_or(

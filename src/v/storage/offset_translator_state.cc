@@ -158,7 +158,7 @@ void offset_translator_state::add_gap(
         // The gap is added before the
         vlog(
           stlog.error,
-          "ntp {}: can't add gap before the begining of the map, base offset: "
+          "ntp {}: can't add gap before the beginning of the map, base offset: "
           "{}, last offset: {}, OT start offset: {}",
           _ntp,
           base_offset,

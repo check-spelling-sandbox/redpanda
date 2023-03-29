@@ -266,7 +266,7 @@ FIXTURE_TEST(test_reading_range_from_a_log, storage_test_fixture) {
     log.flush().get0();
     auto batches = read_and_validate_all_batches(log);
 
-    // range from base of beging to last of end
+    // range from base of beginning to last of end
     auto range = read_range_to_vector(
       log, batches[3].base_offset(), batches[7].last_offset());
     BOOST_REQUIRE_EQUAL(range.size(), 5);
@@ -285,7 +285,7 @@ FIXTURE_TEST(test_reading_range_from_a_log, storage_test_fixture) {
     BOOST_REQUIRE_EQUAL(range.size(), 5);
     BOOST_REQUIRE_EQUAL(range.front().header().crc, batches[3].header().crc);
     BOOST_REQUIRE_EQUAL(range.back().header().crc, batches[7].header().crc);
-    // range from base of beging to the middle of end
+    // range from base of beginning to the middle of end
     range = read_range_to_vector(
       log,
       batches[3].base_offset(),

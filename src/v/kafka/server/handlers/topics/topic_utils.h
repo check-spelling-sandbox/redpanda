@@ -61,7 +61,7 @@ requires TopicRequestItem<T>
 
 /// Validates topic requests items in range with predicate,
 /// generate errors for not valid items and returns end of valid items range.
-/// Generated errors are stored in other range beggining at out_it.
+/// Generated errors are stored in other range beginning at out_it.
 // clang-format off
 template<typename Iter, typename ErrIter, typename Predicate>
     requires TopicRequestItem<typename Iter::value_type> &&
@@ -137,7 +137,7 @@ auto to_cluster_type(KafkaApiTypeIter begin, KafkaApiTypeIter end)
 
 /// Generate errors for all the request items that topic names
 /// are duplicated within given range,
-/// the errors are insterted in the range begginning at out_it
+/// the errors are insterted in the range beginning at out_it
 // clang-format off
 template<typename Iter, typename ErrIter>
 requires TopicRequestItem<typename Iter::value_type> &&
@@ -160,7 +160,7 @@ requires TopicRequestItem<typename Iter::value_type> &&
 }
 
 /// Generate NOT_CONTROLLER error for all the request items within given range
-/// the errors are inserted in the range begginning at out_it
+/// the errors are inserted in the range beginning at out_it
 /// This pattern is used in every Admin request of Kafka protocol.
 // clang-format off
 template<typename Iter, typename ErrIter>
