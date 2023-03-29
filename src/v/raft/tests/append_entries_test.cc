@@ -297,7 +297,7 @@ FIXTURE_TEST(test_single_node_recovery_multi_terms, raft_test_fixture) {
     wait_for(
       10s,
       [&gr] { return are_all_commit_indexes_the_same(gr); },
-      "State is conistent after recovery");
+      "State is consistent after recovery");
     validate_offset_translation(gr);
 };
 
