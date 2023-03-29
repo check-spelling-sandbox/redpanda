@@ -117,7 +117,7 @@ class OpenMessagingBenchmarkWorkers(Service):
         node.account.remove(OpenMessagingBenchmarkWorkers.PERSISTENT_ROOT,
                             allow_fail=True)
 
-    def get_adresses(self):
+    def get_addresses(self):
         nodes = ""
         for node in self.nodes:
             nodes += f"http://{node.account.hostname}:{OpenMessagingBenchmarkWorkers.PORT},"
@@ -212,7 +212,7 @@ class OpenMessagingBenchmark(Service):
         self._create_benchmark_workload_file(node)
         self._create_benchmark_driver_file(node)
 
-        worker_nodes = self.workers.get_adresses()
+        worker_nodes = self.workers.get_addresses()
 
         self.logger.info(
             f"Starting Open Messaging Benchmark with workers: {worker_nodes}")
