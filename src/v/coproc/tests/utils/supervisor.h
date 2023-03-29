@@ -60,7 +60,7 @@ public:
     ss::future<disable_copros_reply>
     disable_all_coprocessors(empty_request&&, rpc::streaming_context&) final;
 
-    /// Called when when new data from registered input topics arrives
+    /// Called when new data from registered input topics arrives
     ///
     /// Call apply() on matching scripts, returning their transformed results.
     ss::future<process_batch_reply>
