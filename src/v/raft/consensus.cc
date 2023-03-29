@@ -1319,7 +1319,7 @@ ss::future<> consensus::do_start() {
                  */
                 _flushed_offset = lstats.dirty_offset;
                 /**
-                 * The configuration manager state may be divereged from the log
+                 * The configuration manager state may be diverged from the log
                  * state, as log is flushed lazily, we have to make sure that
                  * the log and configuration manager has exactly the same
                  * offsets range
