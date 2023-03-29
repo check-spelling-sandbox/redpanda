@@ -130,7 +130,7 @@ class ScaleParameters:
         # Choose an appropriate segment size to enable retention
         # rules to kick in promptly.
         # TODO: redpanda should figure this out automatically by
-        #       rolling segments pre-emptively if low on disk space
+        #       rolling segments preemptively if low on disk space
         self.segment_size = int(self.retention_bytes / 4)
 
         # Tiered storage will have a warmup period where it will set the
