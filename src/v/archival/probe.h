@@ -22,7 +22,7 @@
 
 namespace archival {
 
-/// \brief Per-ntp archval service probe
+/// \brief Per-ntp archival service probe
 ///
 /// For every NTP we need to track how much log we've already uploaded,
 /// how much data we're missing (e.g. because it was compacted before upload)
