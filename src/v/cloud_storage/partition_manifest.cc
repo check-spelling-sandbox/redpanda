@@ -1278,7 +1278,7 @@ ss::future<serialized_json_stream> partition_manifest::serialize() const {
         if (iso != _insync_offset) {
             throw std::runtime_error(fmt_with_ctx(
               fmt::format,
-              "Manifest changed duing serialization, in sync offset moved from "
+              "Manifest changed during serialization, in sync offset moved from "
               "{} to {}",
               iso,
               _insync_offset));
