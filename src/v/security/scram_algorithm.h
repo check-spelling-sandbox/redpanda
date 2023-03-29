@@ -20,7 +20,7 @@
 #include <absl/container/node_hash_map.h>
 
 /**
- * scram algorthm - https://tools.ietf.org/html/rfc5802
+ * scram algorithm - https://tools.ietf.org/html/rfc5802
  *
  * The implementation follows closely the rfc, with some scenarios and
  * configuration not handled by kafka omitted from the implementation. The kafka
