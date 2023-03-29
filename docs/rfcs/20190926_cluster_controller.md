@@ -13,7 +13,7 @@ controller is effectively a global metadata cache. It is a compacted topic.
 
 Upon local node start, restart, crash, etc,
 we bootstrap by read the controller contents entirely. We expect the
-ammount of data to be actually small, i.e.: less than 1GB of content.
+amount of data to be actually small, i.e.: less than 1GB of content.
 
 While we are reading the contents, we delegate to
 `sharded<cluster::partition_manager> pm` the recovery of particular `ntp` via

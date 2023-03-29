@@ -216,7 +216,7 @@ struct cluster_health_overview {
 using include_partitions_info = ss::bool_class<struct include_partitions_tag>;
 
 /**
- * Filters are used to limit amout of data returned in health reports
+ * Filters are used to limit amount of data returned in health reports
  */
 struct partitions_filter
   : serde::

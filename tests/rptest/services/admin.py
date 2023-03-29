@@ -156,7 +156,7 @@ class Admin:
         hosts see the same leader.
 
         When replication is provided the method also checks that the confi-
-        guration has exactly that amout of nodes.
+        guration has exactly that amount of nodes.
 
         When the configuration isn't stable the method returns None
         """

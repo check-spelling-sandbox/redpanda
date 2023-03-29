@@ -139,7 +139,7 @@ configuration::configuration()
   , coproc_max_inflight_bytes(
       *this,
       "coproc_max_inflight_bytes",
-      "Maximum amountt of inflight bytes when sending data to wasm engine",
+      "Maximum amount of inflight bytes when sending data to wasm engine",
       {.visibility = visibility::tunable},
       10_MiB)
   , coproc_max_ingest_bytes(
