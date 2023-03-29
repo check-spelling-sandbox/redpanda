@@ -509,7 +509,7 @@ void segment_appender::dispatch_background_head_write() {
 
     /*
      * when the head becomes full it still needs to be properly sequenced (see
-     * above), but no future writes to same head head are possible so the
+     * above), but no future writes to same head are possible so the
      * dependency chain is reset for the next head.
      */
     if (full) {
