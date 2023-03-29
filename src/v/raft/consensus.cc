@@ -2481,7 +2481,7 @@ ss::future<storage::append_result> consensus::disk_append(
               /**
                * We have to update last quorum replicated index before we
                * trigger read for followers recovery as recovery_stm will have
-               * to deceide if follower flush is required basing on last quorum
+               * to decide if follower flush is required basing on last quorum
                * replicated index.
                */
               _last_quorum_replicated_index = ret.last_offset;
