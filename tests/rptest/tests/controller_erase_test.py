@@ -64,7 +64,7 @@ class ControllerEraseTest(RedpandaTest):
             segments = storage.ns['redpanda'].topics['controller'].partitions[
                 "0_0"].segments.keys()
             # We expect that segments count for controller should be transfers_leadership_count + 1.
-            # Because each transfer creats one segment + initial leadership after restart creates first segment
+            # Because each transfer creates one segment + initial leadership after restart creates first segment
             return len(segments) == transfers_leadership_count + 1
 
         wait_until(
