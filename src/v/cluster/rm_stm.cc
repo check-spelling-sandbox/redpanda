@@ -1629,7 +1629,7 @@ ss::future<result<kafka_result>> rm_stm::replicate_seq(
         }
     }
 
-    // apparantly we process an unseen request
+    // apparently we process an unseen request
     // checking if it isn't out of order with the already procceses
     // or inflight requests
     if (session->cache.size() == 0) {
