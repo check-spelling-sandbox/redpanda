@@ -63,7 +63,7 @@ write-path    |            +          +         |
 
 # Motivation
 
-We need to have a sound bootstraping and log recovery mechanism
+We need to have a sound bootstrapping and log recovery mechanism
 upon a machine restart (from shutdown, reboot, crash, etc)
 
 # Guide-level explanation
