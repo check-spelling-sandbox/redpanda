@@ -126,7 +126,7 @@ public:
 /**
  * Extracts all configurations from underlying reader. Configuration are stored
  * in a vector passed as a reference to reader. The reader can will
- * automatically assing offsets to following batches using provided base offset
+ * automatically assign offsets to following batches using provided base offset
  * as a staring point
  */
 model::record_batch_reader make_config_extracting_reader(
