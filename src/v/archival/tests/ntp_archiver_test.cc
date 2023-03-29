@@ -695,7 +695,7 @@ FIXTURE_TEST(test_upload_segments_leadership_transfer, archiver_fixture) {
     old_manifest.add(oldname, old_meta);
     ss::sstring segment3_url = "/dfee62b1/kafka/test-topic/42_0/2-2-v1.log";
 
-    // Simulate pre-existing state in the snapshot
+    // Simulate preexisting state in the snapshot
     std::vector<cloud_storage::segment_meta> old_segments;
     for (const auto& s : old_manifest) {
         old_segments.push_back(s.second);

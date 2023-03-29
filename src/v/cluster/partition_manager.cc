@@ -144,7 +144,7 @@ ss::future<consensus_ptr> partition_manager::manage(
 
             vlog(
               clusterlog.info,
-              "Bootstrap on-disk state for pre existing partition {}. "
+              "Bootstrap on-disk state for preexisting partition {}. "
               "Group: {}, "
               "Min offset: {}, "
               "Max offset: {}, "
