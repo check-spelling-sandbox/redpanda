@@ -55,7 +55,7 @@ BOOST_AUTO_TEST_CASE(test_with_custom_assignments) {
     auto cluster_tp_config = to_cluster_type(custom_assignments);
     BOOST_REQUIRE_EQUAL(
       cluster_tp_config.cfg.tp_ns.tp, ss::sstring(custom_assignments.name()));
-    // derrived from custom assignments
+    // derived from custom assignments
     BOOST_REQUIRE_EQUAL(cluster_tp_config.cfg.partition_count, 2);
     BOOST_REQUIRE_EQUAL(cluster_tp_config.cfg.replication_factor, 3);
 

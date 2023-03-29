@@ -842,7 +842,7 @@ class ManyPartitionsTest(PreallocNodesTest):
 
         # TODO: remove these overrides once the cause of latency
         # spikes in OMB is found and mitigated. For now these
-        # numbers are dervived from the outliers found in the
+        # numbers are derived from the outliers found in the
         # cloud benchmarking effort.
         # Tracking issue: https://github.com/redpanda-data/redpanda/issues/6334
         validator_overrides = {
