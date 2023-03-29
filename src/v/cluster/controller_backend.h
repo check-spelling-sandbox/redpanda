@@ -279,7 +279,7 @@ private:
      * operation was evaluating but hasn't finished yet.
      * We assume that we can leave orphan files only on redpanda restart
      * so we run clean process on startup, after bootstrap when redpanda
-     * already knows about all topics that it should containt on disk
+     * already knows about all topics that it should contain on disk
      **/
     ss::future<> clear_orphan_topic_files(
       model::revision_id bootstrap_revision,
