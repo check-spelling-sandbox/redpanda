@@ -339,7 +339,7 @@ ss::future<> housekeeping_workflow::run_jobs_bg() {
                 _executed.splice(_executed.begin(), _running);
             } else {
                 // If the job was interrupted it's never returned
-                // to the list of executed jobs and never accessd by
+                // to the list of executed jobs and never accessed by
                 // the workflow.
                 _running.front().release();
                 _running.clear();
