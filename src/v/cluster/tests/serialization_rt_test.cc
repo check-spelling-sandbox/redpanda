@@ -314,7 +314,7 @@ SEASTAR_THREAD_TEST_CASE(incremental_topic_updates_rt_test) {
     BOOST_CHECK(result == original);
 }
 
-SEASTAR_THREAD_TEST_CASE(incremental_topic_updates_backward_compatibilty_test) {
+SEASTAR_THREAD_TEST_CASE(incremental_topic_updates_backward_compatibility_test) {
     cluster::incremental_topic_updates updates
       = random_incremental_topic_updates();
 
