@@ -1420,7 +1420,7 @@ void application::wire_up_redpanda_services(model::node_id node_id) {
                 = config::shard_local_cfg().kafka_rpc_server_stream_recv_buf;
               auto& tls_config = config::node().kafka_api_tls.value();
               for (const auto& ep : config::node().kafka_api()) {
-                  ss::shared_ptr<ss::tls::server_credentials> credentails;
+                  ss::shared_ptr<ss::tls::server_credentials> credentials;
                   // find credentials for this endpoint
                   auto it = find_if(
                     tls_config.begin(),
@@ -1429,14 +1429,14 @@ void application::wire_up_redpanda_services(model::node_id node_id) {
                         return cfg.name == ep.name;
                     });
                   // if tls is configured for this endpoint build reloadable
-                  // credentails
+                  // credentials
                   if (it != tls_config.end()) {
                       syschecks::systemd_message(
                         "Building TLS credentials for kafka")
                         .get();
                       auto kafka_builder
                         = it->config.get_credentials_builder().get0();
-                      credentails
+                      credentials
                         = kafka_builder
                             ? kafka_builder
                                 ->build_reloadable_server_credentials(
@@ -1452,7 +1452,7 @@ void application::wire_up_redpanda_services(model::node_id node_id) {
                   }
 
                   c.addrs.emplace_back(
-                    ep.name, net::resolve_dns(ep.address).get0(), credentails);
+                    ep.name, net::resolve_dns(ep.address).get0(), credentials);
               }
 
               c.disable_metrics = net::metrics_disabled(
