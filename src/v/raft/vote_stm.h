@@ -40,7 +40,7 @@ public:
     ~vote_stm();
 
     /// sends the vote and mutates consensus pointer internal state
-    /// it uses the conensus::_op_sem  in 2 places
+    /// it uses the consensus::_op_sem  in 2 places
     /// (1) while writing our configuration
     /// (2) while processing leadership replies
     /// it _does not_ hold the semaphore for the full vote to allow for
