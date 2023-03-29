@@ -81,7 +81,7 @@ class batch_cache_index;
  * doing something such as `e->batch.share()` internally causes allocations
  * which may trigger the reclaimer. if the reclaimer selects `e` for reclaiming,
  * then `e->batch.share()` will run concurrently with the destructor of the
- * batch (not technically concurently--but interleaved with share() in ways that
+ * batch (not technically concurrently--but interleaved with share() in ways that
  * are not safe).
  *
  * If an operation may perform an allocation use range::pin/unpin to guard the
