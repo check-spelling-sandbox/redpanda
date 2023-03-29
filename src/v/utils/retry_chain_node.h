@@ -180,7 +180,7 @@ struct retry_permit {
 /// It's supposed to be passed by reference to the child fibers and used
 /// to create another retry_chain_node instances. The nodes form a
 /// tree-like data structure. This data structure can be used to
-/// calculate backoff timeouts that take into acount total time budget
+/// calculate backoff timeouts that take into account total time budget
 /// that the parent node has. It can be used to share the abort_source
 /// instance between related fibers. This allows child fibers to trigger
 /// abort_source and stop the entire computation. Also, the instance of

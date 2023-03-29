@@ -1058,7 +1058,7 @@ ntp_archiver::schedule_uploads(model::offset last_stable_offset) {
     //
     // When there are no segments but there is a non-zero 'last_offset', all
     // cloud segments have been removed for retention. In that case, we still
-    // need to take into accout 'last_offset'.
+    // need to take into account 'last_offset'.
     auto last_offset = manifest().get_last_offset();
     auto start_upload_offset = manifest().size() == 0
                                    && last_offset == model::offset(0)

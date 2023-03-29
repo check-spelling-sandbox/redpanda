@@ -40,8 +40,8 @@ static constexpr ss::shard_id quota_manager_shard = 0;
 //   quota settings as runtime through the kafka api and other mechanisms.
 //
 //   - currently only total throughput per client_id is tracked. in the future
-//   we will want to support additional quotas and accouting granularities to be
-//   at parity with kafka. for example:
+//   we will want to support additional quotas and accounting granularities to
+//   be at parity with kafka. for example:
 //
 //      - splitting out rates separately for produce and fetch
 //      - accounting per user vs per client (these are separate in kafka)
