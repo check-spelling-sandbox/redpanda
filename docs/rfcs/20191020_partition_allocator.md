@@ -78,7 +78,7 @@ Kafka Admin -> _local_ controller -> _global_ controller -> partition_allocator
 * The telemetry is observed locally at each node with the number
   of partitions assigned to each node
 
-* Partition alloation telemetry is deferred
+* Partition allocation telemetry is deferred
 
 ## Detailed design - how
 
