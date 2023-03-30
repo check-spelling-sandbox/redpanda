@@ -620,7 +620,7 @@ remote_partition::aborted_transactions(offset_range offsets) {
     vlog(
       _ctxlog.debug,
       "found {} aborted transactions for {}-{} offset range ({}-{} before "
-      "offset translaction)",
+      "offset translation)",
       result.size(),
       offsets.begin,
       offsets.end,
