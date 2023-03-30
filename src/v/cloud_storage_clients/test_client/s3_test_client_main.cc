@@ -361,7 +361,7 @@ int main(int args, char** argv, char** env) {
                         } else {
                             vlog(
                               test_log.error,
-                              "DeleteObject request failes: {}",
+                              "DeleteObject request fails: {}",
                               undeleted.error());
                         }
                     }
