@@ -141,7 +141,7 @@ template<typename T>
 struct compat_check {
     /*
      * Generate test cases. It's good to build some random cases, as well as
-     * convering edge cases such as min/max values or empty values, etc...
+     * covering edge cases such as min/max values or empty values, etc...
      */
     static std::vector<T> create_test_cases();
 
