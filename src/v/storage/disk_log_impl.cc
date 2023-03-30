@@ -806,7 +806,7 @@ ss::future<> disk_log_impl::remove_empty_segments() {
 
 model::term_id disk_log_impl::term() const {
     if (_segs.empty()) {
-        // does not make sense to return unitinialized term
+        // does not make sense to return uninitialized term
         // if we have no term, default to the first term.
         // the next append() will truncate if greater
         return model::term_id{0};
