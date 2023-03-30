@@ -75,7 +75,7 @@ struct fetch_request final {
 
     /*
      * iterator over request partitions. this adapter iterator is used because
-     * the partitions are decoded off the wire directly into a hierarhical
+     * the partitions are decoded off the wire directly into a hierarchical
      * representation:
      *
      *       [
