@@ -737,7 +737,7 @@ class SizeBasedRetention(BaseCase):
         """Run restore procedure. Default implementation runs it for every topic
         that it can find in S3."""
 
-        # check that we had enought data in baseline
+        # check that we had enough data in baseline
         size_bytes_per_ntp = get_on_disk_size_per_ntp(baseline)
 
         for ntp, size_bytes in size_bytes_per_ntp.items():
@@ -747,7 +747,7 @@ class SizeBasedRetention(BaseCase):
             # size_bytes should be larger than amount of data that we produce
             # because segments are actually contain headers
             assert is_close_size(size_bytes, self.max_size_bytes), \
-                f"Not enoug bytes produced, expected {self.max_size_bytes} got {size_bytes}"
+                f"Not enough bytes produced, expected {self.max_size_bytes} got {size_bytes}"
 
         topic_manifests = list(self._get_all_topic_manifests())
         self.logger.info(f"topic_manifests: {topic_manifests}")
