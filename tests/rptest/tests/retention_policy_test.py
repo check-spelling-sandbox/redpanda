@@ -98,7 +98,7 @@ class RetentionPolicyTest(RedpandaTest):
         Test changing topic retention duration for topics with data produced
         with ACKS=1 and ACKS=-1. This test produces data until 10 segments
         appear, then it changes retention topic property and waits for some
-        segmetnts to be removed
+        segments to be removed
         """
         segment_size = 1048576
 
