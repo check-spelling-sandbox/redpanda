@@ -20,7 +20,7 @@
 namespace pandaproxy {
 
 ///\brief The first invocation of one_shot::operator()() will invoke func and
-/// wait for it to finish. Concurrent invocatons will also wait.
+/// wait for it to finish. Concurrent invocations will also wait.
 ///
 /// On success, all waiters will be allowed to continue. Successive invocations
 /// of one_shot::operator()() will return ss::now().
