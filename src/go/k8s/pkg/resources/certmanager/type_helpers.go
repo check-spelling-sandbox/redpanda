@@ -512,7 +512,7 @@ func (cc *ClusterCertificates) Resources(
 	}
 	schemaRegistryResources, err := cc.schemaRegistryAPI.resources(ctx, cc.client, cc.logger)
 	if err != nil {
-		return nil, fmt.Errorf("retrieving schemaRegistryapi resources %w", err)
+		return nil, fmt.Errorf("retrieving schemaregistryapi resources %w", err)
 	}
 
 	res = append(res, kafkaResources...)
