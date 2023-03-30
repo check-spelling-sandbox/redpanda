@@ -1667,7 +1667,7 @@ configuration::configuration()
   , storage_space_alert_free_threshold_percent(
       *this,
       "storage_space_alert_free_threshold_percent",
-      "Threshold of minimim percent free space before setting storage space "
+      "Threshold of minimum percent free space before setting storage space "
       "alert",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
       5,
@@ -1675,7 +1675,7 @@ configuration::configuration()
   , storage_space_alert_free_threshold_bytes(
       *this,
       "storage_space_alert_free_threshold_bytes",
-      "Threshold of minimim bytes free space before setting storage space "
+      "Threshold of minimum bytes free space before setting storage space "
       "alert",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
       0,
