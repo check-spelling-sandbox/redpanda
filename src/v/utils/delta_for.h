@@ -189,7 +189,7 @@ struct deltafor_stream_pos_t
  * The alternative to this is to implement 63 bit-packing functions that
  * can pack all possible values. The approach used here requires only
  * 7 custom bit-packing functions + 4 bit-packing functions for different
- * size classes (8, 16, 32, 64) which is much easier to impelment and
+ * size classes (8, 16, 32, 64) which is much easier to implement and
  * test.
  *
  * It's also beneficial for further compression using general purpose
