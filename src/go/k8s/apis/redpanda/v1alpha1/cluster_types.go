@@ -261,7 +261,7 @@ type CloudStorageConfig struct {
 	// Cloud storage bucket
 	Bucket string `json:"bucket,omitempty"`
 	// Reconciliation period (default - 10s)
-	ReconcilicationIntervalMs int `json:"reconciliationIntervalMs,omitempty"`
+	ReconciliationIntervalMs int `json:"reconciliationIntervalMs,omitempty"`
 	// Number of simultaneous uploads per shard (default - 20)
 	MaxConnections int `json:"maxConnections,omitempty"`
 	// Disable TLS (can be used in tests)
