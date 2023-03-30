@@ -234,7 +234,7 @@ struct raft_node {
           .then([this] { return server.stop(); })
           .then([this] {
               if (hbeats) {
-                  tstlog.info("Stopping heartbets manager at {}", broker.id());
+                  tstlog.info("Stopping heartbeats manager at {}", broker.id());
                   return hbeats->deregister_group(consensus->group())
                     .then([this] { return hbeats->stop(); });
               }
