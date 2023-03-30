@@ -21,7 +21,7 @@
 #include <absl/container/flat_hash_map.h>
 
 namespace coproc {
-/// Type of result to expect from 'read_from_inputs', to be immeadiately
+/// Type of result to expect from 'read_from_inputs', to be immediately
 /// dispatched to a wasm engine
 using input_read_results = std::vector<process_batch_request::data>;
 

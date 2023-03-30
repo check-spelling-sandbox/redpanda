@@ -543,7 +543,7 @@ group::handle_join_group(join_group_request&& r, bool is_new_group) {
          * take into account was the tolerance for timeouts by clients. this
          * handles the case that all clients join after a rebalance, but the
          * last client doesn't complete the join (see the case in
-         * try_complete_join where we return immedaitely rather than completing
+         * try_complete_join where we return immediately rather than completing
          * the join if we are in the preparing rebalance state). this check
          * handles that before returning.
          */
