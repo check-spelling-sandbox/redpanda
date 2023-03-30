@@ -31,14 +31,14 @@
 
 namespace kafka {
 template<typename T>
-struct groupped_resources {
+struct grouped_resources {
     std::vector<T> topic_changes;
     std::vector<T> broker_changes;
 };
 
 template<typename T>
-groupped_resources<T> group_alter_config_resources(std::vector<T> req) {
-    groupped_resources<T> ret;
+grouped_resources<T> group_alter_config_resources(std::vector<T> req) {
+    grouped_resources<T> ret;
     for (auto& res : req) {
         switch (config_resource_type(res.resource_type)) {
         case config_resource_type::topic:
@@ -71,12 +71,12 @@ T make_error_alter_config_resource_response(
       .resource_name = resource.resource_name};
 }
 /**
- * Authorizes groupped alter configuration resources, it returns not authorized
+ * Authorizes grouped alter configuration resources, it returns not authorized
  * responsens and modifies passed in group_resources<T>
  */
 template<typename T, typename R>
 std::vector<R> authorize_alter_config_resources(
-  request_context& ctx, groupped_resources<T>& to_authorize) {
+  request_context& ctx, grouped_resources<T>& to_authorize) {
     std::vector<R> not_authorized;
     /**
      * Check broker configuration authorization
