@@ -34,7 +34,7 @@
 namespace pp = pandaproxy;
 
 namespace kafka::client {
-// BOOST_REQURE_EQUAL fails to find this if it's in the global namespace
+// BOOST_REQUIRE_EQUAL fails to find this if it's in the global namespace
 bool operator==(configuration const& lhs, configuration const& rhs) {
     return fmt::format("{}", config::to_yaml(lhs, config::redact_secrets::no))
            == fmt::format(
