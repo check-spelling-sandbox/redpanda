@@ -156,7 +156,7 @@ class AutomaticLeadershipBalancingTest(RedpandaTest):
                    backoff_sec=2,
                    err_msg="Leadership did not move to running nodes")
 
-        # sleep for a bit to avoid triggering any of the sticky leaderhsip
+        # sleep for a bit to avoid triggering any of the sticky leadership
         # optimizations
         time.sleep(60)
 
