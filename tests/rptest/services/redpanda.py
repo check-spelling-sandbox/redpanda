@@ -1906,7 +1906,7 @@ class RedpandaService(Service):
 
     def stop(self, **kwargs):
         """
-        Override default stop() to execude stop_node in parallel
+        Override default stop() to execute stop_node in parallel
         """
         self._stop_time = time.time()  # The last time stop is invoked
         self.logger.info("%s: exporting cluster config" % self.who_am_i())
