@@ -18,9 +18,9 @@
 #include <seastar/core/sstring.hh>
 namespace v8_engine {
 
-class data_policy_exeption final : public std::exception {
+class data_policy_exception final : public std::exception {
 public:
-    explicit data_policy_exeption(ss::sstring msg) noexcept
+    explicit data_policy_exception(ss::sstring msg) noexcept
       : _msg(std::move(msg)) {}
 
     const char* what() const noexcept final { return _msg.c_str(); }

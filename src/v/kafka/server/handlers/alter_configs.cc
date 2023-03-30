@@ -221,7 +221,7 @@ create_topic_properties_update(alter_configs_resource& resource) {
               error_code::invalid_config,
               fmt::format(
                 "unable to parse property {} value {}", cfg.name, cfg.value));
-        } catch (const v8_engine::data_policy_exeption& e) {
+        } catch (const v8_engine::data_policy_exception& e) {
             return make_error_alter_config_resource_response<
               alter_configs_resource_response>(
               resource,
