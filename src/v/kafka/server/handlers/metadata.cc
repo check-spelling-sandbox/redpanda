@@ -577,7 +577,7 @@ metadata_memory_estimator(size_t request_size, connection_context& conn_ctx) {
     size_estimate *= 2;
 
     // We still add on the default_estimate to handle the size of the request
-    // itself and miscellaneous other procesing (this is a small adjustment,
+    // itself and miscellaneous other processing (this is a small adjustment,
     // generally ~8000 bytes).
     return default_memory_estimate(request_size) + size_estimate;
 }

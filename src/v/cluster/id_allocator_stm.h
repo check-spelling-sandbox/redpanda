@@ -82,7 +82,7 @@ private:
     // /legacy
 
     bool _should_cache{false};
-    bool _procesing_legacy{true};
+    bool _processing_legacy{true};
     model::offset _prepare_offset{0};
     std::vector<allocation_cmd> _cache;
 

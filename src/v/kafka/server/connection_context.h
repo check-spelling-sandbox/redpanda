@@ -203,7 +203,7 @@ private:
     bool is_finished_parsing() const;
 
     // Reserve units from memory from the memory semaphore in proportion
-    // to the number of bytes the request procesisng is expected to
+    // to the number of bytes the request processing is expected to
     // take.
     ss::future<ssx::semaphore_units>
     reserve_request_units(api_key key, size_t size);
