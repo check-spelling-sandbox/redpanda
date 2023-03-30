@@ -20,7 +20,7 @@ import (
 )
 
 // StatefulsetTLSVolumeProvider returns volumes and volume mounts that
-// tatefulset needs to be able to support TLS config specified by cluster custom
+// Statefulset needs to be able to support TLS config specified by cluster custom
 // resource
 type StatefulsetTLSVolumeProvider interface {
 	Volumes() ([]corev1.Volume, []corev1.VolumeMount)
