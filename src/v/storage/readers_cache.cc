@@ -160,8 +160,8 @@ ss::future<> readers_cache::stop() {
      */
     co_await wait_for_no_inuse_readers();
     /**
-     * At this point we are sure that all cached readers are not used anymore and
-     * no new readers will be added to _readers list.
+     * At this point we are sure that all cached readers are not used anymore
+     * and no new readers will be added to _readers list.
      *
      * Close and dispose cached readers
      */
@@ -311,7 +311,7 @@ void readers_cache::dispose_in_background(entry* e) {
          * `readers_cache::close`.
          * NOTE:
          * _readers intrusive list is supposed to keep reusable readers but
-         * when gate closed exception is thrwon we are certain that no more
+         * when gate closed exception is thrown we are certain that no more
          * operations will be executed on the cache so we can reuse the _readers
          * list to gracefully shutdown readers.
          */
