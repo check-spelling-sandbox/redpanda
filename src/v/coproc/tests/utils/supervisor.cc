@@ -62,7 +62,7 @@ make_empty_response(script_id id, const model::ntp& ntp) {
     /// This has the affect of an implied 'filter' transformation. The
     /// supervisor acks a request with an empty response, so redpanda just moves
     /// the input topic read head offset forward without a corresponding
-    /// materialzied_topic write
+    /// materialized_topic write
     std::vector<process_batch_reply::data> eresp;
     eresp.emplace_back(process_batch_reply::data{
       .id = id,

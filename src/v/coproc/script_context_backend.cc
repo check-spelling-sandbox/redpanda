@@ -161,7 +161,7 @@ static ss::future<> maybe_make_materialized_log(
     /// into existence
     if (!is_leader) {
         throw follower_create_topic_exception(fmt::format(
-          "Follower of source topic {} attempted to created materialzied "
+          "Follower of source topic {} attempted to created materialized "
           "topic {} before leader partition had a chance to, sleeping "
           "1s...",
           source,
@@ -172,7 +172,7 @@ static ss::future<> maybe_make_materialized_log(
       .source = std::move(source), .name = std::move(new_materialized)};
     std::vector<cluster::non_replicable_topic> topics{std::move(mt)};
     /// All requests are debounced, therefore if multiple entities attempt to
-    /// create a materialzied topic, all requests will wait for the first to
+    /// create a materialized topic, all requests will wait for the first to
     /// complete.
     co_return co_await args.frontend.invoke_on(
       cluster::non_replicable_topics_frontend_shard,
