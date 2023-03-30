@@ -382,7 +382,7 @@ ss::future<> group_manager::stop() {
 
     return _gate.close().then([this]() {
         /**
-         * cancel all pending group opeartions
+         * cancel all pending group operations
          */
         return ss::do_for_each(
                  _groups, [](auto& p) { return p.second->shutdown(); })

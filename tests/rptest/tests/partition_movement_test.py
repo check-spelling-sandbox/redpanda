@@ -573,7 +573,7 @@ class PartitionMovementTest(PartitionMovementMixin, EndToEndTest):
         """
         Delete topic which partitions are being moved and check status after 
         topic is created again, old move 
-        opeartions should not influence newly created topic
+        operations should not influence newly created topic
         """
         test_mixed_versions = num_to_upgrade > 0
         install_opts = InstallOptions(
