@@ -144,7 +144,7 @@ ss::future<> drain_manager::do_drain() {
 
     /*
      * Prevent this node from becoming a leader for new and existing raft
-     * groups. This does not immediately reliquish existing leadership. it is
+     * groups. This does not immediately relinquish existing leadership. it is
      * assumed that all raft groups (e.g. controller/raft0 and kafka data) are
      * represented in the partition manager.
      */
