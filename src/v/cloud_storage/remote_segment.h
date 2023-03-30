@@ -209,7 +209,7 @@ class remote_segment_batch_consumer;
 /// The problem here is that shadow-indexing operates on sparse data.
 /// It can't translate every offset. Only the base offsets of uploaded
 /// segment. But it can also translate offsets as it scans the segment.
-/// But this is all done internally, so caller have to proviede kafka
+/// But this is all done internally, so caller have to provide kafka
 /// offsets. Mechanisms which require redpanda offset can use
 /// '_cur_rp_offset' field. It's guaranteed to point to the same
 /// record batch but the offset is not translated back to kafka. This is
