@@ -165,7 +165,7 @@ FIXTURE_TEST(test_delete_materialized_topic, push_some_data_fixture) {
 }
 
 FIXTURE_TEST(
-  find_coordinator_for_non_replicatable_topic, redpanda_thread_fixture) {
+  find_coordinator_for_non_replicable_topic, redpanda_thread_fixture) {
     wait_for_controller_leadership().get();
     model::topic_namespace src{model::kafka_namespace, model::topic("src")};
     model::topic_namespace dst{model::kafka_namespace, model::topic("dst")};
