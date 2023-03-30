@@ -13,7 +13,7 @@ set(default_depends "")
 
 # There is a known issue with ExternalProject_Add's handling of list arguments.
 # ref: https://public.kitware.com/Bug/view.php?id=16137
-# Expected way to pass lists is by replacing ; separtor with a custom separator
+# Expected way to pass lists is by replacing ; separator with a custom separator
 # and the passing it via LIST_SEPARATOR param.
 string (REPLACE ";" "|" CMAKE_C_COMPILER_LAUNCHER_STR "@CMAKE_C_COMPILER_LAUNCHER@")
 string (REPLACE ";" "|" CMAKE_CXX_COMPILER_LAUNCHER_STR "@CMAKE_CXX_COMPILER_LAUNCHER@")
