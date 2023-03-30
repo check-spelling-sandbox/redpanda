@@ -251,7 +251,7 @@ class ConsumerGroupTest(RedpandaTest):
     @parametrize(static_members=False)
     def test_consumer_rejoin(self, static_members):
         """
-        Test validating that re-joining static member will not casuse rebalance
+        Test validating that re-joining static member will not cause rebalance
         """
         self.create_topic(20)
 
