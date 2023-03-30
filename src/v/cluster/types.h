@@ -1486,7 +1486,7 @@ struct topic_properties_update
       topic_properties_update,
       serde::version<0>,
       serde::compat_version<0>> {
-    // We need version to indetify request with custom_properties
+    // We need version to identify request with custom_properties
     static constexpr int32_t version = -1;
     topic_properties_update() noexcept = default;
     explicit topic_properties_update(model::topic_namespace tp_ns)
