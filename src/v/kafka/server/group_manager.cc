@@ -521,7 +521,7 @@ void group_manager::handle_leader_change(
              * before we set loading=true to block operations while recover
              * happens.
              *
-             * since upcall happens synchrnously from rafter on leadership
+             * since upcall happens synchronously from rafter on leadership
              * change, we early set this flag to block out any requests in case
              * we would end up waiting on recovery and cause the situation
              * above.
