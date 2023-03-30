@@ -106,7 +106,7 @@ append_topic_configs(request_context& ctx, create_topics_response& response) {
               properties_to_result_configs(std::move(config_map))};
             ct_result.topic_config_error_code = kafka::error_code::none;
         } else {
-            // Topic was sucessfully created but metadata request did not
+            // Topic was successfully created but metadata request did not
             // succeed, if possible, could mean topic was deleted just after
             // creation
             ct_result.topic_config_error_code
