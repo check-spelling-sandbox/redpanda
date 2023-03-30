@@ -103,8 +103,8 @@ class TxKafkaApiTest(RedpandaTest):
 
         for topic in self.topics:
             for partition in range(topic.partition_count):
-                tpoic_partition = f"{topic}-{partition}"
-                assert tpoic_partition in expected_partitions
+                topic_partition = f"{topic}-{partition}"
+                assert topic_partition in expected_partitions
 
     @cluster(num_nodes=3)
     def test_list_transactions(self):
