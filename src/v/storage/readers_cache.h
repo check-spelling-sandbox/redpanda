@@ -154,7 +154,7 @@ private:
     template<typename Predicate>
     ss::future<> evict_if(Predicate predicate) {
         intrusive_list<entry, &entry::_hook> to_evict;
-        // lock reders to make sure no new readers will be added
+        // lock readers to make sure no new readers will be added
         for (auto it = _readers.begin(); it != _readers.end();) {
             auto should_evict = predicate(*it);
             if (should_evict) {
