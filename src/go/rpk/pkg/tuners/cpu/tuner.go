@@ -164,7 +164,7 @@ func (tuner *tuner) disablePStates() error {
 	/* According to the Intel's documentation disabling P-States
 	   (only available in Xenon CPUs) sets the cores frequency to constant
 	   max non Turbo value (max non turbo P-State).
-	   In here we disable the intel_pstate module in odrer to fallback to
+	   In here we disable the intel_pstate module in order to fallback to
 	   acpi_cpufreq module.
 	*/
 
