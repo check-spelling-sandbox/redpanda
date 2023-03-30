@@ -592,7 +592,7 @@ ss::future<tx_errc> rm_stm::do_prepare_tx(
         if (_log_state.tx_seqs[pid] != tx_seq) {
             vlog(
               _ctx_log.warn,
-              "expectd tx_seq {} doesn't match gived {} for pid {}",
+              "expected tx_seq {} doesn't match gived {} for pid {}",
               _log_state.tx_seqs[pid],
               tx_seq,
               pid);
