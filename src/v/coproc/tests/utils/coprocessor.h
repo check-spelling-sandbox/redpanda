@@ -72,7 +72,7 @@ private:
     coproc::script_id _sid;
 
     /// Configurable (at construction time) set of topics the coprocessor will
-    /// be registered to recieve input from
+    /// be registered to receive input from
     input_set _input_topics;
 };
 

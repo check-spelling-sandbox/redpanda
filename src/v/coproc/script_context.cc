@@ -226,7 +226,7 @@ bool script_context::is_up_to_date() const {
     if (_routes.empty()) {
         /// Since this method is only used for unit tests, its never desired to
         /// return true in the case the script is technically "up to date"
-        /// because it contains no work. It is likely due to recieve data to
+        /// because it contains no work. It is likely due to receive data to
         /// process shortly.
         return false;
     }

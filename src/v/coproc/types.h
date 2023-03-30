@@ -25,7 +25,7 @@ namespace coproc {
 
 using script_id = named_type<uint64_t, struct script_id_tag>;
 
-/// \brief per topic a client will recieve a response code on the
+/// \brief per topic a client will receive a response code on the
 /// registration status of the topic
 enum class enable_response_code : int8_t {
     success = 0,
@@ -35,7 +35,7 @@ enum class enable_response_code : int8_t {
     script_contains_no_topics
 };
 
-/// \brief per topic a client will recieve a response code on the
+/// \brief per topic a client will receive a response code on the
 /// deregistration status of the topic
 enum class disable_response_code : int8_t {
     success = 0,
