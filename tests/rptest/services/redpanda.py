@@ -179,7 +179,7 @@ def get_cloud_storage_type(applies_only_on: list(CloudStorageType) = None,
     :param applies_only_on: optional list(CloudStorageType)
     that is the allow-list of the cloud storage type for a
     test.
-    If it's set the function will return the inresection
+    If it's set the function will return the intersection
     of:
         * <cloud_storage_type>: discovered based on the CLOUD_PROVIDER env
         * <applies_only_on>: param provided
