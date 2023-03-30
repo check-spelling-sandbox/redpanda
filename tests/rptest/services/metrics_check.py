@@ -136,7 +136,7 @@ class MetricCheck(object):
 
     def evaluate(self, expectations):
         """
-        Similar to `expect`, but instead of asserting the expections are
+        Similar to `expect`, but instead of asserting the expectations are
         true, just evaluate whether they are and return a boolean.
         """
         samples = self._capture([e[0] for e in expectations])

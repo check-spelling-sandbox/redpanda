@@ -50,7 +50,7 @@ public:
         std::optional<ss::sstring> body;
     };
 
-    /// Set expectaitions on REST API calls that supposed to be made
+    /// Set expectations on REST API calls that supposed to be made
     /// Only the requests that described in this call will be possible
     /// to make. This method can only be called once per test run.
     ///
