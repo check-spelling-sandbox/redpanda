@@ -792,7 +792,7 @@ func (r *ConfigMapResource) SetLastAppliedConfigurationInCluster(
 	}
 	ser, err := json.Marshal(cfg)
 	if err != nil {
-		return fmt.Errorf("could not marhsal configuration: %w", err)
+		return fmt.Errorf("could not marshal configuration: %w", err)
 	}
 	newAnnotation := string(ser)
 	if existing.Annotations[LastAppliedConfigurationAnnotationKey] != newAnnotation {
