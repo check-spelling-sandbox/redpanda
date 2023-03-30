@@ -147,7 +147,7 @@ public:
             // If shard 0 update ends up running after shard 1, we will end up
             // with no shard table entries for this ntp resulting in an
             // availability loss. The equality check guards against these racy
-            // update siutations.
+            // update situations.
 
             if (it->second.revision >= rev) {
                 return;
