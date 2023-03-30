@@ -386,7 +386,7 @@ public:
     /// failed. Also, every retry is generating its own notification.
     ///
     /// \param filter is a notification filter which allows to narrow the set of
-    ///        posible notifications by source and type.
+    ///        possible notifications by source and type.
     /// \return the future which will be available after the next cloud storage
     ///         API operation.
     ss::future<api_activity_notification> subscribe(event_filter& filter);
