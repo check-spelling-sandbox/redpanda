@@ -329,7 +329,7 @@ FIXTURE_TEST(test_truncate_last_single_record_batch, storage_test_fixture) {
 }
 
 FIXTURE_TEST(
-  test_truncate_whole_log_when_logs_are_garbadge_collected,
+  test_truncate_whole_log_when_logs_are_garbage_collected,
   storage_test_fixture) {
     auto cfg = default_log_config(test_dir);
     storage::log_manager mgr = make_log_manager(cfg);
@@ -353,7 +353,7 @@ FIXTURE_TEST(
     auto ts = now();
     append_random_batches(log, 10, model::term_id(0));
     log.flush().get0();
-    // garbadge collect first append series
+    // garbage collect first append series
     ss::abort_source as;
     log
       .compact(compaction_config(
