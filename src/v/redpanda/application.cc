@@ -718,7 +718,7 @@ void application::check_for_crash_loop() {
         } catch (const serde::serde_exception&) {
             // A malformed log file, ignore and reset it later.
             // We truncate it below.
-            vlog(_log.warn, "Ignorning malformed tracker file {}", file_path);
+            vlog(_log.warn, "Ignoring malformed tracker file {}", file_path);
         }
     }
 
