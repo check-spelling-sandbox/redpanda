@@ -381,7 +381,7 @@ func TestValidatePrometheus(t *testing.T) {
 					PasswordRef: v1alpha1.SecretKeyRef{
 						Name:      secretName,
 						Namespace: consoleNamespace,
-						Key:       "nonexistingkey",
+						Key:       "nonexistentkey",
 					},
 				},
 				Prometheus: &v1alpha1.PrometheusConfig{
