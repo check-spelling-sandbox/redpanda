@@ -206,7 +206,7 @@ tx_gateway_frontend::tx_gateway_frontend(
   , _transactions_enabled(
       config::shard_local_cfg().enable_transactions.value()) {
     /**
-     * do not start expriry timer when transactions are disabled
+     * do not start expiry timer when transactions are disabled
      */
     if (_transactions_enabled) {
         start_expire_timer();
