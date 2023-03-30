@@ -29,7 +29,7 @@ using counter_col_t = segment_meta_column<int64_t, int64_delta_alg>;
 // Column for varying data
 using gauge_col_t = segment_meta_column<int64_t, int64_xor_alg>;
 
-/// Samping rate of the indexer inside the column store, if
+/// Sampling rate of the indexer inside the column store, if
 /// sampling_rate == 1 every row is indexed, 2 - every secod row, etc
 /// The value 8 with max_frame_size set to 64 will give us 8 hints per
 /// frame (frame has 64 rows). There is no measureable difference between
