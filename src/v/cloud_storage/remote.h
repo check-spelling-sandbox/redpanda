@@ -180,7 +180,7 @@ public:
     /// \brief Download manifest from pre-defined S3 location
     ///
     /// Method downloads the manifest and handles backpressure and
-    /// errors. It retries multiple times until timeout excedes.
+    /// errors. It retries multiple times until timeout exceeds.
     /// \param bucket is a bucket name
     /// \param key is an object key of the manifest
     /// \param manifest is a manifest to download
@@ -194,7 +194,7 @@ public:
     /// \brief Download manifest from pre-defined S3 location
     ///
     /// Method downloads the manifest and handles backpressure and
-    /// errors. It retries multiple times until timeout excedes.
+    /// errors. It retries multiple times until timeout exceeds.
     /// The method expects that the manifest might be missing from
     /// S3 bucket. It behaves exactly the same as 'download_manifest'.
     /// The only difference is that 'NoSuchKey' error is not logged
