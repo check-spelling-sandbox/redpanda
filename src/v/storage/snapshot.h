@@ -52,7 +52,7 @@ class snapshot_writer;
  * snapshot metadata that can be used to store information about the snapshot
  * and is accessible independent of the full snapshot data.  The crc covers
  * everything from the beginning of the snapshot file up to the snapshot blob.
- * This is all managed by the consensus and the state machine middleare.  The
+ * This is all managed by the consensus and the state machine middleware.  The
  * blob is written by the state machine itself. For example, a state machine may
  * write a small serialized blob, or stream data to the snapshot file. Streaming
  * may be useful in cases where the data structure permits deterministic iteration
