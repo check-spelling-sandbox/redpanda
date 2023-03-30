@@ -1356,9 +1356,9 @@ ss::future<> consensus::do_start() {
                  * incorrectly assigned raft configuration indices
                  * (https://github.com/redpanda-data/redpanda/issues/2326) there
                  * may be a persistent corruption in offset translation caused
-                 * by incorrectly persisted configuration index. It may cause log
-                 * offset to be negative. Here we check if this problem exists
-                 * and if so apply necessary offset translation.
+                 * by incorrectly persisted configuration index. It may cause
+                 * log offset to be negative. Here we check if this problem
+                 * exists and if so apply necessary offset translation.
                  */
                 const auto so = start_offset();
                 // no prefix truncation was applied we do not need adjustment
@@ -2415,7 +2415,7 @@ ss::future<> consensus::flush_log() {
     return _log.flush().then([this, flushed_up_to] {
         auto lstats = _log.offsets();
         /**
-         * log flush may be interleaved with trucation, hence we need to check
+         * log flush may be interleaved with truncation, hence we need to check
          * if log was truncated, if so we do nothing, flushed offset will be
          * updated in the truncation path.
          */
