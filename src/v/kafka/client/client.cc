@@ -106,7 +106,7 @@ ss::future<> client::stop() noexcept {
             auto c = *group.begin();
             co_await catch_and_log([c]() {
                 // The consumer is constructed with an on_stopped which erases
-                // istelf from the map after leave() completes.
+                // itself from the map after leave() completes.
                 return c->leave();
             });
         }
