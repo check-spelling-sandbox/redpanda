@@ -38,7 +38,7 @@ public:
  *
  * One important thing to note is that this operation requires topic table
  * stability (i.e. the topic table does not change in the meantime). This
- * property is enfored by the `topic_table_partition_generator`, which will
+ * property is enforced by the `topic_table_partition_generator`, which will
  * throw if the topic table has been updated during the iteration. If such
  * a change does happen, it's treated as a retryable error.
  *
