@@ -72,7 +72,7 @@ public:
     ///         be set to max offset of the downloaded log.
     ss::future<log_recovery_result> download_log(
       const storage::ntp_config& ntp_cfg,
-      model::initial_revision_id remote_revsion,
+      model::initial_revision_id remote_revision,
       int32_t remote_partition_count);
 
     void set_topic_recovery_components(
