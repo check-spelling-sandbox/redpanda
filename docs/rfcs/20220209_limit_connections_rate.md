@@ -83,7 +83,7 @@ Changes to the configuration properties affect all outstanding
 connection_rate objects: the `kafka_max_connection_creation_rate` attribute must be recalculated.
 
 ### Metrics
-We should reprot about current rate on each shard
+We should report about current rate on each shard
 
 ## Impact
 
