@@ -233,7 +233,7 @@ private:
     // too few server resources are available to accomodate the request
     // currently.
     // When the returned future resolves, the throttling period is over and
-    // the associated resouces have been obtained and are tracked by the
+    // the associated resources have been obtained and are tracked by the
     // contained session_resources object.
     ss::future<session_resources>
     throttle_request(const request_header&, size_t sz);

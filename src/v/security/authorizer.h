@@ -86,7 +86,7 @@ public:
 
     /*
      * Authorize an operation on a resource. The type of resource is deduced by
-     * the type `T` of the name of the resouce (e.g. `model::topic`).
+     * the type `T` of the name of the resource (e.g. `model::topic`).
      */
     template<typename T>
     bool authorized(
