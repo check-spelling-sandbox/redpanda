@@ -153,16 +153,16 @@ auto tx_gateway_frontend::with_stm(Func&& func) {
     });
 }
 
-static add_paritions_tx_reply make_add_partitions_error_response(
-  add_paritions_tx_request request, tx_errc ec) {
-    add_paritions_tx_reply response;
+static add_partitions_tx_reply make_add_partitions_error_response(
+  add_partitions_tx_request request, tx_errc ec) {
+    add_partitions_tx_reply response;
     response.results.reserve(request.topics.size());
     for (auto& req_topic : request.topics) {
-        add_paritions_tx_reply::topic_result res_topic;
+        add_partitions_tx_reply::topic_result res_topic;
         res_topic.name = req_topic.name;
         res_topic.results.reserve(req_topic.partitions.size());
         for (model::partition_id req_partition : req_topic.partitions) {
-            add_paritions_tx_reply::partition_result res_partition;
+            add_partitions_tx_reply::partition_result res_partition;
             res_partition.partition_index = req_partition;
             res_partition.error_code = ec;
             res_topic.results.push_back(res_partition);
@@ -1163,13 +1163,13 @@ ss::future<cluster::init_tm_tx_reply> tx_gateway_frontend::do_init_tm_tx(
     co_return reply;
 }
 
-ss::future<add_paritions_tx_reply> tx_gateway_frontend::add_partition_to_tx(
-  add_paritions_tx_request request, model::timeout_clock::duration timeout) {
+ss::future<add_partitions_tx_reply> tx_gateway_frontend::add_partition_to_tx(
+  add_partitions_tx_request request, model::timeout_clock::duration timeout) {
     auto shard = _shard_table.local().shard_for(model::tx_manager_ntp);
 
     if (shard == std::nullopt) {
         vlog(txlog.trace, "can't find a shard for {}", model::tx_manager_ntp);
-        return ss::make_ready_future<add_paritions_tx_reply>(
+        return ss::make_ready_future<add_partitions_tx_reply>(
           make_add_partitions_error_response(
             request, tx_errc::coordinator_not_available));
     }
@@ -1185,7 +1185,7 @@ ss::future<add_paritions_tx_reply> tx_gateway_frontend::add_partition_to_tx(
                   [request = std::move(request), timeout, &self](
                     checked<ss::shared_ptr<tm_stm>, tx_errc> r) {
                       if (!r) {
-                          return ss::make_ready_future<add_paritions_tx_reply>(
+                          return ss::make_ready_future<add_partitions_tx_reply>(
                             make_add_partitions_error_response(
                               request, r.error()));
                       }
@@ -1212,9 +1212,9 @@ ss::future<add_paritions_tx_reply> tx_gateway_frontend::add_partition_to_tx(
       });
 }
 
-ss::future<add_paritions_tx_reply> tx_gateway_frontend::do_add_partition_to_tx(
+ss::future<add_partitions_tx_reply> tx_gateway_frontend::do_add_partition_to_tx(
   ss::shared_ptr<tm_stm> stm,
-  add_paritions_tx_request request,
+  add_partitions_tx_request request,
   model::timeout_clock::duration timeout) {
     model::producer_identity pid{request.producer_id, request.producer_epoch};
 
@@ -1248,12 +1248,12 @@ ss::future<add_paritions_tx_reply> tx_gateway_frontend::do_add_partition_to_tx(
           request, tx_errc::invalid_txn_state);
     }
 
-    add_paritions_tx_reply response;
+    add_partitions_tx_reply response;
 
     std::vector<model::ntp> new_partitions;
 
     for (auto& req_topic : request.topics) {
-        add_paritions_tx_reply::topic_result res_topic;
+        add_partitions_tx_reply::topic_result res_topic;
         res_topic.name = req_topic.name;
 
         model::topic topic(req_topic.name);
@@ -1266,7 +1266,7 @@ ss::future<add_paritions_tx_reply> tx_gateway_frontend::do_add_partition_to_tx(
               tx.partitions.end(),
               [ntp](const auto& rm) { return rm.ntp == ntp; });
             if (has_ntp) {
-                add_paritions_tx_reply::partition_result res_partition;
+                add_partitions_tx_reply::partition_result res_partition;
                 res_partition.partition_index = req_partition;
                 res_partition.error_code = tx_errc::none;
                 res_topic.results.push_back(res_partition);
@@ -1351,7 +1351,7 @@ ss::future<add_paritions_tx_reply> tx_gateway_frontend::do_add_partition_to_tx(
           response.results.end(),
           [&br](const auto& r) { return r.name == br.ntp.tp.topic(); });
 
-        add_paritions_tx_reply::partition_result res_partition;
+        add_partitions_tx_reply::partition_result res_partition;
         res_partition.partition_index = br.ntp.tp.partition;
         if (has_added && br.ec == tx_errc::none) {
             res_partition.error_code = tx_errc::none;

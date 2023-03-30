@@ -1075,13 +1075,13 @@ ss::future<topics_frontend::capacity_info> topics_frontend::get_health_info(
   model::topic_namespace topic, int32_t partition_count) const {
     capacity_info info;
 
-    partitions_filter::partitions_set_t parititon_set;
+    partitions_filter::partitions_set_t partition_set;
     for (auto i = 0; i < partition_count; ++i) {
-        parititon_set.emplace(i);
+        partition_set.emplace(i);
     }
 
     partitions_filter::topic_map_t topic_map;
-    topic_map.emplace(topic.tp, std::move(parititon_set));
+    topic_map.emplace(topic.tp, std::move(partition_set));
 
     partitions_filter partitions_for_report;
     partitions_for_report.namespaces.emplace(topic.ns, std::move(topic_map));

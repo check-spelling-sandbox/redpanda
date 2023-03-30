@@ -121,7 +121,7 @@ FIXTURE_TEST(test_adding_multiple_nodes, rebalancing_tests_fixture) {
     populate_all_topics_with_data();
     // add node
     add_node(2);
-    // wait until all nodes will host between 16 and 20 partitons
+    // wait until all nodes will host between 16 and 20 partitions
     wait_for_even_replicas_distribution(
       14, 22, model::node_id(2), apps.begin()->second->metadata_cache.local());
 
@@ -130,7 +130,7 @@ FIXTURE_TEST(test_adding_multiple_nodes, rebalancing_tests_fixture) {
     wait_for_all_partition_moves_to_finish(
       apps.begin()->second->metadata_cache.local(),
       apps.begin()->second->controller->get_api().local());
-    // wait until all nodes will host between 10 and 14 partitons
+    // wait until all nodes will host between 10 and 14 partitions
     wait_for_even_replicas_distribution(
       8, 16, model::node_id(3), apps.begin()->second->metadata_cache.local());
 }

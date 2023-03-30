@@ -198,7 +198,7 @@ ss::future<log_recovery_result> partition_downloader::download_log() {
     } catch (const ss::gate_closed_exception&) {
         throw;
     } catch (...) {
-        // We can get here if the parttion manifest is missing (or some
+        // We can get here if the partition manifest is missing (or some
         // other failure is preventing us from recovering the partition). In
         // this case the exception can't be propagated since the partition
         // manager will retry and it will create an infinite loop.

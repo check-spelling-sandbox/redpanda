@@ -115,7 +115,10 @@ std::ostream& operator<<(std::ostream& o, const partition_constraints& pc) {
 }
 std::ostream& operator<<(std::ostream& o, const allocation_request& req) {
     fmt::print(
-      o, "{{partion_constraints: {}, domain: {}}}", req.partitions, req.domain);
+      o,
+      "{{partition_constraints: {}, domain: {}}}",
+      req.partitions,
+      req.domain);
     return o;
 }
 } // namespace cluster

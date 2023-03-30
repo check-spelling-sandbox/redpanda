@@ -1,4 +1,4 @@
-- Feature Name: add cluster::parition_allocator
+- Feature Name: add cluster::partition_allocator
 - Status: in-progress
 - Start Date: 2019-10-20
 - Authors: Alex

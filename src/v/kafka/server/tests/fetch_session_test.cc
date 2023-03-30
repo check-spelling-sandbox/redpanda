@@ -169,7 +169,7 @@ FIXTURE_TEST(test_session_operations, fixture) {
     {
         req.data.topics[0].fetch_partitions.erase(
           std::next(req.data.topics[0].fetch_partitions.begin()));
-        // add 2 partitons from new topic, forget one from the first topic
+        // add 2 partitions from new topic, forget one from the first topic
         req.data.topics.push_back(
           make_fetch_request_topic(model::topic("test-new"), 2));
         req.data.forgotten.push_back(kafka::fetch_request::forgotten_topic{

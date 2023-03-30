@@ -134,7 +134,7 @@ A cache of assignments.
 - What other designs have been considered and what is the rationale for not choosing them?
 
 * Static partitioning:
-  `model::parition_id::type % smp::core_count` is fragile and offers no real
+  `model::partition_id::type % smp::core_count` is fragile and offers no real
   load balancing system. For example, core0 will always do a little more work
   in most systems because it is the only core guaranteed to exist.
   Second, having a cluster level knowledge gives us the opportunity to optimize

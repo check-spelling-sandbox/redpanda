@@ -1006,7 +1006,7 @@ class ManyPartitionsTest(PreallocNodesTest):
 
         repeater_kwargs = {}
         if compacted:
-            # Each parititon gets roughly 10 unique keys, after which
+            # Each partition gets roughly 10 unique keys, after which
             # compaction should kick in.
             repeater_kwargs['key_count'] = int(scale.partition_limit * 10)
         else:

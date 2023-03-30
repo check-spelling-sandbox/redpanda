@@ -74,8 +74,9 @@ void replicated_partition_probe::setup_internal_metrics(const model::ntp& ntp) {
         sm::make_gauge(
           "committed_offset",
           [this] { return _partition.committed_offset(); },
-          sm::description("Partition committed offset. i.e. safely persisted on "
-                          "majority of replicas"),
+          sm::description(
+            "Partition committed offset. i.e. safely persisted on "
+            "majority of replicas"),
           labels)
           .aggregate(aggregate_labels),
         sm::make_gauge(
@@ -89,7 +90,7 @@ void replicated_partition_probe::setup_internal_metrics(const model::ntp& ntp) {
           "high_watermark",
           [this] { return _partition.high_watermark(); },
           sm::description(
-            "Partion high watermark i.e. highest consumable offset"),
+            "Partition high watermark i.e. highest consumable offset"),
           labels)
           .aggregate(aggregate_labels),
         sm::make_gauge(

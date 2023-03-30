@@ -540,7 +540,7 @@ class VerifiableConsumer(BackgroundThreadService):
                 for idx, s in self.global_state.items():
                     if not tp in s.position_first:
                         msg.append(f"Start of consumed offset range "\
-                            f"not recorded for partiton {str(tp)}, worker "\
+                            f"not recorded for partition {str(tp)}, worker "\
                             f"{idx} {s.account_str}")
                         fail_pre = True
                 if fail_pre:

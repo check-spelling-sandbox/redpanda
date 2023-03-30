@@ -40,7 +40,7 @@ class ConsumerGroupBalancingTest(RedpandaTest):
                 # this will change with implementation of
                 # even distribution control of __consumer_offsets leaders
                 "internal_topic_replication_factor": 1,
-                # a __consumer_offsets partiton per cgroup
+                # a __consumer_offsets partition per cgroup
                 "group_topic_partitions": cgroup_balancing_test_num_groups,
             },
             **kwargs)
