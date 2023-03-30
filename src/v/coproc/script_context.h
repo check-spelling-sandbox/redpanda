@@ -49,7 +49,7 @@ class script_context {
 public:
     /**
      * class constructor
-     * @param script_id Uniquely identifyable id
+     * @param script_id Uniquely identifiable id
      * @param ctx Shared state, shared across all script_contexts on a shard
      * @param ntp_ctxs Map of interested ntps, strongly retained by 'this'
      **/
