@@ -112,7 +112,7 @@ FIXTURE_TEST(max_allocation, partition_allocator_fixture) {
     BOOST_REQUIRE(result.has_error());
 }
 
-FIXTURE_TEST(unsatisfyable_diversity_assignment, partition_allocator_fixture) {
+FIXTURE_TEST(unsatisfiable_diversity_assignment, partition_allocator_fixture) {
     register_node(0, 8);
     register_node(1, 4);
     register_node(2, 6);
