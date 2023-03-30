@@ -100,7 +100,7 @@ SEASTAR_THREAD_TEST_CASE(check_low_water_mark) {
     BOOST_CHECK_EQUAL(lwm_after, am.available_low_water_mark());
 
     // check that a large allocation without any corresponding
-    // update_low_water_mark() call is "invisble" to the LVM
+    // update_low_water_mark() call is "invisible" to the LVM
     bytes = std::make_unique<char[]>(large_size * 2);
     BOOST_CHECK(am.available() < free_after);
     bytes.reset();
