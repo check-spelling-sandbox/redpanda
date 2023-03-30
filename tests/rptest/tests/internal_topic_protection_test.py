@@ -177,7 +177,7 @@ class InternalTopicProtectionTest(RedpandaTest):
                 f"we were expecting delete_topic to fail", exc_info=True)
             pass
 
-        # allow time for any erronous deletion to be propagated
+        # allow time for any erroneous deletion to be propagated
         time.sleep(10)
         assert test_topic in client.list_topics()
 

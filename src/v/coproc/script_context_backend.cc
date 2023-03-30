@@ -225,7 +225,7 @@ static ss::future<> process_one_reply(
     if (e.id != args.id()) {
         /// Engine got response mixed up with another request, protocol error
         throw bad_reply_exception(ssx::sformat(
-          "erranous reply from wasm engine, mismatched id observed, expected: "
+          "erroneous reply from wasm engine, mismatched id observed, expected: "
           "{} and observed {}",
           args.id,
           e.id));
@@ -333,7 +333,7 @@ ss::future<>
 write_materialized(output_write_inputs replies, output_write_args args) {
     if (replies.empty()) {
         vlog(
-          coproclog.error, "Wasm engine interpreted the request as erraneous");
+          coproclog.error, "Wasm engine interpreted the request as erroneous");
         co_return;
     }
     grouping_t grs = group_replies(std::move(replies));

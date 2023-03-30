@@ -177,7 +177,7 @@ reconcile_events(std::vector<model::record_batch> events) {
             if (validate_res.has_error()) {
                 vlog(
                   coproclog.error,
-                  "Erranous coproc record detected, issue: {}",
+                  "Erroneous coproc record detected, issue: {}",
                   validate_res.error());
                 return;
             }

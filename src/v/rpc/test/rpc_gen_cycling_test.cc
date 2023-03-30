@@ -752,7 +752,7 @@ public:
         _services.push_back(std::make_unique<T>(std::forward<Args>(args)...));
     }
 
-    std::string_view name() const final { return "redpanda erraneous proto"; };
+    std::string_view name() const final { return "redpanda erroneous proto"; };
 
     ss::future<> apply(ss::lw_shared_ptr<net::connection> conn) final {
         return ss::do_until(
