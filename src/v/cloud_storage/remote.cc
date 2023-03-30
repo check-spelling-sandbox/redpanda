@@ -305,7 +305,7 @@ ss::future<upload_result> remote::upload_manifest(
           bucket, path, size, std::move(is), tags, fib.get_timeout());
 
         if (res) {
-            vlog(ctxlog.debug, "Successfuly uploaded manifest to {}", path);
+            vlog(ctxlog.debug, "Successfully uploaded manifest to {}", path);
             switch (manifest.get_manifest_type()) {
             case manifest_type::partition:
                 _probe.partition_manifest_upload();

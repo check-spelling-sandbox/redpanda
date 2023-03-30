@@ -396,7 +396,7 @@ ss::future<> ntp_archiver::upload_until_term_change() {
         } else if (non_compacted_upload_result.num_succeeded != 0) {
             vlog(
               _rtclog.debug,
-              "Successfuly uploaded {} segments",
+              "Successfully uploaded {} segments",
               non_compacted_upload_result.num_succeeded);
         }
 
@@ -469,7 +469,7 @@ ss::future<> ntp_archiver::sync_manifest_until_term_change() {
         } else {
             vlog(
               _rtclog.debug,
-              "Successfuly downloaded manifest {}",
+              "Successfully downloaded manifest {}",
               manifest().get_manifest_path());
         }
         co_await ss::sleep_abortable(_sync_manifest_timeout(), _as);

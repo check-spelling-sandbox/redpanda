@@ -112,7 +112,7 @@ enum class tx_errc {
     pid_not_found,
     // when a request times out a client should not do any assumptions about its
     // effect. the request may time out before reaching the server, the request
-    // may be successuly processed or may fail and the reply times out
+    // may be successfully processed or may fail and the reply times out
     timeout,
     conflict,
     fenced,
