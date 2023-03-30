@@ -80,7 +80,7 @@ void leader_balancer::check_if_controller_leader(
     }
 
     // Active leader balancer again if leadership of
-    // raft0 is transfered to this node.
+    // raft0 is transferred to this node.
     if (_raft0->is_elected_leader()) {
         vlog(
           clusterlog.info,
