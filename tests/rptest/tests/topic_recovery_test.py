@@ -523,7 +523,7 @@ class MissingPartition(BaseCase):
 
 class MissingSegment(BaseCase):
     """Restore topic with missing segment in one of the partitions.
-    Should work just fine and valiate.
+    Should work just fine and validate.
     Note: that test removes segment with base offset 0 to ensure that
     the high watermark of the partition will have expected value after
     the recovery.

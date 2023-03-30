@@ -109,7 +109,7 @@ class RecoveryScale(BaseCase):
     def validate_cluster(self, baseline, restored):
         """Validate all data after recovery."""
         self.logger.info(
-            f"vallidate_cluster base:restored: {baseline}:{restored}")
+            f"validate_cluster base:restored: {baseline}:{restored}")
 
         self._validate_partition_last_offset()
         expected_topics = [
