@@ -49,7 +49,7 @@ using result_wrap_t = typename internal::result_wrap<T>::type;
 ///        error
 ///
 ///        Note that timing out doesn't cancel any tasks associated with the
-///        original future. It also doesn't cancel the callback registerred on
+///        original future. It also doesn't cancel the callback registered on
 ///        it.
 ///
 /// \param timeout time point after which the returned future should be failed
