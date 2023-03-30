@@ -383,7 +383,7 @@ private:
 
     /// Reset reader if current segment is fully consumed.
     /// The object may transition onto a next segment or
-    /// it will transtion into completed state with no reader
+    /// it will transition into completed state with no reader
     /// attached.
     ss::future<bool> maybe_reset_reader() {
         vlog(_ctxlog.debug, "maybe_reset_reader called");
