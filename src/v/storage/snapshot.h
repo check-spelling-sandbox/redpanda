@@ -55,9 +55,9 @@ class snapshot_writer;
  * This is all managed by the consensus and the state machine middleware.  The
  * blob is written by the state machine itself. For example, a state machine may
  * write a small serialized blob, or stream data to the snapshot file. Streaming
- * may be useful in cases where the data structure permits deterministic iteration
- * such as a pre-order tree traversal. The snapshot file contains a footer that
- * records a crc of the snapshot blob itself.
+ * may be useful in cases where the data structure permits deterministic
+ * iteration such as a pre-order tree traversal. The snapshot file contains a
+ * footer that records a crc of the snapshot blob itself.
  *
  * Usage:
  *
@@ -207,7 +207,7 @@ private:
  *
  * Pass the output stream to the state machine
  *
- *    state_machine.take_snapshot(wrtier.output());
+ *    state_machine.take_snapshot(writer.output());
  *
  * Once the state machine has finished writing its snapshot data finalize the
  * snapshot by closing the writer and moving the writer back into the snapshot
