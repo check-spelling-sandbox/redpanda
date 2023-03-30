@@ -621,7 +621,7 @@ class ArchivalTest(RedpandaTest):
                                     node_key, nsegm.normalized_path,
                                     msegm.size)
                                 self.logger.info(
-                                    f"partial hash {actual_hash} retreived, s3 hash {msegm.md5}"
+                                    f"partial hash {actual_hash} retrieved, s3 hash {msegm.md5}"
                                 )
                                 if actual_hash == msegm.md5:
                                     manifest_segments[mix] = None
