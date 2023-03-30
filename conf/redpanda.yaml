@@ -38,7 +38,7 @@ redpanda:
     port: 9644
 
   # Skips most of the checks performed at startup (i.e. memory, xfs)
-  # not recomended for production use
+  # not recommended for production use
   developer_mode: true
 
 # Enable Pandaproxy
