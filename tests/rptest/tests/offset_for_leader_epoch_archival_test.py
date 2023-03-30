@@ -96,7 +96,7 @@ class OffsetForLeaderEpochArchivalTest(RedpandaTest):
             epoch_offsets[res[0].leader_epoch] = res[0].high_watermark
             self.redpanda.restart_nodes(self.redpanda.nodes)
 
-        self.logger.info(f"ledear epoch high watermarks: {epoch_offsets}")
+        self.logger.info(f"leader epoch high watermarks: {epoch_offsets}")
 
         wait_for_topic()
 
