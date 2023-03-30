@@ -685,7 +685,7 @@ FIXTURE_TEST(test_node_cancelation, partition_balancer_planner_fixture) {
 
 /*
  * 5 nodes; 1 topic; 1 node down;
- * Rebalaning process should select node_4 according to rack awareness
+ * Rebalancing process should select node_4 according to rack awareness
  * constraint
  * Actual
  *   node_0: partitions: 1; down: True; disk: unfilled; rack_1;
