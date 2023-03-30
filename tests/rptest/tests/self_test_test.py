@@ -81,7 +81,7 @@ class SelfTestTest(RedpandaTest):
 
         # Assert correct combinations of nodes were chosen. The network self
         # test should only be run on unique pairs of nodes
-        def seperate_pairings(result):
+        def separate_pairings(result):
             # Returns a 2-tuple of type (int, int[]) where the first parameter
             # is the node that issued the netcheck benchmark (client) and the
             # second parameter is the list of servers the test was run against
@@ -95,7 +95,7 @@ class SelfTestTest(RedpandaTest):
             return (int(result['node_id']), [int(r[1]) for r in mmxs])
 
         # Should be something like: {0: [1,2], 1: [2,3,4], ... etc}
-        netcheck_pairings = [seperate_pairings(r) for r in node_reports]
+        netcheck_pairings = [separate_pairings(r) for r in node_reports]
         netcheck_pairings = {k: v for k, v in netcheck_pairings}
         self.logger.debug(f"netcheck_pairings: {netcheck_pairings}")
         for client, servers in netcheck_pairings.items():
