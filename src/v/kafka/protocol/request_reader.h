@@ -131,7 +131,7 @@ public:
         return _parser.read_bytes(n - 1);
     }
 
-    // Stronly suggested to use read_nullable_iobuf
+    // Strongly suggested to use read_nullable_iobuf
     std::optional<iobuf> read_fragmented_nullable_bytes() {
         auto [io, count] = read_nullable_iobuf();
         if (count < 0) {
