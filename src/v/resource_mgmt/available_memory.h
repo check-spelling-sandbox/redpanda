@@ -50,7 +50,7 @@ class available_memory final {
 public:
     using deregister_holder = std::unique_ptr<reporter>;
 
-    // does not make sense to move or cpoy this object
+    // does not make sense to move or copy this object
     available_memory();
     available_memory(available_memory&) = delete;
     available_memory& operator=(const available_memory&) = delete;
