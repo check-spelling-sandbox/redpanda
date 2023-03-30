@@ -521,7 +521,7 @@ void test_impostor_request(
     auto [req_stream, resp_stream]
       = client->make_request(std::move(header)).get0();
 
-    bool failure_occured = false;
+    bool failure_occurred = false;
     iobuf body;
     iobuf response_body;
     try {
@@ -540,12 +540,12 @@ void test_impostor_request(
             response_body.append(std::move(res));
         }
     } catch (...) {
-        failure_occured = true;
+        failure_occurred = true;
         check_error(std::current_exception());
     }
 
     // Check response
-    if (!failure_occured) {
+    if (!failure_occurred) {
         check_reply(resp_stream->get_headers(), std::move(response_body));
     }
 

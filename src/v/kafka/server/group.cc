@@ -2797,7 +2797,7 @@ ss::future<error_code> group::remove() {
         } else {
             vlog(
               klog.error,
-              "Error occured replicating group {} delete records {} ({})",
+              "Error occurred replicating group {} delete records {} ({})",
               _id,
               result.error().message(),
               result.error());
@@ -2805,7 +2805,7 @@ ss::future<error_code> group::remove() {
     } catch (const std::exception& e) {
         vlog(
           klog.error,
-          "Exception occured replicating group {} delete records {}",
+          "Exception occurred replicating group {} delete records {}",
           _id,
           e);
     }
@@ -2884,7 +2884,7 @@ group::remove_topic_partitions(const std::vector<model::topic_partition>& tps) {
         } else {
             vlog(
               klog.error,
-              "Error occured replicating group {} cleanup records {} ({})",
+              "Error occurred replicating group {} cleanup records {} ({})",
               _id,
               result.error().message(),
               result.error());
@@ -2892,7 +2892,7 @@ group::remove_topic_partitions(const std::vector<model::topic_partition>& tps) {
     } catch (const std::exception& e) {
         vlog(
           klog.error,
-          "Exception occured replicating group {} cleanup records {}",
+          "Exception occurred replicating group {} cleanup records {}",
           _id,
           e);
     }
