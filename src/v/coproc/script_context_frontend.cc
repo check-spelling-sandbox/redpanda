@@ -78,7 +78,7 @@ storage::log_reader_config get_reader(
     }
     /// The 'high watermark' of the current read. All output topics have
     /// processed all inputs below this value. When the offsets map for all
-    /// outputs has values equivlent to this, it means all outputs are up to
+    /// outputs has values equivalent to this, it means all outputs are up to
     /// date and a new 'high watermark' can be promoted due to read progressing
     /// forward.
     rctx.last_acked = start;
