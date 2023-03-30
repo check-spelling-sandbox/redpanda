@@ -860,7 +860,7 @@ members_manager::dispatch_join_to_seed_server(
         vlog(clusterlog.debug, "Using current node as a seed server");
         f = handle_join_request(req);
     } else {
-        // If seed is the other server then dispatch join requst to it.
+        // If seed is the other server then dispatch join request to it.
         // Copy request because if this fails we will proceed to next
         // see server and reuse original request object
         f = dispatch_join_to_remote(*it, join_node_request(req));

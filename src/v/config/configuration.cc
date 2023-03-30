@@ -476,7 +476,7 @@ configuration::configuration()
       *this,
       "alter_topic_cfg_timeout_ms",
       "Time to wait for entries replication in controller log when executing "
-      "alter configuration requst",
+      "alter configuration request",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
       5s)
   , log_cleanup_policy(

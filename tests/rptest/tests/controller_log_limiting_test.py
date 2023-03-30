@@ -82,10 +82,10 @@ class TopicOperationsLimitingTest(RedpandaTest):
 
     @cluster(num_nodes=3)
     def test_create_partition_limit(self):
-        requsts_amount_1 = OPERATIONS_LIMIT * 2
+        requests_amount_1 = OPERATIONS_LIMIT * 2
         self.check_available_metric(OPERATIONS_LIMIT)
         exceed_quota_req = []
-        for i in range(requsts_amount_1):
+        for i in range(requests_amount_1):
             exceed_quota_req.append(KclCreateTopicsRequestTopic(str(i), 1, 1))
         wait_until(lambda: self.check_capacity_is_full(OPERATIONS_LIMIT),
                    timeout_sec=10,
@@ -100,9 +100,9 @@ class TopicOperationsLimitingTest(RedpandaTest):
                 success_amount += 1
             if topic_response['ErrorCode'] == TOO_MANY_REQUESTS_ERROR_CODE:
                 errors_amount += 1
-        assert success_amount + errors_amount == requsts_amount_1
+        assert success_amount + errors_amount == requests_amount_1
         assert success_amount == OPERATIONS_LIMIT
-        assert errors_amount == requsts_amount_1 - OPERATIONS_LIMIT
+        assert errors_amount == requests_amount_1 - OPERATIONS_LIMIT
 
         self.check_dropped_metric(OPERATIONS_LIMIT)
 

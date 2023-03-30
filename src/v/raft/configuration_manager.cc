@@ -451,7 +451,7 @@ int64_t configuration_manager::offset_delta(model::offset o) const {
     if (it == begin()) {
         /**
          * iterator points to the first configuration with offset greater
-         * than then requsted one. Knowing an index of that configuration we
+         * than then requested one. Knowing an index of that configuration we
          * know that there was exactly (index -1) configurations with offset
          * lower than the current one. We can simply subtract one from
          * index.

@@ -129,7 +129,7 @@ ss::future<> metadata_dissemination_service::start() {
         all_broker_addresses.emplace(id);
     }
 
-    // We do not want to send requst to self
+    // We do not want to send request to self
     all_broker_addresses.erase(_self.rpc_address());
 
     // Do nothing, single node cluster
