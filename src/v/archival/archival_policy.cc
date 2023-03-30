@@ -314,7 +314,7 @@ static ss::future<std::optional<std::error_code>> get_file_range(
 ///
 /// \note Normally, the segments on a single node doesn't overlap,
 ///       but when leadership changes the new node will have to deal
-///       with the situaiton when 'last_offset' doesn't match base
+///       with the situation when 'last_offset' doesn't match base
 ///       offset of any segment. In this situation we need to find
 ///       the segment that contains the 'last_offset' and find the
 ///       exact location of the 'last_offset' inside the segment (
