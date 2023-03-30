@@ -39,7 +39,7 @@ COPY --chown=0:0 tests/java/e2e-verifiers /opt/redpanda-tests/java/e2e-verifiers
 COPY --chown=0:0 tests/java/verifiers /opt/redpanda-tests/java/verifiers
 RUN /opt/ducktape-deps.sh install_java_test_clients
 
-# - install distro-packaged depedencies
+# - install distro-packaged dependencies
 # - allow user env variables in ssh sessions
 # - install dependencies of 'rpk debug' system scan
 RUN /opt/ducktape-deps.sh install_system_deps && \
