@@ -24,7 +24,7 @@ namespace cloud_storage {
 
 using int64_delta_alg = details::delta_delta<int64_t>;
 using int64_xor_alg = details::delta_xor;
-// Column for monotonically increaseing data
+// Column for monotonically increasing data
 using counter_col_t = segment_meta_column<int64_t, int64_delta_alg>;
 // Column for varying data
 using gauge_col_t = segment_meta_column<int64_t, int64_xor_alg>;
