@@ -75,7 +75,7 @@ public:
 
     /// \brief Starts the pseudo-fiber
     ///
-    /// Emmulates a single sharded script_context. The main advantage of this
+    /// Emulates a single sharded script_context. The main advantage of this
     /// being its now possible to know when a fiber is 'done'. This is when all
     /// outputs have caught up with their respective inputs.
     ///
