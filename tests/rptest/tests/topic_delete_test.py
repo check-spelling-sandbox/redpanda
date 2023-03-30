@@ -638,7 +638,7 @@ class TopicDeleteStressTest(RedpandaTest):
     The purpose of this test is to execute topic deletion during compaction process.
 
     The testing strategy is:
-        1. Start to produce messaes
+        1. Start to produce messages
         2. Produce until compaction starting
         3. Delete topic
         4. Verify that all data for kafka namespace will be deleted
