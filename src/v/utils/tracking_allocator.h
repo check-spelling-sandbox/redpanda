@@ -78,7 +78,7 @@ private:
 /// are swapped.
 
 /// Note on thread-safety: This allocator implementation has the same thread
-/// safetly guarantees as the underlying allocator when used in a seastar
+/// safety guarantees as the underlying allocator when used in a seastar
 /// context. All the shard local read/writes can be lock free and safe by
 /// default. All cross shard/thread accesses are safe owing to the use
 /// of atomics for accounting consumption.
