@@ -146,7 +146,7 @@ deallocation if we later remove the assignment.
 
 The solution however ignores rack diversity, soft constraints
 also known as affinity, anti-affinity for negative
-constraints as well as _hard constraints_ whic make
+constraints as well as _hard constraints_ which make
 the affinities a failure on allocation.
 
 These techniques require a much more sophisticated scheduler,

@@ -190,7 +190,7 @@ std::optional<ss::sstring> principal_mapper::apply(std::string_view sv) const {
 } // namespace security::tls
 
 // explicit instantiations so as to avoid bringing in <fmt/ranges.h> in the
-// header, whch breaks compilation in another part of the codebase.
+// header, which breaks compilation in another part of the codebase.
 template<>
 typename fmt::basic_format_context<fmt::appender, char>::iterator
 fmt::formatter<security::tls::rule, char, void>::format<
