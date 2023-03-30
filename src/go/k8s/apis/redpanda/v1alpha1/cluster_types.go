@@ -1111,7 +1111,7 @@ func (k KafkaAPI) GetExternal() *ExternalConnectivityConfig {
 	return &k.External
 }
 
-// IsMutualTLSEnabled returns true if API requires client aut
+// IsMutualTLSEnabled returns true if API requires client auth
 //
 //nolint:gocritic // TODO KafkaAPI is now 81 bytes, consider a pointer
 func (k KafkaAPI) IsMutualTLSEnabled() bool {
