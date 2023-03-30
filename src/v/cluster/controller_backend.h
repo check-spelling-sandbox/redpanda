@@ -273,7 +273,7 @@ private:
     /**
      * Function that will clean orphan topic files on redpanda startup
      * Orphan topic files is files that left on disk after some node
-     * manipullations and redpanda doesn't know about these files, so it is
+     * manipulations and redpanda doesn't know about these files, so it is
      * impossible to remove them with default approach. Currently we may leave
      * orphan topic files when we restart redpanda while partition deletion
      * operation was evaluating but hasn't finished yet.

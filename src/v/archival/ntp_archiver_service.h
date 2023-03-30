@@ -47,7 +47,7 @@ std::ostream& operator<<(std::ostream& os, segment_upload_kind upload_kind);
 /// 'ntp_archiver' instances that the shard posesses are supposed to be
 /// aggregated on a higher level in the 'archiver_service'.
 ///
-/// The 'ntp_archiver' is responsible for manifest manitpulations and
+/// The 'ntp_archiver' is responsible for manifest manipulations and
 /// generation of per-ntp candidate set. The actual file uploads are
 /// handled by 'archiver_service'.
 ///
