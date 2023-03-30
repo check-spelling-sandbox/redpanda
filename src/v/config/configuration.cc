@@ -1698,7 +1698,7 @@ configuration::configuration()
       *this,
       "memory_abort_on_alloc_failure",
       "If true, the redpanda process will terminate immediately when an "
-      "allocation cannot be satisfied due to memory exhasution. If false, an "
+      "allocation cannot be satisfied due to memory exhaustion. If false, an "
       "exception is thrown instead.",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
       true)
