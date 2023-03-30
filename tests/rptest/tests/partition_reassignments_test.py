@@ -290,7 +290,7 @@ class PartitionReassignmentsTest(RedpandaTest):
             reassignments=reassignments,
             operation="execute",
             # RP may report that the topic does not exist, this can
-            # happen when the recieving broker has out-of-date metadata. So
+            # happen when the receiving broker has out-of-date metadata. So
             # retry the request a few times.
             msg_retry="Topic or partition is undefined",
             timeout_s=timeout_s).splitlines()

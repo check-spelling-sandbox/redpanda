@@ -296,7 +296,7 @@ class KCL:
                         'Number of replicas != topic replication factor')
 
                 # RP may report that the topic does not exist, this can
-                # happen when the recieving broker has out-of-date metadata. So
+                # happen when the receiving broker has out-of-date metadata. So
                 # retry the request.
                 m = unknown_tp_re.match(l)
                 if m is not None:
