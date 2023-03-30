@@ -130,7 +130,7 @@ public:
 
 private:
     /// It is a conscious choice to use a shared_ptr instead of an
-    /// lw_shared_ptr to allow threaad-safety when shared across cores.
+    /// lw_shared_ptr to allow thread-safety when shared across cores.
     ss::shared_ptr<mem_tracker> _tracker;
 };
 
