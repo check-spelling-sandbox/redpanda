@@ -24,15 +24,15 @@ using is_node_isolated_or_decommissioned
 
 inline is_node_isolated_or_decommissioned
 node_isolated_or_decommissioned(request_context& ctx) {
-    auto isoalted_or_decommissioned = is_node_isolated_or_decommissioned::no;
+    auto isolated_or_decommissioned = is_node_isolated_or_decommissioned::no;
     if (ctx.feature_table().local().is_active(
           features::feature::node_isolation)) {
-        isoalted_or_decommissioned = ctx.metadata_cache().is_node_isolated()
+        isolated_or_decommissioned = ctx.metadata_cache().is_node_isolated()
                                        ? is_node_isolated_or_decommissioned::yes
                                        : is_node_isolated_or_decommissioned::no;
     }
 
-    return isoalted_or_decommissioned;
+    return isolated_or_decommissioned;
 }
 
 } // namespace kafka
