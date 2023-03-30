@@ -553,7 +553,7 @@ FIXTURE_TEST(even_distribution_pri_allocation, partition_allocator_fixture) {
                      == n.partition_capacity();
           }));
 
-        // occassionaly deallocate prior allocations
+        // occasionally deallocate prior allocations
         if (i % 2 == 0) {
             units.pop_front();
             // after deallocation, partitions in the priority domain are not
