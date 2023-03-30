@@ -972,7 +972,7 @@ ss::future<tx_errc> rm_stm::do_abort_tx(
             // Or it may mean that a tx coordinator
             //   - lost its state
             //   - rolled back to previous op
-            //   - the previous op happend to be an abort
+            //   - the previous op happened to be an abort
             //   - the coordinator retried it
             //
             // In the first case the least impactful way to reject the request.

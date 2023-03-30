@@ -690,7 +690,7 @@ FIXTURE_TEST(test_eviction_notification, storage_test_fixture) {
       .get();
     auto compacted_lstats = log.offsets();
     info("Compacted offsets {}", compacted_lstats);
-    // check if compaction happend
+    // check if compaction happened
     BOOST_REQUIRE_EQUAL(
       compacted_lstats.start_offset,
       lstats_before.dirty_offset + model::offset(1));

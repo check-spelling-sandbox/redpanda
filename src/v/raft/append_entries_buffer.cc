@@ -25,7 +25,7 @@ append_entries_buffer::enqueue(append_entries_request&& r) {
     gate_guard guard(_gate);
 
     // we normally do not want to wait as it would cause requests
-    // reordering. Reordering may only happend if we would wait on condition
+    // reordering. Reordering may only happened if we would wait on condition
     // variable.
 
     return _flushed.wait([this] { return _requests.size() < _max_buffered; })

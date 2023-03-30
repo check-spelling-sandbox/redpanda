@@ -694,7 +694,7 @@ class ArchivalTest(RedpandaTest):
 
     def _quick_verify(self):
         """Verification algorithm that works only if no leadership
-        transfer happend during the run. It works by looking up all
+        transfer happened during the run. It works by looking up all
         segments from the remote storage in local redpanda storages.
         It's done by using md5 hashes of the nodes.
         """

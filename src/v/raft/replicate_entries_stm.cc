@@ -332,7 +332,7 @@ replicate_entries_stm::wait_for_majority() {
     /**
      * we have to finish replication when committed offset is greater or
      * equal to the appended offset or when term have changed after
-     * commit_index update, if that happend it means that entry might
+     * commit_index update, if that happened it means that entry might
      * have been either committed or truncated
      */
     auto stop_cond = [this, appended_offset, appended_term] {
