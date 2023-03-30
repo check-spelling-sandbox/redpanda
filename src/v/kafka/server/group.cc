@@ -524,7 +524,7 @@ group::handle_join_group(join_group_request&& r, bool is_new_group) {
     }
 
     // TODO: move the logic in this method up to group manager to make the
-    // handling of is_new_group etc.. clearner rather than passing these flags
+    // handling of is_new_group etc.. cleaner rather than passing these flags
     // down into the group-level handler.
     if (
       !is_new_group && !_initial_join_in_progress
