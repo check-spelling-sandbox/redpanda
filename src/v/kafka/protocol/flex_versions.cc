@@ -21,7 +21,7 @@ static constexpr api_version invalid_api = api_version(-2);
 template<typename... RequestTypes>
 static constexpr auto
 get_flexible_request_min_versions_list(type_list<RequestTypes...> r) {
-    /// An std::array where the indicies map to api_keys and values at an index
+    /// An std::array where the indices map to api_keys and values at an index
     /// map to the first flex version for a given api. If an api doesn't exist
     /// at an index -2 or \ref invalid_api will be the value at the index.
     std::array<api_version, max_api_key(r) + 1> versions;

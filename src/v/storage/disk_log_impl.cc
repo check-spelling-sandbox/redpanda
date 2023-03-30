@@ -1778,7 +1778,7 @@ ss::future<usage_report> disk_log_impl::disk_usage(compaction_config cfg) {
 
     /*
      * usage is the persistent size of on disk segment components (e.g. data and
-     * indicies) accumulated across all segments.
+     * indices) accumulated across all segments.
      */
     usage usage = retention + available + remaining;
 
