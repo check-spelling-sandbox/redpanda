@@ -78,7 +78,7 @@ public:
     /// If 'drain' is false, the workflow will continue executing jobs until the
     /// backlog will become empty or the workflow will be put on pause by
     /// calling a 'pause' method. When the backlog will become empty the
-    /// workflow will go into idle state until the next call to 'resume' methd.
+    /// workflow will go into idle state until the next call to 'resume' method.
     void resume(bool drain);
 
     /// Pause running jobs.

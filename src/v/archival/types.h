@@ -70,7 +70,7 @@ struct configuration {
 };
 
 /// \brief create scheduler service config
-/// This mehtod will use shard-local redpanda configuration
+/// This method will use shard-local redpanda configuration
 /// to generate the configuration.
 /// \param sg is a scheduling group used to run all uploads
 /// \param p is an io priority class used to throttle upload file reads
