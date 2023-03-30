@@ -11,7 +11,7 @@
 
 #pragma once
 /**
- * Transpartent hash & eq functors for ss::sstring
+ * Transparent hash & eq functors for ss::sstring
  */
 #include "seastarx.h"
 
