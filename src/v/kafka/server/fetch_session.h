@@ -33,7 +33,7 @@ struct fetch_session_partition {
 };
 /**
  * Map of partitions that is kept by fetch session. This map is using intrusive
- * list to allow interation with preserved insertion order. We require such
+ * list to allow interaction with preserved insertion order. We require such
  * semantics as partitions order in fetch request/response have to be the same.
  *
  * Internally the map is based on absl::flat_hash_map containing entries that
