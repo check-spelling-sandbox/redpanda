@@ -1630,7 +1630,7 @@ ss::future<result<kafka_result>> rm_stm::replicate_seq(
     }
 
     // apparently we process an unseen request
-    // checking if it isn't out of order with the already procceses
+    // checking if it isn't out of order with the already processes
     // or inflight requests
     if (session->cache.size() == 0) {
         // no inflight requests > checking processed

@@ -44,7 +44,7 @@ std::ostream& operator<<(std::ostream& os, segment_upload_kind upload_kind);
 
 /// This class performs per-ntp archival workload. Every ntp can be
 /// processed independently, without the knowledge about others. All
-/// 'ntp_archiver' instances that the shard posesses are supposed to be
+/// 'ntp_archiver' instances that the shard processes are supposed to be
 /// aggregated on a higher level in the 'archiver_service'.
 ///
 /// The 'ntp_archiver' is responsible for manifest manipulations and
