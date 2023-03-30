@@ -572,7 +572,7 @@ void dispense_negative_deltas(
     if (unlikely(quotas_left == 0)) {
         vlog(
           klog.error,
-          "qb - No shards to distribute the remianing delta: {}",
+          "qb - No shards to distribute the remaining delta: {}",
           delta);
         return;
     }
