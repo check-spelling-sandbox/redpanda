@@ -200,7 +200,7 @@ N/A. We need _some_ partition allocator for the product.
 
 
 * Internal RPC discussion in case of controller forwarding
-* usage of `machine_lables` is deferred discussion for RPC RFC
+* usage of `machine_labels` is deferred discussion for RPC RFC
 * Taints & Tolerations scheduling, also known as soft and hard
   constraints.
 * Interface exposed to the Kafka Admin API
