@@ -29,7 +29,7 @@ namespace cluster {
 /// be executing at once. start_test() immediately returns and tests execute in
 /// the background, its the clients job to periodically query for finished
 /// tests. The last successful test results and its test identifier are cached
-/// for later retrival.
+/// for later retrieval.
 class self_test_backend {
 public:
     static constexpr ss::shard_id shard = 0;

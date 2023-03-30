@@ -24,7 +24,7 @@ namespace coproc::wasm {
 /// Main interface between redpanda and the wasm engine.
 ///
 /// Registers / deregisters scripts with the wasm engine over TCP, and upon
-/// retrival of the reply, invokes the appropriate action within the pacemaker.
+/// retrieval of the reply, invokes the appropriate action within the pacemaker.
 class script_dispatcher {
 public:
     script_dispatcher(
@@ -35,14 +35,14 @@ public:
     /// Called when new coprocessors arrive on the coproc_internal_topic
     ///
     /// The wasm engine will be sent the list of coprocessors to enable
-    /// Upon retrival of each successful ack, the script will be registered with
-    /// the pacemaker.
+    /// Upon retrieval of each successful ack, the script will be registered
+    /// with the pacemaker.
     ss::future<std::error_code> enable_coprocessors(enable_copros_request);
 
     /// Called when removal commands arrive on the coproc_internal_topic
     ///
     /// The wasm engine will be send the list of coprocessor ids to remove from
-    /// its internal map. Upon retrival of each successful ack, the script will
+    /// its internal map. Upon retrieval of each successful ack, the script will
     /// be deregistered from the pacemaker.
     ss::future<std::error_code> disable_coprocessors(disable_copros_request);
 
