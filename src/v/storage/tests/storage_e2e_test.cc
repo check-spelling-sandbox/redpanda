@@ -2696,7 +2696,7 @@ FIXTURE_TEST(compaction_truncation_corner_cases, storage_test_fixture) {
       };
     {
         /**
-         * Truncate with dirty offset being preceeded by a gap
+         * Truncate with dirty offset being preceded by a gap
          *
          * segment: [[batch (base_offset: 0)][gap][batch (base_offset: 10)]]
          *

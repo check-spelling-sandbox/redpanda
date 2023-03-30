@@ -102,7 +102,7 @@ std::string display_ctx_flags(OM_uint32 flags) {
  * Effects:
  *
  * The GSS-API messages associated with maj_stat and min_stat are
- * displayed on stderr, each preceeded by "GSS-API error <msg>:
+ * displayed on stderr, each preceded by "GSS-API error <msg>:
 " and
  * followed by a newline.
  */
