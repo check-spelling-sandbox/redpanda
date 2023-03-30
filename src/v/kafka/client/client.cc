@@ -518,9 +518,10 @@ ss::future<kafka::fetch_response> client::consumer_fetch(
   const member_id& name,
   std::optional<std::chrono::milliseconds> timeout,
   std::optional<int32_t> max_bytes) {
-    const auto config_timout = _config.consumer_request_timeout.value();
+    const auto config_timeout = _config.consumer_request_timeout.value();
     const auto end = model::timeout_clock::now()
-                     + std::min(config_timout, timeout.value_or(config_timout));
+                     + std::min(
+                       config_timeout, timeout.value_or(config_timeout));
     return gated_retry_with_mitigation([this, g_id, name, end, max_bytes]() {
         vlog(kclog.debug, "consumer_fetch: group_id: {}, name: {}", g_id, name);
         return get_consumer(g_id, name)

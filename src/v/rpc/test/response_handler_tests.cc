@@ -63,7 +63,7 @@ FIXTURE_TEST(fail_other_error_with_timeout, test_fixture) {
     BOOST_REQUIRE_EQUAL(triggered, false);
 };
 
-FIXTURE_TEST(success_case_with_timout, test_fixture) {
+FIXTURE_TEST(success_case_with_timeout, test_fixture) {
     auto rh = create_handler(100s);
     rh.set_value(std::make_unique<test_str_ctx>());
 
