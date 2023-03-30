@@ -1,4 +1,4 @@
-- Feature Name: Client conection limits
+- Feature Name: Client connection limits
 - Status: implemented
 - Start Date: 2022-02-07
 - Authors: John Spray

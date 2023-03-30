@@ -72,7 +72,7 @@ public:
     ss::future<>
     wait(typename Clock::duration max_wait_time, server_probe& probe) {
         if (need_wait()) {
-            probe.waiting_for_conection_rate();
+            probe.waiting_for_connection_rate();
         }
         co_await bucket.wait(max_wait_time, 1);
     }
