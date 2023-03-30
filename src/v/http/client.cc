@@ -104,7 +104,7 @@ ss::future<client::request_response_t> client::make_request(
               std::make_tuple(req, res));
         } else {
             vlog(ctxlog.debug, "shutdown connection, age {}", age.count());
-            // Connection is too old and likeley already received
+            // Connection is too old and likely already received
             // RST packet from the server. If we will try to use
             // it the broken pipe (32) error will be triggered.
             shutdown();
