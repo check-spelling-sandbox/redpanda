@@ -686,7 +686,7 @@ FIXTURE_TEST(test_index_max_timestamp_update, storage_test_fixture) {
     // The maximum timestamp in the index should be the maximum
     // timestamp of the batch preceeding the batch where the truncation
     // occurred. In this case, truncation happened in the last batch,
-    // so we require the max timestmap to be that of the previous second
+    // so we require the max timestamp to be that of the previous second
     // batch.
     BOOST_REQUIRE(impl.segment_count() == 1);
     const auto& seg = impl.segments().front();
