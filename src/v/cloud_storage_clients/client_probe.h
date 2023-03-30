@@ -40,7 +40,7 @@ enum class op_type_tag { upload, download };
 ///       endpoint and we don't want to look at every individual
 ///       http connection here because they can be transient.
 ///       Approach that RPC package uses will lead to cardinality
-///       inflation in prometheous creating a lot of small
+///       inflation in prometheus creating a lot of small
 ///       time-series.
 class client_probe : public http::client_probe {
 public:
