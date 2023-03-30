@@ -160,8 +160,8 @@ func NewFilesystemTypeChecker(path string) Checker {
 		})
 }
 
-func NewIOConfigFileExistanceChecker(fs afero.Fs, filePath string) Checker {
-	return NewFileExistanceChecker(
+func NewIOConfigFileExistenceChecker(fs afero.Fs, filePath string) Checker {
+	return NewFileExistenceChecker(
 		fs,
 		IoConfigFileChecker,
 		"I/O config file present",
@@ -174,7 +174,7 @@ func NewBallastFileChecker(fs afero.Fs, conf *config.Config) Checker {
 	if conf.Rpk.BallastFilePath != "" {
 		path = conf.Rpk.BallastFilePath
 	}
-	return NewFileExistanceChecker(
+	return NewFileExistenceChecker(
 		fs,
 		IoConfigFileChecker,
 		"Ballast file present",
@@ -231,7 +231,7 @@ func RedpandaCheckers(
 		fs, irqProcFile, irqDeviceInfo, ethtool, balanceService, cpuMasks)
 	checkers := map[CheckerID][]Checker{
 		ConfigFileChecker:             {NewConfigChecker(config)},
-		IoConfigFileChecker:           {NewIOConfigFileExistanceChecker(fs, ioConfigFile)},
+		IoConfigFileChecker:           {NewIOConfigFileExistenceChecker(fs, ioConfigFile)},
 		FreeMemChecker:                {NewMemoryChecker(fs)},
 		SwapChecker:                   {NewSwapChecker(fs)},
 		DataDirAccessChecker:          {NewDataDirWritableChecker(fs, config.Redpanda.Directory)},

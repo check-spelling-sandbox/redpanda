@@ -158,7 +158,7 @@ static ss::future<> maybe_make_materialized_log(
             new_materialized));
     }
     /// Leader could be on a different machine, can only wait until log comes
-    /// into existance
+    /// into existence
     if (!is_leader) {
         throw follower_create_topic_exception(fmt::format(
           "Follower of source topic {} attempted to created materialzied "
