@@ -585,7 +585,7 @@ ss::future<client::response_stream_ref> client::request(
                 [request = request]() { return request->send_eof(); });
           } else {
               // since the input stream has some data we can use
-              // output_stream interace of the request
+              // output_stream interface of the request
               fsend = ss::do_with(
                 request->as_output_stream(),
                 [&input](ss::output_stream<char>& output) {
