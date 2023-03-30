@@ -123,7 +123,7 @@ ss::future<> segment_appender::append(const iobuf& io) {
 ss::future<> segment_appender::append(const char* buf, const size_t n) {
     // seastar is optimized for timers that never fire. here the timer is
     // cancelled because it firing may dispatch a background write, which as
-    // currently formulated, is not safe to interlave with append.
+    // currently formulated, is not safe to interleave with append.
     _inactive_timer.cancel();
     return do_append(buf, n).then([this] {
         if (_head && _head->bytes_pending()) {
