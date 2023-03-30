@@ -23,7 +23,7 @@ Pass the kafka api request key and the api version of a request you want to
 generate. If its actually a response pass `-is-request=false` to the program. 
 It will write binary data to stdout, so if your using this for manual testing 
 and would like to see ASCII data on stdout instead for whatever reason, pass 
--binary-output=false to the program to get a hex formatted represetation 
+-binary-output=false to the program to get a hex formatted representation 
 instead.
 
 ### Generated requests
