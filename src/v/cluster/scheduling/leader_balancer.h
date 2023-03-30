@@ -145,7 +145,7 @@ private:
     /*
      * timeout used to mute groups. groups are muted in various scenarios such
      * as if they experience errors being moved, but also if they are moved
-     * successfully so that we do not pertrub them too much on accident.
+     * successfully so that we do not perturb them too much on accident.
      */
     config::binding<std::chrono::milliseconds> _mute_timeout;
 
