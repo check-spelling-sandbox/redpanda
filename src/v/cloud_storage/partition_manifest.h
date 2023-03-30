@@ -101,7 +101,7 @@ public:
         static segment_meta convert(const lw_segment_meta& m);
     };
 
-    /// Segment key in the maifest
+    /// Segment key in the manifest
     using key = model::offset;
     using value = segment_meta;
     using segment_map = util::mem_tracked::map_t<absl::btree_map, key, value>;
@@ -249,7 +249,7 @@ public:
     /// Only allows start_offset to move forward
     /// and can only be placed on a segment boundary (should
     /// be equal to base_offset of one of the segments).
-    /// Empty manfest has start_offset set to model::offset::min()
+    /// Empty manifest has start_offset set to model::offset::min()
     /// \returns true if start offset was moved
     bool advance_start_offset(model::offset start_offset);
 

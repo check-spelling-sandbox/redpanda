@@ -91,7 +91,7 @@ public:
     model::initial_revision_id get_revision_id() const;
 
     /// Get time when partition manifest was last uploaded
-    const ss::lowres_clock::time_point get_last_manfiest_upload_time() const {
+    const ss::lowres_clock::time_point get_last_manifest_upload_time() const {
         return _last_manifest_upload_time;
     }
 
