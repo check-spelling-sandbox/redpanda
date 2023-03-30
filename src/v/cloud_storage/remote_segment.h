@@ -137,7 +137,7 @@ private:
     /// Run hydration loop. The method is supposed to be constantly running
     /// in the background. The background loop is triggered by the condition
     /// variable '_bg_cvar' and the promise list '_wait_list'. When the promise
-    /// is waitning in the list and the cond-variable is triggered the loop
+    /// is waiting in the list and the cond-variable is triggered the loop
     /// wakes up and hydrates the segment if needed.
     ss::future<> run_hydrate_bg();
 

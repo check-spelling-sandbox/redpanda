@@ -584,7 +584,7 @@ inline void wait_for(
         auto elapsed = clock_t::now() - start;
         if (elapsed > timeout) {
             BOOST_FAIL(
-              fmt::format("Timeout elapsed while wating for: {}", msg));
+              fmt::format("Timeout elapsed while waiting for: {}", msg));
         }
         res = p();
         ss::sleep(std::chrono::milliseconds(400)).get0();
