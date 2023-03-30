@@ -124,7 +124,7 @@ private:
     /*
      * the balancer will go idle in different scenarios such as losing raft0
      * leadership, or when leadership balance cannot be improved.  for good
-     * responsivenss, sub-system upcalls may wake-up the balancer when
+     * responsiveness, sub-system upcalls may wake-up the balancer when
      * leadership is regained or some threshold set of leadership change is
      * identified. as a defensive measure, we set an idle timeout to run a
      * balancing tick at low frequency in case some upcall is missed.
