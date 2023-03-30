@@ -137,7 +137,7 @@ public:
       uint64_t, ss::input_stream<char>)>;
 
     /// Functor that should be provided by user when list_objects api is called.
-    /// It receives every key that matches the query as well as it's modifiation
+    /// It receives every key that matches the query as well as it's modification
     /// time, size in bytes, and etag.
     using list_objects_consumer = std::function<ss::stop_iteration(
       ss::sstring, std::chrono::system_clock::time_point, size_t, ss::sstring)>;
