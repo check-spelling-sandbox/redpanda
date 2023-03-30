@@ -36,7 +36,7 @@ using gauge_col_t = segment_meta_column<int64_t, int64_xor_alg>;
 /// value 8 and smaller values.
 static constexpr uint32_t sampling_rate = 8;
 
-// Sampling rate shold be proportional to max_frame_size so we will
+// Sampling rate should be proportional to max_frame_size so we will
 // sample first row of every frame.
 static_assert(
   gauge_col_t::max_frame_size % sampling_rate == 0, "Invalid sampling rate");

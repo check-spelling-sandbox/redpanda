@@ -1177,7 +1177,7 @@ ss::future<std::error_code> topics_frontend::increase_replication_factor(
 
     auto partition_count = tp_metadata->get_configuration().partition_count;
 
-    // units shold exist during replicate_and_wait call
+    // units should exist during replicate_and_wait call
     using units_from_allocator
       = ss::foreign_ptr<std::unique_ptr<allocation_units>>;
     std::vector<units_from_allocator> units;

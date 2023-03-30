@@ -1769,7 +1769,7 @@ ss::future<bool> ntp_archiver::upload(
     // the only reason why the list of locks is empty is truncation.
     // The log could be truncated right after we scanned the manifest to
     // find upload candidate. In this case we will get an empty candidate
-    // which is not a failure so we shuld return 'true'.
+    // which is not a failure so we should return 'true'.
     return ss::make_ready_future<bool>(true);
 }
 
