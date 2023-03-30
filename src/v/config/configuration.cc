@@ -423,7 +423,7 @@ configuration::configuration()
   , metadata_dissemination_interval_ms(
       *this,
       "metadata_dissemination_interval_ms",
-      "Interaval for metadata dissemination batching",
+      "Interval for metadata dissemination batching",
       {.example = "5000", .visibility = visibility::tunable},
       3'000ms)
   , metadata_dissemination_retry_delay_ms(
