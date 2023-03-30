@@ -217,7 +217,7 @@ ss::future<> script_context::shutdown() {
     for (auto& [ntp, update] : updates) {
         for (auto& p : update->ps) {
             p.set_exception(wait_future_stranded(
-              ssx::sformat("Failed to fufill event for partition: {}", ntp)));
+              ssx::sformat("Failed to fulfill event for partition: {}", ntp)));
         }
     }
 }

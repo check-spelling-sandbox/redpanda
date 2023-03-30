@@ -26,7 +26,7 @@
 namespace coproc {
 
 /// Raised when futures enqueued by an async update were failed to be
-/// fufilled due to shutdown before the event occurring
+/// fulfilled due to shutdown before the event occurring
 class wait_future_stranded final : public exception {
     using exception::exception;
 };
