@@ -92,7 +92,7 @@ FIXTURE_TEST(reclaim, fixture) {
     stats = ss::memory::stats();
     BOOST_TEST(stats.reclaims() == 0);
 
-    // now allocate past what should cause relcaims to trigger
+    // now allocate past what should cause reclaims to trigger
     for (auto i = 0; i < pages_until_reclaim; i++) {
         size_t buf_size = ss::memory::page_size - sizeof(model::record_batch);
         auto batch = make_batch(buf_size);
