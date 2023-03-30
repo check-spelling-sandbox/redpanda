@@ -176,7 +176,7 @@ private:
     ///
     /// The downloaded file will have a custom suffix
     /// which has to be changed. The downloaded file path
-    /// is returned by the futue.
+    /// is returned by the future.
     ss::future<std::optional<cloud_storage::stream_stats>>
     download_segment_file(const segment_meta& segm, const download_part& part);
 
