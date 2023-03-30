@@ -312,7 +312,7 @@ void readers_cache::dispose_in_background(entry* e) {
          * NOTE:
          * _readers intrusive list is supposed to keep resusable readers but
          * when gate closed exception is thrwon we are certain that no more
-         * oprations will be executed on the cache so we can reuse the _readers
+         * operations will be executed on the cache so we can reuse the _readers
          * list to gracefully shutdown readers.
          */
         _readers.push_back(*e);
