@@ -944,7 +944,7 @@ class ManyPartitionsTest(PreallocNodesTest):
         if scale.si_settings:
             self.redpanda.set_si_settings(scale.si_settings)
 
-        # Enable large node-wide thoughput limits to verify they work at scale
+        # Enable large node-wide throughput limits to verify they work at scale
         # To avoid affecting the result of the test with the limit, set them
         # somewhat above expect_bandwidth value per node
         self.redpanda.add_extra_rp_conf({
