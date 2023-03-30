@@ -275,7 +275,7 @@ struct log_reader_config {
     ss::io_priority_class prio;
     std::optional<model::record_batch_type> type_filter;
 
-    /// \brief gurantees first_timestamp >= record_batch.first_timestamp
+    /// \brief guarantees first_timestamp >= record_batch.first_timestamp
     /// it is the std::lower_bound
     std::optional<model::timestamp> first_timestamp;
 

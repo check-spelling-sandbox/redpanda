@@ -54,7 +54,7 @@ compaction_key_reducer::operator()(compacted_index::entry&& e) {
         // if index allocates to much memory remove some entries.
         while (expected_size() >= _max_mem && !_indices.empty()) {
             /**
-             * Evict first entry, we use hash function that guarante good
+             * Evict first entry, we use hash function that guarantee good
              * randomness so evicting first entry is actually evicting a
              * pseudo random element
              */

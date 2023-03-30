@@ -1674,7 +1674,7 @@ ss::future<result<kafka_result>> rm_stm::replicate_seq(
     }
 
     // updating last observed seq, since we hold the mutex
-    // it's guranteed to be latest
+    // it's guaranteed to be latest
     session->tail_seq = bid.last_seq;
 
     auto request = ss::make_lw_shared<inflight_request>();
