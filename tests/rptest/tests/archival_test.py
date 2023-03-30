@@ -451,7 +451,7 @@ class ArchivalTest(RedpandaTest):
                                         topic=self.topic,
                                         target_bytes=local_retention)
 
-    def _check_bucket_is_emtpy(self):
+    def _check_bucket_is_empty(self):
         allobj = self._list_objects()
         for obj in allobj:
             self.logger.debug(

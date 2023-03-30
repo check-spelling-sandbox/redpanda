@@ -429,7 +429,7 @@ class MissingPartition(BaseCase):
     """Restore topic with one partition missing from the bucket.
 
     This should restore all partitoins except the missing one.
-    The missing partition should be created emtpy.
+    The missing partition should be created empty.
     This might happen naturally if we didn't produce any data
     to the partition (e.g. have two partitions but produced
     only one key).
