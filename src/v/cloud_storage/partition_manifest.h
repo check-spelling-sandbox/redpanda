@@ -68,7 +68,7 @@ segment_name generate_local_segment_name(model::offset o, model::term_id t);
 remote_manifest_path
 generate_partition_manifest_path(const model::ntp&, model::initial_revision_id);
 
-// This structure can be impelenented
+// This structure can be implemented
 // to allow access to private fields of the manifest.
 struct partition_manifest_accessor;
 
