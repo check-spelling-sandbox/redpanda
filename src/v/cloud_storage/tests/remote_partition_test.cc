@@ -69,7 +69,7 @@ static void print_segments(const std::vector<in_memory_segment>& segments) {
     }
 }
 
-/// Return vector<bool> which have a value for every recrod_batch_header in
+/// Return vector<bool> which have a value for every record_batch_header in
 /// 'segments' If i'th value is true then the value are present in both
 /// 'headers' and 'segments' Otherwise the i'th value will be false.
 static std::vector<bool> get_coverage(
