@@ -126,7 +126,7 @@ void append_entries_buffer::propagate_results(
   std::vector<reply_t> replies, response_t response_promises) {
     vassert(
       replies.size() == response_promises.size(),
-      "Number of requests and response promiseshave to be equal. Have {} "
+      "Number of requests and response promises have to be equal. Have {} "
       "response promises and {} requests",
       response_promises.size(),
       replies.size());
