@@ -1581,7 +1581,7 @@ reference_timequery(const partition_manifest& m, model::timestamp t) {
 
 /**
  * Assert equality of results from actual implementation
- * and reference implementation at a particualr timestamp.
+ * and reference implementation at a particular timestamp.
  */
 void reference_check_timequery(
   const partition_manifest& m, model::timestamp t) {
