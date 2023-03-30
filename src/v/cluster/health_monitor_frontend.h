@@ -74,7 +74,7 @@ public:
      *  Return cluster health overview
      *
      *  Health overview is based on the information available in health monitor.
-     *  Cluster is considered as healthy when follwing conditions are met:
+     *  Cluster is considered as healthy when following conditions are met:
      *
      * - all nodes that are responding
      * - all partitions have leaders
