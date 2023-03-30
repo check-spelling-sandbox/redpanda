@@ -707,7 +707,7 @@ ss::future<> remote_segment::run_hydrate_bg() {
         set_waiter_errors(std::current_exception());
     } catch (...) {
         const auto err = std::current_exception();
-        vlog(_ctxlog.error, "Error in hydraton loop: {}", err);
+        vlog(_ctxlog.error, "Error in hydration loop: {}", err);
         set_waiter_errors(err);
     }
 }
