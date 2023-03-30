@@ -314,7 +314,7 @@ struct append_entries_reply
     /// \brief callee's node_id; work-around for batched heartbeats
     vnode node_id;
     group_id group;
-    /// \brief callee's term, for the caller to upate itself
+    /// \brief callee's term, for the caller to update itself
     model::term_id term;
     /// \brief The recipient's last log index after it applied changes to
     /// the log. This is used to speed up finding the correct value for the
@@ -441,7 +441,7 @@ struct vote_reply
     using rpc_adl_exempt = std::true_type;
     // node id to validate on receiver
     vnode target_node_id;
-    /// \brief callee's term, for the caller to upate itself
+    /// \brief callee's term, for the caller to update itself
     model::term_id term;
 
     /// True if the follower granted the candidate it's vote, false otherwise

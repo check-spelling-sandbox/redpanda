@@ -233,7 +233,7 @@ send in `append_entries_reply`. This will be done in both the heartbeat and
         /// \brief callee's node_id; work-around for batched heartbeats
         model::node_id node_id;
         group_id group;
-        /// \brief callee's term, for the caller to upate itself
+        /// \brief callee's term, for the caller to update itself
         model::term_id term;
         /// \brief The recipient's last log index after it applied changes to
         /// the log. This is used to speed up finding the correct value for the
