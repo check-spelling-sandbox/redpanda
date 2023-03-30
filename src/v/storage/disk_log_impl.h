@@ -139,7 +139,7 @@ private:
     ss::future<> remove_empty_segments();
 
     ss::future<> remove_segment_permanently(
-      ss::lw_shared_ptr<segment> segment_to_tombsone,
+      ss::lw_shared_ptr<segment> segment_to_tombstone,
       std::string_view logging_context_msg);
 
     ss::future<> new_segment(
