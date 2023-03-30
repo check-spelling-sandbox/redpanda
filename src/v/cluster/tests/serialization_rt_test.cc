@@ -314,7 +314,8 @@ SEASTAR_THREAD_TEST_CASE(incremental_topic_updates_rt_test) {
     BOOST_CHECK(result == original);
 }
 
-SEASTAR_THREAD_TEST_CASE(incremental_topic_updates_backward_compatibility_test) {
+SEASTAR_THREAD_TEST_CASE(
+  incremental_topic_updates_backward_compatibility_test) {
     cluster::incremental_topic_updates updates
       = random_incremental_topic_updates();
 
@@ -2119,7 +2120,7 @@ SEASTAR_THREAD_TEST_CASE(serde_reflection_roundtrip) {
     }
 }
 
-SEASTAR_THREAD_TEST_CASE(cluster_property_kv_exchangable_with_pair) {
+SEASTAR_THREAD_TEST_CASE(cluster_property_kv_exchangeable_with_pair) {
     using pairs_t = std::vector<std::pair<ss::sstring, ss::sstring>>;
     using kvs_t = std::vector<cluster::cluster_property_kv>;
     kvs_t kvs;
