@@ -37,7 +37,7 @@ public:
               auto f = p.get_future();
               _requests.push_back(std::move(r));
               _responsens.push_back(std::move(p));
-              _enequeued.signal();
+              _enqueued.signal();
               return f;
           });
     }
@@ -55,7 +55,7 @@ public:
     void start(Func&& f);
 
     ss::future<> stop() {
-        _enequeued.broken();
+        _enqueued.broken();
         return _gate.close();
     }
 
@@ -69,7 +69,7 @@ private:
 
     request_t _requests;
     response_t _responsens;
-    ss::condition_variable _enequeued;
+    ss::condition_variable _enqueued;
     ss::gate _gate;
     mutex& _mutex;
     const size_t _max_buffered;
@@ -85,7 +85,7 @@ void mutex_buffer<Request, Response>::start(Func&& f) {
         return ss::do_until(
           [this] { return _gate.is_closed(); },
           [this, f = std::forward<Func>(f)]() mutable {
-              return _enequeued.wait([this] { return !_requests.empty(); })
+              return _enqueued.wait([this] { return !_requests.empty(); })
                 .then([this, f = std::forward<Func>(f)]() mutable {
                     return flush(std::forward<Func>(f));
                 });
