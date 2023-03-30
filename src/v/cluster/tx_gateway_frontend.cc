@@ -2275,7 +2275,7 @@ tx_gateway_frontend::do_commit_tm_tx(
                     //      state of the previous transaction
                     //   6. if we roll it forward the client will think that the
                     //   current
-                    //      transaciton is committed
+                    //      transaction is committed
                     //
                     // so we fail the request with unknow error and let user to
                     // recover

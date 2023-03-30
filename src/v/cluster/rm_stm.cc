@@ -523,7 +523,7 @@ ss::future<checked<model::term_id, tx_errc>> rm_stm::do_begin_tx(
     }
 
     // a client may start new transaction only when the previous
-    // tx is committed. since a client commits a transacitons
+    // tx is committed. since a client commits a transactions
     // strictly after all records are written it means that it
     // won't be retrying old writes and we may reset the seq cache
     _log_state.erase_pid_from_seq_table(pid);
