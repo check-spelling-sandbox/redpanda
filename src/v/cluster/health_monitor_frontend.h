@@ -26,7 +26,7 @@ namespace cluster {
 /**
  * The health_monitor_frontend is the main cluster health monitor entry point.
  * It provides an interface that allow callers to query cluster health and
- * request current node state collection proccess.
+ * request current node state collection process.
  * Health monitor frontend is available on every node and dispatches requests to
  * health monitor backend which lives on single shard.
  * Most requests are forwarded to the backend shard, except cluster-level disk
