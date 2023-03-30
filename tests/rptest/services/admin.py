@@ -753,7 +753,7 @@ class Admin:
 
     def maintenance_start(self, node, dst_node=None):
         """
-        Start maintenanceing on 'node', sending the request to 'dst_node'.
+        Start maintenance on 'node', sending the request to 'dst_node'.
         """
         id = self.redpanda.node_id(node)
         url = f"brokers/{id}/maintenance"
@@ -763,7 +763,7 @@ class Admin:
 
     def maintenance_stop(self, node, dst_node=None):
         """
-        Stop maintenanceing on 'node', sending the request to 'dst_node'.
+        Stop maintenance on 'node', sending the request to 'dst_node'.
         """
         id = self.redpanda.node_id(node)
         url = f"brokers/{id}/maintenance"

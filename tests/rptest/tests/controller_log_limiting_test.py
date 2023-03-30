@@ -318,7 +318,7 @@ class ControllerNodeManagementLimitTest(RedpandaTest):
                          **kwargs)
 
     @cluster(num_nodes=3)
-    def test_maintance_mode_limit(self):
+    def test_maintenance_mode_limit(self):
         self.admin = Admin(self.redpanda)
         admin = self.redpanda._admin
         controller_node = self.redpanda.get_node(

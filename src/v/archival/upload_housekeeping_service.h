@@ -119,7 +119,7 @@ private:
 };
 
 /// Housekeeping service is used to perform periodic
-/// data maintenence tasks. Every ntp_archiver_service
+/// data maintenance tasks. Every ntp_archiver_service
 /// provides the list of periodic jobs. The service tries
 /// to run all jobs once per epoch.
 ///

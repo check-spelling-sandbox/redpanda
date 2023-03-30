@@ -2281,7 +2281,7 @@ void admin_server::register_broker_routes() {
       });
 
     /*
-     * Unlike start|stop_broker_maintenace, the xxx_local_maintenance
+     * Unlike start|stop_broker_maintenance, the xxx_local_maintenance
      * versions below operate on local state only and could be used to force
      * a node out of maintenance mode if needed. they don't require the
      * feature flag because the feature is available locally.
