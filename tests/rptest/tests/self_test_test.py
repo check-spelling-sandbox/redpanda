@@ -58,7 +58,7 @@ class SelfTestTest(RedpandaTest):
         num_nodes = 3
 
         # Ensure the results appear as expected. Assertions aren't performed
-        # on specific results, but rather what tests are oberved to have run
+        # on specific results, but rather what tests are observed to have run
         reports = flat_map(lambda node: node['results'], node_reports)
 
         # Ensure 4 disk tests per node, read/write & latency/throughput
