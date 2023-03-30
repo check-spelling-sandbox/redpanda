@@ -56,7 +56,7 @@ static bool fold_enable_codes(const std::vector<coproc::errc>& codes) {
     if (contains_code(codes, coproc::errc::internal_error)) {
         vlog(
           coproclog.error,
-          "Internal error encountered when internally regisering script");
+          "Internal error encountered when internally registering script");
         return true;
     }
     /// For identifiable errors, all shards should have agreed on the error
