@@ -48,9 +48,9 @@ ss::future<> disk_log_appender::initialize() {
 
 bool disk_log_appender::needs_to_roll_log(model::term_id batch_term) const {
     /**
-     * _log._segs.empty() is a tricky condition. It is here to suppor concurrent
-     * truncation (from 0) of an active log segment while we hold the lock of a
-     * valid segment.
+     * _log._segs.empty() is a tricky condition. It is here to support
+     * concurrent truncation (from 0) of an active log segment while we hold the
+     * lock of a valid segment.
      *
      * Checking for term is because we support multiple term appends which
      * always roll
