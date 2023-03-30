@@ -29,7 +29,7 @@ public:
  * in order to determine the total number of cloud storage bytes used by
  * all partitions.
  *
- * It iterates across the current topic table in batche. For each batch,
+ * It iterates across the current topic table in batches. For each batch,
  * the following sequence of operations is performed:
  * 1. Find the first live replica of each partition in the batch
  * 2. Prepare `cloud_storage_usage` RPC requests for each node in the cluster.
