@@ -82,7 +82,7 @@ private:
 };
 
 FIXTURE_TEST(offset_keeper_saved_offsets, offset_keeper_fixture) {
-    /// Setup a test environement with:
+    /// Setup a test environment with:
     /// 1. Two topics, w/ 50 partitions each
     /// 2. Two coprocessors each consuming from one of these two topics
     /// 3. 5, 10 batches initially pushed to these input topics

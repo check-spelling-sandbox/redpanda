@@ -106,7 +106,7 @@ bool archival_policy::upload_deadline_reached() {
         return false;
     } else if (_upload_limit.value() == 0s) {
         // This code path is only used to trigger partial upload
-        // in test envronment.
+        // in test environment.
         return true;
     }
     auto now = ss::lowres_clock::now();
