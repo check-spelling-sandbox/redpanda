@@ -303,7 +303,7 @@ class SISettings:
     """
     Settings for shadow indexing stuff.
     The defaults are for use with the default minio docker container,
-    but if the test was parametrised with 'cloud_storage_type==CloudStorageType.ABS',
+    but if the test was parameterized with 'cloud_storage_type==CloudStorageType.ABS',
     then the resulting settings will be for use with Azurite.
 
     These settings are altered in RedpandaTest if running on AWS.
