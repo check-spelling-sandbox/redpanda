@@ -304,7 +304,7 @@ is in the deployment and the data collection. However, it will be a proof of how
 redpanda will go the last mile for its customers, and that we're always one step
 ahead.
 
-Additionally, it will provide us with a very broad picure of the approximate
+Additionally, it will provide us with a very broad picture of the approximate
 performance baseline across clouds and storage types.
 
 ### Alternatives considered
