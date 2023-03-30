@@ -149,7 +149,7 @@ ss::future<bool> health_manager::ensure_partition_replication(model::ntp ntp) {
       ntp,
       it->replicas.size());
 
-    // short delay for things to stablize
+    // short delay for things to stabilize
     co_await ss::sleep_abortable(stabilize_delay, _as.local());
     co_return true;
 }

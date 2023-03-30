@@ -145,7 +145,7 @@ class AutomaticLeadershipBalancingTest(RedpandaTest):
         wait_until(lambda: all_partitions_present(3),
                    timeout_sec=30,
                    backoff_sec=2,
-                   err_msg="Leadership did not stablize")
+                   err_msg="Leadership did not stabilize")
 
         # stop node and wait for all leaders to transfer
         # to another node
@@ -173,4 +173,4 @@ class AutomaticLeadershipBalancingTest(RedpandaTest):
         wait_until(lambda: all_partitions_present(3, 15),
                    timeout_sec=300,
                    backoff_sec=10,
-                   err_msg="Leadership did not stablize")
+                   err_msg="Leadership did not stabilize")
