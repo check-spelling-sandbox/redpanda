@@ -173,7 +173,7 @@ struct retry_permit {
 /// The retry chain is a set of fibers that has the same timeout or
 /// deadline. The fibers form a hierarchy (root fiber spawns several child
 /// fibers, some child fibers spawn next set of fibers, etc). The fibers
-/// that perform some I/O may periodicly retry on failure. Retries should
+/// that perform some I/O may periodically retry on failure. Retries should
 /// be kept inside time bounds of the retry chain.
 ///
 /// The instance of this object can be created on the stack of a fiber.
