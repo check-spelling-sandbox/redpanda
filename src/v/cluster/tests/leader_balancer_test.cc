@@ -197,7 +197,7 @@ ss::sstring to_string(const reassignment& r) {
 
 /**
  * @brief Test helper which checks that the given spec and other parameters
- * result in the expected resassignment.
+ * result in the expected reassignment.
  */
 ss::sstring expect_movement(
   const cluster_spec& spec,
