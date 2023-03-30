@@ -1485,7 +1485,7 @@ group::sync_group_stages group::sync_group_completing_rebalance(
                          r.error());
                        // an error was encountered persisting the group state:
                        //   - clear all the member assignments
-                       //   - propogate error back to waiting clients
+                       //   - propagate error back to waiting clients
                        clear_assignments();
                        finish_syncing_members(error_code::not_coordinator);
                        try_prepare_rebalance();

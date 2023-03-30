@@ -119,7 +119,7 @@ public:
             // fixture and enable multiple RP instances to run at the same time
             // in the test, then we should create two clients in this test where
             // one of the client is not connected to the controller, and verify
-            // that the topic creation is correctly propogated to the
+            // that the topic creation is correctly propagated to the
             // non-controller broker.
         }
 

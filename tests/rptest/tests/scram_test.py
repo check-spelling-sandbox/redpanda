@@ -236,7 +236,7 @@ class ScramTest(BaseScramTest):
 
         try:
             # now listing should fail because the user has been deleted. add
-            # some delay to give user deletion time to propogate
+            # some delay to give user deletion time to propagate
             for _ in range(5):
                 client = self.make_superuser_client()
                 topics = client.topics()
