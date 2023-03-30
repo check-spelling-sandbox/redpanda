@@ -44,7 +44,7 @@ namespace raft {
  * to this when raft group is starting it only has to read up to 64MB of data to
  * find configurations that may not be included in the configuration manager.
  * The highest known offset is not group_configuration offset, it is an offset
- * up to which all configuration are guranted to be present in configuration
+ * up to which all configuration are guaranteed to be present in configuration
  * manager.
  */
 class configuration_manager {
