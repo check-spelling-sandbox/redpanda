@@ -377,7 +377,7 @@ SEASTAR_THREAD_TEST_CASE(
     BOOST_CHECK(old_updates_with_dp.segment_size == result.segment_size);
 }
 
-SEASTAR_THREAD_TEST_CASE(partition_status_serialiaztion_test) {
+SEASTAR_THREAD_TEST_CASE(partition_status_serialization_test) {
     cluster::partition_status status{
       .id = model::partition_id(10),
       .term = model::term_id(256),

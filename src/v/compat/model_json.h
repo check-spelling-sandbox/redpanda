@@ -193,11 +193,12 @@ inline void read_value(json::Value const& rd, model::topic_metadata& tm) {
 }
 
 // NOTE: These are exceptions to overloads of rjson_serialize(enum) definitions
-// defined in v/config/cluster_serializtion.h which print string representations
-// of the listed enumerations below. The compat framework expects all enums in
-// their json representation to be their respective underlying types. To avoid
-// breaking something by modifying the other definitions these types will be
-// explicity serialized to json with these special methods
+// defined in v/config/cluster_serialization.h which print string
+// representations of the listed enumerations below. The compat framework
+// expects all enums in their json representation to be their respective
+// underlying types. To avoid breaking something by modifying the other
+// definitions these types will be explicity serialized to json with these
+// special methods
 
 template<typename T>
 inline constexpr bool is_exceptional_enum
