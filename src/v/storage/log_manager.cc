@@ -104,7 +104,7 @@ log_config::log_config(
   config::binding<std::chrono::milliseconds> compaction_ival,
   config::binding<std::optional<std::chrono::milliseconds>> del_ret,
   with_cache c,
-  batch_cache::reclaim_options recopts,
+  batch_cache::reclaim_options receipts,
   std::chrono::milliseconds rdrs_cache_eviction_timeout,
   ss::scheduling_group compaction_sg) noexcept
   : base_dir(std::move(directory))
@@ -118,7 +118,7 @@ log_config::log_config(
   , compaction_interval(std::move(compaction_ival))
   , delete_retention(std::move(del_ret))
   , cache(c)
-  , reclaim_opts(recopts)
+  , reclaim_opts(receipts)
   , readers_cache_eviction_timeout(rdrs_cache_eviction_timeout)
   , compaction_sg(compaction_sg) {}
 

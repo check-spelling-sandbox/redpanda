@@ -73,7 +73,7 @@ struct log_config {
       config::binding<std::chrono::milliseconds> compaction_ival,
       config::binding<std::optional<std::chrono::milliseconds>> del_ret,
       with_cache c,
-      batch_cache::reclaim_options recopts,
+      batch_cache::reclaim_options receipts,
       std::chrono::milliseconds rdrs_cache_eviction_timeout,
       ss::scheduling_group compaction_sg) noexcept;
 
