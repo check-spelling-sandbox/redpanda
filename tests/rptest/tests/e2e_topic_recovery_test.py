@@ -250,7 +250,7 @@ class EndToEndTopicRecovery(RedpandaTest):
         transactions. Run recovery and make sure that record batches generated
         by aborted transactions are not visible.
         This should work because rm_stm will rebuild its snapshot right after
-        recovery. The SI will also supports aborted transctions via tx manifests.
+        recovery. The SI will also supports aborted transactions via tx manifests.
 
         The test has two variants:
         - the partition is downloaded fully;

@@ -22,7 +22,7 @@ class TxFeatureFlagTest(EndToEndTest):
         Validate that transactions can be safely disabled after 
         the feature have been used
         '''
-        # start redpanda with tranasactions enabled, we use
+        # start redpanda with transactions enabled, we use
         # replication factor 1 for group topic to make
         # it unavailable when one of the nodes is down,
         self.start_redpanda(num_nodes=3,
