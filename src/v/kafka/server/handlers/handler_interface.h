@@ -47,7 +47,7 @@ struct handler_interface {
     /**
      * @brief Estimates the memory used to process the request.
      *
-     * Returns an esimate of the memory needed to process a request. This is
+     * Returns an estimate of the memory needed to process a request. This is
      * used to block the request until sufficient memory is available using the
      * "memory units" semaphore. Ideally this should be a conservative request
      * (i.e., a possible overestimate in cases where the memory use may vary
