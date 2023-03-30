@@ -100,7 +100,7 @@ public:
         return _last_segment_upload_time;
     }
 
-    /// Download manifest from pre-defined S3 locatnewion
+    /// Download manifest from pre-defined S3 location
     ///
     /// \return future that returns true if the manifest was found in S3
     ss::future<std::pair<
