@@ -120,7 +120,7 @@ struct in_memory_segment {
     int num_config_batches{0};
     int num_config_records{0};
     bool do_not_reupload{false};
-    // (Optional) If the segment overlaps with the prevoius segment this field
+    // (Optional) If the segment overlaps with the previous segment this field
     // should contain number of config records inside the overlapping area. This
     // is needed to compute the offset_delta field in the manifest correctly.
     //
