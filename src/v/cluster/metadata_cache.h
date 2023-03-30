@@ -33,7 +33,7 @@ namespace cluster {
 /// response. MetadataCache is the facade over cluster state distributed in
 /// separate components. The metadata cache core-affinity is independent from
 /// the actual state location as the Metadata cache facade, for simplicity, is
-/// instantiated on every core. MetadaCache itself does not hold any state
+/// instantiated on every core. MetadataCache itself does not hold any state
 ///```plain
 ///
 ///   Kafka API                  Kafka Proxy

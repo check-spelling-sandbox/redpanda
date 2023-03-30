@@ -1934,7 +1934,7 @@ SEASTAR_THREAD_TEST_CASE(serde_reflection_roundtrip) {
         raft::heartbeat_request data;
 
         // heartbeat request uses the first node/target_node for all of the
-        // heartbeat meatdata entries. so here we arrange for that to be true in
+        // heartbeat metadata entries. so here we arrange for that to be true in
         // the input data so that equality works as expected.
         const auto node_id = tests::random_named_int<model::node_id>();
         const auto target_node_id = tests::random_named_int<model::node_id>();
@@ -1984,7 +1984,7 @@ SEASTAR_THREAD_TEST_CASE(serde_reflection_roundtrip) {
         raft::heartbeat_reply data;
 
         // heartbeat reply uses the first node/target_node for all of the
-        // reply meatdata entries. so here we arrange for that to be true in
+        // reply metadata entries. so here we arrange for that to be true in
         // the input data so that equality works as expected.
         const auto node_id = tests::random_named_int<model::node_id>();
         const auto target_node_id = tests::random_named_int<model::node_id>();

@@ -32,7 +32,7 @@ public:
 
     /// \brief coproc client calls this to 'register'
     ///
-    /// \param metdata_info list of coprocessors to register
+    /// \param metadata_info list of coprocessors to register
     /// \param streaming_context rpc context expected at every endpoint
     ///
     /// \return structure representing an ack per topic per coprocessor
@@ -41,7 +41,7 @@ public:
 
     /// \brief coproc client calls this to 'deregister'
     ///
-    /// \param metdata_info list of coprocessor to deregister
+    /// \param metadata_info list of coprocessor to deregister
     /// \param streaming_context rpc context expected at every endpoint
     ///
     /// \return structure representing an ack per deregistered coprocessor

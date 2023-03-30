@@ -177,7 +177,7 @@ private:
     ss::future<list_offsets_response>
     do_list_offsets(model::topic_partition tp);
 
-    /// \brief Connect and update metdata.
+    /// \brief Connect and update metadata.
     ss::future<> do_connect(net::unresolved_address addr);
 
     /// \brief Update metadata
