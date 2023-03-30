@@ -73,7 +73,7 @@ public:
 
     const model::term_id get_term() const;
 
-    /// Get max offset of the segment (redpada offset)
+    /// Get max offset of the segment (redpanda offset)
     const model::offset get_max_rp_offset() const;
 
     /// Number of non-data batches in all previous

@@ -155,7 +155,7 @@ type ClusterSpec struct {
 	// 1. versioning is not supported for map keys
 	// 2. key names not supported by Redpanda will lead to failure on start up
 	// 3. updating this map requires a manual restart of the Redpanda pods. Please be aware of
-	// sync period when one Redpandais POD is restarted
+	// sync period when one Redpanda POD is restarted
 	// 4. cannot have keys that conflict with existing struct fields - it leads to panic
 	//
 	// By default if Replicas is 3 or more and redpanda.default_topic_partitions is not set
