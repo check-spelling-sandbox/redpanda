@@ -399,7 +399,7 @@ SEASTAR_THREAD_TEST_CASE(test_next_chunk_allocation_append_temp_buf) {
         ss::temporary_buffer<char> tb(b.data(), b.size());
         buf.append(std::move(tb));
     }
-    // slow but tha'ts life.
+    // slow but that's life.
     auto distance = std::distance(buf.begin(), buf.end());
     BOOST_REQUIRE_EQUAL(distance, 324);
     constexpr size_t sz = 40000 * 1024;
@@ -415,7 +415,7 @@ SEASTAR_THREAD_TEST_CASE(test_next_chunk_allocation_append_iobuf) {
         tmp_buf.append(b.data(), b.size());
         buf.append(std::move(tmp_buf));
     }
-    // slow but tha'ts life.
+    // slow but that's life.
     auto distance = std::distance(buf.begin(), buf.end());
     BOOST_REQUIRE_EQUAL(distance, 324);
     constexpr size_t sz = 40000 * 1024;
