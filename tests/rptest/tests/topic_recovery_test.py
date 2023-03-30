@@ -259,7 +259,7 @@ class BaseCase:
         conf['redpanda.remote.recovery'] = 'true'
         conf['redpanda.remote.write'] = 'true'
         conf.update(overrides)
-        self.logger.info(f"Confg: {conf}")
+        self.logger.info(f"Config: {conf}")
         self._rpk.create_topic(topic, npart, nrepl, conf)
 
 

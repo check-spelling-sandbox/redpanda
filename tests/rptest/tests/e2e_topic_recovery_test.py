@@ -111,7 +111,7 @@ class EndToEndTopicRecovery(RedpandaTest):
             #'redpanda.remote.write': 'true',
         }
         conf.update(overrides)
-        self.logger.info(f"Confg: {conf}")
+        self.logger.info(f"Config: {conf}")
         topic = topic_spec.name
         npart = topic_spec.partition_count
         nrepl = topic_spec.replication_factor
