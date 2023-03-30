@@ -545,7 +545,7 @@ BOOST_AUTO_TEST_CASE(test_store_delete_subject) {
     BOOST_REQUIRE(s.get_subjects(pps::include_deleted::no).empty());
     BOOST_REQUIRE(s.get_subjects(pps::include_deleted::yes).empty());
 
-    // Second permanant delete should fail
+    // Second permanent delete should fail
     d_res = s.delete_subject(
       dummy_marker, subject0, pps::permanent_delete::yes);
     BOOST_REQUIRE(d_res.has_error());

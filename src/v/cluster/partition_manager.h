@@ -120,7 +120,7 @@ public:
             init.notify(e.first, e.second);
         }
 
-        // now setup the permenant callback for new partitions
+        // now setup the permanent callback for new partitions
         return _manage_watchers.register_notify(ns, topic, std::move(cb));
     }
 
