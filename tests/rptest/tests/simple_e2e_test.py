@@ -14,7 +14,7 @@ from rptest.tests.end_to_end import EndToEndTest
 
 class SimpleEndToEndTest(EndToEndTest):
     @cluster(num_nodes=6)
-    def test_correctness_while_evicitng_log(self):
+    def test_correctness_while_evicting_log(self):
         '''
         Validate that all the records will be delivered to consumers when there
         are multiple producers and log is evicted
