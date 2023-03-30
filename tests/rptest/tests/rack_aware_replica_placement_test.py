@@ -111,7 +111,7 @@ class RackAwarePlacementTest(RedpandaTest):
                                Every character of the string corresponds to one broker. Every
                                rack id has single character.
         @param num_partitions defines number of partitions that needs to be created.
-        @param replication_factor defines recplication factor of all partitions.
+        @param replication_factor defines replication factor of all partitions.
         """
 
         rack_layout = [str(i) for i in rack_layout_str]
