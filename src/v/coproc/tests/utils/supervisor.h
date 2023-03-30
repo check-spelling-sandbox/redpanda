@@ -35,7 +35,7 @@ public:
     /// class constructor
     ///
     /// Reference to sharded state map is passed so unit tests can query it
-    /// poking and proding the internal state of the service for validity
+    /// poking and prodding the internal state of the service for validity
     supervisor(
       ss::scheduling_group,
       ss::smp_service_group,
