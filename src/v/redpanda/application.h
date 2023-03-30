@@ -170,7 +170,7 @@ private:
     void start_runtime_services(cluster::cluster_discovery&, ::stop_signal&);
     void start_kafka(const model::node_id&, ::stop_signal&);
 
-    // All methods are calleds from Seastar thread
+    // All methods are called from Seastar thread
     ss::app_template::config setup_app_config();
     void validate_arguments(const po::variables_map&);
     void hydrate_config(const po::variables_map&);
