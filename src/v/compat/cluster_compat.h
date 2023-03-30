@@ -506,7 +506,7 @@ struct compat_check<cluster::create_topics_request> {
         }
         if (req != obj) {
             throw compat_error(fmt::format(
-              "Verify of {{cluster::create_toics_request}} decoding "
+              "Verify of {{cluster::create_topics_request}} decoding "
               "failed:\n Expected: {}\nDecoded: {}",
               obj,
               req));
@@ -564,7 +564,7 @@ struct compat_check<cluster::create_topics_reply> {
         }
         if (reply != obj) {
             throw compat_error(fmt::format(
-              "Verify of {{cluster::create_toics_reply}} decoding "
+              "Verify of {{cluster::create_topics_reply}} decoding "
               "failed:\n Expected: {}\nDecoded: {}",
               obj,
               reply));
