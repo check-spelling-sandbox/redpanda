@@ -212,7 +212,7 @@ class OffsetRetentionDisabledAfterUpgrade(RedpandaTest):
         rpk.cluster_config_set("group_offset_retention_check_ms", str(1000))
         assert not self._offset_removal_occurred(period, False, True)
 
-        # enable legacy. enablng legacy support takes affect at the next
+        # enable legacy. enabling legacy support takes affect at the next
         # retention check. since that is configured above to happen every second
         # then the response time should be adequate.
         rpk.cluster_config_set("legacy_group_offset_retention_enabled",
