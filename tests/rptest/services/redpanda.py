@@ -802,7 +802,7 @@ class RedpandaService(Service):
             self._si_settings = None
 
         # Disable saving cloud storage diagnostics. This may be useful for
-        # tests that generate millions of objecst, as collecting diagnostics
+        # tests that generate millions of objects, as collecting diagnostics
         # may take a significant amount of time.
         self._disable_cloud_storage_diagnostics = disable_cloud_storage_diagnostics
 
