@@ -178,7 +178,7 @@ class TxAdminTest(RedpandaTest):
                 assert partition in expected_partitions[topic.name]
 
     @cluster(num_nodes=3)
-    def test_delete_topic_from_ongoin_tx(self):
+    def test_delete_topic_from_ongoing_tx(self):
         tx_id = "0"
         producer = ck.Producer({
             'bootstrap.servers': self.redpanda.brokers(),
