@@ -166,7 +166,7 @@ private:
 /// backlog (the job queue) so it's guaranteed that every job is executed at
 /// least once per epoch.
 ///
-/// The noticifactions from the cloud storage API reset the idle timer so if the
+/// The notifications from the cloud storage API reset the idle timer so if the
 /// cloud storage is busy it will never be triggered. If any of the jobs uses
 /// the cloud storage API the notifications from it will be ignored.
 ///
