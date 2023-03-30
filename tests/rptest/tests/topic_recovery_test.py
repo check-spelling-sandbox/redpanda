@@ -265,7 +265,7 @@ class BaseCase:
 
 class NoDataCase(BaseCase):
     """Restore topic that didn't have any data in S3 but existed before the recovery.
-    The expected behavior is that topic will be crated but high watermark wil be set to
+    The expected behavior is that topic will be crated but high watermark will be set to
     zero.
     It's perfectly valid to do this because the topic might be actually empty.
     It can also be deleted from the bucket in which case we still need to create a topic
