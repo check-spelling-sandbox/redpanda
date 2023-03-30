@@ -203,7 +203,7 @@ private:
         return _general_rate;
     }
 
-    // Increae rate_counter to max connections for current second
+    // Increase rate_counter to max connections for current second
     void allow_new_connections(connection_rate_t rate_counter) {
         auto now = Clock::now();
 

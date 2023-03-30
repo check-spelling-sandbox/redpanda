@@ -61,7 +61,7 @@ fetch_session_cache::fetch_session_cache(
     register_metrics();
     _session_eviction_timer.set_callback([this] {
         gc_sessions();
-        // run timer twice more offten than actual session duration to incrase
+        // run timer twice more offten than actual session duration to increase
         // resolution
         _session_eviction_timer.arm(_session_eviction_duration);
     });
