@@ -221,7 +221,7 @@ class S3Client:
         return res
 
     def _wait_no_key(self, bucket, key, timeout_sec=10):
-        """Wait for the key to apper in the bucket"""
+        """Wait for the key to appear in the bucket"""
         deadline = datetime.datetime.now() + datetime.timedelta(
             seconds=timeout_sec)
         try:
