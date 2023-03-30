@@ -403,7 +403,7 @@ class WordProducer(KafProducer):
 class KafkaStreamsWordCount(KafkaStreamsProdConsBase):
     """
     Test KafkaStreams WordCount example which does simple prod-cons with
-    KStreams and computes a historgram for word occurence
+    KStreams and computes a histogram for word occurence
     """
 
     topics = (
