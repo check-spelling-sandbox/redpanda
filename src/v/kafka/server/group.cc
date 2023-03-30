@@ -872,7 +872,7 @@ group::join_group_known_member(join_group_request&& r) {
               leader().value_or(member_id("")),
               std::move(r.data.member_id));
 
-            vlog(_ctxlog.trace, "Handling idemponent group join {}", response);
+            vlog(_ctxlog.trace, "Handling idempotent group join {}", response);
 
             return join_group_stages(std::move(response));
         }
@@ -1391,7 +1391,7 @@ group::sync_group_stages group::handle_sync_group(sync_group_request&& r) {
         sync_group_response reply(error_code::none, member->assignment());
         vlog(
           _ctxlog.trace,
-          "Handling idemponent group sync for member {} with reply {}",
+          "Handling idempotent group sync for member {} with reply {}",
           member,
           reply);
         return sync_group_stages(sync_group_response(std::move(reply)));

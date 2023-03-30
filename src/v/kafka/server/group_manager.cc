@@ -360,7 +360,7 @@ ss::future<> group_manager::stop() {
      * This is not ususal as stop() method should only be called once. For the
      * purpose of migration we must stop all pending operations & notifications
      * in previous group manager implementation. This check allow us to call
-     * stop more than once and makes it idemtpotent.
+     * stop more than once and makes it idempotent.
      *
      * Stop may be first called during migration and then for the second time
      * during application shutdown
