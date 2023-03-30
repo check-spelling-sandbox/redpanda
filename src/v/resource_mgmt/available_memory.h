@@ -59,7 +59,7 @@ public:
      * @brief Return the current available memory value.
      *
      * Available memory is free memory, plus all the memory that can be in
-     * princple reclaimed from subsystems which have registered a reclaim hook.
+     * principle reclaimed from subsystems which have registered a reclaim hook.
      *
      * Effectively, this is reclaimable() + ss::memory::stats().free_memory()
      *
