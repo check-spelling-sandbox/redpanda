@@ -277,7 +277,7 @@ class ManyPartitionsTest(PreallocNodesTest):
 
                 # TODO: ensure that the systme works well _without_ these non-default
                 # properties, or if they are necessary and we choose not to make them
-                # the defaults, then that they are reflected propertly in cloud config profiles
+                # the defaults, then that they are reflected properly in cloud config profiles
                 'reclaim_batch_cache_min_free': 256000000,
                 'storage_read_buffer_size': 32768,
                 'storage_read_readahead_count': 2,
