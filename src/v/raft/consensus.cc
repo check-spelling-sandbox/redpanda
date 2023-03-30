@@ -1234,7 +1234,7 @@ ss::future<> consensus::do_start() {
            * temporary workaround:
            *
            * if the group's ntp matches the pattern, then do not load the
-           * initial configuration snapshto from the keyvalue store. more info
+           * initial configuration snapshot from the keyvalue store. more info
            * here:
            *
            * https://github.com/redpanda-data/redpanda/issues/1870
@@ -2099,7 +2099,7 @@ consensus::do_install_snapshot(install_snapshot_request r) {
 
     // Create new snapshot file if first chunk (offset is 0) (§7.2)
     if (r.file_offset == 0) {
-        // discard old chunks, previous snaphost wasn't finished
+        // discard old chunks, previous snapshot wasn't finished
         if (_snapshot_writer) {
             co_await _snapshot_writer->close();
             co_await _snapshot_mgr.remove_partial_snapshots();

@@ -187,7 +187,7 @@ public:
     /**
      * \brief Persist snapshot with given data and start offset
      *
-     * The write snaphot API is called by the state machine implementation
+     * The write snapshot API is called by the state machine implementation
      * whenever it decides to take a snapshot. Write snapshot is executed under
      * consensus operations lock.
      */

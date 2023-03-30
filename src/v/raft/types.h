@@ -508,7 +508,7 @@ struct replicate_options {
 
 using offset_translator_delta = named_type<int64_t, struct ot_delta_tag>;
 struct snapshot_metadata {
-    // we start snasphot metadata version at 64 to leave room for configuration
+    // we start snapshot metadata version at 64 to leave room for configuration
     // version updates
     static constexpr int8_t initial_version = 64;
     static constexpr int8_t current_version = initial_version;
