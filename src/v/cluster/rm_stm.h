@@ -479,7 +479,7 @@ private:
         // the only piece of data which we update on replay and before
         // replicating the command. we use the highest seq number to resolve
         // conflicts. if the replication fails we reject a command but clients
-        // by spec should be ready for thier commands being rejected so it's
+        // by spec should be ready for their commands being rejected so it's
         // ok by design to have false rejects
         using seq_map = mt::unordered_map_t<
           absl::node_hash_map,
