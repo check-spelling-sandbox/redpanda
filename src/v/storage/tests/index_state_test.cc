@@ -111,7 +111,7 @@ BOOST_AUTO_TEST_CASE(serde_supported_deprecated) {
     }
 }
 
-// reject decoding unsupported old versins
+// reject decoding unsupported old versions
 BOOST_AUTO_TEST_CASE(serde_unsupported_deprecated) {
     auto test = [](int version) {
         auto input = make_random_index_state(storage::offset_delta_time::no);
