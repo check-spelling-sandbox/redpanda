@@ -240,7 +240,7 @@ FIXTURE_TEST(retention_test_after_truncation, gc_fixture) {
 FIXTURE_TEST(retention_by_size_with_remote_write, gc_fixture) {
     /*
      * This test sets the size retention limit on a cloud storage topic
-     * via the rention.local.target.bytes topic configuration option.
+     * via the retention.local.target.bytes topic configuration option.
      *
      * Fixed size segments are added until the limit is breached.
      * After each segment is added compaction is triggered and we check
@@ -306,7 +306,7 @@ FIXTURE_TEST(retention_by_size_with_remote_write, gc_fixture) {
 FIXTURE_TEST(retention_by_time_with_remote_write, gc_fixture) {
     /*
      * This test sets the time retention limit on a cloud storage topic
-     * via the rention.local.target.ms topic configuration option.
+     * via the retention.local.target.ms topic configuration option.
      */
     using namespace std::chrono_literals;
     auto batch_age = std::chrono::duration_cast<std::chrono::milliseconds>(1h);
