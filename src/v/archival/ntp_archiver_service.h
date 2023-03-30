@@ -284,7 +284,7 @@ private:
         std::optional<cloud_storage::partition_manifest::segment_meta> meta;
         /// Name of the uploaded segment
         std::optional<ss::sstring> name;
-        /// Offset range convered by the upload
+        /// Offset range covered by the upload
         std::optional<model::offset> delta;
         /// Contains 'no' if the method can be called another time or 'yes'
         /// if it shouldn't be called (if there is no data to upload).
