@@ -152,7 +152,7 @@ public:
     /// configuration. This function does *not* delete any data.
     ss::future<manifest_updated> apply_retention();
 
-    /// \brief Remove segments that are no longer queriable by:
+    /// \brief Remove segments that are no longer queryable by:
     /// segments that are below the current start offset and segments
     /// that have been replaced with their compacted equivalent.
     ss::future<manifest_updated> garbage_collect();
