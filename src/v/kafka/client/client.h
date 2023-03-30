@@ -78,7 +78,7 @@ public:
       = ss::noncopyable_function<ss::future<>(std::exception_ptr)>;
     explicit client(
       YAML::Node const& cfg,
-      external_mitigate mitigater = impl::default_external_mitigate);
+      external_mitigate mitigator = impl::default_external_mitigate);
 
     /// \brief Connect to all brokers.
     ss::future<> connect();

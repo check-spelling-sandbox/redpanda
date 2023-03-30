@@ -45,7 +45,7 @@
 
 namespace kafka::client {
 
-client::client(const YAML::Node& cfg, external_mitigate mitigater)
+client::client(const YAML::Node& cfg, external_mitigate mitigator)
   : _config{cfg}
   , _seeds{_config.brokers()}
   , _topic_cache{}
@@ -56,7 +56,7 @@ client::client(const YAML::Node& cfg, external_mitigate mitigater)
   , _producer{_config, _topic_cache, _brokers, [this](std::exception_ptr ex) {
       return mitigate_error(std::move(ex));
   }}
-  , _external_mitigate(std::move(mitigater)) {}
+  , _external_mitigate(std::move(mitigator)) {}
 
 ss::future<> client::do_connect(net::unresolved_address addr) {
     return make_broker(unknown_node_id, addr, _config)
