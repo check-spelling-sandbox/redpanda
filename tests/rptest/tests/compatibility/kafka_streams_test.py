@@ -74,7 +74,7 @@ class KafkaStreamsDriverBase(KafkaStreamsTest):
     def test_kafka_streams(self):
         example = self.create_example()
 
-        # This will raise TypeError if DriverHeler is undefined
+        # This will raise TypeError if DriverHelper is undefined
         driver_helper = self.Driver(self.redpanda, True)
         driver = ExampleRunner(self._ctx,
                                driver_helper,
