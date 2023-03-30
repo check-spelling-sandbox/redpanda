@@ -54,7 +54,7 @@ SEASTAR_THREAD_TEST_CASE(general_rate_test) {
         for (auto i = 0; i < max_threads; ++i) {
             auto f = connection_rate.maybe_wait(addr).handle_exception(
               [](std::exception_ptr) {
-                  // do notinhg
+                  // do nothing
               });
             futures.emplace_back(std::move(f));
         }
@@ -117,7 +117,7 @@ SEASTAR_THREAD_TEST_CASE(overrides_rate_test) {
         for (auto& override : overrides_map) {
             auto f = connection_rate.maybe_wait(override.second.addr)
                        .handle_exception([](std::exception_ptr) {
-                           // do notinhg
+                           // do nothing
                        });
             override.second.futures.emplace_back(std::move(f));
         }

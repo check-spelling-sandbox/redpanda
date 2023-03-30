@@ -107,8 +107,8 @@ ss::future<> configuration_manager::prefix_truncate(model::offset offset) {
          *  NOTE: box with number represent an entry in configuration manager
          */
 
-        // special case, do nothig if we are asked to truncate before or exactly
-        // at the beginning
+        // special case, do nothing if we are asked to truncate before or
+        // exactly at the beginning
         if (_configurations.begin()->first >= offset) {
             return ss::now();
         }
