@@ -380,7 +380,7 @@ void topic_manifest::serialize(std::ostream& out) const {
     } else {
         w.Null();
     }
-    // NOTE: manifest_object_name is intentionaly ommitted
+    // NOTE: manifest_object_name is intentionally ommitted
 
     // tristate values are encoded in the following manner:
     // - key not present - tristate is disabled

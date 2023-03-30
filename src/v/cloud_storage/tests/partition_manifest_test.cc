@@ -1687,7 +1687,7 @@ SEASTAR_THREAD_TEST_CASE(test_timequery_gaps) {
 }
 
 SEASTAR_THREAD_TEST_CASE(test_timequery_wide_range) {
-    // Intentionaly ruin the initial interpolation guess by setting
+    // Intentionally ruin the initial interpolation guess by setting
     // a minimum timestamp bound very far away from other timestamps: this
     // makes sure we aren't just getting lucky in other tests when their guesses
     // happen to hit the right segment in one shot.

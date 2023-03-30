@@ -1928,7 +1928,7 @@ tx_gateway_frontend::do_abort_tm_tx(
                 } else if (
                   old_tx.status == tm_transaction::tx_status::ongoing) {
                     if (old_tx.tx_seq() == tx.tx_seq() + 1) {
-                        // intentially empty
+                        // intentionally empty
                         // abort has passed and previous coordinator started a
                         // new transaction
                     } else if (old_tx.tx_seq == tx.tx_seq) {
