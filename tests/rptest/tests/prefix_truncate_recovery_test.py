@@ -182,7 +182,7 @@ class PrefixTruncateRecoveryUpgradeTest(PrefixTruncateRecoveryTestBase):
             # Force leadership to 'src_node' so we can deterministically check
             # mixed-version traffic.
             # Note it's possible to see surprising error codes on older
-            # versions following a node restart (e.g. 500 insteaad of 503/504);
+            # versions following a node restart (e.g. 500 instead of 503/504);
             # just retry until leadership is moved.
             wait_until(lambda: self.redpanda._admin.transfer_leadership_to(
                 namespace="kafka",
