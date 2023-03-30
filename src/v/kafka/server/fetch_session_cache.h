@@ -26,7 +26,7 @@ namespace kafka {
 struct fetch_request;
 /**
  * Fetch session cache is a core local cache holding incremental fetch
- * sessions. Each core local cache instane assigns session ids that are unique
+ * sessions. Each core local cache instance assigns session ids that are unique
  * for the node (non overlapping ranges of ids are assigned to each core).
  *
  * The cache evicts not used sessions after configurable period of inactivity.
