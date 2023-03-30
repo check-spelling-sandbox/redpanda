@@ -304,7 +304,7 @@ struct client_opts {
     compression_type compression;
     size_t min_compression_bytes;
     /**
-     * Resource protecting semaphore units, those units will be relased after
+     * Resource protecting semaphore units, those units will be released after
      * data are sent over the wire and send buffer is released. May be helpful
      * to control caller resources.
      */
