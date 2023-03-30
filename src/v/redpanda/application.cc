@@ -1005,14 +1005,14 @@ void application::wire_up_redpanda_services(model::node_id node_id) {
     syschecks::systemd_message("Building shard-lookup tables").get();
     construct_service(shard_table).get();
 
-    syschecks::systemd_message("Intializing raft recovery throttle").get();
+    syschecks::systemd_message("Initializing raft recovery throttle").get();
     recovery_throttle
       .start(ss::sharded_parameter([] {
           return config::shard_local_cfg().raft_learner_recovery_rate.bind();
       }))
       .get();
 
-    syschecks::systemd_message("Intializing raft group manager").get();
+    syschecks::systemd_message("Initializing raft group manager").get();
     raft_group_manager
       .start(
         node_id,
