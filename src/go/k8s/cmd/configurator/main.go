@@ -455,7 +455,7 @@ func checkEnvVars() (configuratorConfig, error) {
 	return c, result
 }
 
-// hostIndex takes advantage of pod naming convention in Kubernetes StatfulSet
+// hostIndex takes advantage of pod naming convention in Kubernetes StatefulSet
 // the last number is the index of replica. This index is then propagated
 // to redpanda.node_id.
 func hostIndex(hostName string) (brokerID, error) {

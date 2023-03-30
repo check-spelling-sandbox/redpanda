@@ -57,7 +57,7 @@ public:
     /// \param expectations is a collection of access points that allow GET,
     /// PUT, and DELETE requests, each expectation has url and body. The body
     /// will be returned by GET call if it's set or trigger error if its null.
-    /// The expectations are statefull. If the body of the expectation was set
+    /// The expectations are stateful. If the body of the expectation was set
     /// to null but there was PUT call that sent some data, subsequent GET call
     /// will retrieve this data.
     void
