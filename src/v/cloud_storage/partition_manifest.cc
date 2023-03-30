@@ -375,7 +375,7 @@ segment_name partition_manifest::generate_remote_segment_name(
     case segment_name_format::v2:
         [[fallthrough]];
     case segment_name_format::v3:
-        // Use new stlyle format ".../base-committed-term-size-v1.log"
+        // Use new style format ".../base-committed-term-size-v1.log"
         return segment_name(ssx::sformat(
           "{}-{}-{}-{}-v1.log",
           val.base_offset(),
@@ -1278,7 +1278,8 @@ ss::future<serialized_json_stream> partition_manifest::serialize() const {
         if (iso != _insync_offset) {
             throw std::runtime_error(fmt_with_ctx(
               fmt::format,
-              "Manifest changed during serialization, in sync offset moved from "
+              "Manifest changed during serialization, in sync offset moved "
+              "from "
               "{} to {}",
               iso,
               _insync_offset));
