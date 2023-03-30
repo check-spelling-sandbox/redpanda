@@ -3363,7 +3363,7 @@ voter_priority consensus::get_node_priority(vnode rni) const {
     auto idx = std::distance(nodes.begin(), it);
 
     /**
-     * Voter priority is inversly proportion to node position in brokers
+     * Voter priority is inversely proportion to node position in brokers
      * vector.
      */
     return voter_priority(
