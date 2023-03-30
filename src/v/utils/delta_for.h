@@ -283,7 +283,7 @@ public:
         _cnt++;
     }
 
-    /// Return ppsition inside the stream
+    /// Return position inside the stream
     deltafor_stream_pos_t<TVal> get_position() const {
         return {
           .initial = _last,
