@@ -3242,7 +3242,7 @@ vectorized_reactor_cpp_exceptions{shard="0"} 122
 # HELP vectorized_reactor_cpu_busy_ms Total cpu busy time in milliseconds
 # TYPE vectorized_reactor_cpu_busy_ms counter
 vectorized_reactor_cpu_busy_ms{shard="0"} 2445
-# HELP vectorized_reactor_cpu_steal_time_ms Total steal time, the time in which some other process was running while Seastar was not trying to run (not sleeping).Because this is in userspace, some time that could be legitimally thought as steal time is not accounted as such. For example, if we are sleeping and can wake up but the kernel hasn't woken us up yet.
+# HELP vectorized_reactor_cpu_steal_time_ms Total steal time, the time in which some other process was running while Seastar was not trying to run (not sleeping).Because this is in userspace, some time that could be legitimately thought as steal time is not accounted as such. For example, if we are sleeping and can wake up but the kernel hasn't woken us up yet.
 # TYPE vectorized_reactor_cpu_steal_time_ms counter
 vectorized_reactor_cpu_steal_time_ms{shard="0"} -1082
 # HELP vectorized_reactor_fstream_read_bytes Counts bytes read from disk file streams.  A high rate indicates high disk activity. Divide by fstream_reads to determine average read size.
