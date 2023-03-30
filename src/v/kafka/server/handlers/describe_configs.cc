@@ -157,14 +157,14 @@ static void add_broker_config(
   std::optional<ss::sstring> documentation,
   Func&& describe_f) {
     describe_configs_source src
-      = property.is_overriden() ? describe_configs_source::static_broker_config
-                                : describe_configs_source::default_config;
+      = property.is_overridden() ? describe_configs_source::static_broker_config
+                                 : describe_configs_source::default_config;
 
     std::vector<describe_configs_synonym> synonyms;
     if (include_synonyms) {
         synonyms.reserve(2);
         /**
-         * If value was overriden, include override
+         * If value was overridden, include override
          */
         if (src == describe_configs_source::static_broker_config) {
             synonyms.push_back(describe_configs_synonym{

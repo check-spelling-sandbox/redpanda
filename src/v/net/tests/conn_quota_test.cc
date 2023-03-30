@@ -547,7 +547,7 @@ FIXTURE_TEST(test_override_allowlist, conn_quota_fixture) {
     }
     {
         vlog(logger.info, "Checking addr2 after unblock");
-        // The overriden client should still have its higher limit
+        // The overridden client should still have its higher limit
         auto took = take_units(addr2, 10);
         expect_no_units(addr2).get();
     }

@@ -715,7 +715,7 @@ class SchemaRegistryTestMethods(SchemaRegistryEndpoints):
         assert result_raw.status_code == requests.codes.ok
         assert result_raw.json()["compatibility"] == "BACKWARD_TRANSITIVE"
 
-        self.logger.debug("Get subject config - should be overriden")
+        self.logger.debug("Get subject config - should be overridden")
         result_raw = self._get_config_subject(subject=f"{topic}-key")
         assert result_raw.json()["compatibilityLevel"] == "BACKWARD_TRANSITIVE"
 
@@ -1569,7 +1569,7 @@ class SchemaRegistryBasicAuthTest(SchemaRegistryEndpoints):
         assert result_raw.status_code == requests.codes.ok
         assert result_raw.json()["compatibility"] == "BACKWARD_TRANSITIVE"
 
-        self.logger.debug("Get subject config - should be overriden")
+        self.logger.debug("Get subject config - should be overridden")
         result_raw = self._get_config_subject(subject=f"{topic}-key",
                                               auth=(self.username,
                                                     self.password))

@@ -543,7 +543,7 @@ FIXTURE_TEST(
       test_tp, "retention.ms", fmt::format("{}", 1234ms), describe_resp);
 
     /**
-     * Set custom retention.bytes, previous settings should be overriden
+     * Set custom retention.bytes, previous settings should be overridden
      */
     absl::flat_hash_map<ss::sstring, ss::sstring> new_properties;
     new_properties.emplace("retention.bytes", "4096");

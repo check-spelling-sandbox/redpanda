@@ -63,7 +63,7 @@ create_topic_properties_update(alter_configs_resource& resource) {
      * override for this value has to be removed. We override all defaults to
      * set, even if value for given property isn't set it will override
      * configuration in topic table, the only difference is the replication
-     * factor, if not set in the request explicitly it will not be overriden.
+     * factor, if not set in the request explicitly it will not be overridden.
      */
     update.properties.cleanup_policy_bitflags.op
       = cluster::incremental_update_operation::set;

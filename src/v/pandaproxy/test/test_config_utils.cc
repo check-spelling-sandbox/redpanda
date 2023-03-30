@@ -111,7 +111,7 @@ FIXTURE_TEST(test_config_utils, redpanda_thread_fixture) {
         BOOST_REQUIRE(!ec_store.has(ec_store.find(principal)));
     }
 
-    // Expect no changes when credentials overriden:
+    // Expect no changes when credentials overridden:
     {
         client_cfg.scram_username.set_value(ss::sstring{"user"});
         client_cfg.scram_password.set_value(ss::sstring{"pass"});
@@ -136,8 +136,8 @@ FIXTURE_TEST(test_config_utils, redpanda_thread_fixture) {
         auto config = create_credentials().get();
         BOOST_REQUIRE_EQUAL(
           config->sasl_mechanism(), security::scram_sha512_authenticator::name);
-        BOOST_REQUIRE(config->scram_username.is_overriden());
-        BOOST_REQUIRE(config->scram_password.is_overriden());
+        BOOST_REQUIRE(config->scram_username.is_overridden());
+        BOOST_REQUIRE(config->scram_password.is_overridden());
         BOOST_REQUIRE(ec_store.has(ec_store.find(principal)));
     }
 }

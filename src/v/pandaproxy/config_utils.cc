@@ -41,11 +41,11 @@ create_client_credentials(
         co_return new_cfg;
     }
 
-    // If the configuration is overriden, use it.
+    // If the configuration is overridden, use it.
     if (
-      client_cfg.scram_password.is_overriden()
-      || client_cfg.scram_username.is_overriden()
-      || client_cfg.sasl_mechanism.is_overriden()) {
+      client_cfg.scram_password.is_overridden()
+      || client_cfg.scram_username.is_overridden()
+      || client_cfg.sasl_mechanism.is_overridden()) {
         co_return new_cfg;
     }
 

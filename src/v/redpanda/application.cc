@@ -145,13 +145,13 @@ static void set_local_kafka_client_config(
 
 static void
 set_sr_kafka_client_defaults(kafka::client::configuration& client_config) {
-    if (!client_config.produce_batch_delay.is_overriden()) {
+    if (!client_config.produce_batch_delay.is_overridden()) {
         client_config.produce_batch_delay.set_value(0ms);
     }
-    if (!client_config.produce_batch_record_count.is_overriden()) {
+    if (!client_config.produce_batch_record_count.is_overridden()) {
         client_config.produce_batch_record_count.set_value(int32_t(0));
     }
-    if (!client_config.produce_batch_size_bytes.is_overriden()) {
+    if (!client_config.produce_batch_size_bytes.is_overridden()) {
         client_config.produce_batch_size_bytes.set_value(int32_t(0));
     }
 }
