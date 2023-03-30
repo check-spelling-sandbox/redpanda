@@ -343,7 +343,7 @@ ss::future<> ntp_archiver::upload_until_term_change() {
     }
 
     while (may_begin_uploads()) {
-        // Hold sempahore units to enable other code to know that we are in
+        // Hold semaphore units to enable other code to know that we are in
         // the process of doing uploads + wait for us to drop out if they
         // e.g. set _paused.
         vassert(!_paused, "may_begin_uploads must ensure !_paused");

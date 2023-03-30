@@ -24,7 +24,7 @@
  * that prompts the holder of the units to release some.
  *
  * This is 'adjustable' in that:
- * - Regular sempahores are just a counter: they have no
+ * - Regular semaphores are just a counter: they have no
  *   memory of their intended capacity.  In order to enable runtime
  *   changes to the max units in a semaphore, we must keep an extra
  *   record of the capacity.

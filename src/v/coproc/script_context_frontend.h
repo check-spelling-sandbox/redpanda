@@ -37,7 +37,7 @@ struct input_read_args {
  * Ingests data from a single coprocessors registered input topics.
  *
  * Abortable mechanism, reads from all input topics within the bounds of a
- * semaphaore. Contains a single side effect that will update the last read
+ * semaphore. Contains a single side effect that will update the last read
  * offset from each corresponding input ntp.
  * @params args
  * @return list of process_batch_requests to be sent to the wasm engine
