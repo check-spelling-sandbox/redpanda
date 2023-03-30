@@ -1707,7 +1707,7 @@ def parse_flexible_versions(flex_version):
     # branch and parse a flex request.
     #
     # All other types of requests will produce code that checks for the flex version once
-    # (at the beginning of encode/decode) and will not add redundent checks i.e. check
+    # (at the beginning of encode/decode) and will not add redundant checks i.e. check
     # if its ok to serialize something at version 7 if it already branched due to flex and
     # that flex version is already greater than 7.
     if flex_version == "none":
