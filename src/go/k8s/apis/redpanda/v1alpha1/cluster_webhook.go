@@ -479,13 +479,13 @@ func (r *Cluster) validatePandaproxyListeners() field.ErrorList {
 			allErrs = append(allErrs,
 				field.Invalid(field.NewPath("spec").Child("configuration").Child("pandaproxyApi").Index(i),
 					r.Spec.Configuration.PandaproxyAPI[i],
-					"kafka external listener is empty but must specify the same sudomain as that of the external pandaproxy"))
+					"kafka external listener is empty but must specify the same subdomain as that of the external pandaproxy"))
 		}
 		if kafkaExternal != nil && kafkaExternal.External.Subdomain != proxyExternal.External.Subdomain {
 			allErrs = append(allErrs,
 				field.Invalid(field.NewPath("spec").Child("configuration").Child("pandaproxyApi").Index(i),
 					r.Spec.Configuration.PandaproxyAPI[i],
-					"sudomain of external pandaproxy must be the same as kafka's"))
+					"subdomain of external pandaproxy must be the same as kafka's"))
 		}
 		//nolint:dupl // not identical
 		if kafkaExternal != nil && proxyExternal.External.EndpointTemplate != "" {
@@ -595,7 +595,7 @@ func (r *Cluster) validateSchemaRegistryListener() field.ErrorList {
 		allErrs = append(allErrs,
 			field.Invalid(field.NewPath("spec").Child("configuration").Child("schemaRegistry").Child("external").Child("subdomain"),
 				r.Spec.Configuration.SchemaRegistry.External.Subdomain,
-				"sudomain of external schema registry must be the same as kafka's"))
+				"subdomain of external schema registry must be the same as kafka's"))
 	}
 	if schemaRegistry.External.PreferredAddressType != "" {
 		allErrs = append(allErrs,
