@@ -990,7 +990,7 @@ ss::future<tx_errc> rm_stm::do_abort_tx(
             if (expiration_it != _log_state.expiration.end()) {
                 expiration_it->second.is_expiration_requested = true;
             }
-            // spawing abort in the background and returning an error to
+            // spawning abort in the background and returning an error to
             // release locks on the tx coordinator to prevent distributed
             // deadlock
             ssx::spawn_with_gate(
