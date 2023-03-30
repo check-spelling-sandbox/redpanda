@@ -76,7 +76,7 @@ class TopicOperationsLimitingTest(RedpandaTest):
         check_metric(self.redpanda, "requests_dropped", "topic_operations",
                      value)
 
-    def chek_capacity_is_full(self, value):
+    def check_capacity_is_full(self, value):
         return get_metric(self.redpanda, "requests_available_rps",
                           "topic_operations") == value
 
@@ -87,7 +87,7 @@ class TopicOperationsLimitingTest(RedpandaTest):
         exceed_quota_req = []
         for i in range(requsts_amount_1):
             exceed_quota_req.append(KclCreateTopicsRequestTopic(str(i), 1, 1))
-        wait_until(lambda: self.chek_capacity_is_full(OPERATIONS_LIMIT),
+        wait_until(lambda: self.check_capacity_is_full(OPERATIONS_LIMIT),
                    timeout_sec=10,
                    backoff_sec=1)
         response = self.kcl.raw_create_topics(6, exceed_quota_req)
@@ -106,7 +106,7 @@ class TopicOperationsLimitingTest(RedpandaTest):
 
         self.check_dropped_metric(OPERATIONS_LIMIT)
 
-        wait_until(lambda: self.chek_capacity_is_full(OPERATIONS_LIMIT),
+        wait_until(lambda: self.check_capacity_is_full(OPERATIONS_LIMIT),
                    timeout_sec=10,
                    backoff_sec=1)
 
@@ -141,7 +141,7 @@ class TopicOperationsLimitingTest(RedpandaTest):
                 OPERATIONS_LIMIT * 2
             },
             incremental=True)
-        wait_until(lambda: self.chek_capacity_is_full(OPERATIONS_LIMIT * 2),
+        wait_until(lambda: self.check_capacity_is_full(OPERATIONS_LIMIT * 2),
                    timeout_sec=10,
                    backoff_sec=1)
 
