@@ -36,7 +36,7 @@ class ControllerEraseTest(RedpandaTest):
 
         In general Redpanda doesn't handle on-disk corruption (such as selectively
         deleting segments) gracefully, but in the particular case of wiping
-        the whole controller log, or a contiguous sufffix region of the log,
+        the whole controller log, or a contiguous suffix region of the log,
         we can gracefully let raft fill in the gaps.
         """
 
