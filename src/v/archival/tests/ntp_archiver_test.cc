@@ -1048,7 +1048,7 @@ FIXTURE_TEST(test_upload_segments_with_overlap, archiver_fixture) {
     // For instance if we have segments A with base offset 0 committed offset
     // 100 and dirty offset 101, and B with base offset 100 and committed offset
     // 200, the archival_policy should return A and then B. Before the fix this
-    // is not the case and it always retuns A.
+    // is not the case and it always returns A.
     const auto offset1 = model::offset(0);
     const auto offset2 = model::offset(1000);
     const auto offset3 = model::offset(2000);
