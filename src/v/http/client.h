@@ -202,7 +202,7 @@ public:
     /// stream. Returned future becomes ready when the body is sent.
     /// Using the stream returned by the future client can pull response.
     ///
-    /// \param header is a prepred request header
+    /// \param header is a prepared request header
     /// \param input in an input stream that contains request body octets
     /// \param limits is a set of limitation for a query
     /// \returns response stream future
