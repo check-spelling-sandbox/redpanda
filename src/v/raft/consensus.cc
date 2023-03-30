@@ -3108,7 +3108,7 @@ consensus::do_transfer_leadership(std::optional<model::node_id> target) {
          * transfer completes this flag is cleared; either transfer was
          * successful or not, but operations may continue.
          *
-         * NOTE: for acks=quroum recovery is usually quite fast or
+         * NOTE: for acks=quorum recovery is usually quite fast or
          * unnecessary because followers are kept up-to-date. but for
          * asynchronous replication this is not true. a more
          * sophisticated strategy can be taken from online vm transfer:
