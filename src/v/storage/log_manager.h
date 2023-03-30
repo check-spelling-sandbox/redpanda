@@ -171,7 +171,7 @@ public:
      */
     ss::future<> remove(model::ntp);
     /**
-     * This function walsk through entire directory structure in an async fiber
+     * This function walks through entire directory structure in an async fiber
      * to remove all orphan files in that directory. It checks if file is orphan
      * with special orphan_filter
      */
