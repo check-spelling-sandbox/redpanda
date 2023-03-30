@@ -157,7 +157,7 @@ private:
     ss::future<> remove_prefix_full_segments(truncate_prefix_config);
 
     // Propagate a request to the Raft layer to evict segments up until the
-    // specified offest.
+    // specified offset.
     //
     // Returns the new start offset of the log.
     ss::future<model::offset> request_eviction_until_offset(model::offset);

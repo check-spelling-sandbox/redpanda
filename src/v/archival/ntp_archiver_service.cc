@@ -1572,7 +1572,7 @@ ss::future<ntp_archiver::manifest_updated> ntp_archiver::apply_retention() {
         } else {
             vlog(
               _rtclog.warn,
-              "Failed to update archival metadata STM start offest according "
+              "Failed to update archival metadata STM start offset according "
               "to retention policy: {}",
               error);
         }

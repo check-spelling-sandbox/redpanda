@@ -147,7 +147,7 @@ public:
     /// \brief Perform housekeeping operations.
     ss::future<> housekeeping();
 
-    /// \brief Advance the start offest for the remote partition
+    /// \brief Advance the start offset for the remote partition
     /// according to the retention policy specified by the partition
     /// configuration. This function does *not* delete any data.
     ss::future<manifest_updated> apply_retention();

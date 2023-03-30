@@ -203,7 +203,7 @@ void replicated_partition_probe::setup_public_metrics(const model::ntp& ntp) {
                 });
           },
           sm::description("Number of under replicated replicas (i.e. replicas "
-                          "that are live, but not at the latest offest)"),
+                          "that are live, but not at the latest offset)"),
           labels)
           .aggregate({sm::shard_label}),
         // Topic Level Metrics
