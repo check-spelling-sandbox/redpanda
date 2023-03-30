@@ -1185,7 +1185,7 @@ ss::future<std::error_code> topics_frontend::increase_replication_factor(
 
     std::optional<std::error_code> error;
 
-    auto healt_report = co_await get_health_info(topic, partition_count);
+    auto health_report = co_await get_health_info(topic, partition_count);
 
     auto hard_max_disk_usage_ratio = (100 - _hard_max_disk_usage_ratio())
                                      / 100.0;
@@ -1194,7 +1194,7 @@ ss::future<std::error_code> topics_frontend::increase_replication_factor(
       model::partition_id(0),
       new_replication_factor,
       hard_max_disk_usage_ratio,
-      healt_report);
+      health_report);
 
     co_await ss::max_concurrent_for_each(
       tp_metadata->get_assignments(),
