@@ -527,7 +527,7 @@ FIXTURE_TEST(test_collected_log_recovery, raft_test_fixture) {
       = replicate_compactible_batches(gr, first_ts).get0();
 
     auto second_ts = model::timestamp(first_ts() + 100);
-    info("Triggerring log collection with timestamp {}", first_ts);
+    info("Triggering log collection with timestamp {}", first_ts);
     // append some more entries
     res = replicate_compactible_batches(gr, second_ts).get0();
 
