@@ -2247,7 +2247,7 @@ FIXTURE_TEST(test_querying_term_last_offset, storage_test_fixture) {
     // append more batches in the same term
     append_random_batches(log, 10, model::term_id(1));
     auto lstats_term_1 = log.offsets();
-    // append some batche sin term 2
+    // append some batches in term 2
     append_random_batches(log, 10, model::term_id(2));
 
     BOOST_REQUIRE_EQUAL(
