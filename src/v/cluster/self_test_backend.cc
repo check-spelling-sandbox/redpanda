@@ -134,7 +134,7 @@ get_status_response self_test_backend::start_test(start_test_request req) {
     } else {
         vlog(
           clusterlog.info,
-          "Request to start already in-progress test receieved, updating test "
+          "Request to start already in-progress test received, updating test "
           "UUID from: {} to: {}",
           _id,
           req.id);
