@@ -48,7 +48,7 @@ PARTITIONS_PER_SHARD = 1000
 # amount of RAM or CPU that the nodes claim to have, because
 # we know they are liable to be oversubscribed.
 # This is _not_ for running on oversubscribed CI environments: it's for
-# runnig on a reasonably powerful developer machine while they work
+# running on a reasonably powerful developer machine while they work
 # on the test.
 DOCKER_PARTITION_LIMIT = 128
 
