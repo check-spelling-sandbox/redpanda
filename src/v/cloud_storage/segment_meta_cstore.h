@@ -731,7 +731,7 @@ public:
 /// Find/lower_bound/upper_bound operations are completed within
 /// single digit microsecond intervals even with millions of elements
 /// in the column. The actual decoding is only performed for a single frame.
-/// The access by index is also fast (same order of magnitued as search).
+/// The access by index is also fast (same order of magnitude as search).
 template<class value_t>
 class segment_meta_column<value_t, details::delta_delta<value_t>>
   : public segment_meta_column_impl<
