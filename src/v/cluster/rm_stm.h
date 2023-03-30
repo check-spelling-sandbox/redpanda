@@ -681,7 +681,7 @@ private:
     // then B should fail too.
     //
     // inflight_requests hosts inflight requests before they are resolved
-    // and form a monotonicly increasing continuation without gaps of
+    // and form a monotonically increasing continuation without gaps of
     // log_state's seq_table
     struct inflight_requests {
         mutex lock;

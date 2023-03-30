@@ -122,7 +122,7 @@ struct index_state
     fragmented_vector<uint64_t> position_index;
 
     // flag indicating whether the maximum timestamp on the batches
-    // of this segment are monontonically increasing.
+    // of this segment are monotonically increasing.
     bool batch_timestamps_are_monotonic{true};
 
     // flag indicating whether the relative time index has been offset
