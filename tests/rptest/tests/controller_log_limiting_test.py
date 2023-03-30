@@ -171,7 +171,7 @@ class ControllerConfigLimitTest(RedpandaTest):
         requests_amount = OPERATIONS_LIMIT * 2
         success_amount = 0
         quota_error_amount = 0
-        wait_until(lambda: self.check_capcity_is_full(OPERATIONS_LIMIT),
+        wait_until(lambda: self.check_capacity_is_full(OPERATIONS_LIMIT),
                    timeout_sec=10,
                    backoff_sec=1)
         for i in range(requests_amount):
@@ -194,7 +194,7 @@ class ControllerConfigLimitTest(RedpandaTest):
         assert quota_error_amount > 0
         assert success_amount > 0
 
-    def check_capcity_is_full(self, capacity):
+    def check_capacity_is_full(self, capacity):
         return get_metric(self.redpanda, "requests_available_rps",
                           "configuration_operations") == capacity
 
@@ -210,7 +210,7 @@ class ControllerConfigLimitTest(RedpandaTest):
         success_amount = 0
         quota_error_amount = 0
 
-        wait_until(lambda: self.check_capcity_is_full(requests_amount),
+        wait_until(lambda: self.check_capacity_is_full(requests_amount),
                    timeout_sec=10,
                    backoff_sec=1)
         for i in range(requests_amount):
