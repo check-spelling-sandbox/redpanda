@@ -1242,7 +1242,7 @@ configuration::configuration()
   , cloud_storage_initial_backoff_ms(
       *this,
       "cloud_storage_initial_backoff_ms",
-      "Initial backoff time for exponetial backoff algorithm (ms)",
+      "Initial backoff time for exponential backoff algorithm (ms)",
       {.visibility = visibility::tunable},
       100ms)
   , cloud_storage_segment_upload_timeout_ms(
