@@ -136,7 +136,7 @@ public:
     /// perform syscall stat
     ss::future<struct stat> stat();
 
-    /// truncates file starting at this phyiscal offset
+    /// truncates file starting at this physical offset
     ss::future<> truncate(size_t sz);
 
     /// create an input stream _sharing_ the underlying file handle
