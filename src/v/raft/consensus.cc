@@ -1832,7 +1832,7 @@ consensus::do_append_entries(append_entries_request&& r) {
     // as timeouts are asynchronous to append calls and can have stall data
     if (r.batches().is_end_of_stream()) {
         if (r.meta.prev_log_index < last_log_offset) {
-            // do not tuncate on heartbeat just response with false
+            // do not truncate on heartbeat just response with false
             reply.result = append_entries_reply::status::failure;
             return ss::make_ready_future<append_entries_reply>(
               std::move(reply));
