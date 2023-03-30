@@ -32,7 +32,7 @@ namespace raft {
 class offset_monitor {
 public:
     /**
-     * Exisiting waiters receive wait_aborted exception.
+     * Existing waiters receive wait_aborted exception.
      */
     void stop();
 
