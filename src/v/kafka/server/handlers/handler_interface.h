@@ -98,7 +98,7 @@ using handler = const handler_interface*;
  *
  * Returns a pointer to a constant singleton handler for the given
  * key, or an empty optional if no such handler exists. The contained
- * any_hanlder is guaranteed to be non-null if the optional as a value.
+ * any_handler is guaranteed to be non-null if the optional as a value.
  *
  * This method looks up the handler in a table populated by all handlers
  * in kafka::request_types.
