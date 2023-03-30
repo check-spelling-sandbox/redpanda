@@ -103,7 +103,7 @@ private:
 
     // Transaction GA includes: KIP_447, KIP-360, fix for compaction tx_group*
     // records, perf fix#1(Do not writing preparing state on disk in tm_stn),
-    // perf fix#2(Do not writeing prepared marker in rm_stm)
+    // perf fix#2(Do not writing prepared marker in rm_stm)
     bool is_transaction_ga() {
         return _feature_table.local().is_active(
           features::feature::transaction_ga);
