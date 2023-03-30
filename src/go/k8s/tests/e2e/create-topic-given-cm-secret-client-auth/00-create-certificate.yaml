@@ -50,7 +50,7 @@ metadata:
   namespace: cert-manager
 spec:
   dnsNames:
-    # Kakfa API
+    # Kafka API
     - "*.cluster-tls-secret.given-cert-secret.svc.cluster.local"
     # Schema registry API
     - "cluster-tls-secret-cluster.given-cert-secret.svc.cluster.local"

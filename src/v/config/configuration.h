@@ -301,12 +301,12 @@ struct configuration final : public config_store {
 
     one_or_many_property<ss::sstring> superusers;
 
-    // kakfa queue depth control: latency ewma
+    // kafka queue depth control: latency ewma
     property<double> kafka_qdc_latency_alpha;
     property<std::chrono::milliseconds> kafka_qdc_window_size_ms;
     property<size_t> kafka_qdc_window_count;
 
-    // kakfa queue depth control: queue depth ewma and control
+    // kafka queue depth control: queue depth ewma and control
     property<bool> kafka_qdc_enable;
     property<double> kafka_qdc_depth_alpha;
     property<std::chrono::milliseconds> kafka_qdc_max_latency_ms;
