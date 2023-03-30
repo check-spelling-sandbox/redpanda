@@ -47,7 +47,7 @@ class LeadershipTransferTest(RedpandaTest):
             filter(lambda r: r["id"] != partition["leader"],
                    partition["replicas"]))["id"]
         self.logger.debug(
-            f"Transfering leader from {partition['leader']} to {target_node_id}"
+            f"Transferring leader from {partition['leader']} to {target_node_id}"
         )
 
         # build the transfer url
