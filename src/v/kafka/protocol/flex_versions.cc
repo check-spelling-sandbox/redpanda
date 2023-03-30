@@ -79,8 +79,8 @@ parse_tags(ss::input_stream<char>& src) {
         auto data = ss::uninitialized_string<bytes>(buf.size());
         std::copy_n(buf.begin(), buf.size(), data.begin());
         total_bytes_read += next_len;
-        auto [_, succeded] = tags.emplace(tag_id(id), std::move(data));
-        if (!succeded) {
+        auto [_, succeeded] = tags.emplace(tag_id(id), std::move(data));
+        if (!succeeded) {
             throw std::logic_error(
               fmt::format("Protocol error, duplicate tag id detected, {}", id));
         }

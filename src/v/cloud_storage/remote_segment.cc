@@ -685,7 +685,7 @@ ss::future<> remote_segment::run_hydrate_bg() {
             // hydration earlier.
             vassert(
               _data_file || err,
-              "Segment hydration succeded but file isn't available");
+              "Segment hydration succeeded but file isn't available");
             while (!_wait_list.empty()) {
                 auto& p = _wait_list.front();
                 if (err) {

@@ -1252,7 +1252,7 @@ class TopicRecoveryTest(RedpandaTest):
             try:
                 for topic in recovered_topics:
                     topic_state = self.rpk.describe_topic(topic.name)
-                    # Describe topics only works after leader election succeded.
+                    # Describe topics only works after leader election succeeded.
                     # We can use it to wait until the recovery is completed.
                     for partition in topic_state:
                         self.logger.info(f"partition: {partition}")

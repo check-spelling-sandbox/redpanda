@@ -244,8 +244,8 @@ public:
 
     void consume_unknown_tag(tagged_fields& fields, uint32_t id, size_t n) {
         tagged_fields::type fs(std::move(fields));
-        auto [_, succeded] = fs.emplace(tag_id(id), _parser.read_bytes(n));
-        if (!succeded) {
+        auto [_, succeeded] = fs.emplace(tag_id(id), _parser.read_bytes(n));
+        if (!succeeded) {
             throw std::out_of_range(fmt::format(
               "Protocol error encountered when parsing unknown tags, duplicate "
               "tag id detected: {}",
