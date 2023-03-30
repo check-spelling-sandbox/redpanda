@@ -38,7 +38,7 @@ using req_resource_t = incremental_alter_configs_resource;
 using resp_resource_t = incremental_alter_configs_resource_response;
 
 /**
- * We pass returned value as a paramter to allow template to be automatically
+ * We pass returned value as a parameter to allow template to be automatically
  * resolved.
  */
 static void parse_and_set_shadow_indexing_mode(
