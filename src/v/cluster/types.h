@@ -3021,7 +3021,7 @@ struct cloud_storage_usage_reply
 
     // When replies are handled in 'cloud_storage_size_reducer'
     // only the size of this list is currently used. However,
-    // having the actual missing ntps allws for future optimisations:
+    // having the actual missing ntps allows for future optimisations:
     // the request can be retried only for the 'missing_partitions'.
     std::vector<model::ntp> missing_partitions;
 
