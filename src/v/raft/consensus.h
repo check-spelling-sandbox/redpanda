@@ -564,7 +564,7 @@ private:
       model::node_id requested_node_id) {
         if (reply) {
             // since we are not going to introduce the node in ADL versions of
-            // replies it may be not initialzed, in this case just ignore the
+            // replies it may be not initialized, in this case just ignore the
             // check
             if (unlikely(
                   reply.value().node_id != vnode{}
