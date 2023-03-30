@@ -731,7 +731,7 @@ void application::check_for_crash_loop() {
         auto& crash_md = maybe_crash_md.value();
         auto& limit = config::node().crash_loop_limit.value();
 
-        // Check if it has been atleast 1h since last unsuccessful restart.
+        // Check if it has been at least 1h since last unsuccessful restart.
         // Tracking resets every 1h.
         auto time_since_last_start
           = model::duration_since_epoch(model::timestamp::now())

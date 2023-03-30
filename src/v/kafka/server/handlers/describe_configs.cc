@@ -115,10 +115,10 @@ consteval describe_configs_type property_config_type() {
         std::is_same_v<T, v8_engine::data_policy>;
 
     constexpr auto is_long_type = is_long<T> ||
-        // Long type since seconds is atleast a 35-bit signed integral
+        // Long type since seconds is at least a 35-bit signed integral
         // https://en.cppreference.com/w/cpp/chrono/duration
         std::is_same_v<T, std::chrono::seconds> ||
-        // Long type since milliseconds is atleast a 45-bit signed integral
+        // Long type since milliseconds is at least a 45-bit signed integral
         // https://en.cppreference.com/w/cpp/chrono/duration
         std::is_same_v<T, std::chrono::milliseconds>;
     // clang-format on
