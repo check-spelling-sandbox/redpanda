@@ -33,7 +33,7 @@ namespace cluster {
  * movements will fail and the groups being moved with be temporarily muted from
  * further movement. Thus the mute timeout should be chosen with this in mind:
  * too long, and leadership recovery will take a long time. Too short and it
- * will be very noise with timeouts and RPC errros.
+ * will be very noise with timeouts and RPC errors.
  *
  * TODO:
  *   - One approach to dealing with such situations in a smarter way might be to
