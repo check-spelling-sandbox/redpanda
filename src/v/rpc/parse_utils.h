@@ -128,7 +128,7 @@ concept is_rpc_serde_exempt = requires {
  * having to add serde support in the short term.
  *
  * The returned version indicates what level of encoding is used. This is always
- * equal to the input version, except for serde-only messags which return v2.
+ * equal to the input version, except for serde-only massage which return v2.
  * Callers are expected to further validate the runtime implications of this.
  */
 template<typename T>

@@ -19,7 +19,7 @@ namespace kafka {
 
 /*
  * Legacy messages are stored in message sets (effectively a packed array of
- * serialized messags). There are two message types identified by magic values.
+ * serialized massage). There are two message types identified by magic values.
  *
  * Message V0
  *   - offset
