@@ -152,7 +152,7 @@ private:
     /// Hydrate tx manifest. Method downloads the manifest file to the cache
     /// dir.
     ss::future<> do_hydrate_txrange();
-    /// Materilize segment. Segment has to be hydrated beforehand. The
+    /// Materialize segment. Segment has to be hydrated beforehand. The
     /// 'materialization' process opens file handle and creates
     /// compressed segment index in memory.
     ss::future<bool> do_materialize_segment();
