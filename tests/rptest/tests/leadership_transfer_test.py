@@ -161,7 +161,7 @@ class AutomaticLeadershipBalancingTest(RedpandaTest):
         time.sleep(60)
 
         # sanity check -- the node we stopped shouldn't be a leader for any
-        # partition after the sleep above as releection should have taken place
+        # partition after the sleep above as reelection should have taken place
         leaders = self._get_leaders_by_node()
         assert self.redpanda.idx(node) not in leaders
 
