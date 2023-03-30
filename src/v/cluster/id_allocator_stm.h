@@ -110,7 +110,7 @@ private:
     // `_batch_size` by saving `state_cmd {_state + _batch_size}` to the log.
     // The state machine uses `_curr_batch` to track the number of the IDs
     // left in the range. Each time `allocate_id` is called the state machine
-    // increments `_curr_id` (it is initialy equal to `_state`) and decrements
+    // increments `_curr_id` (it is initially equal to `_state`) and decrements
     // `_curr_batch`. When the latter reaches zero the state machine allocates
     // a new batch.
     //
