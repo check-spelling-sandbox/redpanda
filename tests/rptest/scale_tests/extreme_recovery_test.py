@@ -196,7 +196,7 @@ class ExtremeRecoveryTest(TopicRecoveryTest):
         self.do_run(extreme_recovery, RecoveryScale.expected_transfer_sec * 2)
         extreme_recovery.log_status()
 
-    # XXX TODO this inheritence is silly, do some refactoring.
+    # XXX TODO this inheritance is silly, do some refactoring.
     @ignore
     def test_fast1(self):
         pass
