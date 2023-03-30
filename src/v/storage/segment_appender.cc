@@ -453,7 +453,7 @@ void segment_appender::dispatch_background_head_write() {
      * if _head is full then take control of it for this final write and then
      * release it back into the chunk cache. otherwise, leave it in place so
      * that new appends may accumulate. this optimization is meant to avoid
-     * redhydrating the chunk on append following a flush when the head has
+     * rehydrating the chunk on append following a flush when the head has
      * pending bytes and a write is dispatched.
      */
     const auto full = _head->is_full();
