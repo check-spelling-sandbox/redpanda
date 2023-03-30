@@ -190,7 +190,7 @@ class ExtremeRecoveryTest(TopicRecoveryTest):
                                          self.kafka_tools, self.rpk,
                                          self.s3_bucket, self.logger, topics,
                                          self.rpk_producer_maker)
-        # Expected transer sec is usually accurate in my testing,
+        # Expected transfer sec is usually accurate in my testing,
         # but it takes more time for s3 object metadata to reflect the changes
         # made to the bucket. This can be observed by watching cloud storage
         # upload metrics while the test is running.
