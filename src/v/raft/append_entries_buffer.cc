@@ -46,7 +46,7 @@ ss::future<> append_entries_buffer::stop() {
     _enqueued.broken();
     _flushed.broken();
     // wait for gate to be closed so all the pending requests will finish before
-    // we invalidate pending promisses
+    // we invalidate pending promises
     co_await std::move(f);
     auto response_promises = std::exchange(_responses, {});
     // set errors
