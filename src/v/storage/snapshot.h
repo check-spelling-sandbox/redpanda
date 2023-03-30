@@ -65,7 +65,7 @@ class snapshot_writer;
  *
  *       snapshot_manager mgr(prefix, "/path/to/ntp/", io_priority);
  *
- *    Snapshot manager saves snapshots atomicly by writing data to temp files
+ *    Snapshot manager saves snapshots atomically by writing data to temp files
  *    and then using atomic `mv` to replace older snapshots. Prefix is a name
  *    prefix for the temporary files (suffix is unique, mix of time and salt).
  *    It's needed to avoid collision when several snapshot_managers points to
