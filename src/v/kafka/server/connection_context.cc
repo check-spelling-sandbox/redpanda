@@ -471,9 +471,9 @@ connection_context::dispatch_method_once(request_header hdr, size_t size) {
 
 /**
  * This method processes as many responses as possible, in request order. Since
- * we proces the second stage asynchronously within a given connection, responses
- * may become ready out of order, but Kafka clients expect responses exactly in
- * request order.
+ * we proces the second stage asynchronously within a given connection,
+ * responses may become ready out of order, but Kafka clients expect responses
+ * exactly in request order.
  *
  * The _responses queue handles that: responses are enqueued there in completion
  * order, but only sent to the client in response order. So this method, called

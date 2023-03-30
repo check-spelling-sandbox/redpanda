@@ -379,7 +379,7 @@ consensus::success_reply consensus::update_follower_index(
         return success_reply::no;
     }
     /**
-     * Even though we allow some of the reordered responsens to be processed we
+     * Even though we allow some of the reordered responses to be processed we
      * do not want it to update last received response sequence. This may lead
      * to processing one of the response that were reordered and should be
      * discarded.
@@ -643,7 +643,7 @@ ss::future<result<model::offset>> consensus::linearizable_barrier() {
 
     u.return_all();
 
-    // wait for responsens in background
+    // wait for responses in background
     ssx::spawn_with_gate(_bg, [futures = std::move(send_futures)]() mutable {
         return ss::when_all_succeed(futures.begin(), futures.end());
     });

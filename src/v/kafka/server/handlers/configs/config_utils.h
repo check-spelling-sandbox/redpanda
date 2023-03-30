@@ -72,7 +72,7 @@ T make_error_alter_config_resource_response(
 }
 /**
  * Authorizes grouped alter configuration resources, it returns not authorized
- * responsens and modifies passed in group_resources<T>
+ * responses and modifies passed in group_resources<T>
  */
 template<typename T, typename R>
 std::vector<R> authorize_alter_config_resources(

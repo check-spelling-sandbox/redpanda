@@ -58,7 +58,7 @@ ss::future<std::vector<process_batch_reply::data>> resultmap_to_vector(
 
 static ss::future<std::vector<process_batch_reply::data>>
 make_empty_response(script_id id, const model::ntp& ntp) {
-    /// Redpanda will special case respones with empty readers as an ack.
+    /// Redpanda will special case responses with empty readers as an ack.
     /// This has the affect of an implied 'filter' transformation. The
     /// supervisor acks a request with an empty response, so redpanda just moves
     /// the input topic read head offset forward without a corresponding

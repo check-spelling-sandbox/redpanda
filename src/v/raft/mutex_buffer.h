@@ -36,7 +36,7 @@ public:
               ss::promise<Response> p;
               auto f = p.get_future();
               _requests.push_back(std::move(r));
-              _responsens.push_back(std::move(p));
+              _responses.push_back(std::move(p));
               _enqueued.signal();
               return f;
           });
@@ -68,7 +68,7 @@ private:
     ss::future<> do_flush(request_t, response_t, Func&& f);
 
     request_t _requests;
-    response_t _responsens;
+    response_t _responses;
     ss::condition_variable _enqueued;
     ss::gate _gate;
     mutex& _mutex;
@@ -96,7 +96,7 @@ template<typename Request, typename Response>
 template<typename Func>
 ss::future<> mutex_buffer<Request, Response>::flush(Func&& f) {
     auto requests = std::exchange(_requests, {});
-    auto response_promises = std::exchange(_responsens, {});
+    auto response_promises = std::exchange(_responses, {});
 
     return _mutex.with(
       [this,
