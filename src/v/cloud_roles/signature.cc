@@ -350,7 +350,7 @@ inline result<ss::sstring> create_canonical_request(
       hashed_payload);
 }
 
-/// Genertes string-to-sign (in spec terms), example:
+/// Generates string-to-sign (in spec terms), example:
 ///
 ///   "AWS4-HMAC-SHA256" + "\n" +
 ///   timeStampISO8601Format + "\n" +
