@@ -172,7 +172,7 @@ ss::future<> readers_cache::stop() {
         delete e; // NOLINT
     });
     /**
-     * Stop and clear metrics as well or risk a double registrion on partition
+     * Stop and clear metrics as well or risk a double registration on partition
      * movements. For details see
      * https://github.com/redpanda-data/redpanda/issues/5938
      */
