@@ -47,7 +47,7 @@ void run_test(Fun fun, size_t data_size) {
     perf_tests::stop_measuring_time();
 }
 
-// std::string thoughout
+// std::string throughout
 PERF_TEST(std_std_fmt_1K, join) {
     run_test<std::string, std::string>(fmt_format{}, 1 << 10);
 }
@@ -57,7 +57,7 @@ PERF_TEST(ss_ss_fmt_1K, join) {
     run_test<ss::sstring, ss::sstring>(fmt_format{}, 1 << 10);
 }
 
-// ss::sstring thoughout
+// ss::sstring throughout
 PERF_TEST(ss_ss_ssx_1K, join) {
     run_test<ss::sstring, ss::sstring>(ssx_sformat{}, 1 << 10);
 }
