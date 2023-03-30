@@ -168,7 +168,7 @@ class CloudStorageCompactionTest(EndToEndTest):
     # TODO: remove this low allow-list when that issue is resolved.
     @cluster(num_nodes=9,
              log_allow_list=[
-                 "Cannot validate Kafka record batch. Missmatching CRC",
+                 "Cannot validate Kafka record batch. Mismatching CRC",
                  "batch has invalid CRC"
              ])
     @matrix(
