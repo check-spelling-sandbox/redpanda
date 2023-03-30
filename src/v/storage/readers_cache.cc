@@ -160,7 +160,7 @@ ss::future<> readers_cache::stop() {
      */
     co_await wait_for_no_inuse_readers();
     /**
-     * At this poit we are sure that all cached readers are not used anymore and
+     * At this point we are sure that all cached readers are not used anymore and
      * no new readers will be added to _readers list.
      *
      * Close and dispose cached readers
