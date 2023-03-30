@@ -113,7 +113,7 @@ static bool should_immediately_deregister(
         /// acks correspond to what topics
         results.push_back(fold_enable_codes(cross_shard_codes));
     }
-    /// Only if 100% of the subscribtions are invalid should the
+    /// Only if 100% of the subscriptions are invalid should the
     /// coprocessor be deregistered.
     return std::all_of(results.cbegin(), results.cend(), xform::identity());
 }
