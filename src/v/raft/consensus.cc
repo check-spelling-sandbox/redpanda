@@ -1500,7 +1500,7 @@ void consensus::read_voted_for() {
               storage::kvstore::key_space::consensus, key);
             vlog(
               _ctxlog.info,
-              "triggerred voter for read fallback, reading previous version of "
+              "triggered voter for read fallback, reading previous version of "
               "voted for configuration");
             // fallback to old version
             auto config
