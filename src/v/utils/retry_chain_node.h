@@ -235,7 +235,7 @@ public:
       ss::lowres_clock::duration timeout,
       ss::lowres_clock::duration initial_backoff,
       retry_chain_node* parent);
-    /// D-tor (performs some validaton steps and can fail)
+    /// D-tor (performs some validation steps and can fail)
     ~retry_chain_node();
     retry_chain_node(const retry_chain_node&) = delete;
     retry_chain_node& operator=(const retry_chain_node&) = delete;
