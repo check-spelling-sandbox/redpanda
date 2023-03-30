@@ -69,7 +69,7 @@ BOOST_AUTO_TEST_CASE(serde_basic) {
     }
 }
 
-BOOST_AUTO_TEST_CASE(serde_no_time_offseting_for_existing_indices) {
+BOOST_AUTO_TEST_CASE(serde_no_time_offsetting_for_existing_indices) {
     for (int i = 0; i < 100; ++i) {
         // Create index without time offsetting
         auto input = make_random_index_state(storage::offset_delta_time::no);
