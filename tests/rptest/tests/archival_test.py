@@ -251,7 +251,7 @@ class ArchivalTest(RedpandaTest):
             self.kafka_tools.produce(self.topic, 10000, 1024)
             time.sleep(10)  # sleep is needed because we need to make sure that
             # reconciliation loop kicked in and started uploading
-            # data, otherwse we can rejoin before archival storage
+            # data, otherwise we can rejoin before archival storage
             # will even try to upload new segments
         validate(self._quick_verify, self.logger, 90)
 
@@ -266,7 +266,7 @@ class ArchivalTest(RedpandaTest):
             self.kafka_tools.produce(self.topic, 9000, 1024)
             time.sleep(10)  # sleep is needed because we need to make sure that
             # reconciliation loop kicked in and started uploading
-            # data, otherwse we can rejoin before archival storage
+            # data, otherwise we can rejoin before archival storage
             # will even try to upload new segments
         validate(self._quick_verify, self.logger, 90)
 
@@ -279,7 +279,7 @@ class ArchivalTest(RedpandaTest):
         with firewall_blocked(self.redpanda.nodes, self._s3_port):
             time.sleep(10)  # sleep is needed because we need to make sure that
             # reconciliation loop kicked in and started uploading
-            # data, otherwse we can rejoin before archival storage
+            # data, otherwise we can rejoin before archival storage
             # will even try to upload new segments
         validate(self._quick_verify, self.logger, 90)
 
