@@ -66,7 +66,7 @@ public:
           num_clients);
         vassert(
           read_ahead != 0,
-          "input_stream_fanaout can't have zero readahead value");
+          "input_stream_fanout can't have zero readahead value");
     }
 
     /// Start consuming the input stream
