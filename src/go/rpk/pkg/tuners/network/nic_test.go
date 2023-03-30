@@ -231,7 +231,7 @@ func Test_nic_GetRxQueueCount(t *testing.T) {
 		want          int
 	}{
 		{
-			name: "Shall return len(IRQ) when RPS is disabled and driver is not limiting queus number",
+			name: "Shall return len(IRQ) when RPS is disabled and driver is not limiting queue count",
 			irqProcFile: &procFileMock{
 				getIRQProcFileLinesMap: func() (map[int]string, error) {
 					return map[int]string{
