@@ -46,7 +46,7 @@ class PartitionMovementTest(PartitionMovementMixin, EndToEndTest):
     TODO
     - Add tests with node failures
     - Add settings for scaling up tests
-    - Add tests guarnateeing multiple segments
+    - Add tests guaranteeing multiple segments
     """
     def __init__(self, ctx, *args, **kwargs):
         super(PartitionMovementTest, self).__init__(
