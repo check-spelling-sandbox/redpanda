@@ -1404,7 +1404,7 @@ rm_stm::replicate_tx(model::batch_identity bid, model::record_batch_reader br) {
                     // re-election we sync and it catches up with all records
                     // replicated in previous term. since the cached offset for
                     // a given seq is still -1 it means that the replication
-                    // hasn't passed so we updating the term to pretent that the
+                    // hasn't passed so we updating the term to pretend that the
                     // retry (seqs match) put it there
                     pid_seq->second.term = synced_term;
                 }
