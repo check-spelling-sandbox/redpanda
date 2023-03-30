@@ -385,7 +385,7 @@ class PartitionMovementTest(PartitionMovementMixin, EndToEndTest):
     @matrix(num_to_upgrade=[0, 2])
     def test_invalid_destination(self, num_to_upgrade):
         """
-        Check that requuests to move to nonexistent locations are properly rejected.
+        Check that requests to move to nonexistent locations are properly rejected.
         """
 
         test_mixed_versions = num_to_upgrade > 0
