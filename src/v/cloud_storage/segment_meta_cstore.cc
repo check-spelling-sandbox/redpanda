@@ -86,7 +86,7 @@ void increment_all(std::tuple<Args...>& tup) {
 }
 
 /// The iters tuple is a tuple of std::optional<iterator-type>. The method
-/// checks if the optoinal referenced by index is not none and dereferences.
+/// checks if the optional referenced by index is not none and dereferences.
 template<segment_meta_ix ix, class T, class... Args>
 void value_or(const std::tuple<Args...>& iters, T& res) {
     const auto& it = std::get<static_cast<size_t>(ix)>(iters);
