@@ -317,7 +317,7 @@ func Test_nic_GetNTupleStatus(t *testing.T) {
 		want          NTupleStatus
 	}{
 		{
-			name: "Shall return not suported when iface does not support NTuples",
+			name: "Shall return not supported when iface does not support NTuples",
 			ethtool: &ethtoolMock{
 				features: func(string) (map[string]bool, error) {
 					return map[string]bool{
