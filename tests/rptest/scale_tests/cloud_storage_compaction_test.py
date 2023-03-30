@@ -140,7 +140,7 @@ class CloudStorageCompactionTest(EndToEndTest):
                                           num_brokers=3,
                                           si_settings=self.rr_si_settings)
 
-    def _create_read_repica_topic_success(self):
+    def _create_read_replica_topic_success(self):
         try:
             rpk_rr_cluster = RpkTool(self.rr_cluster)
             conf = {
@@ -159,7 +159,7 @@ class CloudStorageCompactionTest(EndToEndTest):
     def _setup_read_replica(self):
         self._init_redpanda_read_replica()
         self.rr_cluster.start(start_si=False)
-        wait_until(self._create_read_repica_topic_success,
+        wait_until(self._create_read_replica_topic_success,
                    timeout_sec=30,
                    backoff_sec=5)
 
