@@ -159,7 +159,7 @@ FIXTURE_TEST(test_getting_configurations, config_manager_fixture) {
     _cfg_mgr
       .maybe_store_highest_known_offset(
         model::offset(10000),
-        raft::configuration_manager::offset_update_treshold + 1_KiB)
+        raft::configuration_manager::offset_update_threshold + 1_KiB)
       .get0();
 
     validate_recovery();

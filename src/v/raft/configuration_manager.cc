@@ -377,7 +377,7 @@ ss::future<> configuration_manager::maybe_store_highest_known_offset(
         bytes, _bytes_since_last_offset_update_units);
 
     if (
-      _bytes_since_last_offset_update < offset_update_treshold
+      _bytes_since_last_offset_update < offset_update_threshold
       && !checkpoint_hint) {
         co_return;
     }

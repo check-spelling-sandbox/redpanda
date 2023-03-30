@@ -65,7 +65,7 @@ public:
     using underlying_t = absl::btree_map<model::offset, indexed_configuration>;
     using const_iterator = underlying_t::const_iterator;
 
-    static constexpr size_t offset_update_treshold = 64_MiB;
+    static constexpr size_t offset_update_threshold = 64_MiB;
 
     configuration_manager(
       group_configuration, raft::group_id, storage::api&, ctx_log&);
