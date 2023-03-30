@@ -349,9 +349,9 @@ connection_context::dispatch_method_once(request_header hdr, size_t size) {
                  * we process requests in order since all subsequent requests
                  * are dependent on authentication having completed.
                  *
-                 * the other important reason for disabling pipeling is because
-                 * when a sasl handshake with version=0 is processed, the next
-                 * data on the wire is _not_ another request: it is a
+                 * the other important reason for disabling pipelining is
+                 * because when a sasl handshake with version=0 is processed,
+                 * the next data on the wire is _not_ another request: it is a
                  * size-prefixed authentication payload without a request
                  * envelope, and requires special handling.
                  *
