@@ -25,7 +25,7 @@
 namespace coproc {
 using script_map_t = absl::btree_map<script_id, std::unique_ptr<coprocessor>>;
 
-// A super simplistic form of the javascript supervisor soley used for
+// A super simplistic form of the javascript supervisor solely used for
 // the purposes of testing. The sharded instance of script_map_t contains the
 // same coprocessors across all cores. However due to the distribution of NTPs
 // across shards, record_batches from a particular input topic will always
