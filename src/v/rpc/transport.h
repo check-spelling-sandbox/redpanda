@@ -197,7 +197,7 @@ private:
     /**
      * Ordered map containing requests to be sent over the wire. The map
      * preserves order of calling send_typed function. It is fine to use
-     * btree_map in here as it ususally contains only few elements.
+     * btree_map in here as it usually contains only few elements.
      */
     requests_queue_t _requests_queue;
     sequence_t _seq;
