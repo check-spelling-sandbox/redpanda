@@ -2093,7 +2093,7 @@ tx_gateway_frontend::do_abort_tm_tx(
       && tx.status != tm_transaction::tx_status::aborting) {
         vlog(
           txlog.warn,
-          "abort encontered a tx with unexpected status:{} (tx:{} etag:{} "
+          "abort encountered a tx with unexpected status:{} (tx:{} etag:{} "
           "pid:{} tx_seq:{}) in term:{}",
           tx.status,
           tx.id,
