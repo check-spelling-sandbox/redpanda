@@ -28,7 +28,7 @@ class ArroyoTest(PreallocNodesTest):
             *args,
             extra_rp_conf={
                 # Disable leader balancer since arroyo test suite
-                # does not refresh group information on reciept of
+                # does not refresh group information on receipt of
                 # not_coordinator error_code
                 "enable_leader_balancer": False
             },
