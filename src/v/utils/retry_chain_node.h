@@ -184,7 +184,7 @@ struct retry_permit {
 /// that the parent node has. It can be used to share the abort_source
 /// instance between related fibers. This allows child fibers to trigger
 /// abort_source and stop the entire computation. Also, the instance of
-/// this class can be used to provide identitiy for logging. Call operator
+/// this class can be used to provide identity for logging. Call operator
 /// returns a unique fiber id that takes hierarchy into account.
 ///
 /// The node can be either a root or a leaf. The root node doesn't receive
