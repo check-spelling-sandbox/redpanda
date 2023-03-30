@@ -1518,7 +1518,7 @@ ss::future<end_tx_reply> tx_gateway_frontend::do_end_txn(
     // execution. however the outcome of the commit/abort operation
     // is already known before the cleanup started. to optimize this
     // they return the outcome promise to return the outcome before
-    // cleaning up and before returing the actual control flow
+    // cleaning up and before returning the actual control flow
     auto decided = outcome->get_future();
 
     // re-entering the gate to keep its open until the spawned fiber
