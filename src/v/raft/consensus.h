@@ -269,7 +269,7 @@ public:
      * Last visible offset is updated in two scenarios
      *
      * - commited offset is updated (consistency_level=quorum)
-     * - when batch that was appendend to the leader log is safely replicated on
+     * - when batch that was appended to the leader log is safely replicated on
      *   majority of nodes
      *
      * We always update last visible index with std::max(prev,
