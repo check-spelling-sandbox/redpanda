@@ -16,7 +16,7 @@
 #include <iterator>
 #include <span>
 
-/// \brief: Perfom lower bound on a span while excluding certain entries.
+/// \brief: Perform lower bound on a span while excluding certain entries.
 /// It's a standard binary search, but if we land on an element that
 /// has to be filtered out we iterate backwards (and then forwards)
 /// and attempt to find an element which is included.

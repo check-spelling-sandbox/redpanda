@@ -162,7 +162,7 @@ private:
 /// storage do not reset it. So it will be triggered eventually if the cloud
 /// storage is always busy. The callback of the epoch timer initiates transition
 /// to the active state. It's purpose is to make sure that the housekeeping job
-/// is perfomed even when the cloud storage is always busy. This will drain the
+/// is performed even when the cloud storage is always busy. This will drain the
 /// backlog (the job queue) so it's guaranteed that every job is executed at
 /// least once per epoch.
 ///

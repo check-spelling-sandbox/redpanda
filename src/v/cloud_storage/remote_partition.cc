@@ -101,7 +101,7 @@ remote_partition::borrow_result_t remote_partition::borrow_next_reader(
                   maybe_meta->get().base_offset);
             }
         } else {
-            // In this case the lookup is perfomed by kafka offset.
+            // In this case the lookup is performed by kafka offset.
             // Normally, this would be the first lookup done by the
             // partition_record_batch_reader_impl. This lookup will
             // skip segments without data batches (the logic is implemented
