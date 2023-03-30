@@ -1923,7 +1923,7 @@ admin_server::put_license_handler(std::unique_ptr<ss::httpd::request> req) {
         const auto& ft = _controller->get_feature_table().local();
         const auto& loaded_license = ft.get_license();
         if (loaded_license && (*loaded_license == license)) {
-            /// Loaded license is idential to license in request, do
+            /// Loaded license is identical to license in request, do
             /// nothing and return 200(OK)
             vlog(
               logger.info,
@@ -2087,7 +2087,8 @@ admin_server::get_broker_handler(std::unique_ptr<ss::httpd::request> req) {
     co_return ret;
 }
 
-ss::future<ss::json::json_return_type> admin_server::decommission_broker_handler(
+ss::future<ss::json::json_return_type>
+admin_server::decommission_broker_handler(
   std::unique_ptr<ss::httpd::request> req) {
     model::node_id id = parse_broker_id(*req);
 
