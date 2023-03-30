@@ -1018,7 +1018,7 @@ ss::future<> remote_partition::erase(
 
     // Having handled errors above, now our partition manifest fetch was
     // either a notfound (skip straight to erasing topic manifest), or a
-    // success (iterate through manifest deleting segements)
+    // success (iterate through manifest deleting segments)
 
     // Erase all segments
     const size_t batch_size = 1000;
