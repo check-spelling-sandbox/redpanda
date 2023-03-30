@@ -54,7 +54,7 @@ parse_header(ss::input_stream<char>& in) {
             unlikely(h.header_checksum != got)) {
             vlog(
               rpclog.info,
-              "rpc header missmatching checksums. expected:{}, got:{} - {}",
+              "rpc header mismatching checksums. expected:{}, got:{} - {}",
               h.header_checksum,
               got,
               h);

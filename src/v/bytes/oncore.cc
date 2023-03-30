@@ -23,7 +23,7 @@ oncore::oncore()
 void oncore::verify_shard_source_location(const char* file, int linenum) const {
     vassert(
       _owner_shard == ss::this_shard_id(),
-      "{}:{} - Shard missmatch -  Operation on shard: {}. Owner shard:{}",
+      "{}:{} - Shard mismatch -  Operation on shard: {}. Owner shard:{}",
       file,
       linenum,
       ss::this_shard_id(),

@@ -45,9 +45,9 @@ namespace storage {
  */
 
 [[gnu::cold]] static ss::future<>
-size_missmatch_error(const char* ctx, size_t expected, size_t got) {
+size_mismatch_error(const char* ctx, size_t expected, size_t got) {
     return ss::make_exception_future<>(fmt::format(
-      "{}. Size missmatch. Expected:{}, Got:{}", ctx, expected, got));
+      "{}. Size mismatch. Expected:{}, Got:{}", ctx, expected, got));
 }
 
 static constexpr auto head_sem_name = "s/appender-head";
@@ -494,7 +494,7 @@ void segment_appender::dispatch_background_head_write() {
                           internal::chunks().add(h);
                       }
                       if (unlikely(expected != got)) {
-                          return size_missmatch_error(
+                          return size_mismatch_error(
                             "chunk::write", expected, got);
                       }
                       return maybe_advance_stable_offset(w);
