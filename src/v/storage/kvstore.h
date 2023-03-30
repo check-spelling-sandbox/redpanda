@@ -64,7 +64,7 @@ namespace storage {
  * ===========
  *
  * The entire database is cached in memory, so users should not allow the set of
- * uniuqe keys to grow unbounded.  No backpressure is applied, so use
+ * unique keys to grow unbounded.  No backpressure is applied, so use
  * responsibly until this utility becomes more sophisticated. The initial set of
  * use cases--tracking raft voted-for and log's base offset--do not pose an
  * issue for either of these limitations since they exhibit a natural bound on
