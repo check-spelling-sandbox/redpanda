@@ -260,7 +260,7 @@ public:
     // This c-tor creates shallow copy of the encoder.
     //
     // The underlying iobuf is shared which makes the operation
-    // relatively lightweiht. The signature is different from
+    // relatively lightweight. The signature is different from
     // copy c-tor on purpose. The 'other' object is modified
     // and not just copied. If the c-tor throws the 'other' is
     // not affected.
