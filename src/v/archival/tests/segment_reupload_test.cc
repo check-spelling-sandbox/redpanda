@@ -897,7 +897,7 @@ SEASTAR_THREAD_TEST_CASE(test_same_size_reupload_skipped) {
     // Mark the second segment as having completed self compaction
     // and collect segments for re-upload again. This time,
     // 'should_replace_manifest_segment' must return 'true',
-    // as we are not replacing a signle segment and there's no
+    // as we are not replacing a single segment and there's no
     // possibility for a clash (two segments get replaced with one).
     b.get_segment(1).mark_as_finished_self_compaction();
 

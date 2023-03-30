@@ -36,7 +36,7 @@ class ConsumerGroupBalancingTest(RedpandaTest):
                 # of __consumer_offsets leaders is implemented
                 "enable_leader_balancer": False,
                 # only partition distribution is tested yet, so we need
-                # a sigle replica per __consumer_offsets partition.
+                # a single replica per __consumer_offsets partition.
                 # this will change with implementation of
                 # even distribution control of __consumer_offsets leaders
                 "internal_topic_replication_factor": 1,

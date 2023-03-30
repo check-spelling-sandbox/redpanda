@@ -107,7 +107,7 @@ class RackAwarePlacementTest(RedpandaTest):
           (if replication factor is larger than number of racks)
 
         ----
-        @param rack_layout_str is a 6-char string with all rack names combined into a signle string.
+        @param rack_layout_str is a 6-char string with all rack names combined into a single string.
                                Every character of the string corresponds to one broker. Every
                                rack id has single character.
         @param num_partitions defines number of partitions that needs to be created.
