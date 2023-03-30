@@ -262,7 +262,7 @@ public:
             // FIXME: this is a temporary fix. what we really want is to use
             // BOOST_TEST_REQUIRE for this condition, but there does seem to be
             // something preventing the partitions from being reported
-            // reliabily.
+            // reliably.
             BOOST_TEST(!topic_metadata->partitions.empty());
             if (topic_metadata->partitions.empty()) {
                 return;
