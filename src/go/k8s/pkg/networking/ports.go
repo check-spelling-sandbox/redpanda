@@ -36,7 +36,7 @@ type RedpandaPorts struct {
 	SchemaRegistry PortsDefinition
 }
 
-// NewRedpandaPorts intializes ports for all exposed services based on provided
+// NewRedpandaPorts initializes ports for all exposed services based on provided
 // configuration and internal conventions.
 func NewRedpandaPorts(rpCluster *redpandav1alpha1.Cluster) *RedpandaPorts {
 	internalListener := rpCluster.InternalListener()
