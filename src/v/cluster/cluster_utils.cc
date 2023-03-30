@@ -287,7 +287,7 @@ cluster::errc map_update_interruption_error_code(std::error_code ec) {
     } else {
         vlog(
           clusterlog.warn,
-          "mapping {} error to uknown update interruption error",
+          "mapping {} error to unknown update interruption error",
           ec.message());
         return errc::unknown_update_interruption_error;
     }

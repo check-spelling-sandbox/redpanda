@@ -135,7 +135,7 @@ and then come back to this command to complete the process.
 			// Better would be if we could skip unknown flags,
 			// similar to redpanda start.
 			//
-			// TODO: remove DisableUknownFlags in rpk, #7100.
+			// TODO: remove DisableUnknownFlags in rpk, #7100.
 			var isKnown bool
 			for i := 0; i < len(args); i++ {
 				arg := args[i]

@@ -28,7 +28,7 @@ std::ostream& operator<<(std::ostream& o, const ::human::latency& l) {
         }
         x /= step;
     }
-    return o << x << "uknown_units";
+    return o << x << "unknown_units";
 }
 std::ostream& operator<<(std::ostream& o, const ::human::bytes& l) {
     static const char* units[] = {"bytes", "KiB", "MiB", "GiB", "TiB", "PiB"};
@@ -41,7 +41,7 @@ std::ostream& operator<<(std::ostream& o, const ::human::bytes& l) {
         }
         x /= step;
     }
-    return o << x << "uknown_units";
+    return o << x << "unknown_units";
 }
 
 } // namespace human

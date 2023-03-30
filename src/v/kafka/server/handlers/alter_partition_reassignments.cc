@@ -155,7 +155,7 @@ partitions_request_iterator validate_partitions(
               return true;
           }
 
-          auto unkown_broker_id_it = std::find_if(
+          auto unknown_broker_id_it = std::find_if(
             partition.replicas->begin(),
             partition.replicas->end(),
             [alive_nodes](const model::node_id& node_id) {
@@ -164,7 +164,7 @@ partitions_request_iterator validate_partitions(
                        == alive_nodes.end();
             });
 
-          return unkown_broker_id_it == partition.replicas->end();
+          return unknown_broker_id_it == partition.replicas->end();
       });
 
     // Check for undefined topic here instead of outside
