@@ -66,7 +66,7 @@ class RackAwarePlacementTest(RedpandaTest):
         """Validate the replica placement. The method uses provided
         rack layout and number of replicas for the partitions.
         The validation is done by examining existing replica placement
-        against the rack layout. The validation succedes if every replica
+        against the rack layout. The validation succeeds if every replica
         is placed on a different rack or if there is not enough racks on
         every available rack.
         """
