@@ -547,7 +547,7 @@ SEASTAR_THREAD_TEST_CASE(test_iobuf_input_stream_from_trimmed_iobuf) {
 }
 
 SEASTAR_THREAD_TEST_CASE(
-  test_trim_front_interator_consumer_segment_bytes_left) {
+  test_trim_front_iterator_consumer_segment_bytes_left) {
     iobuf buf;
     buf.prepend(ss::temporary_buffer<char>(100));
     buf.trim_front(10);
