@@ -14,7 +14,7 @@ from rptest.services.redpanda import RedpandaService
 from rptest.tests.redpanda_test import RedpandaTest
 
 # Choose ports _below_ the default 33145, because test environment
-# is configured to only use emphemeral ports above 34000: this avoids
+# is configured to only use ephemeral ports above 34000: this avoids
 # port collisions.
 ALTERNATIVE_RPC_PORTS = [12345, 20001]
 

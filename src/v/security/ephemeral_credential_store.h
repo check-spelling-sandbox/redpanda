@@ -20,7 +20,7 @@
 namespace security {
 
 /*
- * Store for ephemerable user credentials.
+ * Store for ephemeral user credentials.
  */
 class ephemeral_credential_store {
     using value_type = ephemeral_credential;
