@@ -28,7 +28,7 @@ func NewInfoCommand() *cobra.Command {
 		Aliases: []string{"status"},
 		Args:    cobra.ExactArgs(0),
 		Run: func(_ *cobra.Command, _ []string) {
-			// no-op: keeping the command for backompat.
+			// no-op: keeping the command for backcompat.
 		},
 	}
 	cmd.Flags().StringVar(&configFile, "config", "", "Redpanda config file, if not set the file will be searched for in $PWD or /etc/redpanda/redpanda.yaml")
