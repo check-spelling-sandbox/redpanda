@@ -723,7 +723,7 @@ class UpgradeTransactionTest(RedpandaTest):
         self.check_consume(topic_name, max_tx)
 
 
-class UpgradeWithMixedVeersionTransactionTest(RedpandaTest):
+class UpgradeWithMixedVersionTransactionTest(RedpandaTest):
     topics = (TopicSpec(partition_count=1, replication_factor=3), )
 
     def __init__(self, test_context):
@@ -735,7 +735,7 @@ class UpgradeWithMixedVeersionTransactionTest(RedpandaTest):
             "enable_leader_balancer": False,
         }
 
-        super(UpgradeWithMixedVeersionTransactionTest,
+        super(UpgradeWithMixedVersionTransactionTest,
               self).__init__(test_context=test_context,
                              num_brokers=3,
                              extra_rp_conf=extra_rp_conf)
@@ -774,7 +774,7 @@ class UpgradeWithMixedVeersionTransactionTest(RedpandaTest):
     def setUp(self):
         self.old_version, self.old_version_str = self.installer.install(
             self.redpanda.nodes, (22, 1))
-        super(UpgradeWithMixedVeersionTransactionTest, self).setUp()
+        super(UpgradeWithMixedVersionTransactionTest, self).setUp()
 
     def do_upgrade_with_tx(self, selector):
         topic_name = self.topics[0].name
