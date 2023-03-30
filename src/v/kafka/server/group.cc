@@ -1821,7 +1821,7 @@ group::begin_tx(cluster::begin_group_tx_request r) {
         //
         // at the same time it's possible that it already aborted the old
         // tx before starting this. do_abort_tx is idempotent so calling it
-        // just in case to proactivly abort the tx instead of waiting for
+        // just in case to proactively abort the tx instead of waiting for
         // the timeout
 
         auto old_pid = model::producer_identity{

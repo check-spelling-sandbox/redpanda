@@ -377,7 +377,7 @@ ss::future<checked<model::term_id, tx_errc>> rm_stm::do_begin_tx(
         //
         // at the same time it's possible that it already aborted the old
         // tx before starting this. do_abort_tx is idempotent so calling it
-        // just in case to proactivly abort the tx instead of waiting for
+        // just in case to proactively abort the tx instead of waiting for
         // the timeout
         //
         // moreover do_abort_tx is co-idempotent with do_commit_tx so if a
