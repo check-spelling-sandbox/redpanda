@@ -24,7 +24,7 @@ class OffsetRetentionDisabledAfterUpgrade(RedpandaTest):
     """
     When upgrading to Redpanda v23 or later offset retention should be disabled
     by default. Offset retention did not exist pre-v23, so existing clusters
-    should have to opt-in after upgrade in order to avoid suprises.
+    should have to opt-in after upgrade in order to avoid surprises.
 
     When a cluster upgrades to v23 then only newly committed offsets are
     reclaimed automatically. Offsets written prior to the upgrade must be
