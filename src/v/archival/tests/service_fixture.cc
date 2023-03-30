@@ -217,7 +217,7 @@ archiver_fixture::get_started_log_builder(
     builder->start(std::move(ntp_cfg)).get();
     return builder;
 }
-/// Wait unill all information will be replicated and the local node
+/// Wait until all information will be replicated and the local node
 /// will become a leader for 'ntp'.
 void archiver_fixture::wait_for_partition_leadership(const model::ntp& ntp) {
     vlog(fixt_log.trace, "waiting for partition {}", ntp);

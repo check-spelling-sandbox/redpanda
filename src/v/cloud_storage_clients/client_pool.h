@@ -23,7 +23,7 @@ namespace cloud_storage_clients {
 /// in situation when number of requested client connections
 /// exceeds pool capacity
 enum class client_pool_overdraft_policy {
-    /// Client pool should wait unitl any existing lease will be canceled
+    /// Client pool should wait until any existing lease will be canceled
     wait_if_empty,
     /// Client pool should create transient client connection to serve the
     /// request

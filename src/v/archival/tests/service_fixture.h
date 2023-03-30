@@ -140,7 +140,7 @@ public:
     get_configurations();
     std::unique_ptr<storage::disk_log_builder> get_started_log_builder(
       model::ntp ntp, model::revision_id rev = model::revision_id(0));
-    /// Wait unill all information will be replicated and the local node
+    /// Wait until all information will be replicated and the local node
     /// will become a leader for 'ntp'.
     void wait_for_partition_leadership(const model::ntp& ntp);
     /// Provides access point for segment_matcher CRTP template
