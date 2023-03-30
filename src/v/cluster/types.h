@@ -157,7 +157,7 @@ struct kafka_stages {
     kafka_stages(ss::future<>, ss::future<result<kafka_result>>);
     explicit kafka_stages(raft::errc);
     // after this future is ready, request in enqueued in raft and it will not
-    // be reorderd
+    // be reordered
     ss::future<> request_enqueued;
     // after this future is ready, request was successfully replicated with
     // requested consistency level
