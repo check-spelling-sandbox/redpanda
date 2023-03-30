@@ -1017,7 +1017,7 @@ ss::future<tx_errc> rm_stm::do_abort_tx(
         }
     }
 
-    // preventing prepare and replicte once we
+    // preventing prepare and replicate once we
     // know we're going to abort tx and abandon pid
     _mem_state.expected.erase(pid);
 
