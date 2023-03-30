@@ -570,7 +570,7 @@ metadata_memory_estimator(size_t request_size, connection_context& conn_ctx) {
 
     // Finally, we double the estimate, because the highwater mark for memory
     // use comes when the in-memory structures (metadata_response_data and
-    // subobjects) exist on the heap and they are encoded into the reponse,
+    // subobjects) exist on the heap and they are encoded into the response,
     // which will also exist on the heap. The calculation above handles the
     // first size, and the encoded response ends up being very similar in size,
     // so we double the estimate to account for both.

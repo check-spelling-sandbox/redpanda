@@ -178,7 +178,7 @@ class KCL:
         """
         :param topic: the name of the topic to describe
         :param with_docs: if true, include documentation strings in the response
-        :param with_types: if true, include config type information in the reponse
+        :param with_types: if true, include config type information in the response
         :return: stdout string
         """
         cmd = ["admin", "configs", "describe", topic, "--type", "topic"]

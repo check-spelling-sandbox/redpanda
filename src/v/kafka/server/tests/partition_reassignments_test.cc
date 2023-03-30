@@ -279,7 +279,8 @@ FIXTURE_TEST(
     }
 
     {
-        test_log.info("List all ongoing reassignments expect an empty reponse");
+        test_log.info(
+          "List all ongoing reassignments expect an empty response");
         auto resp = list_partition_reassignments(client);
         BOOST_CHECK_EQUAL(resp.data.topics.size(), 0);
     }

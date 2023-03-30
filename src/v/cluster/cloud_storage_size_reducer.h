@@ -34,7 +34,7 @@ public:
  * 1. Find the first live replica of each partition in the batch
  * 2. Prepare `cloud_storage_usage` RPC requests for each node in the cluster.
  * The request will contain the partitions being queried by shard.
- * 3. Reduce the reponses and update the accumulator.
+ * 3. Reduce the responses and update the accumulator.
  *
  * One important thing to note is that this operation requires topic table
  * stability (i.e. the topic table does not change in the meantime). This

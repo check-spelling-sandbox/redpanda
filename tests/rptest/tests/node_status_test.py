@@ -92,7 +92,7 @@ class StatusGraph:
             peer_status = self._get_peer_status(admin, node, peer)
 
             if expected_status == ConnectionStatus.UNKNOWN:
-                assert peer_status is None, f"Expected no reponse from node {peer.name}"
+                assert peer_status is None, f"Expected no response from node {peer.name}"
             if expected_status == ConnectionStatus.ALIVE:
                 ms_since_last_status = peer_status["since_last_status"]
                 assert is_live(

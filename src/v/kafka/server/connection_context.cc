@@ -471,7 +471,7 @@ connection_context::dispatch_method_once(request_header hdr, size_t size) {
 
 /**
  * This method processes as many responses as possible, in request order. Since
- * we proces the second stage asynchronously within a given connection, reponses
+ * we proces the second stage asynchronously within a given connection, responses
  * may become ready out of order, but Kafka clients expect responses exactly in
  * request order.
  *
@@ -507,7 +507,7 @@ ss::future<> connection_context::maybe_process_responses() {
             _server.quota_mgr().record_fetch_tp(
               resp_and_res.resources->request_data.client_id, msg.size());
         }
-        // Respose sizes only take effect on throttling at the next request
+        // Response sizes only take effect on throttling at the next request
         // processing. The better way was to measure throttle delay right here
         // and apply it to the immediate response, but that would require
         // drastic changes to kafka message processing framework - because
