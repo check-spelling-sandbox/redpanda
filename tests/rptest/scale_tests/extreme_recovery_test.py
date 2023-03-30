@@ -31,10 +31,10 @@ class RecoveryScale(BaseCase):
     # More partitions cause the test take a long time to run, hitting some
     # bottlenecks in the existing test, such as serial computation of file
     # checksums, etc.
-    PARTITONS = NODE_COUNT * 200 // NIGHTLY_SCALE_DOWN
+    PARTITIONS = NODE_COUNT * 200 // NIGHTLY_SCALE_DOWN
     NUM_TOPICS = 2
     PRODUCERS_PER_TOPIC = 1
-    MESSAGE_COUNT = 50 * 1000 * PARTITONS // NIGHTLY_SCALE_DOWN
+    MESSAGE_COUNT = 50 * 1000 * PARTITIONS // NIGHTLY_SCALE_DOWN
     MSG_SIZE = 1023
 
     # Scale tests run ducktape on dedicated nodes, so we can expect some
@@ -43,7 +43,7 @@ class RecoveryScale(BaseCase):
     _total_bytes = MSG_SIZE * MESSAGE_COUNT
     expected_transfer_sec = _total_bytes // (_min_bandwidth_bps) + 30
     _msg_per_topic = MESSAGE_COUNT // NUM_TOPICS
-    part_per_topic = PARTITONS // NUM_TOPICS
+    part_per_topic = PARTITIONS // NUM_TOPICS
 
     _status_log: list[str] = []
 
@@ -77,7 +77,8 @@ class RecoveryScale(BaseCase):
     def generate_baseline(self):
         producers: list[FranzGoVerifiableProducer] = []
         self._status(
-            f"{len(self.topics)} topics, {RecoveryScale.PARTITONS} partitions")
+            f"{len(self.topics)} topics, {RecoveryScale.PARTITIONS} partitions"
+        )
         t0 = time()
         # start multiple producers per topic
         for topic in self.topics:
