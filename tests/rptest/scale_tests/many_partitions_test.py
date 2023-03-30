@@ -275,7 +275,7 @@ class ManyPartitionsTest(PreallocNodesTest):
                 "leader_balancer_idle_timeout": self.LEADER_BALANCER_PERIOD_MS,
                 "leader_balancer_mute_timeout": self.LEADER_BALANCER_PERIOD_MS,
 
-                # TODO: ensure that the systme works well _without_ these non-default
+                # TODO: ensure that the system works well _without_ these non-default
                 # properties, or if they are necessary and we choose not to make them
                 # the defaults, then that they are reflected properly in cloud config profiles
                 'reclaim_batch_cache_min_free': 256000000,
