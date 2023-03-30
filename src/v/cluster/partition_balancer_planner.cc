@@ -644,7 +644,7 @@ void partition_balancer_planner::get_full_node_reassignments(
 }
 
 /*
- * Cancel movement if new assignments contains unavailble node
+ * Cancel movement if new assignments contains unavailable node
  * and previous replica set doesn't contain this node
  */
 void partition_balancer_planner::get_unavailable_node_movement_cancellations(
