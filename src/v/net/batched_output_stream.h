@@ -78,7 +78,7 @@ public:
      *
      * @param msg the message to write to the underlying stream
      * @return ss::future<bool> a future which resolves when the flush, if any,
-     * completes with the wrapped value indicating wheter a flush occurred on
+     * completes with the wrapped value indicating whether a flush occurred on
      * this write (true) or not (false)
      */
     ss::future<bool> write(ss::scattered_message<char> msg);
