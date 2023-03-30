@@ -110,16 +110,16 @@ public:
         return _cnt_failed_manifest_downloads;
     }
 
-    /// Register successfull uploads
+    /// Register successful uploads
     void successful_upload() { _cnt_successful_uploads++; }
 
-    /// Get successfull uploads
+    /// Get successful uploads
     uint64_t get_successful_uploads() const { return _cnt_successful_uploads; }
 
-    /// Register successfull downloads
+    /// Register successful downloads
     void successful_download() { _cnt_successful_downloads++; }
 
-    /// Get successfull downloads
+    /// Get successful downloads
     uint64_t get_successful_downloads() const {
         return _cnt_successful_downloads;
     }

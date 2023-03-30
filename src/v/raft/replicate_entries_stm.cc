@@ -58,7 +58,7 @@ ss::future<result<append_entries_reply>> replicate_entries_stm::flush_log() {
                .then([this]() {
                    /**
                     * Replicate STM _dirty_offset is set to the dirty offset of
-                    * a log after successfull self append. After flush we are
+                    * a log after successful self append. After flush we are
                     * certain that data to at least `_dirty_offset` were
                     * flushed. Sampling offset again right before the flush
                     * isn't necessary since it will not influence result of
@@ -393,7 +393,7 @@ result<replicate_result> replicate_entries_stm::process_result(
     // better crash than allow for inconsistency
     vassert(
       appended_offset <= _ptr->_commit_index,
-      "{} - Successfull replication means that committed offset passed last "
+      "{} - Successful replication means that committed offset passed last "
       "appended offset. Current committed offset: {}, last appended offset: "
       "{}, initial_committed_offset: {}",
       _ptr->ntp(),

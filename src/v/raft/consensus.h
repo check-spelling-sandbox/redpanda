@@ -461,7 +461,7 @@ private:
     ss::future<storage::append_result>
     disk_append(model::record_batch_reader&&, update_last_quorum_index);
 
-    using success_reply = ss::bool_class<struct successfull_reply_tag>;
+    using success_reply = ss::bool_class<struct successful_reply_tag>;
 
     success_reply update_follower_index(
       model::node_id,
@@ -469,7 +469,7 @@ private:
       follower_req_seq seq_id,
       model::offset);
 
-    void successfull_append_entries_reply(
+    void successful_append_entries_reply(
       follower_index_metadata&, append_entries_reply);
 
     bool needs_recovery(const follower_index_metadata&, model::offset);

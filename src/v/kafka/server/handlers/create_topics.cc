@@ -198,7 +198,7 @@ ss::future<response_ptr> create_topics_handler::handle(
           valid_range_end,
           std::back_inserter(response.data.topics),
           [&ctx](const creatable_topic& t) {
-              auto result = generate_successfull_result(t);
+              auto result = generate_successful_result(t);
               if (ctx.header().version >= api_version(5)) {
                   auto default_properties
                     = ctx.metadata_cache().get_default_properties();

@@ -428,7 +428,7 @@ consensus::success_reply consensus::update_follower_index(
     }
 
     if (reply.result == append_entries_reply::status::success) {
-        successfull_append_entries_reply(idx, std::move(reply));
+        successful_append_entries_reply(idx, std::move(reply));
         return success_reply::yes;
     } else {
         idx.last_sent_offset = idx.last_dirty_log_index;
@@ -516,7 +516,7 @@ void consensus::process_append_entries_reply(
     }
 }
 
-void consensus::successfull_append_entries_reply(
+void consensus::successful_append_entries_reply(
   follower_index_metadata& idx, append_entries_reply reply) {
     // follower and leader logs matches
     idx.last_dirty_log_index = reply.last_dirty_log_index;
@@ -1615,7 +1615,7 @@ ss::future<vote_reply> consensus::do_vote(vote_request&& r) {
     /// Stable leadership optimization
     ///
     /// When current node is a leader (we set _hbeat to max after
-    /// successfull election) or already processed request from active
+    /// successful election) or already processed request from active
     /// leader  do not grant a vote to follower. This will prevent restarted
     /// nodes to disturb all groups leadership
     // Check if we updated the heartbeat timepoint in the last election

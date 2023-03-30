@@ -40,7 +40,7 @@ func Test_aggregatedTunable_Tune(t *testing.T) {
 		want   TuneResult
 	}{
 		{
-			name: "shall return success when all tune operations are suceessful",
+			name: "shall return success when all tune operations are successful",
 			fields: fields{
 				tunables: []Tunable{
 					&mockedTunable{

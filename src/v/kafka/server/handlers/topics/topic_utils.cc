@@ -72,7 +72,7 @@ ss::future<> wait_for_topics(
                            return ss::now();
                        }
                        // we discard return here, we do not want to return error
-                       // even if waiting for topic wasn't successfull, it was
+                       // even if waiting for topic wasn't successful, it was
                        // already created
                        return api.wait_for_topic(r.tp_ns, timeout)
                          .discard_result();

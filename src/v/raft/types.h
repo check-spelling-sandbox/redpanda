@@ -152,7 +152,7 @@ struct follower_index_metadata {
 
     follower_req_seq last_sent_seq{0};
     follower_req_seq last_received_seq{0};
-    // sequence number of last received successfull append entries request
+    // sequence number of last received successful append entries request
     follower_req_seq last_successful_received_seq{0};
     bool is_learner = true;
     bool is_recovering = false;
@@ -322,7 +322,7 @@ struct append_entries_reply
     model::offset last_flushed_log_index;
     model::offset last_dirty_log_index;
     // the last entry base offset used for the recovery speed up, the value is
-    // only valid for not successfull append_entries reply
+    // only valid for not successful append_entries reply
     model::offset last_term_base_offset;
     /// \brief did the rpc succeed or not
     status result = status::failure;
@@ -623,7 +623,7 @@ struct install_snapshot_reply
     //  when a follower reboots, it returns 0 here and the leader starts at
     //  offset 0 in the next request).
     uint64_t bytes_stored = 0;
-    // indicates if the request was successfull
+    // indicates if the request was successful
     bool success = false;
 
     // replying node

@@ -206,7 +206,7 @@ ss::future<> prevote_stm::process_replies() {
               ss::stop_iteration::yes);
         }
 
-        // majority votes not granted, pre-election not successfull
+        // majority votes not granted, pre-election not successful
         bool majority_failed = _config->majority(
           [this](vnode id) { return _replies.find(id)->second._is_failed; });
 
