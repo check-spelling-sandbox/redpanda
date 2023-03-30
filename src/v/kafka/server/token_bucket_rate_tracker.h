@@ -25,7 +25,7 @@ namespace kafka {
 /// Token bucket algorithm, useful for rate-limiting solutions.
 ///
 /// NOTE: There are a few token bucket algorithms in the tree, this one was
-/// implemented to mimic the small varitaions introduced in the algorithm that
+/// implemented to mimic the small variations introduced in the algorithm that
 /// backs KIP-599, rate limiting for partition mutations. For a more generic
 /// implementation check out utils/ until these are merged.
 ///
