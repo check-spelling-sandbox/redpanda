@@ -260,7 +260,7 @@ public:
                 vlog(_ctxlog.debug, "We're overbudget, stopping");
                 // We need to stop in such way that will keep the
                 // reader in the reusable state, so we could reuse
-                // it on next itertaion
+                // it on next iteration
 
                 // The existing state have to be rebuilt
                 dispose_current_reader();
