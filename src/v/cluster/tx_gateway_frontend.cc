@@ -219,7 +219,7 @@ void tx_gateway_frontend::start_expire_timer() {
         // service (run on all cores) so constraining it to a core will
         // guarantee that there is only one active gc process.
         //
-        // the gc part (expire_old_txs) does the shard managment and
+        // the gc part (expire_old_txs) does the shard management and
         // relays the execution to the right core so it's enough to
         // have only one timer/loop
         return;

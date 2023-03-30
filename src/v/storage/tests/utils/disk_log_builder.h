@@ -312,7 +312,7 @@ public:
       model::record_batch batch,
       log_append_config config = append_config(),
       should_flush_after flush = should_flush_after::yes);
-    //  Log managment
+    //  Log management
     ss::future<> start(model::ntp ntp = log_builder_ntp());
     ss::future<> start(storage::ntp_config);
     ss::future<> stop();

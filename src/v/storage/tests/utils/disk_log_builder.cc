@@ -87,7 +87,7 @@ ss::future<> disk_log_builder::add_batch(
     buf.push_back(std::move(batch));
     return write(std::move(buf), config, flush);
 }
-// Log managment
+// Log management
 ss::future<> disk_log_builder::start(model::ntp ntp) {
     return start(ntp_config(std::move(ntp), get_log_config().base_dir));
 }
