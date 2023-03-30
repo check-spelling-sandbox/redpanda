@@ -16,7 +16,7 @@ Similar to KIP-612, adapted to Redpanda's thread per core model
 
 New configuration properties (For start we choose global config for connection rate):
 - kafka_max_connection_creation_rate (optional integer, default unset)
-- kafka_max_connection_creation_rate_ovverides (string, default "")
+- kafka_max_connection_creation_rate_overrides (string, default "")
 
 
 When a connection is accepted which exceeds one of the configured
@@ -130,5 +130,5 @@ and only fiber will run signal()
 ### Node limits (not shard)
 
 It will add more complexity to share info about current rate to each core.
-Also we should sharding info about ovverides and map each ip to core for saving
+Also we should sharding info about overrides and map each ip to core for saving
 info about rate per ip
