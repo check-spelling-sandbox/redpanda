@@ -961,7 +961,7 @@ class RedpandaService(Service):
 
         if not self.dedicated_nodes:
             # Assume docker images share a filesystem.  This may not
-            # be the truth (e.g. in CI they get indepdendent XFS
+            # be the truth (e.g. in CI they get independent XFS
             # filesystems), but it's the safe assumption on e.g.
             # a workstation.
             avail_kb = int(avail_kb / len(self.nodes))
