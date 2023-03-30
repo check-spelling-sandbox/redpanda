@@ -67,7 +67,7 @@ static void parse_and_set_shadow_indexing_mode(
     }
 }
 /**
- * valides the optional config
+ * validates the optional config
  */
 
 std::optional<resp_resource_t> validate_single_value_config_resource(
