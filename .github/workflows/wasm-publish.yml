@@ -13,20 +13,26 @@ on:
     tags:
       - v*
 
+env:
+  HAS_SECRETS: ${{ secrets.NPM_TOKEN && 1 }}
+
 jobs:
   publish:
     name: publish wasm-api
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@v1
+        if: env.HAS_SECRETS
         with:
           node-version: '14.21.2'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Check out code
         uses: actions/checkout@v2
+        if: env.HAS_SECRETS
 
       - name: publish
+        if: env.HAS_SECRETS
         run: |
           npm install
           VERSION=$(echo ${{ github.ref }} | sed 's/.*v//')
