@@ -46,7 +46,7 @@ ss::future<> fill_info_about_tx(
         tx_info_resp.transaction_state = ss::sstring(tx.get_kafka_status());
         tx_info_resp.transaction_timeout_ms = tx.get_timeout() / 1ms;
         // RP doesn't store transaction_start_time so we use last_update
-        // insteadget_timeout
+        // instead of get_timeout
         tx_info_resp.transaction_start_time_ms
           = tx.last_update_ts.time_since_epoch() / 1ms;
 
