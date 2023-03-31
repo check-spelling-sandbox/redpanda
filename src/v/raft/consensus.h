@@ -725,7 +725,7 @@ private:
     size_t _received_snapshot_bytes = 0;
 
     /**
-     * We keep an idex of the most recent entry replicated with quorum
+     * We keep an index of the most recent entry replicated with quorum
      * consistency level to make sure that all requests replicated with quorum
      * consistency level will not be visible before they are committed by
      * majority.
