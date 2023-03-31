@@ -36,7 +36,7 @@ private:
 };
 
 /// This class implements logic for handling events from internal coproc topic.
-/// There are 2 methods: for process event for specifix type and cron
+/// There are 2 methods: for process event for specific type and cron
 /// events(like heartbeats) We need store this handler to application, and pass
 /// it to register method of event_listener.
 class event_handler {
