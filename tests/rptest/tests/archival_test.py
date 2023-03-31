@@ -184,7 +184,7 @@ class ArchivalTest(RedpandaTest):
     @cluster(num_nodes=3)
     @matrix(cloud_storage_type=get_cloud_storage_type())
     def test_write(self, cloud_storage_type):
-        """Simpe smoke test, write data to redpanda and check if the
+        """Simple smoke test, write data to redpanda and check if the
         data hit the S3 storage bucket"""
         self.kafka_tools.produce(self.topic, 10000, 1024)
         validate(self._quick_verify, self.logger, 90)
