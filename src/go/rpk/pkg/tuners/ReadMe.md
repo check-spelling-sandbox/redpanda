@@ -29,7 +29,7 @@ IRQs are distributed according to the following rules:
 
 ### Disks Scheduler
 
-The disk scheduler tuner set the block device I/O scheduler in order to minimize the overhead of kernel I/O scheduler. Preferred scheduler is of `none` type - it istruct kernel not to use I/O scheduler and use `blk-mq` module instead (there will be one queue per CPU), if the one is not supported `noop` will be used.
+The disk scheduler tuner set the block device I/O scheduler in order to minimize the overhead of kernel I/O scheduler. Preferred scheduler is of `none` type - it instructs kernel not to use I/O scheduler and use `blk-mq` module instead (there will be one queue per CPU), if the one is not supported `noop` will be used.
 
 ### Network Tuner
 
