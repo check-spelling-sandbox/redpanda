@@ -33,7 +33,7 @@ class KgoVerifierService(Service):
         self.use_custom_node = custom_node is not None
 
         # We should pass num_nodes to allocate for our service in BackgroundThreadService,
-        # but if user allocate node by themself, BackgroundThreadService should not allocate any nodes
+        # but if user allocate node by themselves, BackgroundThreadService should not allocate any nodes
         nodes_for_allocate = 1
         if self.use_custom_node:
             nodes_for_allocate = 0
