@@ -43,7 +43,7 @@ class wait_future_stranded final : public exception {
  *
  * Since each script_context has one of these fibers of its own, no one context
  * will wait for work to be finished by another in order to continue making
- * progress. They all operate independently of eachother.
+ * progress. They all operate independently of each other.
  */
 class script_context {
 public:

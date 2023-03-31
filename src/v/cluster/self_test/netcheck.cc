@@ -51,7 +51,7 @@ void netcheck::validate_options(const netcheck_opts& opts) {
 }
 
 /// Returns groupings of nodes that the network bench will run between. Simple
-/// for loop groups unique pairs of nodes with eachother.
+/// for loop groups unique pairs of nodes with each other.
 netcheck::plan_t
 netcheck::network_test_plan(std::vector<model::node_id> nodes) {
     /// Choose unique pairs of nodes - order doesn't matter. This creates a list
