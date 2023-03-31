@@ -1644,7 +1644,7 @@ ss::future<result<kafka_result>> rm_stm::replicate_seq(
                   bid.pid,
                   bid.first_seq,
                   tail.value());
-                // there is a gap between the request'ss seq number
+                // there is a gap between the request's seq number
                 // and the seq number of the latest processed request
                 co_return errc::sequence_out_of_order;
             }
@@ -1667,7 +1667,7 @@ ss::future<result<kafka_result>> rm_stm::replicate_seq(
               "[pid: {}] replication failed with {}",
               bid.pid,
               std::current_exception());
-            // there is a gap between the request'ss seq number
+            // there is a gap between the request's seq number
             // and the seq number of the latest inflight request
             co_return errc::sequence_out_of_order;
         }
