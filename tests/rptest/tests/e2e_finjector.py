@@ -37,7 +37,7 @@ class EndToEndFinjectorTest(EndToEndTest):
         self.scale = Scale(test_context)
         self.finjector_thread = None
         self.failure_length_provider = scale_dependent_length(self.scale)
-        self.failure_delay_provier = const_delay(10)
+        self.failure_delay_provider = const_delay(10)
         self.allowed_nodes_provider = lambda f_type: self.redpanda.nodes
         self.allowed_failures = FailureSpec.FAILURE_TYPES
         self.custom_failures = []
@@ -54,7 +54,7 @@ class EndToEndFinjectorTest(EndToEndTest):
         if length_provider:
             self.failure_length_provider = length_provider
         if delay_provider:
-            self.failure_delay_provier = delay_provider
+            self.failure_delay_provider = delay_provider
 
     def start_finjector(self):
         self.finjector_thread = threading.Thread(
@@ -85,7 +85,7 @@ class EndToEndFinjectorTest(EndToEndTest):
             f_injector = FailureInjector(self.redpanda)
             f_injector.inject_failure(self._next_failure())
 
-            delay = self.failure_delay_provier()
+            delay = self.failure_delay_provider()
             self.redpanda.logger.info(
                 f"waiting {delay} seconds before next failure")
             time.sleep(delay)
