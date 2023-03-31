@@ -21,3 +21,6 @@ jobs:
             org=redpanda-data
             repo=redpanda
             milestone=auto
+        env:
+          HAS_SECRETS: ${{ secrets.ACTIONS_BOT_TOKEN && 1 }}
+        if: env.HAS_SECRETS
