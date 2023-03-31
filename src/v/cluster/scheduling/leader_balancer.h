@@ -132,7 +132,7 @@ private:
      * TODO:
      *   - raft0 leadership upcall is active, but we require polling to wake-up
      *   the balancer when it has gone idel because balancing completed. for
-     *   this we need ot add an upcall notification mechanism to the leaders
+     *   this we need to add an upcall notification mechanism to the leaders
      *   table / dissemination framework.
      *
      *      See: https://github.com/redpanda-data/redpanda/issues/2031
