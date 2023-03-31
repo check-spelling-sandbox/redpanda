@@ -1929,7 +1929,7 @@ void application::start_runtime_services(
 
     // FIXME: in first patch explain why this is started after the
     // controller so the broker set will be available. Then next patch fix.
-    syschecks::systemd_message("Starting metadata dissination service").get();
+    syschecks::systemd_message("Starting metadata dissemination service").get();
     md_dissemination_service
       .invoke_on_all(&cluster::metadata_dissemination_service::start)
       .get();
