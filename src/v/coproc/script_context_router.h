@@ -39,7 +39,7 @@ struct read_context {
 /// source, the input begins the pointer in \ref read_context
 struct write_context {
     static constexpr int8_t version{1};
-    /// Where 'key' is the materialized_ntp and offset represets an ack of the
+    /// Where 'key' is the materialized_ntp and offset represents an ack of the
     /// read off of the respective input topic
     using offsets_t = absl::node_hash_map<model::ntp, model::offset>;
 
