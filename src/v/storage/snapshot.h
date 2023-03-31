@@ -56,7 +56,7 @@ class snapshot_writer;
  * blob is written by the state machine itself. For example, a state machine may
  * write a small serialized blob, or stream data to the snapshot file. Streaming
  * may be useful in cases where the data structure permits deterministic iteration
- * such as a pre-order tree travseral. The snapshot file contains a footer that
+ * such as a pre-order tree traversal. The snapshot file contains a footer that
  * records a crc of the snapshot blob itself.
  *
  * Usage:
