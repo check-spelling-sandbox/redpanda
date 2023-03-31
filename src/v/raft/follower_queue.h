@@ -46,7 +46,7 @@ private:
      *
      * Things to consider:
      * - per shard concurrency control
-     * - token-bucket based throughput limitter
+     * - token-bucket based throughput limiter
      */
     uint32_t _max_concurrent_append_entries;
     std::unique_ptr<ssx::semaphore> _sem;
