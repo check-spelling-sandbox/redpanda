@@ -8,14 +8,27 @@ on:
 jobs:
   run-build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
     steps:
+      - name: check for secrets
+        env:
+          HAS_SECRETS: ${{ secrets.ACTIONS_BOT_TOKEN && secrets.BUILDKITE_TOKEN && 1 }}
+        if: env.HAS_SECRETS
+        run: |
+          echo "HAS_SECRETS=1" >> "$GITHUB_ENV"
+
       - uses: actions/checkout@v3
+        if: env.HAS_SECRETS
         with: 
           repository: redpanda-data/sparse-checkout 
           token: ${{ secrets.ACTIONS_BOT_TOKEN }}
           path: sparse-checkout
 
       - uses: ./sparse-checkout 
+        if: env.HAS_SECRETS
         with:
           repository: redpanda-data/vtools
           token: ${{ secrets.ACTIONS_BOT_TOKEN }}
@@ -23,6 +36,7 @@ jobs:
           path: ghca 
 
       - name: Buildkite slash command action
+        if: env.HAS_SECRETS
         uses: ./ghca/actions/buildkite-slash-commands
         with:
           buildkite_token: ${{ secrets.BUILDKITE_TOKEN }}
@@ -31,6 +45,7 @@ jobs:
           command: ${{ github.event.client_payload.slash_command.command }}
 
       - name: Success reaction
+        if: env.HAS_SECRETS
         uses: peter-evans/create-or-update-comment@v2
         with:
           token: ${{ secrets.ACTIONS_BOT_TOKEN }}
@@ -39,7 +54,7 @@ jobs:
           reaction-type: hooray
 
       - name: Error response
-        if: failure()
+        if: failure() && env.HAS_SECRETS
         uses: ./ghca/actions/slash-command-error
         with:
           token: ${{ secrets.ACTIONS_BOT_TOKEN }}
