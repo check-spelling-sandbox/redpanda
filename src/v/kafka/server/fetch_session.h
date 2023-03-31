@@ -233,7 +233,7 @@ private:
 using fetch_session_ptr = ss::lw_shared_ptr<fetch_session>;
 
 /**
- * Wrapper representing the semantincs of particular fetch request which can
+ * Wrapper representing the semantics of particular fetch request which can
  * either contain an error or be sessionless, full (initiating/removing fetch
  * session) or incremental
  */
