@@ -1,5 +1,5 @@
 - Feature Name: cluster::controller 2-phase local node bootstrap
-- Status: draf
+- Status: draft
 - Start Date: 2019-09-26
 - Authors: alex
 - Issue: (one or more # from the issue tracker)
