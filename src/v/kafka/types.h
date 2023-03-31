@@ -125,7 +125,7 @@ inline kafka::leader_epoch leader_epoch_from_term(model::term_id term) {
 } // namespace kafka
 
 /*
- * TODO: bytes is on its way out in favor of iobuf. however it stilll lingering
+ * TODO: bytes is on its way out in favor of iobuf. however it still lingering
  * around in some types that we'd like to checkpoint to disk. therefore, this
  * temporary hack serializes bytes as an iobuf so that we can avoid dealing with
  * on-disk data compatibility when finally removing the last bit of bytes.
