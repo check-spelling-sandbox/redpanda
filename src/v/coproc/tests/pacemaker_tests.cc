@@ -62,7 +62,7 @@ FIXTURE_TEST(test_coproc_router_no_results, coproc_test_fixture) {
     // Expecting 10, because "foo(2)" and "bar(8)" were loaded at startup
     const std::size_t final_n_logs = number_of_logs(root_fixture()).get0()
                                      - n_logs;
-    /// .. but total should be exactly 11 due to the introducion of the
+    /// .. but total should be exactly 11 due to the introduction of the
     /// coprocessor_internal_topic
     BOOST_REQUIRE_EQUAL(final_n_logs, 11);
 }
