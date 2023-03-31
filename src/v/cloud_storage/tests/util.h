@@ -333,7 +333,7 @@ copy_subsegment(const in_memory_segment& src, size_t shift, size_t length) {
         }
     }
     // we have an overlap between to segments, the delta_offset_shift
-    // has to store number of configuration records that overalp in both
+    // has to store number of configuration records that overlap in both
     // segments
     for (const auto& h : src.headers) {
         auto o = h.base_offset;
