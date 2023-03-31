@@ -330,7 +330,7 @@ func TestStartCommand(t *testing.T) {
 		},
 		before: func(fs afero.Fs) error {
 			// --set flags are parsed "outside" of Cobra, directly from
-			// os.Args, due to Cobra (or especifically, pflag) parsing
+			// os.Args, due to Cobra (or especially, pflag) parsing
 			// list flags (flags that can be passed multiple times) with
 			// a CSV parser. Since JSON-formatted values contain commas,
 			// the parser doesn't support them.
@@ -396,7 +396,7 @@ func TestStartCommand(t *testing.T) {
 		},
 		before: func(fs afero.Fs) error {
 			// --set flags are parsed "outside" of Cobra, directly from
-			// os.Args, due to Cobra (or especifically, pflag) parsing
+			// os.Args, due to Cobra (or especially, pflag) parsing
 			// list flags (flags that can be passed multiple times) with
 			// a CSV parser. Since JSON-formatted values contain commas,
 			// the parser doesn't support them.
