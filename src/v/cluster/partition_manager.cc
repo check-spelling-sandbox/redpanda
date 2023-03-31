@@ -204,11 +204,11 @@ ss::future<consensus_ptr> partition_manager::manage(
 
     /*
      * part of the node leadership draining infrastructure. when a node is in a
-     * drianing state new groups might be created since the controller will
+     * draining state new groups might be created since the controller will
      * still be active as a follower. however, if draining is almost complete
      * then new groups may not be noticed. marking as blocked should be done
      * atomically with adding the partition to the ntp_table index above for
-     * proper synchronization with the drianing manager.
+     * proper synchronization with the draining manager.
      */
     if (_block_new_leadership) {
         p->block_new_leadership();
