@@ -23,6 +23,7 @@ jobs:
         run: |
           cat res/results.json
       - name: upload scan results
+        if: env.AWS_ACCESS_KEY_ID && env.AWS_SECRET_ACCESS_KEY && env.VULN_REPORTS_AWS_BUCKET
         run: |
           set -eu
           KEY="`date +%Y`/`date +%m`/`date +%d`/${GITHUB_REPOSITORY#*/}_${GITHUB_REF#refs/heads/}_kics_`date +%s`.json"
