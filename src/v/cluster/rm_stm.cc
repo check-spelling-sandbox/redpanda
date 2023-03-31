@@ -2138,7 +2138,7 @@ ss::future<> rm_stm::do_try_abort_old_tx(model::producer_identity pid) {
         // It looks like a partition is fixed now but actually partitioning
         // of the tx coordinator isn't support yet so it doesn't matter see
         // https://github.com/redpanda-data/redpanda/issues/6137
-        // In order to support it we ned to update begin_tx to accept the id
+        // In order to support it we need to update begin_tx to accept the id
         // and use the true partition_id here
         auto r = co_await _tx_gateway_frontend.local().try_abort(
           model::partition_id(0), pid, *tx_seq, _sync_timeout);
