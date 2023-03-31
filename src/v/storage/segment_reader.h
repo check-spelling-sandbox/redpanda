@@ -166,7 +166,7 @@ private:
     unsigned _read_ahead{0};
     debug_sanitize_files _sanitize;
 
-    // Keeps track of operations that cannot be pre-empted by close()
+    // Keeps track of operations that cannot be preempted by close()
     ss::gate _gate;
     // Acquire a handle to use the underlying file handle
     ss::future<segment_reader_handle> get();
