@@ -152,7 +152,7 @@ bool adjacent_segment_run::maybe_add_segment(
                 segments.clear();
                 vlog(
                   archival_log.debug,
-                  "Reseting the upload, current committed offset: {}, next "
+                  "Resetting the upload, current committed offset: {}, next "
                   "base offset: {}, meta: {}",
                   meta.committed_offset,
                   s.base_offset,

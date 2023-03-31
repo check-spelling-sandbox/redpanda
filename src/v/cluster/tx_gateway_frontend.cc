@@ -1867,7 +1867,7 @@ tx_gateway_frontend::do_abort_tm_tx(
         if (!ready_tx.has_value()) {
             vlog(
               txlog.trace,
-              "reseting tx as ready failed with {} tx:{} etag:{} pid:{} "
+              "resetting tx as ready failed with {} tx:{} etag:{} pid:{} "
               "tx_seq:{} term:{}",
               ready_tx.error(),
               tx.id,

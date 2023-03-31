@@ -788,7 +788,7 @@ void application::check_for_crash_loop() {
 
 void application::schedule_crash_tracker_file_cleanup() {
     // Schedule a deletion of the tracker file. On a clean shutdown,
-    // the tracker file should be deleted thus reseting the crash count on the
+    // the tracker file should be deleted thus resetting the crash count on the
     // next run. In case of an unclean shutdown, we already bumped
     // the crash count and that should be taken into account in the
     // next run.
