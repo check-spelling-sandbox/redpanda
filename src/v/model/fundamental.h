@@ -88,7 +88,7 @@ std::istream& operator>>(std::istream&, cleanup_policy_bitflags&);
 
 // Named after Kafka compaction.strategy topic property
 enum class compaction_strategy : int8_t {
-    /// \brief offset compaction means the old schoold kafka compacted topics
+    /// \brief offset compaction means the old school kafka compacted topics
     /// strategy before KIP 280
     offset,
     /// \brief timestamp compaction is not yet supported
