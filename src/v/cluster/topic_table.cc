@@ -1134,7 +1134,7 @@ void topic_table::change_partition_replicas(
         }
     }
 
-    // calculate deleta for backend
+    // calculate delta for backend
 
     auto partition_it = metadata.partitions.find(ntp.tp.partition);
     vassert(
