@@ -1502,7 +1502,7 @@ struct topic_properties_update
 
     model::topic_namespace tp_ns;
 
-    // Tihs properties is serialized to update_topic_properties_cmd by
+    // These properties are serialized to update_topic_properties_cmd by
     // topic_frontend
     incremental_topic_updates properties;
 

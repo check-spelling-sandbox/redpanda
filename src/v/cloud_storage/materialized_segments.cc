@@ -104,7 +104,7 @@ ssx::semaphore_units materialized_segments::get_reader_units() {
         trim_readers(max_readers() / 2);
     }
 
-    // TOOD: make this function async so that it can wait until we succeed
+    // TODO: make this function async so that it can wait until we succeed
     // in evicting some readers: trim_readers is not
     // guaranteed to do this, if all readers are in use.
 
