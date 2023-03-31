@@ -248,7 +248,7 @@ public:
     /// (0 - no retries), and 100ms is a remaining time budget.
     ss::sstring operator()() const;
 
-    /// Generate formattend log prefix and add custom string into it:
+    /// Generate formatted log prefix and add custom string into it:
     /// Example: [fiber42~3~1|2|100ms ns/topic/42]
     template<typename... Args>
     ss::sstring
