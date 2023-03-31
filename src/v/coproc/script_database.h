@@ -22,7 +22,7 @@
 namespace coproc::wasm {
 /// In memory cache of all coprocessors of all coprocessors
 ///
-/// Useful when its necessary to redeploy or reference a shutdown or partitally
+/// Useful when its necessary to redeploy or reference a shutdown or partially
 /// shutdown coprocessor for its metadata
 class script_database {
 public:
