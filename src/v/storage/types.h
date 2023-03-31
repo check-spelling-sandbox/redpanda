@@ -436,7 +436,7 @@ struct usage {
  * disk usage report
  *
  * usage: disk usage summary for log.
- * reclaim: disk uage reclaim summary for log.
+ * reclaim: disk usage reclaim summary for log.
  */
 struct usage_report {
     usage usage;
