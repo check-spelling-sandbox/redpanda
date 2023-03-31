@@ -18,7 +18,7 @@ Please send a pull request with your project name and description.
 
 [Bytewax](https://www.bytewax.io/blog/anomaly-detection-bw-rpk/): Anomaly detection with Bytewax and Redpanda
 
-[Memegraph](https://memgraph.com/blog/analyzing-redpanda-movie-stream): Analyzing real-time movie reviews with Memgraph and Redpanda
+[Memgraph](https://memgraph.com/blog/analyzing-redpanda-movie-stream): Analyzing real-time movie reviews with Memgraph and Redpanda
 
 [Benthos](https://www.benthos.dev/blog/2021/03/09/redpanda/): We're bringing simple back (to streaming)
 
