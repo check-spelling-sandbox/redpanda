@@ -274,7 +274,7 @@ def decode_offset_translator_value(type, v):
     rdr = Reader(BytesIO(v))
     ret = {}
 
-    def read_peristed_batch(rdr):
+    def read_persisted_batch(rdr):
         ret = {}
         ret['base_offset'] = rdr.read_int64()
         ret['length'] = rdr.read_int32()
@@ -285,7 +285,7 @@ def decode_offset_translator_value(type, v):
     else:
         rdr.read_envelope()
         ret['start_delta'] = rdr.read_int64()
-        ret['persisted_batches'] = rdr.read_serde_vector(read_peristed_batch)
+        ret['persisted_batches'] = rdr.read_serde_vector(read_persisted_batch)
     return ret
 
 

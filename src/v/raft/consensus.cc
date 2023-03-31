@@ -1356,7 +1356,7 @@ ss::future<> consensus::do_start() {
                  * incorrectly assigned raft configuration indices
                  * (https://github.com/redpanda-data/redpanda/issues/2326) there
                  * may be a persistent corruption in offset translation caused
-                 * by incorrectly persited configuration index. It may cause log
+                 * by incorrectly persisted configuration index. It may cause log
                  * offset to be negative. Here we check if this problem exists
                  * and if so apply necessary offset translation.
                  */
