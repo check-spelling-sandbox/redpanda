@@ -31,7 +31,7 @@
  * ss::future<reply_t> endpoint::send_request(request req) {
  *   while (true) {
  *     try {
- *       co_retury co_await do_send_request(req);
+ *       co_return co_await do_send_request(req);
  *     } catch (const network_error& err) {
  *       vlog(logger, "send_request to {} error {}", name, err);
  *     }
@@ -67,7 +67,7 @@
  *   retry_chain_node fn(&n, now + 1000ms, 100ms);
  *   while (true) {
  *     try {
- *       co_retury co_await do_send_request(req);
+ *       co_return co_await do_send_request(req);
  *     } catch (network_error) {
  *       vlog(logger, "{} send_request to {} error {}", fn(), name, err);
  *     }

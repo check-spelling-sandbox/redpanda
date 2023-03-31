@@ -57,7 +57,7 @@ public:
       std::optional<segment_time_limit> limit = std::nullopt,
       ss::io_priority_class io_priority = ss::default_priority_class());
 
-    /// \brief regurn next upload candidate
+    /// \brief return next upload candidate
     ///
     /// \param begin_inclusive is an inclusive beginning of the range
     /// \param end_exclusive is an exclusive end of the range
