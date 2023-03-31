@@ -2661,7 +2661,7 @@ ss::future<> rm_stm::offload_aborted_txns() {
     // We should prevent it because an update invalidates the ite-
     // rator and may lead to undefined behavior. In order to avoid
     // this situation, offload_aborted_txns should be invoked only
-    // under _state_lock's write lock because all the other updators
+    // under _state_lock's write lock because all the other updaters
     // use the read lock.
     std::sort(
       std::begin(_log_state.aborted),
