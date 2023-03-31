@@ -326,7 +326,7 @@ class RedpandaInstaller:
     def _avail_for_download(self, version: tuple[int, int, int]):
         """
         validate that it is really downloadable: this avoids tests being upset by ongoing releases
-        which might exist in github but not yet fave all their artifacts
+        which might exist in github but not yet have all their artifacts
         """
         r = requests.head(self._version_package_url(version))
         if r.status_code not in (200, 404):
