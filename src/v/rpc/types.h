@@ -63,7 +63,7 @@ concept RpcDurationOrPoint
  */
 struct timeout_spec {
     /**
-     * Constant indiciating specifying no timeout.
+     * Constant indicating specifying no timeout.
      * timeout_at() will return time_point::max(), i.e., the furthest possible
      * point in the future.
      */
