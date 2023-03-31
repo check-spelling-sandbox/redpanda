@@ -33,7 +33,7 @@ SEASTAR_THREAD_TEST_CASE(test_decode_empty) {
 SEASTAR_THREAD_TEST_CASE(test_decode_full_abs_path) {
     auto with_values = "tls_config:\n"
                        "  enabled: true\n"
-                       "  cert_file: /fake/cret_file.crt\n"
+                       "  cert_file: /fake/cert_file.crt\n"
                        "  key_file: /fake/key_file.key\n"
                        "  truststore_file: /fake/truststore\n"
                        "  require_client_auth: true\n";
@@ -42,7 +42,7 @@ SEASTAR_THREAD_TEST_CASE(test_decode_full_abs_path) {
     BOOST_TEST(
       (*full_cfg.get_key_cert_files()).key_file == "/fake/key_file.key");
     BOOST_TEST(
-      (*full_cfg.get_key_cert_files()).cert_file == "/fake/cret_file.crt");
+      (*full_cfg.get_key_cert_files()).cert_file == "/fake/cert_file.crt");
     BOOST_TEST(*full_cfg.get_truststore_file() == "/fake/truststore");
     BOOST_TEST(full_cfg.get_require_client_auth());
 }
@@ -50,14 +50,14 @@ SEASTAR_THREAD_TEST_CASE(test_decode_full_abs_path) {
 SEASTAR_THREAD_TEST_CASE(test_decode_full_rel_path) {
     auto with_values = "tls_config:\n"
                        "  enabled: true\n"
-                       "  cert_file: ./cret_file.crt\n"
+                       "  cert_file: ./cert_file.crt\n"
                        "  key_file: ./key_file.key\n"
                        "  truststore_file: ./truststore\n"
                        "  require_client_auth: true\n";
     auto full_cfg = read_from_yaml(with_values);
     BOOST_TEST(full_cfg.is_enabled());
     BOOST_TEST((*full_cfg.get_key_cert_files()).key_file != "./key_file.key");
-    BOOST_TEST((*full_cfg.get_key_cert_files()).cert_file != "./cret_file.crt");
+    BOOST_TEST((*full_cfg.get_key_cert_files()).cert_file != "./cert_file.crt");
     BOOST_TEST(*full_cfg.get_truststore_file() != "./truststore");
     BOOST_TEST(full_cfg.get_require_client_auth());
 }
