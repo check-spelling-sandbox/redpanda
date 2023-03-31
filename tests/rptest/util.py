@@ -342,7 +342,7 @@ class firewall_blocked:
     def __enter__(self):
         """Isolate certain ips from the nodes using firewall rules"""
         cmd = []
-        mode_for_inut = "sport"
+        mode_for_input = "sport"
         cmd.append(
             f"iptables -A INPUT -p tcp --{self.mode_for_input} {self._port} -j DROP"
         )
