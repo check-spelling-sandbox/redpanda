@@ -40,7 +40,7 @@ void balancer_bench(bool measure_all) {
         perf_tests::start_measuring_time();
     }
     auto movement = greed.find_movement({});
-    vassert(!movement, "movemement ");
+    vassert(!movement, "movement ");
     perf_tests::do_not_optimize(movement);
     perf_tests::stop_measuring_time();
 }
