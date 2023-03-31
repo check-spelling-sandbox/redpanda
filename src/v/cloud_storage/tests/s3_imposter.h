@@ -26,7 +26,7 @@
 /// Emulates S3 REST API for testing purposes.
 /// The imposter is a simple KV-store that contains a set of expectations.
 /// Expectations are accessible by url via GET, PUT, and DELETE http calls.
-/// Expectations are provided before impster starts to listen. They have
+/// Expectations are provided before imposter starts to listen. They have
 /// two field - url and optional body. If body is set to nullopt, attempt
 /// to read it using GET or delete it using DELETE requests will trigger an
 /// http response with error code 404 and xml formatted error message.
