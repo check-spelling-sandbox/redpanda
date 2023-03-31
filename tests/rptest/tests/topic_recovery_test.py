@@ -54,7 +54,7 @@ class BaseCase:
     - after_restart_validation (if restart_needed is True)
     Template method can remove all initial state from the cluster and
     restart the nodes if initial_restart_needed is true. This process is
-    needed for thests that depend on revision numbers. With initial cleanup
+    needed for tests that depend on revision numbers. With initial cleanup
     we can guarantee that the initial topic revisions will be the same if we
     will create them in the same order.
     The class variable 'topics' contains list of topics that need to be created
