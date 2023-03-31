@@ -276,7 +276,7 @@ def get_expected_ntp_restored_size(nodes_segments_report: dict[str,
                                                                     (str,
                                                                      int)]],
                                    retention_policy: int):
-    """ Get expected retestored ntp disk size
+    """ Get expected restored ntp disk size
     We expect that redpanda will restore max
     amount of segments with total size less
     than retention_policy
