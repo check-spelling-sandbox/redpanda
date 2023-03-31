@@ -295,7 +295,7 @@ private:
  * append_entries_reply uses two different types of serialization: when
  * encoding/decoding directly normal adl/serde per-field serialization is used.
  * the second type is a custom encoding used by heartbeat_reply for more
- * efficient encoding of a vectory of append_entries_reply.
+ * efficient encoding of a vector of append_entries_reply.
  */
 struct append_entries_reply
   : serde::envelope<
