@@ -31,12 +31,12 @@ jobs:
               .
             rm .dockerignore
 
-        - name: ccache cache files
-          uses: actions/cache@v2
+        - name: retrieve ccache cache files
+          uses: actions/cache/restore@v3
           with:
             path: /dev/shm/redpanda
-            key: ccache-${{github.ref}}
-            restore-keys: ccache
+            key: ccache-${{github.ref}}-${{github.sha}}
+            restore-keys: ccache-${{github.ref}} ccache
 
         - name: set fx.aio-max-nr
           run: sudo sysctl -w fs.aio-max-nr=10485760
@@ -53,3 +53,10 @@ jobs:
               -w $PWD \
               rp-toolchain \
               ./build.sh
+
+        - name: save ccache cache files
+          uses: actions/cache/save@v3
+          if: success() || failure()
+          with:
+            path: /dev/shm/redpanda
+            key: ccache-${{github.ref}}-${{github.sha}}
