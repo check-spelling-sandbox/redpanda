@@ -117,7 +117,7 @@ private:
     // Unlike the data partitions id_allocator_stm doesn't rely on the eviction
     // stm and manages log truncations on its own. STM counts the number of
     // applied `state_cmd` commands and when it (`_processed`) surpasses
-    // `_log_capacity` id_allocator_stm trucates the prefix.
+    // `_log_capacity` id_allocator_stm truncates the prefix.
     int64_t _batch_size;
     int16_t _log_capacity;
 
