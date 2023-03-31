@@ -192,7 +192,7 @@ class TransactionsTest(RedpandaTest):
 
         try:
             producer.send_offsets_to_transaction(offsets, metadata, 2)
-            assert False, "send_offsetes should fail"
+            assert False, "send_offsets should fail"
         except ck.cimpl.KafkaException as e:
             kafka_error = e.args[0]
             assert kafka_error.code() == ck.cimpl.KafkaError._FENCED
@@ -252,7 +252,7 @@ class TransactionsTest(RedpandaTest):
 
         try:
             producer.send_offsets_to_transaction(offsets, metadata, 2)
-            assert False, "send_offsetes should fail"
+            assert False, "send_offsets should fail"
         except ck.cimpl.KafkaException as e:
             kafka_error = e.args[0]
             assert kafka_error.code() == ck.cimpl.KafkaError.FENCED_INSTANCE_ID

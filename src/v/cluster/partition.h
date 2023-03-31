@@ -122,7 +122,7 @@ public:
     }
 
     /**
-     * All batches with offets smaller than high watermark are visible to
+     * All batches with offsets smaller than high watermark are visible to
      * consumers. Named high_watermark to be consistent with Kafka nomenclature.
      */
     model::offset high_watermark() const {

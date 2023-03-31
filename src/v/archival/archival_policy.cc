@@ -223,7 +223,7 @@ archival_policy::lookup_result archival_policy::find_segment(
     return {.segment = *it, .ntp_conf = &ntp_conf, .forced = force_upload};
 }
 
-/// This function computes offsets for the upload (inc. file offets)
+/// This function computes offsets for the upload (inc. file offsets)
 /// If the full segment is uploaded the segment is not scanned.
 /// If the upload is partial, the partial scan will be performed if
 /// the segment has the index and full scan otherwise.

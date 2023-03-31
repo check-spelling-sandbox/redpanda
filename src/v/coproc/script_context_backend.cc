@@ -319,7 +319,7 @@ static ss::future<> process_reply_group(
     /// loop.
     for (auto& [_, o] : src_ptr->wctx.offsets) {
         if (o <= src_ptr->rctx.last_read) {
-            /// Omit increasing offets that are ahead of current read, this
+            /// Omit increasing offsets that are ahead of current read, this
             /// could occur upon load of a stored offset thats further ahead.
             /// Also during retry avoids promoting offsets of materialized
             /// topics that are ahead of the materialized topic that is the
