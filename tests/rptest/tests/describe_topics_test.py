@@ -53,7 +53,7 @@ class DescribeTopicsTest(RedpandaTest):
                     return False
                 if f"ReplicationFactor: {topic.replication_factor}" not in output:
                     return False
-            # and targetted topic describe
+            # and targeted topic describe
             topics_described = [
                 client.describe_topic(topic.name) for topic in topics
             ]
