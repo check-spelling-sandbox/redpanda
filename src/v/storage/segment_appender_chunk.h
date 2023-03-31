@@ -32,7 +32,7 @@ public:
       : _chunk_size(size)
       , _alignment(alignment)
       , _buf(ss::allocate_aligned_buffer<char>(_chunk_size, alignment)) {
-        // zero-out the buffer in case the alloctor gaves us a recycled buffer
+        // zero-out the buffer in case the alloctor gives us a recycled buffer
         // that was from a valid previous segment.
         reset();
     }
