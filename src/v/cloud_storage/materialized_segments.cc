@@ -195,7 +195,7 @@ void materialized_segments::trim_readers(size_t target_free) {
  * eviction of the underlying segment and reader objects.
  *
  * This method does not guarantee to free any resources: it will not do
- * anything if no segments have an atime older than the TTL.  Ssee trim_readers
+ * anything if no segments have an atime older than the TTL.  See trim_readers
  * for how to trim the reader population back to a specific size
  *
  * NOTE: This method must never be made async or yield while iterating over
