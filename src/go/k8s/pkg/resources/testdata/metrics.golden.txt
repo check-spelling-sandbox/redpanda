@@ -3487,7 +3487,7 @@ vectorized_storage_kvstore_cached_bytes{shard="0"} 46744.000000
 # HELP vectorized_storage_kvstore_entries_fetched Number of entries fetched
 # TYPE vectorized_storage_kvstore_entries_fetched counter
 vectorized_storage_kvstore_entries_fetched{shard="0"} 136
-# HELP vectorized_storage_kvstore_entries_removed Number of entries removaled
+# HELP vectorized_storage_kvstore_entries_removed Number of entries removed
 # TYPE vectorized_storage_kvstore_entries_removed counter
 vectorized_storage_kvstore_entries_removed{shard="0"} 88
 # HELP vectorized_storage_kvstore_entries_written Number of entries written
