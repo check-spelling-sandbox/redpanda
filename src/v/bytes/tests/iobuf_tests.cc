@@ -423,7 +423,7 @@ SEASTAR_THREAD_TEST_CASE(test_next_chunk_allocation_append_iobuf) {
     BOOST_REQUIRE_EQUAL(msg.size(), sz);
 }
 
-SEASTAR_THREAD_TEST_CASE(test_appending_frament_takes_ownership) {
+SEASTAR_THREAD_TEST_CASE(test_appending_fragment_takes_ownership) {
     iobuf target;
     const auto b = random_generators::gen_alphanum_string(1024);
     target.append(b.c_str(), b.size());
