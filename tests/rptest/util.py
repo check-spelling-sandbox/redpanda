@@ -219,7 +219,7 @@ def wait_for_local_storage_truncate(redpanda,
                                     timeout_sec: Optional[int] = None,
                                     nodes: Optional[list] = None):
     """
-    For use in tiered storage tests: wait until the locally etained data
+    For use in tiered storage tests: wait until the locally retained data
     size for this partition is below a threshold on all nodes.
     """
 
