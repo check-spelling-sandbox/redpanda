@@ -241,7 +241,7 @@ sanitize(json::Value::Object& o, json::MemoryPoolAllocator& alloc) {
         ss::sstring new_namespace;
         if (last_dot != std::string::npos) {
             // Take a copy, fullname_sv will be invalidated when new_name is
-            // set, and SetString uses memcpy, the range musn't overlap.
+            // set, and SetString uses memcpy, the range mustn't overlap.
             ss::sstring fullname{fullname_sv};
             fullname_sv = fullname;
 
