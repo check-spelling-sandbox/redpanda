@@ -653,7 +653,7 @@ type LoadBalancerStatus struct {
 // If Enabled is set to true, one-way TLS verification is enabled.
 // In that case, a key pair ('tls.crt', 'tls.key') and CA certificate 'ca.crt'
 // are generated and stored in a Secret with the same name and namespace as the
-// Redpanda cluster. 'ca.crt', must be used by a client as a trustore when
+// Redpanda cluster. 'ca.crt', must be used by a client as a truststore when
 // communicating with Redpanda.
 //
 // If RequireClientAuth is set to true, two-way TLS verification is enabled.
