@@ -104,7 +104,7 @@ static ss::future<> do_write_materialized_partition(
     }
     if (!all_headers_valid) {
         throw malformed_batch_exception(
-          "Wasm engine returned malformatted batch/header");
+          "Wasm engine returned malformed batch/header");
     }
 
     /// Compress the data before writing...
