@@ -1629,7 +1629,7 @@ class RedpandaService(Service):
 
     def await_feature_active(self, feature_name: str, *, timeout_sec: int):
         """
-        For use during upgrade tests, when after upgrade yo uwould like to block
+        For use during upgrade tests, when after upgrade you would like to block
         until a particular feature is active (e.g. if it does migrations)
         """
         def is_active():
