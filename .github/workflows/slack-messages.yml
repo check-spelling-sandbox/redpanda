@@ -20,6 +20,7 @@ jobs:
         slack-message: ${{ env.MESSAGE }}
       env:
         SLACK_BOT_TOKEN: ${{ secrets.VBOTBUILDOVICH_SLACK_BOT_TOKEN }}
+      if: env.SLACK_BOT_TOKEN
 
     - name: "Post to internal #general channel"
       id: internal_general
@@ -29,6 +30,7 @@ jobs:
         slack-message: ${{ env.MESSAGE }}
       env:
         SLACK_BOT_TOKEN: ${{ secrets.VBOTBUILDOVICH_SLACK_BOT_TOKEN }}
+      if: env.SLACK_BOT_TOKEN
 
     - name: "Post to community #releases channel"
       id: community_releases
@@ -38,4 +40,4 @@ jobs:
         slack-message: ${{ env.MESSAGE }}
       env:
         SLACK_BOT_TOKEN: ${{ secrets.BUILDERBOT_COMMUNITY_SLACK_BOT_TOKEN }}
-
+      if: env.SLACK_BOT_TOKEN
