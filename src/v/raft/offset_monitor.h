@@ -25,7 +25,7 @@ namespace raft {
 /**
  * Offset monitor.
  *
- * Utility for manging waiters based on a threshold offset. Supports multiple
+ * Utility for managing waiters based on a threshold offset. Supports multiple
  * waiters on the same offset, as well as timeout and abort source methods of
  * aborting a wait.
  */
