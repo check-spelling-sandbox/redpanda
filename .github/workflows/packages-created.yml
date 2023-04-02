@@ -6,9 +6,13 @@ on:
 jobs:
   package_creation_handler:
     runs-on: ubuntu-20.04
+    permissions:
+      pull-requests: write
 
     steps:
       - name: Notify PR
+        env:
+          HAS_SECRETS: ${{ secrets.VTOOLS_GITHUB_API_TOKEN && 1 }}
         uses: peter-evans/create-or-update-comment@v1
         with:
           token: ${{ secrets.VTOOLS_GITHUB_API_TOKEN }}
@@ -17,4 +21,4 @@ jobs:
             Packages created for ${{ github.event.client_payload.ref }}
             Tests requiring them can now be run. Try:
             `/chaos-test` or `/ducktape`
-        if: ${{ github.event.client_payload.pr_number }}
+        if: ${{ github.event.client_payload.pr_number && env.HAS_SECRETS }}
