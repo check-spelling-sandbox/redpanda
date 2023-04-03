@@ -201,7 +201,7 @@ SEASTAR_THREAD_TEST_CASE(gen_bytes_view) {
     fbuf.append(reinterpret_cast<const char*>(b.data()), b.size());
     BOOST_CHECK_EQUAL(fbuf.size_bytes(), (2 * 128 * 1024) + sizeof(x));
 }
-SEASTAR_THREAD_TEST_CASE(traver_all_bytes_one_at_a_time) {
+SEASTAR_THREAD_TEST_CASE(traverse_all_bytes_one_at_a_time) {
     auto io = iobuf();
     const char* str = "alex";
     io.append(str, std::strlen(str));
@@ -399,7 +399,7 @@ SEASTAR_THREAD_TEST_CASE(test_next_chunk_allocation_append_temp_buf) {
         ss::temporary_buffer<char> tb(b.data(), b.size());
         buf.append(std::move(tb));
     }
-    // slow but tha'ts life.
+    // slow but that's life.
     auto distance = std::distance(buf.begin(), buf.end());
     BOOST_REQUIRE_EQUAL(distance, 324);
     constexpr size_t sz = 40000 * 1024;
@@ -415,7 +415,7 @@ SEASTAR_THREAD_TEST_CASE(test_next_chunk_allocation_append_iobuf) {
         tmp_buf.append(b.data(), b.size());
         buf.append(std::move(tmp_buf));
     }
-    // slow but tha'ts life.
+    // slow but that's life.
     auto distance = std::distance(buf.begin(), buf.end());
     BOOST_REQUIRE_EQUAL(distance, 324);
     constexpr size_t sz = 40000 * 1024;
@@ -423,7 +423,7 @@ SEASTAR_THREAD_TEST_CASE(test_next_chunk_allocation_append_iobuf) {
     BOOST_REQUIRE_EQUAL(msg.size(), sz);
 }
 
-SEASTAR_THREAD_TEST_CASE(test_appending_frament_takes_ownership) {
+SEASTAR_THREAD_TEST_CASE(test_appending_fragment_takes_ownership) {
     iobuf target;
     const auto b = random_generators::gen_alphanum_string(1024);
     target.append(b.c_str(), b.size());
@@ -546,8 +546,7 @@ SEASTAR_THREAD_TEST_CASE(test_iobuf_input_stream_from_trimmed_iobuf) {
     BOOST_TEST(res.size() == 90);
 }
 
-SEASTAR_THREAD_TEST_CASE(
-  test_trim_front_interator_consumer_segment_bytes_left) {
+SEASTAR_THREAD_TEST_CASE(test_trim_front_iterator_consumer_segment_bytes_left) {
     iobuf buf;
     buf.prepend(ss::temporary_buffer<char>(100));
     buf.trim_front(10);

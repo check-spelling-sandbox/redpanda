@@ -99,13 +99,13 @@ private:
 /// This comes from the user and should be considered as potentially
 /// ill-formed.
 using unparsed_schema_definition
-  = typed_schema_definition<struct unparsed_schema_defnition_tag>;
+  = typed_schema_definition<struct unparsed_schema_definition_tag>;
 
 ///\brief A canonical definition of the schema and its type.
 ///
 /// This form is stored on the topic and returned to the user.
 using canonical_schema_definition
-  = typed_schema_definition<struct canonical_schema_defnition_tag>;
+  = typed_schema_definition<struct canonical_schema_definition_tag>;
 
 static const unparsed_schema_definition invalid_schema_definition{
   "", schema_type::avro};

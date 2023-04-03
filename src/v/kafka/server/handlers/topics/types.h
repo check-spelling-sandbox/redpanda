@@ -106,7 +106,7 @@ from_cluster_topic_result(const cluster::topic_result& err) {
     return {.name = err.tp_ns.tp, .error_code = map_topic_error_code(err.ec)};
 }
 
-config_map_t config_map(const std::vector<createable_topic_config>& config);
+config_map_t config_map(const std::vector<creatable_topic_config>& config);
 config_map_t config_map(const std::vector<creatable_topic_configs>& config);
 
 cluster::custom_assignable_topic_configuration

@@ -75,7 +75,7 @@ public:
     /// Stops the benchmark
     ///
     /// On resolution of the future returned all async work will have completed
-    /// upon success or with failure (abruptly stoppped - work incomplete)
+    /// upon success or with failure (abruptly stopped - work incomplete)
     ss::future<> stop();
 
     /// Run the actual disk benchmark

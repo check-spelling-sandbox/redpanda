@@ -32,7 +32,7 @@ class ConsumerGroupTest(RedpandaTest):
             test_ctx,
             num_brokers=3,
             *args,
-            # disable leader balancer to make sure that group will not be realoaded because of leadership changes
+            # disable leader balancer to make sure that group will not be reloaded because of leadership changes
             extra_rp_conf={
                 "enable_leader_balancer": False,
                 "default_topic_replications": 3
@@ -251,7 +251,7 @@ class ConsumerGroupTest(RedpandaTest):
     @parametrize(static_members=False)
     def test_consumer_rejoin(self, static_members):
         """
-        Test validating that re-joining static member will not casuse rebalance
+        Test validating that re-joining static member will not cause rebalance
         """
         self.create_topic(20)
 

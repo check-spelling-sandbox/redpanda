@@ -218,7 +218,7 @@ ss::future<> rpc_server::dispatch_method_once(
                     } catch (const ss::gate_closed_exception& e) {
                         // gate_closed is typical during shutdown.  Treat
                         // it like a timeout: request was not erroneous
-                        // but we will not give a rseponse.
+                        // but we will not give a response.
                         rpclog.debug(
                           "Timing out request on gate_closed_exception "
                           "(shutting down)");

@@ -143,8 +143,8 @@ ss::future<> drain_manager::do_drain() {
     vlog(clusterlog.info, "Node draining has started");
 
     /*
-     * Prevent this node from becomming a leader for new and existing raft
-     * groups. This does not immediately reliquish existing leadership. it is
+     * Prevent this node from becoming a leader for new and existing raft
+     * groups. This does not immediately relinquish existing leadership. it is
      * assumed that all raft groups (e.g. controller/raft0 and kafka data) are
      * represented in the partition manager.
      */
@@ -262,7 +262,7 @@ ss::future<> drain_manager::do_drain() {
  * Currently the unblocking process does not attempt to restore leadership back
  * to the node. This is assumed to be handled at a higher level (e.g. by the
  * operator by enabling or poking the cluster leadership rebalancer). However,
- * we could imagine being more aggresive here in the future.
+ * we could imagine being more aggressive here in the future.
  */
 ss::future<> drain_manager::do_restore() {
     vlog(clusterlog.info, "Node drain stopped");

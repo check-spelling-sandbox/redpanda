@@ -124,9 +124,9 @@ ss::future<> spill_key_index::add_key(compaction_key b, value_type v) {
           },
           [this] {
               /**
-               * Evict first entry, we use hash function that guarante good
+               * Evict first entry, we use hash function that guarantee good
                * randomness so evicting first entry is actually evicting a
-               * pseudo random elemnent
+               * pseudo random element
                */
               auto node = _midx.extract(_midx.begin());
 

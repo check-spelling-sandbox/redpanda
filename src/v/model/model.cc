@@ -213,7 +213,10 @@ std::ostream& operator<<(std::ostream& o, const model::broker& b) {
 
 std::ostream& operator<<(std::ostream& o, const topic_metadata& t_md) {
     fmt::print(
-      o, "{{topic_namespace: {}, partitons: {}}}", t_md.tp_ns, t_md.partitions);
+      o,
+      "{{topic_namespace: {}, partitions: {}}}",
+      t_md.tp_ns,
+      t_md.partitions);
     return o;
 }
 

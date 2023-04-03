@@ -540,7 +540,7 @@ class RaftAvailabilityTest(RedpandaTest):
         # with the anticipated leader when creating the topic
         assert leader_node_id is not None
 
-        # Leadership shouhld remain the same across many queries using
+        # Leadership should remain the same across many queries using
         # individually constructed clients:
         #  - Because all nodes have the same initial guess
         #  and

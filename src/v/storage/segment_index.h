@@ -29,7 +29,7 @@
 namespace storage {
 
 /**
- * file file format is: [ header ] [ payload ]
+ * file format is: [ header ] [ payload ]
  * header  == segment_index::header
  * payload == std::vector<pair<uint32_t,uint32_t>>;
  *

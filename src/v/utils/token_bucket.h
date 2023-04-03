@@ -104,7 +104,7 @@ public:
                 /*
                  * if current > rate it means that we have accumulated tokens
                  * we should change current to new_rate to start accumulation
-                 * from begining
+                 * from beginning
                  */
                 _sem.consume(_sem.current() - new_rate);
             }

@@ -128,7 +128,7 @@ public:
             //
             // This is violated during parallel bootstrap with cross core
             // movements where there can be interleaved updates.In this process
-            // if there is an exact revision match, it indicates that an other
+            // if there is an exact revision match, it indicates that another
             // shard already updated the shard table and is starting up the
             // partition and the calling shard should not remove it.
             //
@@ -147,7 +147,7 @@ public:
             // If shard 0 update ends up running after shard 1, we will end up
             // with no shard table entries for this ntp resulting in an
             // availability loss. The equality check guards against these racy
-            // update siutations.
+            // update situations.
 
             if (it->second.revision >= rev) {
                 return;

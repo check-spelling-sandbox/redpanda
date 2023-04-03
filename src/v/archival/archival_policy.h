@@ -57,12 +57,12 @@ public:
       std::optional<segment_time_limit> limit = std::nullopt,
       ss::io_priority_class io_priority = ss::default_priority_class());
 
-    /// \brief regurn next upload candidate
+    /// \brief return next upload candidate
     ///
-    /// \param begin_inclusive is an inclusive begining of the range
+    /// \param begin_inclusive is an inclusive beginning of the range
     /// \param end_exclusive is an exclusive end of the range
     /// \param lm is a log manager
-    /// \return initializd struct on success, empty struct on failure
+    /// \return initialized struct on success, empty struct on failure
     ss::future<upload_candidate_with_locks> get_next_candidate(
       model::offset begin_inclusive,
       model::offset end_exclusive,

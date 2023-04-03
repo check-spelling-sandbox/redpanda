@@ -137,7 +137,7 @@
                 },
                 "tx_seq": {
                     "type": "long",
-                    "description": "tx_seq identifues a transactions within a session"
+                    "description": "tx_seq identifies a transactions within a session"
                 },
                 "etag": {
                     "type": "long",

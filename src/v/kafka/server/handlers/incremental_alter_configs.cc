@@ -38,7 +38,7 @@ using req_resource_t = incremental_alter_configs_resource;
 using resp_resource_t = incremental_alter_configs_resource_response;
 
 /**
- * We pass returned value as a paramter to allow template to be automatically
+ * We pass returned value as a parameter to allow template to be automatically
  * resolved.
  */
 static void parse_and_set_shadow_indexing_mode(
@@ -67,7 +67,7 @@ static void parse_and_set_shadow_indexing_mode(
     }
 }
 /**
- * valides the optional config
+ * validates the optional config
  */
 
 std::optional<resp_resource_t> validate_single_value_config_resource(
@@ -293,7 +293,7 @@ inline std::string_view map_config_name(std::string_view input) {
       .default_match(input);
 }
 
-static ss::future<std::vector<resp_resource_t>> alter_broker_configuartion(
+static ss::future<std::vector<resp_resource_t>> alter_broker_configuration(
   request_context& ctx, std::vector<req_resource_t> resources) {
     std::vector<resp_resource_t> responses;
     responses.reserve(resources.size());
@@ -441,23 +441,23 @@ ss::future<response_ptr> incremental_alter_configs_handler::handle(
     incremental_alter_configs_request request;
     request.decode(ctx.reader(), ctx.header().version);
     log_request(ctx.header(), request);
-    auto groupped = group_alter_config_resources(
+    auto grouped = group_alter_config_resources(
       std::move(request.data.resources));
 
-    auto unauthorized_responsens = authorize_alter_config_resources<
+    auto unauthorized_responses = authorize_alter_config_resources<
       incremental_alter_configs_resource,
-      resp_resource_t>(ctx, groupped);
+      resp_resource_t>(ctx, grouped);
 
     std::vector<ss::future<std::vector<resp_resource_t>>> futures;
     futures.reserve(2);
     futures.push_back(alter_topic_configuration(
-      ctx, std::move(groupped.topic_changes), request.data.validate_only));
+      ctx, std::move(grouped.topic_changes), request.data.validate_only));
     futures.push_back(
-      alter_broker_configuartion(ctx, std::move(groupped.broker_changes)));
+      alter_broker_configuration(ctx, std::move(grouped.broker_changes)));
 
     auto ret = co_await ss::when_all_succeed(futures.begin(), futures.end());
     // include authorization errors
-    ret.push_back(std::move(unauthorized_responsens));
+    ret.push_back(std::move(unauthorized_responses));
 
     co_return co_await ctx.respond(assemble_alter_config_response<
                                    incremental_alter_configs_response,

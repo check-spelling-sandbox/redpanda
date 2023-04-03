@@ -125,7 +125,7 @@ ss::future<> connection_context::process_one_request() {
  * Even though we build and decode a request/response, the payload is a small
  * authentication string. https://github.com/redpanda-data/redpanda/issues/1315.
  * When this ticket is complete we'll be able to easily remove this extra
- * serialization step and and easily operate on non-encoded requests/responses.
+ * serialization step and easily operate on non-encoded requests/responses.
  */
 ss::future<> connection_context::handle_auth_v0(const size_t size) {
     vlog(klog.debug, "Processing simulated SASL authentication request");
@@ -349,9 +349,9 @@ connection_context::dispatch_method_once(request_header hdr, size_t size) {
                  * we process requests in order since all subsequent requests
                  * are dependent on authentication having completed.
                  *
-                 * the other important reason for disabling pipeling is because
-                 * when a sasl handshake with version=0 is processed, the next
-                 * data on the wire is _not_ another request: it is a
+                 * the other important reason for disabling pipelining is
+                 * because when a sasl handshake with version=0 is processed,
+                 * the next data on the wire is _not_ another request: it is a
                  * size-prefixed authentication payload without a request
                  * envelope, and requires special handling.
                  *
@@ -471,9 +471,9 @@ connection_context::dispatch_method_once(request_header hdr, size_t size) {
 
 /**
  * This method processes as many responses as possible, in request order. Since
- * we proces the second stage asynchronously within a given connection, reponses
- * may become ready out of order, but Kafka clients expect responses exactly in
- * request order.
+ * we proces the second stage asynchronously within a given connection,
+ * responses may become ready out of order, but Kafka clients expect responses
+ * exactly in request order.
  *
  * The _responses queue handles that: responses are enqueued there in completion
  * order, but only sent to the client in response order. So this method, called
@@ -507,7 +507,7 @@ ss::future<> connection_context::maybe_process_responses() {
             _server.quota_mgr().record_fetch_tp(
               resp_and_res.resources->request_data.client_id, msg.size());
         }
-        // Respose sizes only take effect on throttling at the next request
+        // Response sizes only take effect on throttling at the next request
         // processing. The better way was to measure throttle delay right here
         // and apply it to the immediate response, but that would require
         // drastic changes to kafka message processing framework - because

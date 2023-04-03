@@ -41,7 +41,7 @@ public:
         self_test_status status() const;
     };
 
-    /// Holds reported self_test results aquired from all brokers in a test
+    /// Holds reported self_test results acquired from all brokers in a test
     class global_test_state {
     public:
         using underlying_t
@@ -101,7 +101,7 @@ private:
     };
 
     /// Starts/stops/queries status of a single self-test if the node_id is
-    /// not 'this' node. Makes RPC call to remote node to achive this.
+    /// not 'this' node. Makes RPC call to remote node to achieve this.
     class remote_invoke : public invoke_wrapper {
     public:
         remote_invoke(
@@ -131,7 +131,7 @@ private:
     };
 
     /// Starts/stops/queries status of a single self-test if the node_id is
-    /// 'this' node. Manually invokes the self_test_backend to achive this
+    /// 'this' node. Manually invokes the self_test_backend to achieve this
     class local_invoke : public invoke_wrapper {
     public:
         local_invoke(

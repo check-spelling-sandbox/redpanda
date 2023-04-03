@@ -17,7 +17,7 @@ SEASTAR_THREAD_TEST_CASE(test_make_netcheck_request) {
       [](iobuf::const_iterator begin, iobuf::const_iterator end, size_t sz) {
           vassert(
             std::distance(begin, end) >= 2,
-            "check frags verifies constant fragment legnth up until final "
+            "check frags verifies constant fragment length up until final "
             "fragment in iobuf");
           /// Its expected for the final fragment to have a size < 'sz'
           const auto final_equiv_frag = --(--end);

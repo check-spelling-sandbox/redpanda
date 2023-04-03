@@ -65,7 +65,7 @@ client_ptr kafka_client_cache::make_client(
 
 std::pair<client_ptr, client_mu_ptr> kafka_client_cache::fetch_or_insert(
   credential_t user, config::rest_authn_method authn_method) {
-    // This method does not need a gate or lock becase the entire function is
+    // This method does not need a gate or lock because the entire function is
     // synchronous until the point that client clean up is called. Then
     // scheduling mechs are needed for client stop but that is handled within
     // clean_stale_clients

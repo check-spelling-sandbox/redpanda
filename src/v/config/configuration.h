@@ -301,12 +301,12 @@ struct configuration final : public config_store {
 
     one_or_many_property<ss::sstring> superusers;
 
-    // kakfa queue depth control: latency ewma
+    // kafka queue depth control: latency ewma
     property<double> kafka_qdc_latency_alpha;
     property<std::chrono::milliseconds> kafka_qdc_window_size_ms;
     property<size_t> kafka_qdc_window_count;
 
-    // kakfa queue depth control: queue depth ewma and control
+    // kafka queue depth control: queue depth ewma and control
     property<bool> kafka_qdc_enable;
     property<double> kafka_qdc_depth_alpha;
     property<std::chrono::milliseconds> kafka_qdc_max_latency_ms;
@@ -359,23 +359,23 @@ struct configuration final : public config_store {
     property<bool> enable_rack_awareness;
 
     property<std::chrono::milliseconds> node_status_interval;
-    // controller log limitng
+    // controller log limiting
     property<bool> enable_controller_log_rate_limiting;
     property<size_t> rps_limit_topic_operations;
     property<std::optional<size_t>>
-      controller_log_accummulation_rps_capacity_topic_operations;
+      controller_log_accumulation_rps_capacity_topic_operations;
     property<size_t> rps_limit_acls_and_users_operations;
     property<std::optional<size_t>>
-      controller_log_accummulation_rps_capacity_acls_and_users_operations;
+      controller_log_accumulation_rps_capacity_acls_and_users_operations;
     property<size_t> rps_limit_node_management_operations;
     property<std::optional<size_t>>
-      controller_log_accummulation_rps_capacity_node_management_operations;
+      controller_log_accumulation_rps_capacity_node_management_operations;
     property<size_t> rps_limit_move_operations;
     property<std::optional<size_t>>
-      controller_log_accummulation_rps_capacity_move_operations;
+      controller_log_accumulation_rps_capacity_move_operations;
     property<size_t> rps_limit_configuration_operations;
     property<std::optional<size_t>>
-      controller_log_accummulation_rps_capacity_configuration_operations;
+      controller_log_accumulation_rps_capacity_configuration_operations;
 
     // node and cluster throughput limiting
     bounded_property<std::optional<int64_t>> kafka_throughput_limit_node_in_bps;

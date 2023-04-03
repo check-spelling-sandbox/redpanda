@@ -104,7 +104,7 @@ class PartitionMovementMixin():
         return result
 
     def _wait_post_move(self, topic, partition, assignments, timeout_sec):
-        # We need to add retries, becasue of eventual consistency. Metadata will be updated but it can take some time.
+        # We need to add retries, because of eventual consistency. Metadata will be updated but it can take some time.
         admin = Admin(self.redpanda,
                       retry_codes=[404, 503, 504],
                       retries_amount=10)
@@ -284,6 +284,6 @@ class PartitionMovementMixin():
             assert e.response.status_code == 400
             return
 
-        # wait for previous assignment or new assigment if movement cannot be cancelled
+        # wait for previous assignment or new assignment if movement cannot be cancelled
         self._wait_post_cancel(topic, partition, previous_assignment,
                                new_assignment, timeout)

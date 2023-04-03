@@ -134,7 +134,7 @@ struct prod_consume_fixture : public redpanda_thread_fixture {
 };
 
 /**
- * produce/consume test simulating Hazelcast benchmart workload with small
+ * produce/consume test simulating Hazelcast benchmark workload with small
  * batches.
  */
 FIXTURE_TEST(test_produce_consume_small_batches, prod_consume_fixture) {
@@ -437,7 +437,7 @@ FIXTURE_TEST(test_node_throughput_limits_balanced, throughput_limits_fixure) {
 
     if (ss::smp::count <= 2) {
         // the following tests are only valid when shards count is greater
-        // than the # of partintions produced to / consumed from
+        // than the # of partitions produced to / consumed from
         return;
     }
 

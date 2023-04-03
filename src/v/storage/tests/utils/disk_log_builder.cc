@@ -87,7 +87,7 @@ ss::future<> disk_log_builder::add_batch(
     buf.push_back(std::move(batch));
     return write(std::move(buf), config, flush);
 }
-// Log managment
+// Log management
 ss::future<> disk_log_builder::start(model::ntp ntp) {
     return start(ntp_config(std::move(ntp), get_log_config().base_dir));
 }
@@ -216,7 +216,7 @@ ss::future<> disk_log_builder::write(
     }
     auto base_offset = buff.front().base_offset();
     auto reader = model::make_memory_record_batch_reader(std::move(buff));
-    // we do not use the log::make_appender method to be able to controll the
+    // we do not use the log::make_appender method to be able to control the
     // appender base offset and insert holes into the log
     disk_log_appender appender(
       get_disk_log_impl(), config, log_clock::now(), base_offset);

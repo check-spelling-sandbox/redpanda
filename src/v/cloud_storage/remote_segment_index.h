@@ -104,7 +104,7 @@ private:
 
     /// Find element inside the offset range stored in the decoder which is
     /// less than offset. Return last element if no such element can be
-    /// found. Return nullopt if all emlements are larger or equal than
+    /// found. Return nullopt if all elements are larger or equal than
     /// offset.
     static std::optional<index_value>
     _find_under(deltafor_decoder<int64_t> decoder, int64_t offset);

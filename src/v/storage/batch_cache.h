@@ -81,8 +81,8 @@ class batch_cache_index;
  * doing something such as `e->batch.share()` internally causes allocations
  * which may trigger the reclaimer. if the reclaimer selects `e` for reclaiming,
  * then `e->batch.share()` will run concurrently with the destructor of the
- * batch (not technically concurently--but interleaved with share() in ways that
- * are not safe).
+ * batch (not technically concurrently--but interleaved with share() in ways
+ * that are not safe).
  *
  * If an operation may perform an allocation use range::pin/unpin to guard the
  * reference which will force the reclaimer to skip the range.
@@ -359,7 +359,7 @@ private:
     friend background_reclaimer;
     friend batch_reclaiming_lock;
     /*
-     * The entry point for the Seastar upcall for relcaiming memory. The
+     * The entry point for the Seastar upcall for reclaiming memory. The
      * reclaimer is configured to perform the upcall asynchronously in a new
      * fiber. A more advanced usage that is allowed to invoke reclaim
      * synchronously with memory allocation is also possible.

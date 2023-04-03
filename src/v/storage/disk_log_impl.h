@@ -139,7 +139,7 @@ private:
     ss::future<> remove_empty_segments();
 
     ss::future<> remove_segment_permanently(
-      ss::lw_shared_ptr<segment> segment_to_tombsone,
+      ss::lw_shared_ptr<segment> segment_to_tombstone,
       std::string_view logging_context_msg);
 
     ss::future<> new_segment(
@@ -157,7 +157,7 @@ private:
     ss::future<> remove_prefix_full_segments(truncate_prefix_config);
 
     // Propagate a request to the Raft layer to evict segments up until the
-    // specified offest.
+    // specified offset.
     //
     // Returns the new start offset of the log.
     ss::future<model::offset> request_eviction_until_offset(model::offset);
@@ -217,7 +217,7 @@ private:
     // Mutually exclude operations that do non-appending modification
     // to segments: adjacent segment compaction and truncation.  Truncation
     // repeatedly takes+releases segment read locks, and without this extra
-    // coarse grained lock, the compaction can happen in between steps.
+    // coarse-grained lock, the compaction can happen in between steps.
     // See https://github.com/redpanda-data/redpanda/issues/7118
     mutex _segment_rewrite_lock;
 

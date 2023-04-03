@@ -294,7 +294,7 @@ FIXTURE_TEST(
                 expected_offset = header.last_offset() + model::offset(1);
                 ix_header++;
             } else {
-                // raft_configuratoin or archival_metadata
+                // raft_configuration or archival_metadata
                 // no need to update expected_offset or ix_header
             }
         }

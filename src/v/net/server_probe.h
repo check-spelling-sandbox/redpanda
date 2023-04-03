@@ -50,7 +50,7 @@ public:
 
     void timeout_waiting_rate_limit() { ++_declined_new_connections; }
 
-    void waiting_for_conection_rate() { ++_connections_wait_rate; }
+    void waiting_for_connection_rate() { ++_connections_wait_rate; }
 
     void setup_metrics(ss::metrics::metric_groups& mgs, std::string_view proto);
 

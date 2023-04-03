@@ -210,7 +210,7 @@ static ss::future<result<model::record_batch_header>> read_header_impl(
               header,
               consumer);
         }
-        co_return parser_errc::header_only_crc_missmatch;
+        co_return parser_errc::header_only_crc_mismatch;
     }
     co_return header;
 }

@@ -155,7 +155,7 @@ type ClusterSpec struct {
 	// 1. versioning is not supported for map keys
 	// 2. key names not supported by Redpanda will lead to failure on start up
 	// 3. updating this map requires a manual restart of the Redpanda pods. Please be aware of
-	// sync period when one Redpandais POD is restarted
+	// sync period when one Redpanda POD is restarted
 	// 4. cannot have keys that conflict with existing struct fields - it leads to panic
 	//
 	// By default if Replicas is 3 or more and redpanda.default_topic_partitions is not set
@@ -261,7 +261,7 @@ type CloudStorageConfig struct {
 	// Cloud storage bucket
 	Bucket string `json:"bucket,omitempty"`
 	// Reconciliation period (default - 10s)
-	ReconcilicationIntervalMs int `json:"reconciliationIntervalMs,omitempty"`
+	ReconciliationIntervalMs int `json:"reconciliationIntervalMs,omitempty"`
 	// Number of simultaneous uploads per shard (default - 20)
 	MaxConnections int `json:"maxConnections,omitempty"`
 	// Disable TLS (can be used in tests)
@@ -653,7 +653,7 @@ type LoadBalancerStatus struct {
 // If Enabled is set to true, one-way TLS verification is enabled.
 // In that case, a key pair ('tls.crt', 'tls.key') and CA certificate 'ca.crt'
 // are generated and stored in a Secret with the same name and namespace as the
-// Redpanda cluster. 'ca.crt', must be used by a client as a trustore when
+// Redpanda cluster. 'ca.crt', must be used by a client as a truststore when
 // communicating with Redpanda.
 //
 // If RequireClientAuth is set to true, two-way TLS verification is enabled.
@@ -1111,7 +1111,7 @@ func (k KafkaAPI) GetExternal() *ExternalConnectivityConfig {
 	return &k.External
 }
 
-// IsMutualTLSEnabled returns true if API requires client aut
+// IsMutualTLSEnabled returns true if API requires client auth
 //
 //nolint:gocritic // TODO KafkaAPI is now 81 bytes, consider a pointer
 func (k KafkaAPI) IsMutualTLSEnabled() bool {

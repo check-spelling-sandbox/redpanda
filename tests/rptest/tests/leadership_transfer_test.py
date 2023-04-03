@@ -47,7 +47,7 @@ class LeadershipTransferTest(RedpandaTest):
             filter(lambda r: r["id"] != partition["leader"],
                    partition["replicas"]))["id"]
         self.logger.debug(
-            f"Transfering leader from {partition['leader']} to {target_node_id}"
+            f"Transferring leader from {partition['leader']} to {target_node_id}"
         )
 
         # build the transfer url
@@ -145,7 +145,7 @@ class AutomaticLeadershipBalancingTest(RedpandaTest):
         wait_until(lambda: all_partitions_present(3),
                    timeout_sec=30,
                    backoff_sec=2,
-                   err_msg="Leadership did not stablize")
+                   err_msg="Leadership did not stabilize")
 
         # stop node and wait for all leaders to transfer
         # to another node
@@ -156,12 +156,12 @@ class AutomaticLeadershipBalancingTest(RedpandaTest):
                    backoff_sec=2,
                    err_msg="Leadership did not move to running nodes")
 
-        # sleep for a bit to avoid triggering any of the sticky leaderhsip
+        # sleep for a bit to avoid triggering any of the sticky leadership
         # optimizations
         time.sleep(60)
 
         # sanity check -- the node we stopped shouldn't be a leader for any
-        # partition after the sleep above as releection should have taken place
+        # partition after the sleep above as reelection should have taken place
         leaders = self._get_leaders_by_node()
         assert self.redpanda.idx(node) not in leaders
 
@@ -173,4 +173,4 @@ class AutomaticLeadershipBalancingTest(RedpandaTest):
         wait_until(lambda: all_partitions_present(3, 15),
                    timeout_sec=300,
                    backoff_sec=10,
-                   err_msg="Leadership did not stablize")
+                   err_msg="Leadership did not stabilize")

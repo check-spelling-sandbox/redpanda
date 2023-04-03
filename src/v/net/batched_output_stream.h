@@ -39,7 +39,7 @@ private:
  * When used for zero-copy operations, a seastar output stream does not send
  * data further downstream to the sink (i.e., the kernel) until flush() is
  * called. Rather than calling flush after every write (e.g., a full rpc request
- * payload), class attempts to reduce the number of flush calls by supressing
+ * payload), class attempts to reduce the number of flush calls by suppressing
  * flushes when multiple writes are in progress on the stream: a flush occurs
  * only when the last pending writer completes or when a configured amount of
  * unflushed bytes have accumulated.
@@ -78,7 +78,7 @@ public:
      *
      * @param msg the message to write to the underlying stream
      * @return ss::future<bool> a future which resolves when the flush, if any,
-     * completes with the wrapped value indicating wheter a flush occurred on
+     * completes with the wrapped value indicating whether a flush occurred on
      * this write (true) or not (false)
      */
     ss::future<bool> write(ss::scattered_message<char> msg);

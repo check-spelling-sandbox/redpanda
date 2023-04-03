@@ -65,8 +65,8 @@ class RackAwarePlacementTest(RedpandaTest):
                             ids_mapping={}):
         """Validate the replica placement. The method uses provided
         rack layout and number of replicas for the partitions.
-        The validation is done by examining existing replica placemnt
-        against the rack layout. The validation succedes if every replica
+        The validation is done by examining existing replica placement
+        against the rack layout. The validation succeeds if every replica
         is placed on a different rack or if there is not enough racks on
         every available rack.
         """
@@ -107,11 +107,11 @@ class RackAwarePlacementTest(RedpandaTest):
           (if replication factor is larger than number of racks)
 
         ----
-        @param rack_layout_str is a 6-char string with all rack names combined into a signle string.
+        @param rack_layout_str is a 6-char string with all rack names combined into a single string.
                                Every character of the string corresponds to one broker. Every
                                rack id has single character.
         @param num_partitions defines number of partitions that needs to be created.
-        @param replication_factor defines recplication factor of all partitions.
+        @param replication_factor defines replication factor of all partitions.
         """
 
         rack_layout = [str(i) for i in rack_layout_str]

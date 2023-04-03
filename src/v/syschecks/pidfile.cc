@@ -63,7 +63,8 @@ void pid_file::remove() {
 
     ret = ::lseek(fd->get(), 0, SEEK_SET);
     if (ret < 0) {
-        checklog.warn("Failed to seek pid file whle removing {}:{}", ret, path);
+        checklog.warn(
+          "Failed to seek pid file while removing {}:{}", ret, path);
         return;
     }
 

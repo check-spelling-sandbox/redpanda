@@ -157,7 +157,7 @@ ss::future<result<offset_to_file_pos_result>> convert_begin_offset_to_file_pos(
       scan_from,
       bytes_to_skip,
       sto);
-    // Adjust content length and offsets at the begining of the file
+    // Adjust content length and offsets at the beginning of the file
     co_return offset_to_file_pos_result{sto, bytes_to_skip, ts};
 }
 

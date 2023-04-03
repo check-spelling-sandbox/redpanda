@@ -524,7 +524,7 @@ group::handle_join_group(join_group_request&& r, bool is_new_group) {
     }
 
     // TODO: move the logic in this method up to group manager to make the
-    // handling of is_new_group etc.. clearner rather than passing these flags
+    // handling of is_new_group etc.. cleaner rather than passing these flags
     // down into the group-level handler.
     if (
       !is_new_group && !_initial_join_in_progress
@@ -543,7 +543,7 @@ group::handle_join_group(join_group_request&& r, bool is_new_group) {
          * take into account was the tolerance for timeouts by clients. this
          * handles the case that all clients join after a rebalance, but the
          * last client doesn't complete the join (see the case in
-         * try_complete_join where we return immedaitely rather than completing
+         * try_complete_join where we return immediately rather than completing
          * the join if we are in the preparing rebalance state). this check
          * handles that before returning.
          */
@@ -872,7 +872,7 @@ group::join_group_known_member(join_group_request&& r) {
               leader().value_or(member_id("")),
               std::move(r.data.member_id));
 
-            vlog(_ctxlog.trace, "Handling idemponent group join {}", response);
+            vlog(_ctxlog.trace, "Handling idempotent group join {}", response);
 
             return join_group_stages(std::move(response));
         }
@@ -1391,7 +1391,7 @@ group::sync_group_stages group::handle_sync_group(sync_group_request&& r) {
         sync_group_response reply(error_code::none, member->assignment());
         vlog(
           _ctxlog.trace,
-          "Handling idemponent group sync for member {} with reply {}",
+          "Handling idempotent group sync for member {} with reply {}",
           member,
           reply);
         return sync_group_stages(sync_group_response(std::move(reply)));
@@ -1485,7 +1485,7 @@ group::sync_group_stages group::sync_group_completing_rebalance(
                          r.error());
                        // an error was encountered persisting the group state:
                        //   - clear all the member assignments
-                       //   - propogate error back to waiting clients
+                       //   - propagate error back to waiting clients
                        clear_assignments();
                        finish_syncing_members(error_code::not_coordinator);
                        try_prepare_rebalance();
@@ -1701,7 +1701,7 @@ group::commit_tx(cluster::commit_group_tx_request r) {
         if (is_transaction_ga()) {
             vlog(
               _ctx_txlog.trace,
-              "can't find a tx {}, probably already comitted",
+              "can't find a tx {}, probably already committed",
               r.pid);
             co_return make_commit_tx_reply(cluster::tx_errc::none);
         }
@@ -1714,7 +1714,8 @@ group::commit_tx(cluster::commit_group_tx_request r) {
         // existence of {pid, tx_seq+1} implies {pid, tx_seq} is committed
         vlog(
           _ctx_txlog.trace,
-          "Already commited pid:{} tx_seq:{} - a higher tx_seq:{} was observed",
+          "Already committed pid:{} tx_seq:{} - a higher tx_seq:{} was "
+          "observed",
           r.pid,
           r.tx_seq,
           txseq_it->second);
@@ -1733,7 +1734,7 @@ group::commit_tx(cluster::commit_group_tx_request r) {
     if (prepare_it == _prepared_txs.end()) {
         vlog(
           _ctx_txlog.trace,
-          "can't find a tx {}, probably already comitted",
+          "can't find a tx {}, probably already committed",
           r.pid);
         co_return make_commit_tx_reply(cluster::tx_errc::none);
     }
@@ -1746,7 +1747,7 @@ group::commit_tx(cluster::commit_group_tx_request r) {
         vlog(
           _ctx_txlog.trace,
           "prepare for pid:{} has higher tx_seq:{} than given: {} => replaying "
-          "already comitted commit",
+          "already committed commit",
           r.pid,
           prepare_it->second.tx_seq,
           r.tx_seq);
@@ -1820,7 +1821,7 @@ group::begin_tx(cluster::begin_group_tx_request r) {
         //
         // at the same time it's possible that it already aborted the old
         // tx before starting this. do_abort_tx is idempotent so calling it
-        // just in case to proactivly abort the tx instead of waiting for
+        // just in case to proactively abort the tx instead of waiting for
         // the timeout
 
         auto old_pid = model::producer_identity{
@@ -2796,7 +2797,7 @@ ss::future<error_code> group::remove() {
         } else {
             vlog(
               klog.error,
-              "Error occured replicating group {} delete records {} ({})",
+              "Error occurred replicating group {} delete records {} ({})",
               _id,
               result.error().message(),
               result.error());
@@ -2804,7 +2805,7 @@ ss::future<error_code> group::remove() {
     } catch (const std::exception& e) {
         vlog(
           klog.error,
-          "Exception occured replicating group {} delete records {}",
+          "Exception occurred replicating group {} delete records {}",
           _id,
           e);
     }
@@ -2883,7 +2884,7 @@ group::remove_topic_partitions(const std::vector<model::topic_partition>& tps) {
         } else {
             vlog(
               klog.error,
-              "Error occured replicating group {} cleanup records {} ({})",
+              "Error occurred replicating group {} cleanup records {} ({})",
               _id,
               result.error().message(),
               result.error());
@@ -2891,7 +2892,7 @@ group::remove_topic_partitions(const std::vector<model::topic_partition>& tps) {
     } catch (const std::exception& e) {
         vlog(
           klog.error,
-          "Exception occured replicating group {} cleanup records {}",
+          "Exception occurred replicating group {} cleanup records {}",
           _id,
           e);
     }
@@ -3250,7 +3251,7 @@ group::do_try_abort_old_tx(model::producer_identity pid) {
         if (r.ec != cluster::tx_errc::none) {
             co_return r.ec;
         }
-        if (r.commited) {
+        if (r.committed) {
             auto res = co_await do_commit(_id, pid);
             if (res.ec != cluster::tx_errc::none) {
                 vlog(

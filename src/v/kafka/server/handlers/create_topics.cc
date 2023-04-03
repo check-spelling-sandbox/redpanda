@@ -106,7 +106,7 @@ append_topic_configs(request_context& ctx, create_topics_response& response) {
               properties_to_result_configs(std::move(config_map))};
             ct_result.topic_config_error_code = kafka::error_code::none;
         } else {
-            // Topic was sucessfully created but metadata request did not
+            // Topic was successfully created but metadata request did not
             // succeed, if possible, could mean topic was deleted just after
             // creation
             ct_result.topic_config_error_code
@@ -198,7 +198,7 @@ ss::future<response_ptr> create_topics_handler::handle(
           valid_range_end,
           std::back_inserter(response.data.topics),
           [&ctx](const creatable_topic& t) {
-              auto result = generate_successfull_result(t);
+              auto result = generate_successful_result(t);
               if (ctx.header().version >= api_version(5)) {
                   auto default_properties
                     = ctx.metadata_cache().get_default_properties();
@@ -211,7 +211,7 @@ ss::future<response_ptr> create_topics_handler::handle(
     }
 
     // Record the number of partition mutations in each requested topic,
-    // calulcating throttle delay if necessary
+    // calculating throttle delay if necessary
     auto quota_exceeded_it = co_await ssx::partition(
       begin, valid_range_end, [&ctx, &response](const creatable_topic& t) {
           /// Capture before next scheduling point below

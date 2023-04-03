@@ -194,7 +194,7 @@ replicated_partition::aborted_transactions(
     //   (it's downloaded alongside the segment to SI cache). This also means
     //   that we will have the manifests hydrated on disk (since we just
     //   downloaded corresponding segments from S3 to produce batches).
-    // - if the source of data is local raft log then we should use abroted
+    // - if the source of data is local raft log then we should use aborted
     // transactions
     //   snapshot.
     //
@@ -314,7 +314,7 @@ ss::future<error_code> replicated_partition::validate_fetch_offset(
      * We use simple heuristic here to determine if high watermark update is
      * required.
      *
-     * We only request update if fetch_offset is in range beteween current high
+     * We only request update if fetch_offset is in range between current high
      * water mark and log end i.e. if high watermark is updated consumer will
      * receive data.
      */

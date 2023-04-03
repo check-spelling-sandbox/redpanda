@@ -314,7 +314,8 @@ SEASTAR_THREAD_TEST_CASE(incremental_topic_updates_rt_test) {
     BOOST_CHECK(result == original);
 }
 
-SEASTAR_THREAD_TEST_CASE(incremental_topic_updates_backward_compatibilty_test) {
+SEASTAR_THREAD_TEST_CASE(
+  incremental_topic_updates_backward_compatibility_test) {
     cluster::incremental_topic_updates updates
       = random_incremental_topic_updates();
 
@@ -376,7 +377,7 @@ SEASTAR_THREAD_TEST_CASE(incremental_topic_updates_backward_compatibilty_test) {
     BOOST_CHECK(old_updates_with_dp.segment_size == result.segment_size);
 }
 
-SEASTAR_THREAD_TEST_CASE(partition_status_serialiaztion_test) {
+SEASTAR_THREAD_TEST_CASE(partition_status_serialization_test) {
     cluster::partition_status status{
       .id = model::partition_id(10),
       .term = model::term_id(256),
@@ -1933,7 +1934,7 @@ SEASTAR_THREAD_TEST_CASE(serde_reflection_roundtrip) {
         raft::heartbeat_request data;
 
         // heartbeat request uses the first node/target_node for all of the
-        // heartbeat meatdata entries. so here we arrange for that to be true in
+        // heartbeat metadata entries. so here we arrange for that to be true in
         // the input data so that equality works as expected.
         const auto node_id = tests::random_named_int<model::node_id>();
         const auto target_node_id = tests::random_named_int<model::node_id>();
@@ -1983,7 +1984,7 @@ SEASTAR_THREAD_TEST_CASE(serde_reflection_roundtrip) {
         raft::heartbeat_reply data;
 
         // heartbeat reply uses the first node/target_node for all of the
-        // reply meatdata entries. so here we arrange for that to be true in
+        // reply metadata entries. so here we arrange for that to be true in
         // the input data so that equality works as expected.
         const auto node_id = tests::random_named_int<model::node_id>();
         const auto target_node_id = tests::random_named_int<model::node_id>();
@@ -2119,7 +2120,7 @@ SEASTAR_THREAD_TEST_CASE(serde_reflection_roundtrip) {
     }
 }
 
-SEASTAR_THREAD_TEST_CASE(cluster_property_kv_exchangable_with_pair) {
+SEASTAR_THREAD_TEST_CASE(cluster_property_kv_exchangeable_with_pair) {
     using pairs_t = std::vector<std::pair<ss::sstring, ss::sstring>>;
     using kvs_t = std::vector<cluster::cluster_property_kv>;
     kvs_t kvs;

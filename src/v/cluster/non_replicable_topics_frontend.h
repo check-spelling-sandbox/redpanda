@@ -37,10 +37,10 @@ public:
     ss::sstring _msg;
 };
 
-/// This class is used to debounce requests to make materialzed topics. A single
-/// coprocessor will (most likely) make multiple requests to create the same
-/// materialized topic across shards as long at it has an input topic with more
-/// then 1 partition. Fibers serving these partitions can use this class to
+/// This class is used to debounce requests to make materialized topics. A
+/// single coprocessor will (most likely) make multiple requests to create the
+/// same materialized topic across shards as long at it has an input topic with
+/// more then 1 partition. Fibers serving these partitions can use this class to
 /// reconcile and debounce duplicate requests to make a materialized topic.
 class non_replicable_topics_frontend {
 public:

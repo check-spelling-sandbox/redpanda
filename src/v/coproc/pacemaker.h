@@ -217,7 +217,7 @@ private:
     /// Data to be referenced by script_contexts on the current shard
     shared_script_resources _shared_res;
 
-    /// Main datastructure containing all active script_contexts
+    /// Main data structure containing all active script_contexts
     absl::node_hash_map<script_id, std::unique_ptr<script_context>> _scripts;
 
     /// Responsible for timed persistence of offsets to disk

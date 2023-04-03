@@ -51,7 +51,7 @@ void netcheck::validate_options(const netcheck_opts& opts) {
 }
 
 /// Returns groupings of nodes that the network bench will run between. Simple
-/// for loop groups unique pairs of nodes with eachother.
+/// for loop groups unique pairs of nodes with each other.
 netcheck::plan_t
 netcheck::network_test_plan(std::vector<model::node_id> nodes) {
     /// Choose unique pairs of nodes - order doesn't matter. This creates a list
@@ -144,7 +144,7 @@ netcheck::run_individual_benchmark(model::node_id peer) {
 
 ss::future<ss::lowres_clock::duration> netcheck::run_benchmark_fiber(
   run_fiber_opts fiber_state, model::node_id peer, metrics& m) {
-    /// run_fiber_opts manages the the RPC request timeouts to ensure that
+    /// run_fiber_opts manages the RPC request timeouts to ensure that
     /// the maximum amount of time for an individual RPC never exceeds the
     /// remaining time of the test
     while (!_cancelled && fiber_state.should_continue()) {

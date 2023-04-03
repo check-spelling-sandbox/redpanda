@@ -72,7 +72,7 @@ func (f *netCheckersFactory) NewNicIRQAffinityStaticChecker(
 	interfaces []string,
 ) Checker {
 	return NewEqualityChecker(
-		NicIRQsAffinitStaticChecker,
+		NicIRQsAffinityStaticChecker,
 		"NIC IRQs affinity static",
 		Warning,
 		true,
@@ -95,7 +95,7 @@ func (f *netCheckersFactory) NewNicIRQAffinityChecker(
 	nic network.Nic, mode irq.Mode, cpuMask string,
 ) Checker {
 	return NewEqualityChecker(
-		NicIRQsAffinitChecker,
+		NicIRQsAffinityChecker,
 		fmt.Sprintf("NIC %s IRQ affinity set", nic.Name()),
 		Warning,
 		true,

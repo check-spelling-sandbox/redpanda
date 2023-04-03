@@ -144,7 +144,7 @@ ss::future<consensus_ptr> partition_manager::manage(
 
             vlog(
               clusterlog.info,
-              "Bootstrap on-disk state for pre existing partition {}. "
+              "Bootstrap on-disk state for preexisting partition {}. "
               "Group: {}, "
               "Min offset: {}, "
               "Max offset: {}, "
@@ -204,11 +204,11 @@ ss::future<consensus_ptr> partition_manager::manage(
 
     /*
      * part of the node leadership draining infrastructure. when a node is in a
-     * drianing state new groups might be created since the controller will
+     * draining state new groups might be created since the controller will
      * still be active as a follower. however, if draining is almost complete
      * then new groups may not be noticed. marking as blocked should be done
      * atomically with adding the partition to the ntp_table index above for
-     * proper synchronization with the drianing manager.
+     * proper synchronization with the draining manager.
      */
     if (_block_new_leadership) {
         p->block_new_leadership();
@@ -232,7 +232,7 @@ partition_manager::maybe_download_log(
     vlog(
       clusterlog.debug,
       "Logs can't be downloaded because cloud storage is not configured. "
-      "Continue creating {} witout downloading the logs.",
+      "Continue creating {} without downloading the logs.",
       ntp_cfg);
     co_return cloud_storage::log_recovery_result{};
 }

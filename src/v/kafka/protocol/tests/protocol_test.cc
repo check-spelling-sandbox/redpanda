@@ -22,7 +22,7 @@
         BOOST_TEST(                                                            \
           false,                                                               \
           fmt::format(                                                         \
-            "API protocol incompatability detected at api: {}, version: "      \
+            "API protocol incompatibility detected at api: {}, version: "      \
             "{}, IsRequest: {}, exception reported: {}",                       \
             Api,                                                               \
             Version,                                                           \

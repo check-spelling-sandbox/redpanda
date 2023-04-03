@@ -34,20 +34,20 @@ namespace storage {
  * 1. partial writes to the same physical head chunk are serialized to prevent
  * out-of-order writes clobbering previous writes. this is only relevant when
  * there are many flushes which dispatch the current head if it has any pending
- * bytes. there hasn't been any noticable performance degredation, but one
+ * bytes. there hasn't been any noticable performance degradation, but one
  * option for avoiding this is to do more aligned appends or add a special
  * padding batch that is read and then fully ignored by the parser.
  *
  * 2. flush operations are completed asynchronously when writes complete. there
- * is not reason to do this so aggresively. we could potentially reduce the
+ * is not reason to do this so aggressively. we could potentially reduce the
  * amount of flushing by using a bytes or time heuristic. we'd increase the
  * latency of each flush, but we'd dispatch less physical flush operations.
  */
 
 [[gnu::cold]] static ss::future<>
-size_missmatch_error(const char* ctx, size_t expected, size_t got) {
+size_mismatch_error(const char* ctx, size_t expected, size_t got) {
     return ss::make_exception_future<>(fmt::format(
-      "{}. Size missmatch. Expected:{}, Got:{}", ctx, expected, got));
+      "{}. Size mismatch. Expected:{}, Got:{}", ctx, expected, got));
 }
 
 static constexpr auto head_sem_name = "s/appender-head";
@@ -123,7 +123,7 @@ ss::future<> segment_appender::append(const iobuf& io) {
 ss::future<> segment_appender::append(const char* buf, const size_t n) {
     // seastar is optimized for timers that never fire. here the timer is
     // cancelled because it firing may dispatch a background write, which as
-    // currently formulated, is not safe to interlave with append.
+    // currently formulated, is not safe to interleave with append.
     _inactive_timer.cancel();
     return do_append(buf, n).then([this] {
         if (_head && _head->bytes_pending()) {
@@ -453,7 +453,7 @@ void segment_appender::dispatch_background_head_write() {
      * if _head is full then take control of it for this final write and then
      * release it back into the chunk cache. otherwise, leave it in place so
      * that new appends may accumulate. this optimization is meant to avoid
-     * redhydrating the chunk on append following a flush when the head has
+     * rehydrating the chunk on append following a flush when the head has
      * pending bytes and a write is dispatched.
      */
     const auto full = _head->is_full();
@@ -494,7 +494,7 @@ void segment_appender::dispatch_background_head_write() {
                           internal::chunks().add(h);
                       }
                       if (unlikely(expected != got)) {
-                          return size_missmatch_error(
+                          return size_mismatch_error(
                             "chunk::write", expected, got);
                       }
                       return maybe_advance_stable_offset(w);
@@ -509,7 +509,7 @@ void segment_appender::dispatch_background_head_write() {
 
     /*
      * when the head becomes full it still needs to be properly sequenced (see
-     * above), but no future writes to same head head are possible so the
+     * above), but no future writes to same head are possible so the
      * dependency chain is reset for the next head.
      */
     if (full) {

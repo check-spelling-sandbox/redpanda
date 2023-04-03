@@ -184,7 +184,7 @@ class ArchivalTest(RedpandaTest):
     @cluster(num_nodes=3)
     @matrix(cloud_storage_type=get_cloud_storage_type())
     def test_write(self, cloud_storage_type):
-        """Simpe smoke test, write data to redpanda and check if the
+        """Simple smoke test, write data to redpanda and check if the
         data hit the S3 storage bucket"""
         self.kafka_tools.produce(self.topic, 10000, 1024)
         validate(self._quick_verify, self.logger, 90)
@@ -251,7 +251,7 @@ class ArchivalTest(RedpandaTest):
             self.kafka_tools.produce(self.topic, 10000, 1024)
             time.sleep(10)  # sleep is needed because we need to make sure that
             # reconciliation loop kicked in and started uploading
-            # data, otherwse we can rejoin before archival storage
+            # data, otherwise we can rejoin before archival storage
             # will even try to upload new segments
         validate(self._quick_verify, self.logger, 90)
 
@@ -266,7 +266,7 @@ class ArchivalTest(RedpandaTest):
             self.kafka_tools.produce(self.topic, 9000, 1024)
             time.sleep(10)  # sleep is needed because we need to make sure that
             # reconciliation loop kicked in and started uploading
-            # data, otherwse we can rejoin before archival storage
+            # data, otherwise we can rejoin before archival storage
             # will even try to upload new segments
         validate(self._quick_verify, self.logger, 90)
 
@@ -279,7 +279,7 @@ class ArchivalTest(RedpandaTest):
         with firewall_blocked(self.redpanda.nodes, self._s3_port):
             time.sleep(10)  # sleep is needed because we need to make sure that
             # reconciliation loop kicked in and started uploading
-            # data, otherwse we can rejoin before archival storage
+            # data, otherwise we can rejoin before archival storage
             # will even try to upload new segments
         validate(self._quick_verify, self.logger, 90)
 
@@ -451,7 +451,7 @@ class ArchivalTest(RedpandaTest):
                                         topic=self.topic,
                                         target_bytes=local_retention)
 
-    def _check_bucket_is_emtpy(self):
+    def _check_bucket_is_empty(self):
         allobj = self._list_objects()
         for obj in allobj:
             self.logger.debug(
@@ -621,7 +621,7 @@ class ArchivalTest(RedpandaTest):
                                     node_key, nsegm.normalized_path,
                                     msegm.size)
                                 self.logger.info(
-                                    f"partial hash {actual_hash} retreived, s3 hash {msegm.md5}"
+                                    f"partial hash {actual_hash} retrieved, s3 hash {msegm.md5}"
                                 )
                                 if actual_hash == msegm.md5:
                                     manifest_segments[mix] = None
@@ -694,7 +694,7 @@ class ArchivalTest(RedpandaTest):
 
     def _quick_verify(self):
         """Verification algorithm that works only if no leadership
-        transfer happend during the run. It works by looking up all
+        transfer happened during the run. It works by looking up all
         segments from the remote storage in local redpanda storages.
         It's done by using md5 hashes of the nodes.
         """

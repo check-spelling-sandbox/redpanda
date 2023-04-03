@@ -162,7 +162,7 @@ class RpkRedpandaStartTest(RedpandaTest):
     @cluster(num_nodes=1)
     def test_container_mode(self):
         """
-        Verify that when using flag --mode dev-container we succesfully
+        Verify that when using flag --mode dev-container we successfully
         set some cluster properties. We verify this using rpk instead
         of using admin endpoint directly.
         """

@@ -229,7 +229,7 @@ public:
         net::unresolved_address server_addr("127.0.0.1", port.value_or(4430));
         cloud_storage_clients::s3_configuration s3conf;
         s3conf.uri = cloud_storage_clients::access_point_uri("127.0.0.1");
-        s3conf.access_key = cloud_roles::public_key_str("acess-key");
+        s3conf.access_key = cloud_roles::public_key_str("access-key");
         s3conf.secret_key = cloud_roles::private_key_str("secret-key");
         s3conf.region = cloud_roles::aws_region_name("us-east-1");
         s3conf.server_addr = server_addr;

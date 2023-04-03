@@ -92,7 +92,7 @@ std::optional<adjacent_segment_run> adjacent_segment_merger::scan_manifest(
         }
         auto [key, meta] = *it;
         if (run.maybe_add_segment(meta, max_segment_size)) {
-            // We have found a run whith the size close to max_segment_size
+            // We have found a run with the size close to max_segment_size
             // and can proceed early.
             break;
         }
@@ -108,7 +108,7 @@ std::optional<adjacent_segment_run> adjacent_segment_merger::scan_manifest(
       && run.meta.committed_offset != manifest.get_last_offset()) {
         // Reupload if we have a run of small segments between large
         // segments but this run is smaller than min_segment_size. In this
-        // case its stil makes sense to reupload it.
+        // case it still makes sense to reupload it.
         vlog(
           _ctxlog.debug,
           "Found adjacent segment run {} which is smaller than the "

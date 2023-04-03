@@ -73,7 +73,7 @@ public:
         // topics are deleted
         for (const auto& r : resp.data.responses) {
             BOOST_REQUIRE(r.name.has_value());
-            validate_topic_is_deleteted(*r.name);
+            validate_topic_is_deleted(*r.name);
         }
     }
 
@@ -105,7 +105,7 @@ public:
     }
 
     // https://github.com/apache/kafka/blob/8e161580b859b2fcd54c59625e232b99f3bb48d0/core/src/test/scala/unit/kafka/server/DeleteTopicsRequestTest.scala#L126
-    void validate_topic_is_deleteted(const model::topic& tp) {
+    void validate_topic_is_deleted(const model::topic& tp) {
         kafka::metadata_response resp = get_topic_metadata(tp);
         auto it = std::find_if(
           std::cbegin(resp.data.topics),
@@ -194,6 +194,6 @@ FIXTURE_TEST(error_delete_topics_request, delete_topics_request_fixture) {
           [](kafka::metadata_response resp) { return resp.topics.empty(); });
     }).get0();
 
-    validate_topic_is_deleteted(model::topic("timeout-topic"));
+    validate_topic_is_deleted(model::topic("timeout-topic"));
 }
 #endif

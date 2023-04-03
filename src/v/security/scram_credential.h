@@ -68,7 +68,7 @@ private:
 
 } // namespace security
 
-// TODO: avoid bytes-to-iobuf conersion. either add bytes specialization to
+// TODO: avoid bytes-to-iobuf conversion. either add bytes specialization to
 // reflection or wait for reflection-v2 which will have a new interface. in
 // either case, this is only used when managing users not on a hot path.
 namespace reflection {

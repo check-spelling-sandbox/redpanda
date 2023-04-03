@@ -91,7 +91,7 @@ public:
         // state at some point in the past.  Indicates that while the feature
         // is disabled now, there may be data structures written to disk that
         // depend on this feature to read back.
-        // The distinction between _active and _perparing variants is needed
+        // The distinction between _active and _preparing variants is needed
         // so that when an administrator re-activates the feature, we know
         // what state to go back into.
         disabled_active = 4,

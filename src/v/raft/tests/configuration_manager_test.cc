@@ -159,7 +159,7 @@ FIXTURE_TEST(test_getting_configurations, config_manager_fixture) {
     _cfg_mgr
       .maybe_store_highest_known_offset(
         model::offset(10000),
-        raft::configuration_manager::offset_update_treshold + 1_KiB)
+        raft::configuration_manager::offset_update_threshold + 1_KiB)
       .get0();
 
     validate_recovery();
@@ -228,7 +228,7 @@ FIXTURE_TEST(test_indexing_after_truncate, config_manager_fixture) {
     BOOST_REQUIRE_EQUAL(_cfg_mgr.get_latest_index()(), 4);
 }
 
-FIXTURE_TEST(test_waitng_for_change, config_manager_fixture) {
+FIXTURE_TEST(test_waiting_for_change, config_manager_fixture) {
     ss::abort_source as;
     auto f = _cfg_mgr.wait_for_change(model::offset(21), as);
     auto not_completed = _cfg_mgr.wait_for_change(model::offset(35000), as);

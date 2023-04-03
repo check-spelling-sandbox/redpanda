@@ -26,7 +26,7 @@ namespace kafka {
 struct fetch_request;
 /**
  * Fetch session cache is a core local cache holding incremental fetch
- * sessions. Each core local cache instane assigns session ids that are unique
+ * sessions. Each core local cache instance assigns session ids that are unique
  * for the node (non overlapping ranges of ids are assigned to each core).
  *
  * The cache evicts not used sessions after configurable period of inactivity.
@@ -47,7 +47,7 @@ private:
 
     // used to split range of possible session ids to limit memory size we use
     // max_mem_used, this is theoretical limit, the actual number of session
-    // held in a cache on single core is limitted by the memory usage.
+    // held in a cache on single core is limited by the memory usage.
     size_t max_sessions_per_core() {
         static const size_t v
           = std::numeric_limits<fetch_session_id::type>::max() / ss::smp::count;

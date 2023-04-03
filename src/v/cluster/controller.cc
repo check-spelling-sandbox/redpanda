@@ -186,24 +186,23 @@ controller::start(cluster_discovery& discovery, ss::abort_source& shard0_as) {
               .enable_controller_log_rate_limiting.bind(),
             config::shard_local_cfg().rps_limit_topic_operations.bind(),
             config::shard_local_cfg()
-              .controller_log_accummulation_rps_capacity_topic_operations
-              .bind(),
+              .controller_log_accumulation_rps_capacity_topic_operations.bind(),
             config::shard_local_cfg()
               .rps_limit_acls_and_users_operations.bind(),
             config::shard_local_cfg()
-              .controller_log_accummulation_rps_capacity_acls_and_users_operations
+              .controller_log_accumulation_rps_capacity_acls_and_users_operations
               .bind(),
             config::shard_local_cfg()
               .rps_limit_node_management_operations.bind(),
             config::shard_local_cfg()
-              .controller_log_accummulation_rps_capacity_node_management_operations
+              .controller_log_accumulation_rps_capacity_node_management_operations
               .bind(),
             config::shard_local_cfg().rps_limit_move_operations.bind(),
             config::shard_local_cfg()
-              .controller_log_accummulation_rps_capacity_move_operations.bind(),
+              .controller_log_accumulation_rps_capacity_move_operations.bind(),
             config::shard_local_cfg().rps_limit_configuration_operations.bind(),
             config::shard_local_cfg()
-              .controller_log_accummulation_rps_capacity_configuration_operations
+              .controller_log_accumulation_rps_capacity_configuration_operations
               .bind(),
           };
           return _stm.start_single(
@@ -318,7 +317,7 @@ controller::start(cluster_discovery& discovery, ss::abort_source& shard0_as) {
               controller_stm_shard,
               [disk_dirty_offset, &as = as](controller_stm& stm) {
                   // we do not have to use timeout in here as all the batches to
-                  // apply have to be accesssible
+                  // apply have to be accessible
                   auto last_applied = stm.bootstrap_last_applied();
 
                   // Consistency check: on a bug-free system, the last_applied
@@ -692,7 +691,7 @@ int16_t controller::internal_topic_replication() const {
  * - core count only increases, never decreases.
  *
  * Core count decreases are forbidden because our partition placement
- * code does not know how to re-assign partitions away from non-existent
+ * code does not know how to re-assign partitions away from nonexistent
  * cores if some cores are removed.  This may be improved in future, at
  * which time we may remove this restriction on core count decreases.
  *

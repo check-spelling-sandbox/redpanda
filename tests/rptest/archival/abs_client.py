@@ -130,7 +130,7 @@ class ABSClient:
 
         # Note that we return the hexified md5 hash computed by Azure
         # as the 'etag'. This is done in order to mimic the S3 behaviour
-        # and keep parametrised tests passing without making them aware
+        # and keep parameterized tests passing without making them aware
         # of the cloud storage client being used.
         return ObjectMetadata(bucket=props.container,
                               key=props.name,

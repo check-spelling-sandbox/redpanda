@@ -287,8 +287,8 @@ public:
     /// careful consideration is taken. This is because once notifications are
     /// fired, all events are consumed, and if both waiters aren't enqueued in
     /// the \ref _waiters collection by the time the notify occurs, only one
-    /// waiter will recieve the updates, leaving the second one to observe
-    /// skipped events upon recieving its subsequent notification.
+    /// waiter will receive the updates, leaving the second one to observe
+    /// skipped events upon receiving its subsequent notification.
     ss::future<std::vector<delta>> wait_for_changes(ss::abort_source&);
 
     bool has_pending_changes() const { return !_pending_deltas.empty(); }

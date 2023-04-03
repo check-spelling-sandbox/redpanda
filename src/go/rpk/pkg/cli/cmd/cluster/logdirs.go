@@ -85,7 +85,7 @@ The chunks will show up in du, while the actual bytes so far written to the
 file will show up in this command.
 
 The directory returned is the root directory for partitions. Within Redpanda,
-the partition data lives underneath the the returned root directory in
+the partition data lives underneath the returned root directory in
 
     kafka/{topic}/{partition}_{revision}/
 

@@ -44,7 +44,7 @@ public:
     /// \param coordinator - The coordinator broker for this group. There should
     /// be no other owners, as it is used for the long-poll fetch.
     ///
-    /// \param name - If this is unknowm_member_id, then the name is generated
+    /// \param name - If this is unknown_member_id, then the name is generated
     /// by the broker.
     ///
     /// \param on_stopped - Called when a consumer is destroyed.

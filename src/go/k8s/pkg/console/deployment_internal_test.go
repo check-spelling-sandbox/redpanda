@@ -12,7 +12,7 @@ import (
 )
 
 func TestGenEnvVars(t *testing.T) { //nolint:funlen // test table is long
-	kakfaEnableAuth := true
+	kafkaEnableAuth := true
 	table := []struct {
 		consoleSpec    redpandav1alpha1.ConsoleSpec
 		clusterSpec    redpandav1alpha1.ClusterSpec
@@ -33,7 +33,7 @@ func TestGenEnvVars(t *testing.T) { //nolint:funlen // test table is long
 				},
 			},
 			clusterSpec: redpandav1alpha1.ClusterSpec{
-				KafkaEnableAuthorization: &kakfaEnableAuth,
+				KafkaEnableAuthorization: &kafkaEnableAuth,
 				Configuration: redpandav1alpha1.RedpandaConfig{
 					SchemaRegistry: &redpandav1alpha1.SchemaRegistryAPI{
 						AuthenticationMethod: "http_basic",
@@ -49,7 +49,7 @@ func TestGenEnvVars(t *testing.T) { //nolint:funlen // test table is long
 		{
 			consoleSpec: redpandav1alpha1.ConsoleSpec{},
 			clusterSpec: redpandav1alpha1.ClusterSpec{
-				KafkaEnableAuthorization: &kakfaEnableAuth,
+				KafkaEnableAuthorization: &kafkaEnableAuth,
 			},
 			expectedEnvars: []string{
 				kafkaSASLBasicAuthPasswordEnvVar,

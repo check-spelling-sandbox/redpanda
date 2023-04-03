@@ -111,7 +111,7 @@ class EndToEndTopicRecovery(RedpandaTest):
             #'redpanda.remote.write': 'true',
         }
         conf.update(overrides)
-        self.logger.info(f"Confg: {conf}")
+        self.logger.info(f"Config: {conf}")
         topic = topic_spec.name
         npart = topic_spec.partition_count
         nrepl = topic_spec.replication_factor
@@ -250,7 +250,7 @@ class EndToEndTopicRecovery(RedpandaTest):
         transactions. Run recovery and make sure that record batches generated
         by aborted transactions are not visible.
         This should work because rm_stm will rebuild its snapshot right after
-        recovery. The SI will also supports aborted transctions via tx manifests.
+        recovery. The SI will also supports aborted transactions via tx manifests.
 
         The test has two variants:
         - the partition is downloaded fully;

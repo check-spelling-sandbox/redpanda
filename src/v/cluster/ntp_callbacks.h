@@ -21,7 +21,7 @@ namespace cluster {
  * A compact trie-like index for ntp callback management.
  *
  * This structure stores and invokes callbacks associated with any ntp path
- * prefix. For exmaple, callbacks can be registered for any ntp, as well as for
+ * prefix. For example, callbacks can be registered for any ntp, as well as for
  * all ntps within a specific topic.
  *
  * Registration and callback dispatch are fast. Deregistration is assumed to

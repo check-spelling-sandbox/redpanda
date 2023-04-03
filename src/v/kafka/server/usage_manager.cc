@@ -65,7 +65,7 @@ restore_from_disk(storage::kvstore& kvstore) {
     } catch (const std::exception& ex) {
         vlog(
           klog.debug,
-          "Encountered exception when retriving usage data from disk: {}",
+          "Encountered exception when retrieving usage data from disk: {}",
           ex);
         return std::nullopt;
     }

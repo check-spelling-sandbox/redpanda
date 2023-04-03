@@ -58,7 +58,7 @@ class TestReadReplicaService(EndToEndTest):
                 cloud_storage_segment_max_upload_interval_sec=5,
                 fast_uploads=True))
 
-        # Read reaplica shouldn't have it's own bucket.
+        # Read replica shouldn't have it's own bucket.
         # We're adding 'none' as a bucket name without creating
         # an actual bucket with such name.
         self.rr_settings = SISettings(

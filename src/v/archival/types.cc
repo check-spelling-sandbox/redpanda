@@ -133,7 +133,7 @@ bool adjacent_segment_run::maybe_add_segment(
         meta = {};
     }
     if (num_segments == 0) {
-        // Find the begining of the small segment
+        // Find the beginning of the small segment
         // run.
         if (s.size_bytes < max_size) {
             meta = s;
@@ -152,7 +152,7 @@ bool adjacent_segment_run::maybe_add_segment(
                 segments.clear();
                 vlog(
                   archival_log.debug,
-                  "Reseting the upload, current committed offset: {}, next "
+                  "Resetting the upload, current committed offset: {}, next "
                   "base offset: {}, meta: {}",
                   meta.committed_offset,
                   s.base_offset,

@@ -72,7 +72,7 @@ public:
     ///         be set to max offset of the downloaded log.
     ss::future<log_recovery_result> download_log(
       const storage::ntp_config& ntp_cfg,
-      model::initial_revision_id remote_revsion,
+      model::initial_revision_id remote_revision,
       int32_t remote_partition_count);
 
     void set_topic_recovery_components(
@@ -176,7 +176,7 @@ private:
     ///
     /// The downloaded file will have a custom suffix
     /// which has to be changed. The downloaded file path
-    /// is returned by the futue.
+    /// is returned by the future.
     ss::future<std::optional<cloud_storage::stream_stats>>
     download_segment_file(const segment_meta& segm, const download_part& part);
 

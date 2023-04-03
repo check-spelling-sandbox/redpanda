@@ -250,11 +250,11 @@ result<allocation_units> partition_balancer_planner::get_reallocation(
       ntp,
       stable_replicas);
 
-    auto stable_assigments = partition_assignment(
+    auto stable_assignments = partition_assignment(
       assignments.group, assignments.id, stable_replicas);
 
     auto reallocation = _partition_allocator.reallocate_partition(
-      std::move(constraints), stable_assigments, get_allocation_domain(ntp));
+      std::move(constraints), stable_assignments, get_allocation_domain(ntp));
 
     if (!reallocation) {
         vlog(
@@ -644,7 +644,7 @@ void partition_balancer_planner::get_full_node_reassignments(
 }
 
 /*
- * Cancel movement if new assignments contains unavailble node
+ * Cancel movement if new assignments contains unavailable node
  * and previous replica set doesn't contain this node
  */
 void partition_balancer_planner::get_unavailable_node_movement_cancellations(

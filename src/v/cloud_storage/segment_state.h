@@ -57,7 +57,7 @@ struct materialized_segment_state {
     std::list<std::unique_ptr<remote_segment_batch_reader>> readers;
     /// Reader access time
     ss::lowres_clock::time_point atime;
-    /// List hook for the list of all materalized segments
+    /// List hook for the list of all materialized segments
     intrusive_list_hook _hook;
 
     /// Removes object from list that it is part of. Used to isolate the object

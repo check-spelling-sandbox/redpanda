@@ -62,7 +62,7 @@ struct archival_metadata_stm_base_fixture
         cloud_storage_clients::s3_configuration conf;
         conf.uri = cloud_storage_clients::access_point_uri(
           ss::sstring(httpd_host_name));
-        conf.access_key = cloud_roles::public_key_str("acess-key");
+        conf.access_key = cloud_roles::public_key_str("access-key");
         conf.secret_key = cloud_roles::private_key_str("secret-key");
         conf.region = cloud_roles::aws_region_name("us-east-1");
         conf.server_addr = server_addr;

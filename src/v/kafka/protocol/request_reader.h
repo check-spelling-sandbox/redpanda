@@ -131,7 +131,7 @@ public:
         return _parser.read_bytes(n - 1);
     }
 
-    // Stronly suggested to use read_nullable_iobuf
+    // Strongly suggested to use read_nullable_iobuf
     std::optional<iobuf> read_fragmented_nullable_bytes() {
         auto [io, count] = read_nullable_iobuf();
         if (count < 0) {
@@ -244,8 +244,8 @@ public:
 
     void consume_unknown_tag(tagged_fields& fields, uint32_t id, size_t n) {
         tagged_fields::type fs(std::move(fields));
-        auto [_, succeded] = fs.emplace(tag_id(id), _parser.read_bytes(n));
-        if (!succeded) {
+        auto [_, succeeded] = fs.emplace(tag_id(id), _parser.read_bytes(n));
+        if (!succeeded) {
             throw std::out_of_range(fmt::format(
               "Protocol error encountered when parsing unknown tags, duplicate "
               "tag id detected: {}",

@@ -1,5 +1,5 @@
 # These tests are flaky on ARM architectures. They have been
-# disabled temporarely to unblock the v22.3.1 release process.
+# disabled temporarily to unblock the v22.3.1 release process.
 if (CMAKE_HOST_SYSTEM_PROCESSOR MATCHES "^arm|aarch64")
     message(WARNING "Skipping test_archival_service_rpunit on ARM.")
 else()

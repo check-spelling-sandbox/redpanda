@@ -203,7 +203,7 @@ self_test_frontend::stop_test() {
         if (!test_state.finished()) {
             vlog(
               clusterlog.warn,
-              "Failed to sucessfully stop all outstanding jobs on all "
+              "Failed to successfully stop all outstanding jobs on all "
               "remaining_participants: {} , trying again, retries: {}",
               test_state.active_participant_ids(),
               retries);

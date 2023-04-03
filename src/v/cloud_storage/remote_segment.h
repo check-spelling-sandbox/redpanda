@@ -73,7 +73,7 @@ public:
 
     const model::term_id get_term() const;
 
-    /// Get max offset of the segment (redpada offset)
+    /// Get max offset of the segment (redpanda offset)
     const model::offset get_max_rp_offset() const;
 
     /// Number of non-data batches in all previous
@@ -137,7 +137,7 @@ private:
     /// Run hydration loop. The method is supposed to be constantly running
     /// in the background. The background loop is triggered by the condition
     /// variable '_bg_cvar' and the promise list '_wait_list'. When the promise
-    /// is waitning in the list and the cond-variable is triggered the loop
+    /// is waiting in the list and the cond-variable is triggered the loop
     /// wakes up and hydrates the segment if needed.
     ss::future<> run_hydrate_bg();
 
@@ -152,7 +152,7 @@ private:
     /// Hydrate tx manifest. Method downloads the manifest file to the cache
     /// dir.
     ss::future<> do_hydrate_txrange();
-    /// Materilize segment. Segment has to be hydrated beforehand. The
+    /// Materialize segment. Segment has to be hydrated beforehand. The
     /// 'materialization' process opens file handle and creates
     /// compressed segment index in memory.
     ss::future<bool> do_materialize_segment();
@@ -209,7 +209,7 @@ class remote_segment_batch_consumer;
 /// The problem here is that shadow-indexing operates on sparse data.
 /// It can't translate every offset. Only the base offsets of uploaded
 /// segment. But it can also translate offsets as it scans the segment.
-/// But this is all done internally, so caller have to proviede kafka
+/// But this is all done internally, so caller have to provide kafka
 /// offsets. Mechanisms which require redpanda offset can use
 /// '_cur_rp_offset' field. It's guaranteed to point to the same
 /// record batch but the offset is not translated back to kafka. This is

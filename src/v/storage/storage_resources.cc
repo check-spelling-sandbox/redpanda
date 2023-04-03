@@ -138,7 +138,7 @@ size_t storage_resources::calc_falloc_step() {
 
     // Pessimistic assumption that each shard may use _at most_ the
     // disk space divided by the shard count.  If allocation of partitions
-    // is uneven, this may lead to us underestimasting how much space
+    // is uneven, this may lead to us underestimating how much space
     // is available, which is safe.
 
     uint64_t space_free_this_shard = _space_allowance_free / ss::smp::count;

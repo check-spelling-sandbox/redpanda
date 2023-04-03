@@ -606,11 +606,11 @@ func (d *Deployment) genEnvVars(ctx context.Context) (envars []corev1.EnvVar, er
 		s := &corev1.Secret{}
 		err = d.Get(ctx, client.ObjectKey{Namespace: d.consoleobj.Namespace, Name: ss.AWSSecretManager.AWSCredentialsRef.Name}, s)
 		if err != nil {
-			return envars, fmt.Errorf("getting aws crential secret: %w", err)
+			return envars, fmt.Errorf("getting aws credential secret: %w", err)
 		}
 
 		if _, ok := s.Data[awsAccessKeyIDKey]; !ok {
-			return envars, fmt.Errorf("missing %s key in aws crential secret: %w", awsAccessKeyIDKey, err)
+			return envars, fmt.Errorf("missing %s key in aws credential secret: %w", awsAccessKeyIDKey, err)
 		}
 
 		envars = append(envars, corev1.EnvVar{
@@ -626,7 +626,7 @@ func (d *Deployment) genEnvVars(ctx context.Context) (envars []corev1.EnvVar, er
 		})
 
 		if _, ok := s.Data[awsSecretAccessKey]; !ok {
-			return envars, fmt.Errorf("missing %s key in aws crential secret: %w", awsSecretAccessKey, err)
+			return envars, fmt.Errorf("missing %s key in aws credential secret: %w", awsSecretAccessKey, err)
 		}
 
 		envars = append(envars, corev1.EnvVar{

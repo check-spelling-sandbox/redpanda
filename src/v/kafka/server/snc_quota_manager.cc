@@ -572,7 +572,7 @@ void dispense_negative_deltas(
     if (unlikely(quotas_left == 0)) {
         vlog(
           klog.error,
-          "qb - No shards to distribute the remianing delta: {}",
+          "qb - No shards to distribute the remaining delta: {}",
           delta);
         return;
     }
@@ -689,7 +689,7 @@ ss::future<> snc_quota_manager::quota_balancer_update(
         dispense_negative_deltas(
           schedule.eg, deltas.eg, std::move(quotas_soa.eg));
     }
-    // postive deltas are disensed equally
+    // positive deltas are dispensed equally
     if (deltas.in > 0) {
         dispense_equally(schedule.in, deltas.in);
     }

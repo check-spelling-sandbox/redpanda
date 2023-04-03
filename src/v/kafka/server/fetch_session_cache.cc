@@ -61,7 +61,7 @@ fetch_session_cache::fetch_session_cache(
     register_metrics();
     _session_eviction_timer.set_callback([this] {
         gc_sessions();
-        // run timer twice more offten than actual session duration to incrase
+        // run timer twice more often than actual session duration to increase
         // resolution
         _session_eviction_timer.arm(_session_eviction_duration);
     });
@@ -145,7 +145,7 @@ fetch_session_cache::maybe_get_session(const fetch_request& req) {
     return fetch_session_ctx(session, false);
 }
 
-// we split whole range from 1 to max int32_t betewen all shards
+// we split whole range from 1 to max int32_t between all shards
 std::optional<fetch_session_id> fetch_session_cache::new_session_id() {
     if (unlikely(
           mem_usage() > max_mem_usage

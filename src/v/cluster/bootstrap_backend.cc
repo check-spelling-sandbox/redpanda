@@ -26,10 +26,11 @@ namespace cluster {
 // ===============================
 // If the node UUID to ID map in `members_manager` were not initialized at
 // cluster bootstrap, that would have allowed slow seed nodes (ones that miss
-// their oportunity to be founding nodes because of being slow) to also possibly
-// miss the assignment of `node_id` based on `seed_servers` index (as expected
-// for seed nodes). That could happen if another node joins the cluster before a
-// slow seed node and grabs the `node_id` that should have belonged to it.
+// their opportunity to be founding nodes because of being slow) to also
+// possibly miss the assignment of `node_id` based on `seed_servers` index (as
+// expected for seed nodes). That could happen if another node joins the cluster
+// before a slow seed node and grabs the `node_id` that should have belonged to
+// it.
 //
 // `bootstrap_backend` references `members_manager` to be able to initialize the
 // node UUID to ID map in it.

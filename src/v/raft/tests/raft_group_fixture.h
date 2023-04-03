@@ -234,7 +234,7 @@ struct raft_node {
           .then([this] { return server.stop(); })
           .then([this] {
               if (hbeats) {
-                  tstlog.info("Stopping heartbets manager at {}", broker.id());
+                  tstlog.info("Stopping heartbeats manager at {}", broker.id());
                   return hbeats->deregister_group(consensus->group())
                     .then([this] { return hbeats->stop(); });
               }
@@ -584,7 +584,7 @@ inline void wait_for(
         auto elapsed = clock_t::now() - start;
         if (elapsed > timeout) {
             BOOST_FAIL(
-              fmt::format("Timeout elapsed while wating for: {}", msg));
+              fmt::format("Timeout elapsed while waiting for: {}", msg));
         }
         res = p();
         ss::sleep(std::chrono::milliseconds(400)).get0();

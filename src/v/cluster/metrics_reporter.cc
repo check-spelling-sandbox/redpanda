@@ -384,7 +384,7 @@ ss::future<> metrics_reporter::do_report_metrics() {
     }
 
     // try initializing cluster info, if it is already present this operation
-    // does nothig
+    // does nothing
     co_await try_initialize_cluster_info();
 
     // Update cluster_id in configuration, if not already set.

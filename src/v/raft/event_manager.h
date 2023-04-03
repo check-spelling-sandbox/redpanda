@@ -33,7 +33,7 @@ class consensus;
  * notifications are available directly from the consensus module, but those
  * notifications are generally delivered under a lock and in the hot path. To
  * avoid introducing additional latency into raft as the number of subscribers
- * inreases, this manager receives direct notifications from raft where they
+ * increases, this manager receives direct notifications from raft where they
  * are then delivered asynchronously.
  */
 class event_manager {

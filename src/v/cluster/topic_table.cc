@@ -121,8 +121,8 @@ topic_table::apply(delete_topic_cmd cmd, model::offset offset) {
               tp_nsv);
         } else {
             /// Prevent deletion of source topics that have non_replicable
-            /// topics. To delete this topic all of its non_replicable descedent
-            /// topics must first be deleted
+            /// topics. To delete this topic all of its non_replicable
+            /// descendent topics must first be deleted
             auto found = _topics_hierarchy.find(cmd.value);
             if (found != _topics_hierarchy.end() && !found->second.empty()) {
                 return ss::make_ready_future<std::error_code>(
@@ -563,7 +563,7 @@ topic_table::apply(move_topic_replicas_cmd cmd, model::offset o) {
           })) {
         vlog(
           clusterlog.warn,
-          "topic: {}: Can not move replicas, becasue can not find "
+          "topic: {}: Can not move replicas, because can not find "
           "partitions",
           cmd.key);
         co_return errc::partition_not_exists;
@@ -1134,7 +1134,7 @@ void topic_table::change_partition_replicas(
         }
     }
 
-    // calculate deleta for backend
+    // calculate delta for backend
 
     auto partition_it = metadata.partitions.find(ntp.tp.partition);
     vassert(

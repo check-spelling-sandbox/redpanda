@@ -23,7 +23,7 @@
 
 namespace raft {
 
-/// Raft client protocol implementation underlied by RPC connections cache
+/// Raft client protocol implementation underlined by RPC connections cache
 class rpc_client_protocol final : public consensus_client_protocol::impl {
 public:
     explicit rpc_client_protocol(

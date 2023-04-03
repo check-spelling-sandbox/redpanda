@@ -41,11 +41,11 @@ public:
 
     ss::future<> remove(const model::ntp&);
 
-    /// Recieve updates when a partition with matching ns, topic is added
+    /// Receive updates when a partition with matching ns, topic is added
     cluster::notification_id_type register_manage_notification(
       const model::ns& ns, const model::topic& topic, manage_cb_t cb);
 
-    /// Recieve updates when a partition with matching ns, topic is removed
+    /// Receive updates when a partition with matching ns, topic is removed
     cluster::notification_id_type register_unmanage_notification(
       const model::ns& ns, const model::topic& topic, unmanage_cb_t cb) {
         return _unmanage_watchers.register_notify(ns, topic, std::move(cb));

@@ -426,7 +426,7 @@ func (r *ConfigMapResource) prepareCloudStorage(
 	cfg.SetAdditionalRedpandaProperty("cloud_storage_bucket", r.pandaCluster.Spec.CloudStorage.Bucket)
 	cfg.SetAdditionalRedpandaProperty("cloud_storage_disable_tls", r.pandaCluster.Spec.CloudStorage.DisableTLS)
 
-	interval := r.pandaCluster.Spec.CloudStorage.ReconcilicationIntervalMs
+	interval := r.pandaCluster.Spec.CloudStorage.ReconciliationIntervalMs
 	if interval != 0 {
 		cfg.SetAdditionalRedpandaProperty("cloud_storage_reconciliation_interval_ms", interval)
 	}
@@ -792,7 +792,7 @@ func (r *ConfigMapResource) SetLastAppliedConfigurationInCluster(
 	}
 	ser, err := json.Marshal(cfg)
 	if err != nil {
-		return fmt.Errorf("could not marhsal configuration: %w", err)
+		return fmt.Errorf("could not marshal configuration: %w", err)
 	}
 	newAnnotation := string(ser)
 	if existing.Annotations[LastAppliedConfigurationAnnotationKey] != newAnnotation {

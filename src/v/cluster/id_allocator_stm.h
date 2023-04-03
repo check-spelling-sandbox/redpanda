@@ -82,7 +82,7 @@ private:
     // /legacy
 
     bool _should_cache{false};
-    bool _procesing_legacy{true};
+    bool _processing_legacy{true};
     model::offset _prepare_offset{0};
     std::vector<allocation_cmd> _cache;
 
@@ -110,14 +110,14 @@ private:
     // `_batch_size` by saving `state_cmd {_state + _batch_size}` to the log.
     // The state machine uses `_curr_batch` to track the number of the IDs
     // left in the range. Each time `allocate_id` is called the state machine
-    // increments `_curr_id` (it is initialy equal to `_state`) and decrements
+    // increments `_curr_id` (it is initially equal to `_state`) and decrements
     // `_curr_batch`. When the latter reaches zero the state machine allocates
     // a new batch.
     //
     // Unlike the data partitions id_allocator_stm doesn't rely on the eviction
     // stm and manages log truncations on its own. STM counts the number of
     // applied `state_cmd` commands and when it (`_processed`) surpasses
-    // `_log_capacity` id_allocator_stm trucates the prefix.
+    // `_log_capacity` id_allocator_stm truncates the prefix.
     int64_t _batch_size;
     int16_t _log_capacity;
 

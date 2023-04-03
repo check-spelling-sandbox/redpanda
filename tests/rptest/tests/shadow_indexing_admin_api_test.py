@@ -81,7 +81,7 @@ class SIAdminApiTest(RedpandaTest):
     @matrix(cloud_storage_type=get_cloud_storage_type())
     def test_bucket_validation(self, cloud_storage_type):
         """
-        The test produces to the partition and waits untils the
+        The test produces to the partition and waits until the
         data is uploaded to S3 and the oldest segments are picked
         up by the retention. After that it uses admin api to invoke
         bucket validation and checks the result.

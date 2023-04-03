@@ -41,7 +41,7 @@ std::error_code make_error_code(signing_error_code ec) noexcept;
 class time_source {
 public:
     /// \brief Initialize time-source
-    /// Defult time-source uses std::chrono::system_clock.
+    /// Default time-source uses std::chrono::system_clock.
     time_source();
 
     /// \brief Initialize time-source using the hardcoded
@@ -99,7 +99,7 @@ public:
     /// header.
     ///
     /// \param header is an in/out parameter that contains request headers
-    /// \param sha256 is a hash of the payload if payload is signed or defult
+    /// \param sha256 is a hash of the payload if payload is signed or default
     /// value otherwise
     std::error_code sign_header(
       http::client::request_header& header, std::string_view sha256) const;

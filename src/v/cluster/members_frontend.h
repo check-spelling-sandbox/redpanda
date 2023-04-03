@@ -26,7 +26,7 @@ namespace cluster {
  *
  * NOTE:
  *
- * currently some of the nodes operation are handeld in members manager however
+ * currently some of the nodes operation are handheld in members manager however
  * we are going to migrate those to members frontend to be consistent with the
  * way how we manage other cluster wide resources
  */

@@ -222,7 +222,7 @@ func float64ToInt64(f float64) (int64, bool) {
 // toComparableLooseEquivalent converts special data into equivalent representation
 // to make it loosely comparable.
 func toComparableLooseEquivalent(v interface{}) interface{} {
-	tryFloatToIntConvertion := func(f float64) interface{} {
+	tryFloatToIntConversion := func(f float64) interface{} {
 		if i, ok := float64ToInt64(f); ok {
 			return i
 		}
@@ -230,15 +230,15 @@ func toComparableLooseEquivalent(v interface{}) interface{} {
 	}
 	switch d := v.(type) {
 	case float32:
-		return tryFloatToIntConvertion(float64(d))
+		return tryFloatToIntConversion(float64(d))
 	case float64:
-		return tryFloatToIntConvertion(d)
+		return tryFloatToIntConversion(d)
 	case json.Number:
 		if intNum, err := d.Int64(); err == nil {
 			return intNum
 		}
 		if floatNum, err := d.Float64(); err == nil {
-			return tryFloatToIntConvertion(floatNum)
+			return tryFloatToIntConversion(floatNum)
 		}
 	}
 	return v

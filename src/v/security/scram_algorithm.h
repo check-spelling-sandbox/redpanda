@@ -20,7 +20,7 @@
 #include <absl/container/node_hash_map.h>
 
 /**
- * scram algorthm - https://tools.ietf.org/html/rfc5802
+ * scram algorithm - https://tools.ietf.org/html/rfc5802
  *
  * The implementation follows closely the rfc, with some scenarios and
  * configuration not handled by kafka omitted from the implementation. The kafka
@@ -32,7 +32,7 @@
  *
  * 1. unnecessary copying from std::array<char> for hash digest types and
  * built-in bytes type. the conversion is mostly mechanical, but std::array
- * needs to be propogated to all other types which need to be templated on the
+ * needs to be propagated to all other types which need to be templated on the
  * same scram_algorithm template parameters.
  */
 namespace security {

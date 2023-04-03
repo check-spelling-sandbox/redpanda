@@ -26,8 +26,8 @@
 /// Emulates S3 REST API for testing purposes.
 /// The imposter is a simple KV-store that contains a set of expectations.
 /// Expectations are accessible by url via GET, PUT, and DELETE http calls.
-/// Expectations are provided before impster starts to listen. They have
-/// two field - url and optional body. If body is set to nullopt, attemtp
+/// Expectations are provided before imposter starts to listen. They have
+/// two field - url and optional body. If body is set to nullopt, attempt
 /// to read it using GET or delete it using DELETE requests will trigger an
 /// http response with error code 404 and xml formatted error message.
 /// If the body of the expectation is set by the user or PUT request it can
@@ -50,14 +50,14 @@ public:
         std::optional<ss::sstring> body;
     };
 
-    /// Set expectaitions on REST API calls that supposed to be made
+    /// Set expectations on REST API calls that supposed to be made
     /// Only the requests that described in this call will be possible
     /// to make. This method can only be called once per test run.
     ///
     /// \param expectations is a collection of access points that allow GET,
     /// PUT, and DELETE requests, each expectation has url and body. The body
     /// will be returned by GET call if it's set or trigger error if its null.
-    /// The expectations are statefull. If the body of the expectation was set
+    /// The expectations are stateful. If the body of the expectation was set
     /// to null but there was PUT call that sent some data, subsequent GET call
     /// will retrieve this data.
     void

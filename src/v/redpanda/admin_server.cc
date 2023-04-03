@@ -1717,7 +1717,7 @@ admin_server::delete_user_handler(std::unique_ptr<ss::httpd::request> req) {
         user, model::timeout_clock::now() + 5s);
     vlog(logger.debug, "Deleting user '{}' {}:{}", user, err, err.message());
     if (err == cluster::errc::user_does_not_exist) {
-        // Idempotency: removing a non-existent user is successful.
+        // Idempotency: removing a nonexistent user is successful.
         co_return ss::json::json_return_type(ss::json::json_void());
     }
     co_await throw_on_error(*req, err, model::controller_ntp);
@@ -1923,7 +1923,7 @@ admin_server::put_license_handler(std::unique_ptr<ss::httpd::request> req) {
         const auto& ft = _controller->get_feature_table().local();
         const auto& loaded_license = ft.get_license();
         if (loaded_license && (*loaded_license == license)) {
-            /// Loaded license is idential to license in request, do
+            /// Loaded license is identical to license in request, do
             /// nothing and return 200(OK)
             vlog(
               logger.info,
@@ -2087,7 +2087,8 @@ admin_server::get_broker_handler(std::unique_ptr<ss::httpd::request> req) {
     co_return ret;
 }
 
-ss::future<ss::json::json_return_type> admin_server::decomission_broker_handler(
+ss::future<ss::json::json_return_type>
+admin_server::decommission_broker_handler(
   std::unique_ptr<ss::httpd::request> req) {
     model::node_id id = parse_broker_id(*req);
 
@@ -2166,7 +2167,8 @@ admin_server::get_decommission_progress_handler(
     co_return ret;
 }
 
-ss::future<ss::json::json_return_type> admin_server::recomission_broker_handler(
+ss::future<ss::json::json_return_type>
+admin_server::recommission_broker_handler(
   std::unique_ptr<ss::httpd::request> req) {
     model::node_id id = parse_broker_id(*req);
 
@@ -2258,13 +2260,13 @@ void admin_server::register_broker_routes() {
     register_route<superuser>(
       ss::httpd::broker_json::decommission,
       [this](std::unique_ptr<ss::httpd::request> req) {
-          return decomission_broker_handler(std::move(req));
+          return decommission_broker_handler(std::move(req));
       });
 
     register_route<superuser>(
       ss::httpd::broker_json::recommission,
       [this](std::unique_ptr<ss::httpd::request> req) {
-          return recomission_broker_handler(std::move(req));
+          return recommission_broker_handler(std::move(req));
       });
 
     register_route<superuser>(
@@ -2280,7 +2282,7 @@ void admin_server::register_broker_routes() {
       });
 
     /*
-     * Unlike start|stop_broker_maintenace, the xxx_local_maintenance
+     * Unlike start|stop_broker_maintenance, the xxx_local_maintenance
      * versions below operate on local state only and could be used to force
      * a node out of maintenance mode if needed. they don't require the
      * feature flag because the feature is available locally.
@@ -2594,7 +2596,7 @@ admin_server::set_partition_replicas_handler(
             node_id, shard);
         if (!is_valid) {
             throw ss::httpd::bad_request_exception(fmt::format(
-              "Replica set refers to non-existent node/shard (node "
+              "Replica set refers to nonexistent node/shard (node "
               "{} "
               "shard {})",
               node_id,
@@ -3608,7 +3610,7 @@ void admin_server::register_debug_routes() {
                 using result_t = ss::httpd::debug_json::controller_status;
                 result_t ans;
                 ans.last_applied_offset = offset;
-                ans.commited_index = _controller->get_commited_index();
+                ans.committed_index = _controller->get_committed_index();
                 return ss::make_ready_future<ss::json::json_return_type>(
                   ss::json::json_return_type(ans));
             });

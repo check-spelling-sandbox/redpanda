@@ -18,7 +18,7 @@
 
 using namespace std::chrono_literals; // NOLINT
 
-SEASTAR_THREAD_TEST_CASE(base_jitter_gurantees) {
+SEASTAR_THREAD_TEST_CASE(base_jitter_guarantees) {
     raft::timeout_jitter jit(100ms, 75ms);
     auto const low = jit.base_duration();
     auto const high = jit.base_duration() + 75ms;

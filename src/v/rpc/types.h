@@ -63,7 +63,7 @@ concept RpcDurationOrPoint
  */
 struct timeout_spec {
     /**
-     * Constant indiciating specifying no timeout.
+     * Constant indicating specifying no timeout.
      * timeout_at() will return time_point::max(), i.e., the furthest possible
      * point in the future.
      */
@@ -228,7 +228,7 @@ struct header {
     transport_version version{transport_version::v0};
     /// \brief everything below the checksum is hashed with crc32
     uint32_t header_checksum{0};
-    /// \breif compression on the wire
+    /// \brief compression on the wire
     compression_type compression{0};
     /// \brief size of the payload
     uint32_t payload_size{0};
@@ -304,7 +304,7 @@ struct client_opts {
     compression_type compression;
     size_t min_compression_bytes;
     /**
-     * Resource protecting semaphore units, those units will be relased after
+     * Resource protecting semaphore units, those units will be released after
      * data are sent over the wire and send buffer is released. May be helpful
      * to control caller resources.
      */
@@ -344,7 +344,7 @@ private:
 };
 
 /**
- * @brief Bundles the method_id and assoicated method name.
+ * @brief Bundles the method_id and associated method name.
  */
 struct method_info {
     /**

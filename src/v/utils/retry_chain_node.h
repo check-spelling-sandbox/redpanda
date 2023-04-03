@@ -12,9 +12,9 @@
 #pragma once
 
 /* This mechanism is supposed to help with the situation when
- * we have a fiber that spauns multiple fibers which in turn
- * can spaun even more fibers. It's a normal situation with the
- * Seastar but the problem has many dimentions:
+ * we have a fiber that spawns multiple fibers which in turn
+ * can spawn even more fibers. It's a normal situation with the
+ * Seastar but the problem has many dimensions:
  * - logging is tricky since every shard runs many concurrent
  *   futures and it's hard to correlate messages with each other
  * - retrying things is also tricky because the parent fiber can
@@ -31,7 +31,7 @@
  * ss::future<reply_t> endpoint::send_request(request req) {
  *   while (true) {
  *     try {
- *       co_retury co_await do_send_request(req);
+ *       co_return co_await do_send_request(req);
  *     } catch (const network_error& err) {
  *       vlog(logger, "send_request to {} error {}", name, err);
  *     }
@@ -67,7 +67,7 @@
  *   retry_chain_node fn(&n, now + 1000ms, 100ms);
  *   while (true) {
  *     try {
- *       co_retury co_await do_send_request(req);
+ *       co_return co_await do_send_request(req);
  *     } catch (network_error) {
  *       vlog(logger, "{} send_request to {} error {}", fn(), name, err);
  *     }
@@ -171,20 +171,20 @@ struct retry_permit {
 ///
 /// The object is relatively lightweight (40 bytes).
 /// The retry chain is a set of fibers that has the same timeout or
-/// deadline. The fibers form a hierarhy (root fiber spawns several child
+/// deadline. The fibers form a hierarchy (root fiber spawns several child
 /// fibers, some child fibers spawn next set of fibers, etc). The fibers
-/// that perform some I/O may periodicly retry on failure. Retries should
+/// that perform some I/O may periodically retry on failure. Retries should
 /// be kept inside time bounds of the retry chain.
 ///
 /// The instance of this object can be created on the stack of a fiber.
 /// It's supposed to be passed by reference to the child fibers and used
 /// to create another retry_chain_node instances. The nodes form a
 /// tree-like data structure. This data structure can be used to
-/// calculate backoff timeouts that take into acount total time budget
+/// calculate backoff timeouts that take into account total time budget
 /// that the parent node has. It can be used to share the abort_source
 /// instance between related fibers. This allows child fibers to trigger
 /// abort_source and stop the entire computation. Also, the instance of
-/// this class can be used to provide identitiy for logging. Call operator
+/// this class can be used to provide identity for logging. Call operator
 /// returns a unique fiber id that takes hierarchy into account.
 ///
 /// The node can be either a root or a leaf. The root node doesn't receive
@@ -235,7 +235,7 @@ public:
       ss::lowres_clock::duration timeout,
       ss::lowres_clock::duration initial_backoff,
       retry_chain_node* parent);
-    /// D-tor (performs some validaton steps and can fail)
+    /// D-tor (performs some validation steps and can fail)
     ~retry_chain_node();
     retry_chain_node(const retry_chain_node&) = delete;
     retry_chain_node& operator=(const retry_chain_node&) = delete;
@@ -248,7 +248,7 @@ public:
     /// (0 - no retries), and 100ms is a remaining time budget.
     ss::sstring operator()() const;
 
-    /// Generate formattend log prefix and add custom string into it:
+    /// Generate formatted log prefix and add custom string into it:
     /// Example: [fiber42~3~1|2|100ms ns/topic/42]
     template<typename... Args>
     ss::sstring

@@ -44,7 +44,7 @@ error_outcome handle_client_transport_error(
         }
     } catch (const ss::timed_out_error& terr) {
         // This should happen when the connection pool was disconnected
-        // from the S3 endpoint and subsequent connection attmpts failed.
+        // from the S3 endpoint and subsequent connection attempts failed.
         vlog(logger.warn, "Connection timeout {}", terr.what());
     } catch (const boost::system::system_error& err) {
         if (err.code() != boost::beast::http::error::short_read) {

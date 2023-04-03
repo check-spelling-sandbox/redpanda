@@ -50,7 +50,7 @@ var _ = Describe("RedPandaCluster configuration controller", func() {
 
 		configMapHashKey                = "redpanda.vectorized.io/configmap-hash"
 		centralizedConfigurationHashKey = "redpanda.vectorized.io/centralized-configuration-hash"
-		lastAppliedConfiguraitonHashKey = "redpanda.vectorized.io/last-applied-configuration"
+		lastAppliedConfigurationHashKey = "redpanda.vectorized.io/last-applied-configuration"
 	)
 
 	gracePeriod := int64(0)
@@ -73,7 +73,7 @@ var _ = Describe("RedPandaCluster configuration controller", func() {
 			Expect(cm.Data[bootstrapConfigurationFile]).ToNot(BeEmpty())
 
 			By("Always adding the last-applied-configuration annotation on the configmap")
-			Eventually(annotationGetter(baseKey, &cm, lastAppliedConfiguraitonHashKey), timeout, interval).ShouldNot(BeEmpty())
+			Eventually(annotationGetter(baseKey, &cm, lastAppliedConfigurationHashKey), timeout, interval).ShouldNot(BeEmpty())
 
 			By("Creating the statefulset")
 			var sts appsv1.StatefulSet
@@ -144,8 +144,8 @@ var _ = Describe("RedPandaCluster configuration controller", func() {
 			Expect(err).To(BeNil())
 			expectedAnnotation, err := json.Marshal(baseConfig)
 			Expect(err).To(BeNil())
-			Eventually(annotationGetter(baseKey, &corev1.ConfigMap{}, lastAppliedConfiguraitonHashKey), timeout, interval).Should(Equal(string(expectedAnnotation)))
-			Consistently(annotationGetter(baseKey, &corev1.ConfigMap{}, lastAppliedConfiguraitonHashKey), timeoutShort, intervalShort).Should(Equal(string(expectedAnnotation)))
+			Eventually(annotationGetter(baseKey, &corev1.ConfigMap{}, lastAppliedConfigurationHashKey), timeout, interval).Should(Equal(string(expectedAnnotation)))
+			Consistently(annotationGetter(baseKey, &corev1.ConfigMap{}, lastAppliedConfigurationHashKey), timeoutShort, intervalShort).Should(Equal(string(expectedAnnotation)))
 
 			By("Never restarting the cluster")
 			Consistently(annotationGetter(key, &appsv1.StatefulSet{}, configMapHashKey), timeoutShort, intervalShort).Should(Equal(configMapHash))
@@ -720,7 +720,7 @@ var _ = Describe("RedPandaCluster configuration controller", func() {
 			Eventually(resourceGetter(key, &appsv1.StatefulSet{}), timeout, interval).Should(Succeed())
 
 			By("Always adding the last-applied-configuration annotation on the configmap")
-			Eventually(annotationGetter(baseKey, &corev1.ConfigMap{}, lastAppliedConfiguraitonHashKey), timeout, interval).ShouldNot(BeEmpty())
+			Eventually(annotationGetter(baseKey, &corev1.ConfigMap{}, lastAppliedConfigurationHashKey), timeout, interval).ShouldNot(BeEmpty())
 
 			By("Marking the cluster as not properly configured")
 			Eventually(clusterConfiguredConditionStatusGetter(key), timeout, interval).Should(BeFalse())

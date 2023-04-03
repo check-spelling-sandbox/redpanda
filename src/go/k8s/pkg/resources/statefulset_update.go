@@ -288,7 +288,7 @@ func (r *StatefulSetResource) putInMaintenanceMode(ctx context.Context, ordinal 
 
 	br, err := adminAPIClient.Broker(ctx, nodeConf.NodeID)
 	if err != nil {
-		return fmt.Errorf("getting broker infromations: %w", err)
+		return fmt.Errorf("getting broker informations: %w", err)
 	}
 
 	if br.Maintenance == nil {

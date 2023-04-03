@@ -67,18 +67,18 @@ storage::log_reader_config get_reader(
     if (start > end) {
         vlog(
           coproclog.warn,
-          "Start {} detected greater then end {} for ntp: {}",
+          "Start {} detected greater than end {} for ntp: {}",
           start,
           end,
           rctx.input->ntp());
-        /// It is possible for start to be greater then end in the event input
+        /// It is possible for start to be greater than end in the event input
         /// logs haven't yet been hydrated. In this case, perform no read by
         /// setting start to end
         start = end;
     }
     /// The 'high watermark' of the current read. All output topics have
     /// processed all inputs below this value. When the offsets map for all
-    /// outputs has values equivlent to this, it means all outputs are up to
+    /// outputs has values equivalent to this, it means all outputs are up to
     /// date and a new 'high watermark' can be promoted due to read progressing
     /// forward.
     rctx.last_acked = start;

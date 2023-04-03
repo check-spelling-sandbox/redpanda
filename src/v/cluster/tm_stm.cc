@@ -233,7 +233,7 @@ ss::future<> tm_stm::checkpoint_ongoing_txs() {
     for (auto& tx : txes_to_checkpoint) {
         vlog(
           txlog.trace,
-          "transfering tx:{} etag:{} pid:{} tx_seq:{}",
+          "transferring tx:{} etag:{} pid:{} tx_seq:{}",
           tx.id,
           tx.etag,
           tx.pid,

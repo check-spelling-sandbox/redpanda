@@ -122,7 +122,7 @@ struct index_state
     fragmented_vector<uint64_t> position_index;
 
     // flag indicating whether the maximum timestamp on the batches
-    // of this segment are monontonically increasing.
+    // of this segment are monotonically increasing.
     bool batch_timestamps_are_monotonic{true};
 
     // flag indicating whether the relative time index has been offset
@@ -177,7 +177,7 @@ struct index_state
         // (i.e. 'ts > first_timestamp'). For this reason, we go back one batch.
         //
         // *In the case where lower_bound places on the first batch, we'll
-        // start the timequery from the beggining of the segment as the user
+        // start the timequery from the beginning of the segment as the user
         // data batch is always indexed.
         return get_entry(dist > 0 ? dist - 1 : 0);
     }

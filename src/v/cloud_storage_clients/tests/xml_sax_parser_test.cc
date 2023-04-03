@@ -53,7 +53,7 @@ static constexpr std::string_view abs_payload = R"XML(
     <Blob>  
       <Name>blob-name</Name>  
       <Snapshot>date-time-value</Snapshot>  
-      <VersionId>date-time-vlue</VersionId>
+      <VersionId>date-time-value</VersionId>
       <IsCurrentVersion>true</IsCurrentVersion>
       <Deleted>true</Deleted>
       <Properties> 
@@ -127,7 +127,7 @@ static constexpr std::string_view abs_payload_with_continuation = R"XML(
     <Blob>  
       <Name>blob-name</Name>  
       <Snapshot>date-time-value</Snapshot>  
-      <VersionId>date-time-vlue</VersionId>
+      <VersionId>date-time-value</VersionId>
       <IsCurrentVersion>true</IsCurrentVersion>
       <Deleted>true</Deleted>
       <Properties> 

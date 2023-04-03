@@ -179,7 +179,7 @@ def get_cloud_storage_type(applies_only_on: list(CloudStorageType) = None,
     :param applies_only_on: optional list(CloudStorageType)
     that is the allow-list of the cloud storage type for a
     test.
-    If it's set the function will return the inresection
+    If it's set the function will return the intersection
     of:
         * <cloud_storage_type>: discovered based on the CLOUD_PROVIDER env
         * <applies_only_on>: param provided
@@ -303,7 +303,7 @@ class SISettings:
     """
     Settings for shadow indexing stuff.
     The defaults are for use with the default minio docker container,
-    but if the test was parametrised with 'cloud_storage_type==CloudStorageType.ABS',
+    but if the test was parameterized with 'cloud_storage_type==CloudStorageType.ABS',
     then the resulting settings will be for use with Azurite.
 
     These settings are altered in RedpandaTest if running on AWS.
@@ -419,7 +419,7 @@ class SISettings:
             self.cloud_storage_api_endpoint_port = 443
         else:
             logger.debug("Running in Dockerised env against Azurite. "
-                         "Using Azurite defualt credentials.")
+                         "Using Azurite default credentials.")
 
     def _load_s3_context(self, logger, test_context):
         """
@@ -802,7 +802,7 @@ class RedpandaService(Service):
             self._si_settings = None
 
         # Disable saving cloud storage diagnostics. This may be useful for
-        # tests that generate millions of objecst, as collecting diagnostics
+        # tests that generate millions of objects, as collecting diagnostics
         # may take a significant amount of time.
         self._disable_cloud_storage_diagnostics = disable_cloud_storage_diagnostics
 
@@ -961,7 +961,7 @@ class RedpandaService(Service):
 
         if not self.dedicated_nodes:
             # Assume docker images share a filesystem.  This may not
-            # be the truth (e.g. in CI they get indepdendent XFS
+            # be the truth (e.g. in CI they get independent XFS
             # filesystems), but it's the safe assumption on e.g.
             # a workstation.
             avail_kb = int(avail_kb / len(self.nodes))
@@ -1629,7 +1629,7 @@ class RedpandaService(Service):
 
     def await_feature_active(self, feature_name: str, *, timeout_sec: int):
         """
-        For use during upgrade tests, when after upgrade yo uwould like to block
+        For use during upgrade tests, when after upgrade you would like to block
         until a particular feature is active (e.g. if it does migrations)
         """
         def is_active():
@@ -1906,7 +1906,7 @@ class RedpandaService(Service):
 
     def stop(self, **kwargs):
         """
-        Override default stop() to execude stop_node in parallel
+        Override default stop() to execute stop_node in parallel
         """
         self._stop_time = time.time()  # The last time stop is invoked
         self.logger.info("%s: exporting cluster config" % self.who_am_i())

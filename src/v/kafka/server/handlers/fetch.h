@@ -287,7 +287,7 @@ struct shard_fetch {
     bool empty() const {
         vassert(
           requests.size() == responses.size(),
-          "there have to be equal number of fetch requests and responsens for "
+          "there have to be equal number of fetch requests and responses for "
           "single shard. requests count: {}, response count {}",
           requests.size(),
           responses.size());

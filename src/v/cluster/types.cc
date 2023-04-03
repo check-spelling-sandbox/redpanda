@@ -475,8 +475,8 @@ std::ostream& operator<<(std::ostream& o, const try_abort_request& r) {
 std::ostream& operator<<(std::ostream& o, const try_abort_reply& r) {
     fmt::print(
       o,
-      "{{ commited: {}, aborted: {}, ec: {} }}",
-      bool(r.commited),
+      "{{ committed: {}, aborted: {}, ec: {} }}",
+      bool(r.committed),
       bool(r.aborted),
       r.ec);
     return o;
@@ -691,9 +691,9 @@ assignments_set& topic_metadata::get_assignments() { return _assignments; }
 
 replication_factor topic_metadata::get_replication_factor() const {
     // The main idea is do not use anymore replication_factor from topic_config.
-    // replication factor is dynamic property. And it is size of assigments set.
-    // So we will return rf for 0 partition, becasue it should exist for each
-    // topic
+    // replication factor is dynamic property. And it is size of assignments
+    // set. So we will return rf for 0 partition, because it should exist for
+    // each topic
     auto it = _assignments.find(model::partition_id(0));
     return replication_factor(
       static_cast<replication_factor::type>(it->replicas.size()));

@@ -840,10 +840,10 @@ private:
       cluster::simple_batch_builder& builder,
       const model::topic& name,
       model::partition_id partition,
-      model::offset commited_offset,
-      leader_epoch commited_leader_epoch,
+      model::offset committed_offset,
+      leader_epoch committed_leader_epoch,
       const ss::sstring& metadata,
-      model::timestamp commited_timestemp,
+      model::timestamp committed_timestemp,
       std::optional<model::timestamp> expiry_timestamp);
 
     ss::future<cluster::abort_group_tx_reply> do_abort(

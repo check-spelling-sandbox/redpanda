@@ -35,7 +35,7 @@ namespace storage {
  * Manages a mapping between string and blob values. All mutating operates are
  * written to a write-ahead log and flushed before being applied in-memory.
  * Flushing is controlled by a commit interval configuration setting that allows
- * operations to be batched, amatorizing the cost of flushing to disk.
+ * operations to be batched, amortizing the cost of flushing to disk.
  *
  * Operation
  * =========
@@ -64,7 +64,7 @@ namespace storage {
  * ===========
  *
  * The entire database is cached in memory, so users should not allow the set of
- * uniuqe keys to grow unbounded.  No backpressure is applied, so use
+ * unique keys to grow unbounded.  No backpressure is applied, so use
  * responsibly until this utility becomes more sophisticated. The initial set of
  * use cases--tracking raft voted-for and log's base offset--do not pose an
  * issue for either of these limitations since they exhibit a natural bound on

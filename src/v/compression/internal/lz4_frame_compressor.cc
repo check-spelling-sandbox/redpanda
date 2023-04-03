@@ -173,7 +173,7 @@ iobuf lz4_frame_compressor::uncompress(iobuf const& input) {
     // Compose fragmented result from a series of `obuf` temporary buffers
     iobuf ret;
 
-    // Read interators/offsets
+    // Read iterators/offsets
     auto frag_i = input.begin();
     size_t read_this_chunk{0};
     size_t read_total{0};

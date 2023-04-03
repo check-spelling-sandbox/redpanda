@@ -123,7 +123,7 @@ public:
 
         /// Recv new portion of the payload, this method should be called untill
         /// is_done returns false. It's possible to get an empty iobuf which
-        /// should be ignored (deosn't mean EOF).
+        /// should be ignored (doesn't mean EOF).
         /// The method doesn't return bytes that belong to HTTP header or chunk
         /// headers.
         ///
@@ -202,7 +202,7 @@ public:
     /// stream. Returned future becomes ready when the body is sent.
     /// Using the stream returned by the future client can pull response.
     ///
-    /// \param header is a prepred request header
+    /// \param header is a prepared request header
     /// \param input in an input stream that contains request body octets
     /// \param limits is a set of limitation for a query
     /// \returns response stream future

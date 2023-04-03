@@ -267,7 +267,7 @@ bool equal(
 }
 
 // Search for the current node's advertised RPC address in the seed_servers.
-// Precondition: emtpy_seed_starts_cluster=false
+// Precondition: empty_seed_starts_cluster=false
 // \return Index of this node in seed_servers list if found, or empty if
 // not.
 // \throw runtime_error if seed_servers is empty
@@ -466,7 +466,7 @@ ss::future<> cluster_discovery::discover_founding_brokers() {
     if (failed) {
         throw std::runtime_error(fmt_with_ctx(
           fmt::format,
-          "Cannot bootstrap a cluster due to seed servers configuraton "
+          "Cannot bootstrap a cluster due to seed servers configuration "
           "mismatch, check the errors above in the log for details. Brokers: "
           "{}",
           founding_brokers));

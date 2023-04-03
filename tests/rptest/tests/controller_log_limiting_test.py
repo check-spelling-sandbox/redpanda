@@ -76,18 +76,18 @@ class TopicOperationsLimitingTest(RedpandaTest):
         check_metric(self.redpanda, "requests_dropped", "topic_operations",
                      value)
 
-    def chek_capacity_is_full(self, value):
+    def check_capacity_is_full(self, value):
         return get_metric(self.redpanda, "requests_available_rps",
                           "topic_operations") == value
 
     @cluster(num_nodes=3)
     def test_create_partition_limit(self):
-        requsts_amount_1 = OPERATIONS_LIMIT * 2
+        requests_amount_1 = OPERATIONS_LIMIT * 2
         self.check_available_metric(OPERATIONS_LIMIT)
         exceed_quota_req = []
-        for i in range(requsts_amount_1):
+        for i in range(requests_amount_1):
             exceed_quota_req.append(KclCreateTopicsRequestTopic(str(i), 1, 1))
-        wait_until(lambda: self.chek_capacity_is_full(OPERATIONS_LIMIT),
+        wait_until(lambda: self.check_capacity_is_full(OPERATIONS_LIMIT),
                    timeout_sec=10,
                    backoff_sec=1)
         response = self.kcl.raw_create_topics(6, exceed_quota_req)
@@ -100,13 +100,13 @@ class TopicOperationsLimitingTest(RedpandaTest):
                 success_amount += 1
             if topic_response['ErrorCode'] == TOO_MANY_REQUESTS_ERROR_CODE:
                 errors_amount += 1
-        assert success_amount + errors_amount == requsts_amount_1
+        assert success_amount + errors_amount == requests_amount_1
         assert success_amount == OPERATIONS_LIMIT
-        assert errors_amount == requsts_amount_1 - OPERATIONS_LIMIT
+        assert errors_amount == requests_amount_1 - OPERATIONS_LIMIT
 
         self.check_dropped_metric(OPERATIONS_LIMIT)
 
-        wait_until(lambda: self.chek_capacity_is_full(OPERATIONS_LIMIT),
+        wait_until(lambda: self.check_capacity_is_full(OPERATIONS_LIMIT),
                    timeout_sec=10,
                    backoff_sec=1)
 
@@ -137,11 +137,11 @@ class TopicOperationsLimitingTest(RedpandaTest):
     def test_create_partition_limit_accumulation(self):
         self.client().alter_broker_config(
             {
-                "controller_log_accummulation_rps_capacity_topic_operations":
+                "controller_log_accumulation_rps_capacity_topic_operations":
                 OPERATIONS_LIMIT * 2
             },
             incremental=True)
-        wait_until(lambda: self.chek_capacity_is_full(OPERATIONS_LIMIT * 2),
+        wait_until(lambda: self.check_capacity_is_full(OPERATIONS_LIMIT * 2),
                    timeout_sec=10,
                    backoff_sec=1)
 
@@ -171,14 +171,14 @@ class ControllerConfigLimitTest(RedpandaTest):
         requests_amount = OPERATIONS_LIMIT * 2
         success_amount = 0
         quota_error_amount = 0
-        wait_until(lambda: self.check_capcity_is_full(OPERATIONS_LIMIT),
+        wait_until(lambda: self.check_capacity_is_full(OPERATIONS_LIMIT),
                    timeout_sec=10,
                    backoff_sec=1)
         for i in range(requests_amount):
             try:
                 self.client().alter_broker_config(
                     {
-                        "controller_log_accummulation_rps_capacity_topic_operations":
+                        "controller_log_accumulation_rps_capacity_topic_operations":
                         i
                     },
                     incremental=True)
@@ -194,7 +194,7 @@ class ControllerConfigLimitTest(RedpandaTest):
         assert quota_error_amount > 0
         assert success_amount > 0
 
-    def check_capcity_is_full(self, capacity):
+    def check_capacity_is_full(self, capacity):
         return get_metric(self.redpanda, "requests_available_rps",
                           "configuration_operations") == capacity
 
@@ -203,20 +203,20 @@ class ControllerConfigLimitTest(RedpandaTest):
         requests_amount = OPERATIONS_LIMIT * 2
         self.client().alter_broker_config(
             {
-                "controller_log_accummulation_rps_capacity_configuration_operations":
+                "controller_log_accumulation_rps_capacity_configuration_operations":
                 requests_amount
             },
             incremental=True)
         success_amount = 0
         quota_error_amount = 0
 
-        wait_until(lambda: self.check_capcity_is_full(requests_amount),
+        wait_until(lambda: self.check_capacity_is_full(requests_amount),
                    timeout_sec=10,
                    backoff_sec=1)
         for i in range(requests_amount):
             out = self.client().alter_broker_config(
                 {
-                    "controller_log_accummulation_rps_capacity_topic_operations":
+                    "controller_log_accumulation_rps_capacity_topic_operations":
                     i + 25
                 },
                 incremental=True)
@@ -318,7 +318,7 @@ class ControllerNodeManagementLimitTest(RedpandaTest):
                          **kwargs)
 
     @cluster(num_nodes=3)
-    def test_maintance_mode_limit(self):
+    def test_maintenance_mode_limit(self):
         self.admin = Admin(self.redpanda)
         admin = self.redpanda._admin
         controller_node = self.redpanda.get_node(

@@ -263,7 +263,7 @@ transport::do_send(sequence_t seq, netbuf b, rpc::client_opts opts) {
                   return std::move(f).finally([u = std::move(units)] {});
               })
             .finally([this, seq] {
-                // update last sequence to make progress, for successfull
+                // update last sequence to make progress, for successful
                 // dispatches this will be noop, as _last_seq was already update
                 // before sending data
                 _last_seq = std::max(_last_seq, seq);

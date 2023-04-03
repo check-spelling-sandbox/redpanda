@@ -127,7 +127,7 @@ class ThroughputLimitsSnc(RedpandaTest):
         metrics = self.redpanda.metrics_sample(
             "quotas_quota_effective", metrics_endpoint=MetricsEndpoint.METRICS)
 
-        assert metrics, "Effecive quota metric is missing"
+        assert metrics, "Effective quota metric is missing"
         self.logger.debug(f"Samples: {metrics.samples}")
 
         node_quota_in = sum(

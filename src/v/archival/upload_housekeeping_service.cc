@@ -339,7 +339,7 @@ ss::future<> housekeeping_workflow::run_jobs_bg() {
                 _executed.splice(_executed.begin(), _running);
             } else {
                 // If the job was interrupted it's never returned
-                // to the list of executed jobs and never accessd by
+                // to the list of executed jobs and never accessed by
                 // the workflow.
                 _running.front().release();
                 _running.clear();
@@ -452,7 +452,7 @@ ss::future<> housekeeping_workflow::stop() {
       _executed.size(),
       _running.size());
     // At this point if _running is not empty then it's expected that
-    // it'd be removed when the execution of the job will be copleted.
+    // it'd be removed when the execution of the job will be completed.
     // This is because the owner of the job is required to deregister its
     // jobs before the housekeeping service is stopped.
     co_await _exec_gate.close();

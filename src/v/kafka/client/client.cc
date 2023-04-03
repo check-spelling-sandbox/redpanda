@@ -45,7 +45,7 @@
 
 namespace kafka::client {
 
-client::client(const YAML::Node& cfg, external_mitigate mitigater)
+client::client(const YAML::Node& cfg, external_mitigate mitigator)
   : _config{cfg}
   , _seeds{_config.brokers()}
   , _topic_cache{}
@@ -56,7 +56,7 @@ client::client(const YAML::Node& cfg, external_mitigate mitigater)
   , _producer{_config, _topic_cache, _brokers, [this](std::exception_ptr ex) {
       return mitigate_error(std::move(ex));
   }}
-  , _external_mitigate(std::move(mitigater)) {}
+  , _external_mitigate(std::move(mitigator)) {}
 
 ss::future<> client::do_connect(net::unresolved_address addr) {
     return make_broker(unknown_node_id, addr, _config)
@@ -106,7 +106,7 @@ ss::future<> client::stop() noexcept {
             auto c = *group.begin();
             co_await catch_and_log([c]() {
                 // The consumer is constructed with an on_stopped which erases
-                // istelf from the map after leave() completes.
+                // itself from the map after leave() completes.
                 return c->leave();
             });
         }
@@ -518,9 +518,10 @@ ss::future<kafka::fetch_response> client::consumer_fetch(
   const member_id& name,
   std::optional<std::chrono::milliseconds> timeout,
   std::optional<int32_t> max_bytes) {
-    const auto config_timout = _config.consumer_request_timeout.value();
+    const auto config_timeout = _config.consumer_request_timeout.value();
     const auto end = model::timeout_clock::now()
-                     + std::min(config_timout, timeout.value_or(config_timout));
+                     + std::min(
+                       config_timeout, timeout.value_or(config_timeout));
     return gated_retry_with_mitigation([this, g_id, name, end, max_bytes]() {
         vlog(kclog.debug, "consumer_fetch: group_id: {}, name: {}", g_id, name);
         return get_consumer(g_id, name)

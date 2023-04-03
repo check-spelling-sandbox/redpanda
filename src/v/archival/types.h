@@ -70,7 +70,7 @@ struct configuration {
 };
 
 /// \brief create scheduler service config
-/// This mehtod will use shard-local redpanda configuration
+/// This method will use shard-local redpanda configuration
 /// to generate the configuration.
 /// \param sg is a scheduling group used to run all uploads
 /// \param p is an io priority class used to throttle upload file reads
@@ -153,7 +153,7 @@ public:
     /// \param rtc is a retry chain node of the housekeeping service
     /// \param quota is number of actions job can execute during current run
     ///        the job is not forced to use its entire quota. It's also possible
-    ///        to use more resuorces than the job was given.
+    ///        to use more resources than the job was given.
     /// \return a future that will become available when the job is completed.
     ///         The result of the future contains stats for the current run (
     ///         number of uploaded segments/manifests, etc).

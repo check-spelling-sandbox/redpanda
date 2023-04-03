@@ -26,7 +26,7 @@ namespace coproc {
 /// The outputs from a 'process_batch' call to a wasm engine
 using output_write_inputs = std::vector<process_batch_reply::data>;
 
-/// Arugments to pass to 'write_materialized', trivially copyable
+/// Arguments to pass to 'write_materialized', trivially copyable
 struct output_write_args {
     coproc::script_id id;
     ss::sharded<cluster::metadata_cache>& metadata;

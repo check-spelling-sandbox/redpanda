@@ -70,7 +70,7 @@ public:
 
     struct prepare_marker {
         // partition of the transaction manager
-        // reposible for curent transaction
+        // responsible for current transaction
         model::partition_id tm_partition;
         // tx_seq identifies a transaction within a session
         model::tx_seq tx_seq;
@@ -479,13 +479,13 @@ private:
         // the only piece of data which we update on replay and before
         // replicating the command. we use the highest seq number to resolve
         // conflicts. if the replication fails we reject a command but clients
-        // by spec should be ready for thier commands being rejected so it's
+        // by spec should be ready for their commands being rejected so it's
         // ok by design to have false rejects
         using seq_map = mt::unordered_map_t<
           absl::node_hash_map,
           model::producer_identity,
           seq_entry_wrapper>;
-        // Note: When erasing entries from this map, use the the helper
+        // Note: When erasing entries from this map, use the helper
         // 'erase_pid_from_seq_table' that also unlinks the entry from the
         // intrusive list that tracks the LRU order. Not doing so can cause
         // crashes.
@@ -596,7 +596,7 @@ private:
         // always up to date
         model::term_id term;
         // before we replicate the first batch of a transaction we don't know
-        // its offset but we must prevent read_comitted fetch from getting it
+        // its offset but we must prevent read_committed fetch from getting it
         // so we use last seen offset to estimate it
         mt::unordered_map_t<
           absl::flat_hash_map,
@@ -653,7 +653,7 @@ private:
     ss::future<> clear_old_tx_pids();
     ss::future<> clear_old_idempotent_pids();
 
-    // When a request is retried while the first appempt is still
+    // When a request is retried while the first attempt is still
     // being replicated the retried request is parked until the
     // original request is replicated.
     struct inflight_request {
@@ -681,7 +681,7 @@ private:
     // then B should fail too.
     //
     // inflight_requests hosts inflight requests before they are resolved
-    // and form a monotonicly increasing continuation without gaps of
+    // and form a monotonically increasing continuation without gaps of
     // log_state's seq_table
     struct inflight_requests {
         mutex lock;

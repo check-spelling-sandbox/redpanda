@@ -89,7 +89,7 @@ iobuf snappy_java_compressor::uncompress(const iobuf& x) {
     if (unlikely(min_version < snappy_magic::min_compatible_version)) {
         throw std::runtime_error(fmt_with_ctx(
           fmt::format,
-          "version missmatch. iobuf: {} - version:{}, min_version:{}",
+          "version mismatch. iobuf: {} - version:{}, min_version:{}",
           x,
           version,
           min_version));

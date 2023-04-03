@@ -50,7 +50,7 @@ class available_memory final {
 public:
     using deregister_holder = std::unique_ptr<reporter>;
 
-    // does not make sense to move or cpoy this object
+    // does not make sense to move or copy this object
     available_memory();
     available_memory(available_memory&) = delete;
     available_memory& operator=(const available_memory&) = delete;
@@ -59,7 +59,7 @@ public:
      * @brief Return the current available memory value.
      *
      * Available memory is free memory, plus all the memory that can be in
-     * princple reclaimed from subsystems which have registered a reclaim hook.
+     * principle reclaimed from subsystems which have registered a reclaim hook.
      *
      * Effectively, this is reclaimable() + ss::memory::stats().free_memory()
      *
@@ -98,7 +98,7 @@ public:
      *
      * This call makes a call to update_low_water_mark() immediately before
      * returning its result, so this always includes the current memory state
-     * in the LWM calculatoin.
+     * in the LWM calculation.
      *
      * @return size_t the available low-water mark as described above
      */
@@ -108,7 +108,7 @@ public:
      * @brief Update the low-water mark if applicable.
      *
      * Samples the currently available memory (as-if by calling available() and
-     * update the low-water mark if the currnet value is lower than any seen so
+     * update the low-water mark if the current value is lower than any seen so
      * far.
      *
      * Calls to this method should be inserted at places where memory is likely

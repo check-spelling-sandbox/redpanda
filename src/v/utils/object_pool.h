@@ -131,7 +131,7 @@ public:
     }
 
 private:
-    // try to perserve any locality by reusing the
+    // try to preserve any locality by reusing the
     // most recently used object
     std::stack<T> _objects;
     std::deque<std::unique_ptr<wait_item>> _waiters;

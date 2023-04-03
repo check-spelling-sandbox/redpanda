@@ -17,7 +17,7 @@ node_config::node_config() noexcept
   : developer_mode(
     *this,
     "developer_mode",
-    "Skips most of the checks performed at startup, not recomended for "
+    "Skips most of the checks performed at startup, not recommended for "
     "production use",
     {.visibility = visibility::tunable},
     false)

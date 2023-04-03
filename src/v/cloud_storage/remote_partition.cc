@@ -86,7 +86,7 @@ remote_partition::borrow_result_t remote_partition::borrow_next_reader(
     auto ko = model::offset_cast(config.start_offset);
     // Two level lookup:
     // - find segment meta based on kafka offset
-    //   this allow us to avoid any abiguity in case if the segment
+    //   this allow us to avoid any ambiguity in case if the segment
     //   doesn't have any data. The 'segment_containing' method of the
     //   manifest takes this into account.
     // - find materialized segment or materialize the new one
@@ -101,7 +101,7 @@ remote_partition::borrow_result_t remote_partition::borrow_next_reader(
                   maybe_meta->get().base_offset);
             }
         } else {
-            // In this case the lookup is perfomed by kafka offset.
+            // In this case the lookup is performed by kafka offset.
             // Normally, this would be the first lookup done by the
             // partition_record_batch_reader_impl. This lookup will
             // skip segments without data batches (the logic is implemented
@@ -110,7 +110,7 @@ remote_partition::borrow_result_t remote_partition::borrow_next_reader(
         }
         if (mit == _manifest.end()) {
             // Segment that matches exactly can't be found in the manifest. In
-            // this case we want to start scanning from the begining of the
+            // this case we want to start scanning from the beginning of the
             // partition if the start of the manifest is contained by the scan
             // range.
             auto so = _manifest.get_start_kafka_offset().value_or(
@@ -260,7 +260,7 @@ public:
                 vlog(_ctxlog.debug, "We're overbudget, stopping");
                 // We need to stop in such way that will keep the
                 // reader in the reusable state, so we could reuse
-                // it on next itertaion
+                // it on next iteration
 
                 // The existing state have to be rebuilt
                 dispose_current_reader();
@@ -383,7 +383,7 @@ private:
 
     /// Reset reader if current segment is fully consumed.
     /// The object may transition onto a next segment or
-    /// it will transtion into completed state with no reader
+    /// it will transition into completed state with no reader
     /// attached.
     ss::future<bool> maybe_reset_reader() {
         vlog(_ctxlog.debug, "maybe_reset_reader called");
@@ -620,7 +620,7 @@ remote_partition::aborted_transactions(offset_range offsets) {
     vlog(
       _ctxlog.debug,
       "found {} aborted transactions for {}-{} offset range ({}-{} before "
-      "offset translaction)",
+      "offset translation)",
       result.size(),
       offsets.begin,
       offsets.end,
@@ -1018,7 +1018,7 @@ ss::future<> remote_partition::erase(
 
     // Having handled errors above, now our partition manifest fetch was
     // either a notfound (skip straight to erasing topic manifest), or a
-    // success (iterate through manifest deleting segements)
+    // success (iterate through manifest deleting segments)
 
     // Erase all segments
     const size_t batch_size = 1000;

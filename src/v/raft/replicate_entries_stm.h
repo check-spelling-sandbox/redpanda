@@ -89,7 +89,7 @@ public:
     ~replicate_entries_stm();
 
     /// caller have to pass semaphore units, the apply call will do the
-    /// fine grained locking on behalf of the caller
+    /// fine-grained locking on behalf of the caller
     ss::future<result<replicate_result>>
       apply(std::vector<ssx::semaphore_units>);
 
@@ -101,7 +101,7 @@ public:
 
     /**
      * Waits for all related background future to finish - required to be called
-     * before destorying the stm
+     * before destroying the stm
      */
     ss::future<> wait_for_shutdown();
 

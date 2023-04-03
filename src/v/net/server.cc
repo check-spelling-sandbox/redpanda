@@ -359,7 +359,7 @@ std::ostream& operator<<(std::ostream& o, const server_configuration& c) {
 
 std::ostream& operator<<(std::ostream& os, const server_endpoint& ep) {
     /**
-     * We use simmillar syntax to kafka to indicate if endpoint is secured f.e.:
+     * We use similar syntax to kafka to indicate if endpoint is secured f.e.:
      *
      * SECURED://127.0.0.1:9092
      */

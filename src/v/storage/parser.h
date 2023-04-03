@@ -33,7 +33,7 @@ namespace storage {
 class batch_consumer {
 public:
     /// \brief  stopping the parser, may or may not be an error condition
-    /// it is a public interface indended to signal the internals of the parser
+    /// it is a public interface intended to signal the internals of the parser
     /// wether to continue or not.
     using stop_parser = ss::bool_class<struct stop_parser_tag>;
     /**

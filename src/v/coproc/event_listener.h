@@ -39,7 +39,7 @@ public:
 
     /// To be invoked once on redpanda::application startup
     ///
-    /// \brief Connects the kafka::client to this broker, starts all registred
+    /// \brief Connects the kafka::client to this broker, starts all registered
     /// handler and starts the loop
     ss::future<> start();
 

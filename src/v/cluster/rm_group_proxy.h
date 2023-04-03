@@ -23,7 +23,7 @@ public:
 
     // Timeout from begin_group_tx is not
     // used inside handler for begin_group_tx.
-    // So we can pass usefull tx timeout
+    // So we can pass useful tx timeout
     // to store it in group service for expire
     // old txs.
     virtual ss::future<begin_group_tx_reply> begin_group_tx(

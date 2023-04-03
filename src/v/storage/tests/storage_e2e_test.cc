@@ -90,7 +90,7 @@ void compact_and_prefix_truncate(
 }
 
 FIXTURE_TEST(
-  test_assinging_offsets_in_single_segment_log, storage_test_fixture) {
+  test_assigning_offsets_in_single_segment_log, storage_test_fixture) {
     storage::log_manager mgr = make_log_manager();
     info("Configuration: {}", mgr.config());
     auto deferred = ss::defer([&mgr]() mutable { mgr.stop().get0(); });
@@ -266,7 +266,7 @@ FIXTURE_TEST(test_reading_range_from_a_log, storage_test_fixture) {
     log.flush().get0();
     auto batches = read_and_validate_all_batches(log);
 
-    // range from base of beging to last of end
+    // range from base of beginning to last of end
     auto range = read_range_to_vector(
       log, batches[3].base_offset(), batches[7].last_offset());
     BOOST_REQUIRE_EQUAL(range.size(), 5);
@@ -285,7 +285,7 @@ FIXTURE_TEST(test_reading_range_from_a_log, storage_test_fixture) {
     BOOST_REQUIRE_EQUAL(range.size(), 5);
     BOOST_REQUIRE_EQUAL(range.front().header().crc, batches[3].header().crc);
     BOOST_REQUIRE_EQUAL(range.back().header().crc, batches[7].header().crc);
-    // range from base of beging to the middle of end
+    // range from base of beginning to the middle of end
     range = read_range_to_vector(
       log,
       batches[3].base_offset(),
@@ -690,7 +690,7 @@ FIXTURE_TEST(test_eviction_notification, storage_test_fixture) {
       .get();
     auto compacted_lstats = log.offsets();
     info("Compacted offsets {}", compacted_lstats);
-    // check if compaction happend
+    // check if compaction happened
     BOOST_REQUIRE_EQUAL(
       compacted_lstats.start_offset,
       lstats_before.dirty_offset + model::offset(1));
@@ -917,7 +917,7 @@ FIXTURE_TEST(empty_segment_recovery, storage_test_fixture) {
     BOOST_REQUIRE_EQUAL(log.offsets().dirty_offset, model::offset(6));
 }
 
-FIXTURE_TEST(test_compation_preserve_state, storage_test_fixture) {
+FIXTURE_TEST(test_compassion_preserve_state, storage_test_fixture) {
     auto cfg = default_log_config(test_dir);
     auto ntp = model::ntp("default", "test", 0);
     // compacted topic
@@ -2247,7 +2247,7 @@ FIXTURE_TEST(test_querying_term_last_offset, storage_test_fixture) {
     // append more batches in the same term
     append_random_batches(log, 10, model::term_id(1));
     auto lstats_term_1 = log.offsets();
-    // append some batche sin term 2
+    // append some batches in term 2
     append_random_batches(log, 10, model::term_id(2));
 
     BOOST_REQUIRE_EQUAL(
@@ -2696,7 +2696,7 @@ FIXTURE_TEST(compaction_truncation_corner_cases, storage_test_fixture) {
       };
     {
         /**
-         * Truncate with dirty offset being preceeded by a gap
+         * Truncate with dirty offset being preceded by a gap
          *
          * segment: [[batch (base_offset: 0)][gap][batch (base_offset: 10)]]
          *

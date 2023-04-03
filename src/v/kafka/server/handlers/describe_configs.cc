@@ -115,10 +115,10 @@ consteval describe_configs_type property_config_type() {
         std::is_same_v<T, v8_engine::data_policy>;
 
     constexpr auto is_long_type = is_long<T> ||
-        // Long type since seconds is atleast a 35-bit signed integral
+        // Long type since seconds is at least a 35-bit signed integral
         // https://en.cppreference.com/w/cpp/chrono/duration
         std::is_same_v<T, std::chrono::seconds> ||
-        // Long type since milliseconds is atleast a 45-bit signed integral
+        // Long type since milliseconds is at least a 45-bit signed integral
         // https://en.cppreference.com/w/cpp/chrono/duration
         std::is_same_v<T, std::chrono::milliseconds>;
     // clang-format on
@@ -157,14 +157,14 @@ static void add_broker_config(
   std::optional<ss::sstring> documentation,
   Func&& describe_f) {
     describe_configs_source src
-      = property.is_overriden() ? describe_configs_source::static_broker_config
-                                : describe_configs_source::default_config;
+      = property.is_overridden() ? describe_configs_source::static_broker_config
+                                 : describe_configs_source::default_config;
 
     std::vector<describe_configs_synonym> synonyms;
     if (include_synonyms) {
         synonyms.reserve(2);
         /**
-         * If value was overriden, include override
+         * If value was overridden, include override
          */
         if (src == describe_configs_source::static_broker_config) {
             synonyms.push_back(describe_configs_synonym{

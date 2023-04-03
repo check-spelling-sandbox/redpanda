@@ -343,7 +343,7 @@ ss::future<> ntp_archiver::upload_until_term_change() {
     }
 
     while (may_begin_uploads()) {
-        // Hold sempahore units to enable other code to know that we are in
+        // Hold semaphore units to enable other code to know that we are in
         // the process of doing uploads + wait for us to drop out if they
         // e.g. set _paused.
         vassert(!_paused, "may_begin_uploads must ensure !_paused");
@@ -396,7 +396,7 @@ ss::future<> ntp_archiver::upload_until_term_change() {
         } else if (non_compacted_upload_result.num_succeeded != 0) {
             vlog(
               _rtclog.debug,
-              "Successfuly uploaded {} segments",
+              "Successfully uploaded {} segments",
               non_compacted_upload_result.num_succeeded);
         }
 
@@ -469,7 +469,7 @@ ss::future<> ntp_archiver::sync_manifest_until_term_change() {
         } else {
             vlog(
               _rtclog.debug,
-              "Successfuly downloaded manifest {}",
+              "Successfully downloaded manifest {}",
               manifest().get_manifest_path());
         }
         co_await ss::sleep_abortable(_sync_manifest_timeout(), _as);
@@ -516,7 +516,7 @@ ss::future<cloud_storage::download_result> ntp_archiver::sync_manifest() {
         // - Add all segments between old last_offset and new last_offset
         // - Compare all segments below last compacted offset with their
         //   counterparts in the old manifest and re-add them if they are
-        //   diferent.
+        //   different.
         // - Apply new start_offset if it's different
         auto offset = model::next_offset(manifest().get_last_offset());
         for (auto it = m.segment_containing(offset); it != m.end(); it++) {
@@ -1058,7 +1058,7 @@ ntp_archiver::schedule_uploads(model::offset last_stable_offset) {
     //
     // When there are no segments but there is a non-zero 'last_offset', all
     // cloud segments have been removed for retention. In that case, we still
-    // need to take into accout 'last_offset'.
+    // need to take into account 'last_offset'.
     auto last_offset = manifest().get_last_offset();
     auto start_upload_offset = manifest().size() == 0
                                    && last_offset == model::offset(0)
@@ -1537,7 +1537,7 @@ ss::future<> ntp_archiver::housekeeping() {
             }
         }
     } catch (std::exception& e) {
-        vlog(_rtclog.warn, "Error occured during housekeeping", e.what());
+        vlog(_rtclog.warn, "Error occurred during housekeeping", e.what());
     }
 }
 
@@ -1572,7 +1572,7 @@ ss::future<ntp_archiver::manifest_updated> ntp_archiver::apply_retention() {
         } else {
             vlog(
               _rtclog.warn,
-              "Failed to update archival metadata STM start offest according "
+              "Failed to update archival metadata STM start offset according "
               "to retention policy: {}",
               error);
         }
@@ -1769,7 +1769,7 @@ ss::future<bool> ntp_archiver::upload(
     // the only reason why the list of locks is empty is truncation.
     // The log could be truncated right after we scanned the manifest to
     // find upload candidate. In this case we will get an empty candidate
-    // which is not a failure so we shuld return 'true'.
+    // which is not a failure so we should return 'true'.
     return ss::make_ready_future<bool>(true);
 }
 

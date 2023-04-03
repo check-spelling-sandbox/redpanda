@@ -137,8 +137,8 @@ public:
       uint64_t, ss::input_stream<char>)>;
 
     /// Functor that should be provided by user when list_objects api is called.
-    /// It receives every key that matches the query as well as it's modifiation
-    /// time, size in bytes, and etag.
+    /// It receives every key that matches the query as well as it's
+    /// modification time, size in bytes, and etag.
     using list_objects_consumer = std::function<ss::stop_iteration(
       ss::sstring, std::chrono::system_clock::time_point, size_t, ss::sstring)>;
 
@@ -180,7 +180,7 @@ public:
     /// \brief Download manifest from pre-defined S3 location
     ///
     /// Method downloads the manifest and handles backpressure and
-    /// errors. It retries multiple times until timeout excedes.
+    /// errors. It retries multiple times until timeout exceeds.
     /// \param bucket is a bucket name
     /// \param key is an object key of the manifest
     /// \param manifest is a manifest to download
@@ -194,7 +194,7 @@ public:
     /// \brief Download manifest from pre-defined S3 location
     ///
     /// Method downloads the manifest and handles backpressure and
-    /// errors. It retries multiple times until timeout excedes.
+    /// errors. It retries multiple times until timeout exceeds.
     /// The method expects that the manifest might be missing from
     /// S3 bucket. It behaves exactly the same as 'download_manifest'.
     /// The only difference is that 'NoSuchKey' error is not logged
@@ -335,7 +335,7 @@ public:
     ///
     /// The filter can be used to subscribe to subset of events.
     /// For instance, only to segment downloads and uploads, or to
-    /// events from all sybsystems except one.
+    /// events from all subsystems except one.
     /// The filter is a RAII object. It works until the object
     /// exists. If the filter is destroyed before the notification
     /// will be received the receiver of the event will se broken
@@ -386,7 +386,7 @@ public:
     /// failed. Also, every retry is generating its own notification.
     ///
     /// \param filter is a notification filter which allows to narrow the set of
-    ///        posible notificatoins by source and type.
+    ///        possible notifications by source and type.
     /// \return the future which will be available after the next cloud storage
     ///         API operation.
     ss::future<api_activity_notification> subscribe(event_filter& filter);

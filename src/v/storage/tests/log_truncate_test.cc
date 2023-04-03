@@ -329,7 +329,7 @@ FIXTURE_TEST(test_truncate_last_single_record_batch, storage_test_fixture) {
 }
 
 FIXTURE_TEST(
-  test_truncate_whole_log_when_logs_are_garbadge_collected,
+  test_truncate_whole_log_when_logs_are_garbage_collected,
   storage_test_fixture) {
     auto cfg = default_log_config(test_dir);
     storage::log_manager mgr = make_log_manager(cfg);
@@ -353,7 +353,7 @@ FIXTURE_TEST(
     auto ts = now();
     append_random_batches(log, 10, model::term_id(0));
     log.flush().get0();
-    // garbadge collect first append series
+    // garbage collect first append series
     ss::abort_source as;
     log
       .compact(compaction_config(
@@ -496,7 +496,7 @@ FIXTURE_TEST(truncated_segment_recovery, storage_test_fixture) {
 
         auto next_offsets = (*next)->offsets();
         BOOST_REQUIRE_EQUAL(next_offsets.base_offset, truncate_offset);
-        // segment commited offset has to be lower than next segment base
+        // segment committed offset has to be lower than next segment base
         // offset
         BOOST_REQUIRE_LT(offsets.committed_offset, next_offsets.base_offset);
     }
@@ -686,7 +686,7 @@ FIXTURE_TEST(test_index_max_timestamp_update, storage_test_fixture) {
     // The maximum timestamp in the index should be the maximum
     // timestamp of the batch preceeding the batch where the truncation
     // occurred. In this case, truncation happened in the last batch,
-    // so we require the max timestmap to be that of the previous second
+    // so we require the max timestamp to be that of the previous second
     // batch.
     BOOST_REQUIRE(impl.segment_count() == 1);
     const auto& seg = impl.segments().front();

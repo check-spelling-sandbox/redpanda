@@ -114,7 +114,7 @@ std::string_view to_string_view(feature_state::state s) {
 // versions mapped to redpanda release versions:
 //  22.1.1 -> 3  (22.1.5 was version 4)
 //  22.2.1 -> 5  (22.2.6 later proceeds to version 6)
-//  22.3.1 -> 7  (22.3.6 later proceeds to verison 8)
+//  22.3.1 -> 7  (22.3.6 later proceeds to version 8)
 //  23.1.1 -> 9
 //  23.2.1 -> 10
 //

@@ -163,7 +163,7 @@ std::vector<errc> pacemaker::add_source(
         return found->second->start().handle_exception_type(
           [this, id](const script_exception& e) {
               /// A script must be deregistered due to an internal script error.
-              /// The wasm engine determines the case, most likley the apply()
+              /// The wasm engine determines the case, most likely the apply()
               /// method has thrown or there is a syntax error within the script
               /// itself.
               vlog(coproclog.error, "Script failure handler: {}", e.what());

@@ -126,7 +126,7 @@ public:
 /**
  * Extracts all configurations from underlying reader. Configuration are stored
  * in a vector passed as a reference to reader. The reader can will
- * automatically assing offsets to following batches using provided base offset
+ * automatically assign offsets to following batches using provided base offset
  * as a staring point
  */
 model::record_batch_reader make_config_extracting_reader(
@@ -173,7 +173,7 @@ ss::future<> move_persistent_state(
   ss::shard_id target_shard,
   ss::sharded<storage::api>&);
 
-/// Creates persitent state for pre-existing partition (stored in S3 bucket).
+/// Creates persistent state for preexisting partition (stored in S3 bucket).
 ///
 /// The function is supposed to be called before creating a raft group with the
 /// same group_id. The created group will have 'start_offset' equal to

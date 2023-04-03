@@ -41,7 +41,7 @@ public:
      * This function yields every so often while erasing all elements
      * in a container.
      *
-     * The type is specific to absl::flat_hash_map to avoid accidentially
+     * The type is specific to absl::flat_hash_map to avoid accidentally
      * using this function on types where repeatedly erasing from the start is
      * very expensive, like std::vector.
      */

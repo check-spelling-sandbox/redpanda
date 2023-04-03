@@ -84,9 +84,9 @@ public:
 
     /// Determine throttling required by shard level TP quotas.
     /// @param connection_throttle_until (in,out) until what time the client
-    /// on this conection should throttle until. If it does not, this throttling
-    /// will be enforced on the next call. In: value from the last call, out:
-    /// value saved until the next call.
+    /// on this connection should throttle until. If it does not, this
+    /// throttling will be enforced on the next call. In: value from the last
+    /// call, out: value saved until the next call.
     delays_t get_shard_delays(
       clock::time_point& connection_throttle_until,
       clock::time_point now) const;
@@ -135,7 +135,7 @@ private:
     ss::future<> quota_balancer_step();
 
     /// A step of balancer that applies any updates from configuration changes.
-    /// Spawned by configration bindings watching changes of the properties.
+    /// Spawned by configuration bindings watching changes of the properties.
     /// Runs on the balancer shard only.
     ss::future<> quota_balancer_update(
       ingress_egress_state<std::optional<quota_t>> old_node_quota_default,

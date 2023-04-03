@@ -272,7 +272,7 @@ FIXTURE_TEST(feature_uniqueness, feature_table_fixture) {
 
 /**
  * Validate that the bootstrap method not only updates the cluster version,
- * but also activates elegible features.
+ * but also activates eligible features.
  */
 FIXTURE_TEST(feature_table_bootstrap, feature_table_fixture) {
     bootstrap_active_version(cluster_version{2001});

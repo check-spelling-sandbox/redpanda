@@ -68,7 +68,7 @@ segment_name generate_local_segment_name(model::offset o, model::term_id t);
 remote_manifest_path
 generate_partition_manifest_path(const model::ntp&, model::initial_revision_id);
 
-// This structure can be impelenented
+// This structure can be implemented
 // to allow access to private fields of the manifest.
 struct partition_manifest_accessor;
 
@@ -101,7 +101,7 @@ public:
         static segment_meta convert(const lw_segment_meta& m);
     };
 
-    /// Segment key in the maifest
+    /// Segment key in the manifest
     using key = model::offset;
     using value = segment_meta;
     using segment_map = util::mem_tracked::map_t<absl::btree_map, key, value>;
@@ -211,7 +211,7 @@ public:
     /// exists, return the end iterator.
     const_iterator first_addressable_segment() const;
 
-    /// Return iterator to the begining(end) of the segments list
+    /// Return iterator to the beginning(end) of the segments list
     const_iterator begin() const;
     const_iterator end() const;
     std::optional<segment_meta> last_segment() const;
@@ -249,7 +249,7 @@ public:
     /// Only allows start_offset to move forward
     /// and can only be placed on a segment boundary (should
     /// be equal to base_offset of one of the segments).
-    /// Empty manfest has start_offset set to model::offset::min()
+    /// Empty manifest has start_offset set to model::offset::min()
     /// \returns true if start offset was moved
     bool advance_start_offset(model::offset start_offset);
 

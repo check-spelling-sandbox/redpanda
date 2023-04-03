@@ -153,7 +153,7 @@ SEASTAR_THREAD_TEST_CASE(partition_iterator) {
 }
 
 // TODO: when we have a more precise log builder tool we can make these finer
-// grained tests. for now the test is coarse grained based on the random batch
+// grained tests. for now the test is coarse-grained based on the random batch
 // builder.
 FIXTURE_TEST(read_from_ntp_max_bytes, redpanda_thread_fixture) {
     auto do_read = [this](model::ntp ntp, size_t max_bytes) {

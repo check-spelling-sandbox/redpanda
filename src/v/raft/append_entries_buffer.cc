@@ -25,7 +25,7 @@ append_entries_buffer::enqueue(append_entries_request&& r) {
     gate_guard guard(_gate);
 
     // we normally do not want to wait as it would cause requests
-    // reordering. Reordering may only happend if we would wait on condition
+    // reordering. Reordering may only happened if we would wait on condition
     // variable.
 
     return _flushed.wait([this] { return _requests.size() < _max_buffered; })
@@ -46,7 +46,7 @@ ss::future<> append_entries_buffer::stop() {
     _enqueued.broken();
     _flushed.broken();
     // wait for gate to be closed so all the pending requests will finish before
-    // we invalidate pending promisses
+    // we invalidate pending promises
     co_await std::move(f);
     auto response_promises = std::exchange(_responses, {});
     // set errors
@@ -126,7 +126,7 @@ void append_entries_buffer::propagate_results(
   std::vector<reply_t> replies, response_t response_promises) {
     vassert(
       replies.size() == response_promises.size(),
-      "Number of requests and response promiseshave to be equal. Have {} "
+      "Number of requests and response promises have to be equal. Have {} "
       "response promises and {} requests",
       response_promises.size(),
       replies.size());

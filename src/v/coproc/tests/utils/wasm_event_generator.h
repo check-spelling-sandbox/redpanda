@@ -21,16 +21,16 @@
 
 namespace coproc::wasm {
 
-/// Since c++ cannot dynamically instatiante source code aquired from a payload
+/// Since c++ cannot dynamically instantiate source code acquired from a payload
 /// over the network (like the nodejs wasm engine can), this payload is defined
 /// which instead carries a coprocessor class name and arguments for which the
-/// coproc::supervisor can use to explicity instantate the desired coproc
+/// coproc::supervisor can use to explicity instantiate the desired coproc
 struct cpp_enable_payload {
     registry::type_identifier tid;
     coprocessor::input_set topics;
 };
 
-/// Convienent struct for bundling together data necessary to serialize a
+/// Convenient struct for bundling together data necessary to serialize a
 /// wasm_event into a model::record. Any field set to std::nullopt will be
 /// skipped during serialization, useful for testing failure cases
 struct event {
@@ -47,14 +47,14 @@ struct event {
     /// Use the single arg constructor to create remove events
     event(uint64_t, std::optional<event_type> = std::nullopt);
 
-    // And the two arg consutrctor to create deploy events
+    // And the two arg constructor to create deploy events
     event(
       uint64_t, cpp_enable_payload, std::optional<event_type> = std::nullopt);
 };
 
 /// \brief Generates an event that models the 'wasm_event' struct passed in. Any
 /// optional fields aren't serialized into the resultant record, useful for
-/// testing failure cases against malformatted record events
+/// testing failure cases against malformed record events
 model::record make_record(const event&);
 
 /// \brief Returns a record batch reader that generates random valid wasm_events

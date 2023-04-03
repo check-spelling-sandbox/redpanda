@@ -833,7 +833,7 @@ SEASTAR_THREAD_TEST_CASE(test_same_size_reupload_skipped) {
     // 'segment_collector' should not propose the re-upload
     // of a single segment if the compacted size is equal to
     // the size of the segment in the manifest. In that case,
-    // the resulting addresable name in cloud storage would be the
+    // the resulting addressable name in cloud storage would be the
     // same for the segment before and after compaction. This would
     // result in the deletion of the segment.
     //
@@ -897,8 +897,8 @@ SEASTAR_THREAD_TEST_CASE(test_same_size_reupload_skipped) {
     // Mark the second segment as having completed self compaction
     // and collect segments for re-upload again. This time,
     // 'should_replace_manifest_segment' must return 'true',
-    // as we are not replacing a signle segment and there's no
-    // posibility for a clash (two segments get replaced with one).
+    // as we are not replacing a single segment and there's no
+    // possibility for a clash (two segments get replaced with one).
     b.get_segment(1).mark_as_finished_self_compaction();
 
     {

@@ -27,7 +27,7 @@ def sample_license():
 
 class IsCIOrNotEmpty:
     """
-    Comparison with this object is true if the environemnt is CI, or if the
+    Comparison with this object is true if the environment is CI, or if the
     other value is not empty.
 
     Useful as a markup on a test that must run in CI or when the env is present:

@@ -426,7 +426,7 @@ class simple_fetch_planner final : public fetch_planner::impl {
           [&resp_it, &octx, &plan, &bytes_left_in_plan](
             const fetch_session_partition& fp) {
               // if this is not an initial fetch we are allowed to skip
-              // partions that aleready have an error or we have enough data
+              // partitions that already have an error or we have enough data
               if (!octx.initial_fetch) {
                   bool has_enough_data = !resp_it->empty()
                                          && octx.over_min_bytes();
@@ -596,7 +596,7 @@ op_context::op_context(request_context&& ctx, ss::smp_service_group ssg)
 
     /*
      * TODO: max size is multifaceted. it needs to be absolute, but also
-     * integrate with other resource contraints that are dynamic within the
+     * integrate with other resource constraints that are dynamic within the
      * kafka server itself.
      */
     bytes_left = std::min(

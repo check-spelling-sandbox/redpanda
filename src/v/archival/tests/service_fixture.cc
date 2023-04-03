@@ -168,7 +168,7 @@ archiver_fixture::get_configurations() {
       ss::sstring(httpd_host_name), httpd_port_number());
     cloud_storage_clients::s3_configuration s3conf;
     s3conf.uri = cloud_storage_clients::access_point_uri(httpd_host_name);
-    s3conf.access_key = cloud_roles::public_key_str("acess-key");
+    s3conf.access_key = cloud_roles::public_key_str("access-key");
     s3conf.secret_key = cloud_roles::private_key_str("secret-key");
     s3conf.region = cloud_roles::aws_region_name("us-east-1");
     s3conf._probe = ss::make_shared(cloud_storage_clients::client_probe(
@@ -217,7 +217,7 @@ archiver_fixture::get_started_log_builder(
     builder->start(std::move(ntp_cfg)).get();
     return builder;
 }
-/// Wait unill all information will be replicated and the local node
+/// Wait until all information will be replicated and the local node
 /// will become a leader for 'ntp'.
 void archiver_fixture::wait_for_partition_leadership(const model::ntp& ntp) {
     vlog(fixt_log.trace, "waiting for partition {}", ntp);

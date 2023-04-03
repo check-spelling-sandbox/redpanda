@@ -107,7 +107,7 @@ public:
      * There are two important pieces in this comment:
      *
      *   1) "non-transaction message are considered decided immediately".
-     *   Since we currently use the commited_offset to report the end of log to
+     *   Since we currently use the committed_offset to report the end of log to
      *   kafka clients, simply report the next offset.
      *
      *   2) "first offset such that all lower offsets have been decided". this
@@ -122,7 +122,7 @@ public:
     }
 
     /**
-     * All batches with offets smaller than high watermark are visible to
+     * All batches with offsets smaller than high watermark are visible to
      * consumers. Named high_watermark to be consistent with Kafka nomenclature.
      */
     model::offset high_watermark() const {
@@ -137,7 +137,7 @@ public:
 
     /// Return the offset up to which the storage layer would like to
     /// prefix truncate the log, if any.  This may be consumed as an indicator
-    /// that any truncation-delaying activitiy (like uploading to tiered
+    /// that any truncation-delaying activity (like uploading to tiered
     /// storage) could be expedited to enable local disk space to be reclaimed.
     std::optional<model::offset> eviction_requested_offset() {
         if (_log_eviction_stm) {

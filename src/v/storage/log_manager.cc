@@ -104,7 +104,7 @@ log_config::log_config(
   config::binding<std::chrono::milliseconds> compaction_ival,
   config::binding<std::optional<std::chrono::milliseconds>> del_ret,
   with_cache c,
-  batch_cache::reclaim_options recopts,
+  batch_cache::reclaim_options receipts,
   std::chrono::milliseconds rdrs_cache_eviction_timeout,
   ss::scheduling_group compaction_sg) noexcept
   : base_dir(std::move(directory))
@@ -118,7 +118,7 @@ log_config::log_config(
   , compaction_interval(std::move(compaction_ival))
   , delete_retention(std::move(del_ret))
   , cache(c)
-  , reclaim_opts(recopts)
+  , reclaim_opts(receipts)
   , readers_cache_eviction_timeout(rdrs_cache_eviction_timeout)
   , compaction_sg(compaction_sg) {}
 
@@ -455,7 +455,7 @@ ss::future<> remove_orphan_partition_files(
                                            filesystem_error const& err) {
                     vlog(
                       stlog.error,
-                      "Exception while cleaning oprhan files for {} Error: {}",
+                      "Exception while cleaning orphan files for {} Error: {}",
                       ntp_directory,
                       err);
                 });
@@ -507,14 +507,14 @@ ss::future<> log_manager::remove_orphan_files(
                   [](std::filesystem::filesystem_error const& err) {
                       vlog(
                         stlog.error,
-                        "Exception while cleaning oprhan files {}",
+                        "Exception while cleaning orphan files {}",
                         err);
                   });
           })
           .handle_exception_type(
             [](std::filesystem::filesystem_error const& err) {
                 vlog(
-                  stlog.error, "Exception while cleaning oprhan files {}", err);
+                  stlog.error, "Exception while cleaning orphan files {}", err);
             });
     }
     co_return;

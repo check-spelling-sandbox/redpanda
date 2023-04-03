@@ -154,7 +154,7 @@ def verify_file_layout(baseline_per_host,
     file name of the restored segment might be different from the original
     segment. This is because we're deleting raft configuration batches
     from the segments.
-    The function checks the size of the parition over the size of the original.
+    The function checks the size of the partition over the size of the original.
     The assertion is triggered only if the difference can't be explained by the
     upload lag and removal of configuration/archival-metadata batches.
     """
@@ -276,7 +276,7 @@ def get_expected_ntp_restored_size(nodes_segments_report: dict[str,
                                                                     (str,
                                                                      int)]],
                                    retention_policy: int):
-    """ Get expected retestored ntp disk size
+    """ Get expected restored ntp disk size
     We expect that redpanda will restore max
     amount of segments with total size less
     than retention_policy

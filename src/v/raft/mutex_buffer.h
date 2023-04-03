@@ -15,7 +15,7 @@ namespace raft::details {
 /**
  * This class allow to buffer arguments of a callers waiting for mutex and
  * when mutex is eventually available execute all buffered calls without
- * releasing mutex in beetween single calls.
+ * releasing mutex in between single calls.
  */
 template<typename Request, typename Response>
 class mutex_buffer {
@@ -36,8 +36,8 @@ public:
               ss::promise<Response> p;
               auto f = p.get_future();
               _requests.push_back(std::move(r));
-              _responsens.push_back(std::move(p));
-              _enequeued.signal();
+              _responses.push_back(std::move(p));
+              _enqueued.signal();
               return f;
           });
     }
@@ -55,7 +55,7 @@ public:
     void start(Func&& f);
 
     ss::future<> stop() {
-        _enequeued.broken();
+        _enqueued.broken();
         return _gate.close();
     }
 
@@ -68,8 +68,8 @@ private:
     ss::future<> do_flush(request_t, response_t, Func&& f);
 
     request_t _requests;
-    response_t _responsens;
-    ss::condition_variable _enequeued;
+    response_t _responses;
+    ss::condition_variable _enqueued;
     ss::gate _gate;
     mutex& _mutex;
     const size_t _max_buffered;
@@ -85,7 +85,7 @@ void mutex_buffer<Request, Response>::start(Func&& f) {
         return ss::do_until(
           [this] { return _gate.is_closed(); },
           [this, f = std::forward<Func>(f)]() mutable {
-              return _enequeued.wait([this] { return !_requests.empty(); })
+              return _enqueued.wait([this] { return !_requests.empty(); })
                 .then([this, f = std::forward<Func>(f)]() mutable {
                     return flush(std::forward<Func>(f));
                 });
@@ -96,7 +96,7 @@ template<typename Request, typename Response>
 template<typename Func>
 ss::future<> mutex_buffer<Request, Response>::flush(Func&& f) {
     auto requests = std::exchange(_requests, {});
-    auto response_promises = std::exchange(_responsens, {});
+    auto response_promises = std::exchange(_responses, {});
 
     return _mutex.with(
       [this,

@@ -34,7 +34,7 @@ namespace cluster {
 
 /// Implementation of metadata dissemination service.
 /// This service handles leadership updates on remote nodes that doesn't have
-/// instances of raft group that current node have. Instace of raft group
+/// instances of raft group that current node have. Instance of raft group
 /// triggers leadership notification and by that mean updates leadership in
 /// metadata cache.
 /// The service caches all leadership updates and sends them as
@@ -42,7 +42,7 @@ namespace cluster {
 /// responsible for querying one of the cluster nodes for current leadership
 /// metadata when node has started.
 ///
-/// Used acronymes:
+/// Used acronyms:
 /// RG<num> - raft group with <num> id
 ///
 /// Exemplary dissemination scenario:

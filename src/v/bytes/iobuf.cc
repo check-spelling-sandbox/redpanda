@@ -36,7 +36,7 @@ ss::scattered_message<char> iobuf_as_scattered(iobuf b) {
           ++chunk_no;
           vassert(
             chunk_no <= std::numeric_limits<int16_t>::max(),
-            "Invalid construction of scattered_message. fragment coutn exceeds "
+            "Invalid construction of scattered_message. fragment count exceeds "
             "max count:{}. Usually a bug with small append() to iobuf. {}",
             chunk_no,
             b);

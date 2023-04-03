@@ -66,7 +66,7 @@ ss::future<> create_coproc_internal_topic(kafka::client::client& client) {
 ss::future<std::vector<kafka::produce_response::partition>> publish_events(
   kafka::client::client& client, model::record_batch_reader reader) {
     /// TODO: our kafka client doesn't support producing compressed batches,
-    /// however to emmulate the real situation best we should eventually
+    /// however to emulate the real situation best we should eventually
     /// have our unit tests do this once support for this lands.
     return std::move(reader)
       .for_each_ref(

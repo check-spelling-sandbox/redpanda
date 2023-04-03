@@ -107,8 +107,8 @@ ss::future<> configuration_manager::prefix_truncate(model::offset offset) {
          *  NOTE: box with number represent an entry in configuration manager
          */
 
-        // special case, do nothig if we are asked to truncate before or exactly
-        // at the beggining
+        // special case, do nothing if we are asked to truncate before or
+        // exactly at the beginning
         if (_configurations.begin()->first >= offset) {
             return ss::now();
         }
@@ -377,7 +377,7 @@ ss::future<> configuration_manager::maybe_store_highest_known_offset(
         bytes, _bytes_since_last_offset_update_units);
 
     if (
-      _bytes_since_last_offset_update < offset_update_treshold
+      _bytes_since_last_offset_update < offset_update_threshold
       && !checkpoint_hint) {
         co_return;
     }
@@ -451,7 +451,7 @@ int64_t configuration_manager::offset_delta(model::offset o) const {
     if (it == begin()) {
         /**
          * iterator points to the first configuration with offset greater
-         * than then requsted one. Knowing an index of that configuration we
+         * than then requested one. Knowing an index of that configuration we
          * know that there was exactly (index -1) configurations with offset
          * lower than the current one. We can simply subtract one from
          * index.

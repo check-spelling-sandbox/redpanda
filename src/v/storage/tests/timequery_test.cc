@@ -264,7 +264,7 @@ FIXTURE_TEST(timequery_non_monotonic_log, log_builder_fixture) {
 
         if (offset == model::offset(4)) {
             // A timequery will always return from within the
-            // first batch that satifies: `batch_max_timestamp >= needle`.
+            // first batch that satisfies: `batch_max_timestamp >= needle`.
             // So, in this case we pick the first batch with timestamp
             // greater or equal to 1002.
             BOOST_TEST(res);

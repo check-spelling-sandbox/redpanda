@@ -6,7 +6,7 @@
 
 # Executive Summary
 
-Enable admin API clients to authenticate using SASL username/password credientials
+Enable admin API clients to authenticate using SASL username/password credentials
 passed into an HTTP "Basic" Authentication header. 
 
 These checks will be off by default for backward compatibility, but enabled during

@@ -54,14 +54,14 @@ class BaseCase:
     - after_restart_validation (if restart_needed is True)
     Template method can remove all initial state from the cluster and
     restart the nodes if initial_restart_needed is true. This process is
-    needed for thests that depend on revision numbers. With initial cleanup
+    needed for tests that depend on revision numbers. With initial cleanup
     we can guarantee that the initial topic revisions will be the same if we
     will create them in the same order.
     The class variable 'topics' contains list of topics that need to be created
     (it's used by some validations and default create_initial_topics implementation).
     It is usually shadowed by the instance variable with the same name.
     The instance variable expected_recovered_topics contains the list of topics
-    that have to be recovered. It's needed to distinguish betweeen the recovered
+    that have to be recovered. It's needed to distinguish between the recovered
     topics and topics that created to align revision ids. By default it's equal
     to topics.
     """
@@ -259,13 +259,13 @@ class BaseCase:
         conf['redpanda.remote.recovery'] = 'true'
         conf['redpanda.remote.write'] = 'true'
         conf.update(overrides)
-        self.logger.info(f"Confg: {conf}")
+        self.logger.info(f"Config: {conf}")
         self._rpk.create_topic(topic, npart, nrepl, conf)
 
 
 class NoDataCase(BaseCase):
     """Restore topic that didn't have any data in S3 but existed before the recovery.
-    The expected behavior is that topic will be crated but high watermark wil be set to
+    The expected behavior is that topic will be crated but high watermark will be set to
     zero.
     It's perfectly valid to do this because the topic might be actually empty.
     It can also be deleted from the bucket in which case we still need to create a topic
@@ -384,7 +384,7 @@ class MissingTopicManifest(BaseCase):
     """Check the case where the topic manifest doesn't exist.
     We can't download any data but we should create an empty topic and add an error
     message to the log.
-    We need to craete an empty topic because it emables the following mitigation for
+    We need to create an empty topic because it enables the following mitigation for
     the situation when only the topic manifest is missing. The user might just delete
     the topic if the high watermark is 0 after the recovery and restore it second time.
     If the segments are missing from the bucket this won't do any harm but if only the
@@ -428,8 +428,8 @@ class MissingTopicManifest(BaseCase):
 class MissingPartition(BaseCase):
     """Restore topic with one partition missing from the bucket.
 
-    This should restore all partitoins except the missing one.
-    The missing partition should be created emtpy.
+    This should restore all partitions except the missing one.
+    The missing partition should be created empty.
     This might happen naturally if we didn't produce any data
     to the partition (e.g. have two partitions but produced
     only one key).
@@ -523,7 +523,7 @@ class MissingPartition(BaseCase):
 
 class MissingSegment(BaseCase):
     """Restore topic with missing segment in one of the partitions.
-    Should work just fine and valiate.
+    Should work just fine and validate.
     Note: that test removes segment with base offset 0 to ensure that
     the high watermark of the partition will have expected value after
     the recovery.
@@ -737,7 +737,7 @@ class SizeBasedRetention(BaseCase):
         """Run restore procedure. Default implementation runs it for every topic
         that it can find in S3."""
 
-        # check that we had enought data in baseline
+        # check that we had enough data in baseline
         size_bytes_per_ntp = get_on_disk_size_per_ntp(baseline)
 
         for ntp, size_bytes in size_bytes_per_ntp.items():
@@ -747,7 +747,7 @@ class SizeBasedRetention(BaseCase):
             # size_bytes should be larger than amount of data that we produce
             # because segments are actually contain headers
             assert is_close_size(size_bytes, self.max_size_bytes), \
-                f"Not enoug bytes produced, expected {self.max_size_bytes} got {size_bytes}"
+                f"Not enough bytes produced, expected {self.max_size_bytes} got {size_bytes}"
 
         topic_manifests = list(self._get_all_topic_manifests())
         self.logger.info(f"topic_manifests: {topic_manifests}")
@@ -1252,7 +1252,7 @@ class TopicRecoveryTest(RedpandaTest):
             try:
                 for topic in recovered_topics:
                     topic_state = self.rpk.describe_topic(topic.name)
-                    # Describe topics only works after leader election succeded.
+                    # Describe topics only works after leader election succeeded.
                     # We can use it to wait until the recovery is completed.
                     for partition in topic_state:
                         self.logger.info(f"partition: {partition}")

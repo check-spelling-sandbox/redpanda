@@ -149,7 +149,7 @@ with no additional steps.
 > to run it every time, however: you can run it once for each setup that you
 > will use to run a redpanda node, keep the results, and reuse them from there.
 
-Upon statup, rpk will try to detect the current cloud and instance type via the
+Upon startup, rpk will try to detect the current cloud and instance type via the
 different vendors' metadata APIs, setting the correct iotune properties if the
 detected setup is a supported one.
 
@@ -304,7 +304,7 @@ is in the deployment and the data collection. However, it will be a proof of how
 redpanda will go the last mile for its customers, and that we're always one step
 ahead.
 
-Additionally, it will provide us with a very broad picure of the approximate
+Additionally, it will provide us with a very broad picture of the approximate
 performance baseline across clouds and storage types.
 
 ### Alternatives considered

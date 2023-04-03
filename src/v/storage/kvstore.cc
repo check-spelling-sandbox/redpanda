@@ -67,7 +67,7 @@ ss::future<> kvstore::start() {
             ss::metrics::make_total_operations(
               "entries_removed",
               [this] { return _probe.entries_removed; },
-              ss::metrics::description("Number of entries removaled")),
+              ss::metrics::description("Number of entries removed")),
             ss::metrics::make_current_bytes(
               "cached_bytes",
               [this] { return _probe.cached_bytes; },

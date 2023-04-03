@@ -34,7 +34,7 @@ struct retry_counter {
     int cnt = 0;
 };
 
-SEASTAR_THREAD_TEST_CASE(retry_then_succed) {
+SEASTAR_THREAD_TEST_CASE(retry_then_succeed) {
     auto retry_count = retry_with_backoff(
                          5, retry_counter(2), std::chrono::milliseconds(1))
                          .get0();

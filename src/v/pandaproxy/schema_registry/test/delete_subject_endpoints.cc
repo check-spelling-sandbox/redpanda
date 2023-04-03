@@ -202,7 +202,7 @@ FIXTURE_TEST(test_delete_referenced_subject, pandaproxy_test_fixture) {
     }
 
     {
-        info("Permanantly delete subject reference-key");
+        info("Permanently delete subject reference-key");
         auto res = delete_subject(
           client, pps::subject{"reference-key"}, pps::permanent_delete::yes);
         BOOST_REQUIRE_EQUAL(

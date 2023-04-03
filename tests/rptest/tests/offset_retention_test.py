@@ -24,7 +24,7 @@ class OffsetRetentionDisabledAfterUpgrade(RedpandaTest):
     """
     When upgrading to Redpanda v23 or later offset retention should be disabled
     by default. Offset retention did not exist pre-v23, so existing clusters
-    should have to opt-in after upgrade in order to avoid suprises.
+    should have to opt-in after upgrade in order to avoid surprises.
 
     When a cluster upgrades to v23 then only newly committed offsets are
     reclaimed automatically. Offsets written prior to the upgrade must be
@@ -212,7 +212,7 @@ class OffsetRetentionDisabledAfterUpgrade(RedpandaTest):
         rpk.cluster_config_set("group_offset_retention_check_ms", str(1000))
         assert not self._offset_removal_occurred(period, False, True)
 
-        # enable legacy. enablng legacy support takes affect at the next
+        # enable legacy. enabling legacy support takes affect at the next
         # retention check. since that is configured above to happen every second
         # then the response time should be adequate.
         rpk.cluster_config_set("legacy_group_offset_retention_enabled",
@@ -310,7 +310,7 @@ class OffsetDeletionTest(RedpandaTest):
         assert len(output) == 3
         assert_status(output, 'UNKNOWN_TOPIC_OR_PARTITION', missing_topic)
 
-        # Assert offset-delete errors when non-existent group is passed in
+        # Assert offset-delete errors when nonexistent group is passed in
         topic_partitions = {self.topic: [0, 1, 2]}
         output = self.rpk.offset_delete("missing", topic_partitions)
         assert output.status == 'GROUP_ID_NOT_FOUND', output.status

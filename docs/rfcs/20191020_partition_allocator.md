@@ -1,4 +1,4 @@
-- Feature Name: add cluster::parition_allocator
+- Feature Name: add cluster::partition_allocator
 - Status: in-progress
 - Start Date: 2019-10-20
 - Authors: Alex
@@ -78,7 +78,7 @@ Kafka Admin -> _local_ controller -> _global_ controller -> partition_allocator
 * The telemetry is observed locally at each node with the number
   of partitions assigned to each node
 
-* Partition alloation telemetry is deferred
+* Partition allocation telemetry is deferred
 
 ## Detailed design - how
 
@@ -94,7 +94,7 @@ struct allocation_node {
     /// initialized to (#cores * 7000) - 2
     uint32_t _partition_capacity;
    
-    /// each index is a CPU. A weight is roughly the number of assigments
+    /// each index is a CPU. A weight is roughly the number of assignments
     /// _weights.size() == # of cores
     std::vector<uint32_t> _weights;
 };
@@ -146,7 +146,7 @@ deallocation if we later remove the assignment.
 
 The solution however ignores rack diversity, soft constraints
 also known as affinity, anti-affinity for negative
-constraints as well as _hard constraints_ whic make
+constraints as well as _hard constraints_ which make
 the affinities a failure on allocation.
 
 These techniques require a much more sophisticated scheduler,
@@ -200,7 +200,7 @@ N/A. We need _some_ partition allocator for the product.
 
 
 * Internal RPC discussion in case of controller forwarding
-* usage of `machine_lables` is deferred discussion for RPC RFC
+* usage of `machine_labels` is deferred discussion for RPC RFC
 * Taints & Tolerations scheduling, also known as soft and hard
   constraints.
 * Interface exposed to the Kafka Admin API

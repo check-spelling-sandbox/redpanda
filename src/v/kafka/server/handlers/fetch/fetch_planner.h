@@ -14,7 +14,7 @@
 
 namespace kafka {
 /**
- * Fetch planer, creates a fetch plan, set of all partition reads groupped into
+ * Fetch planer, creates a fetch plan, set of all partition reads grouped into
  * shards, based on the fetch request.
  */
 class fetch_planner final {

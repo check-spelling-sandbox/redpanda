@@ -95,7 +95,7 @@ struct adl<model::internal::broker_v0> {
     model::internal::broker_v0 from(iobuf_parser& in);
 };
 
-// TODO: optimize this transmition with varints
+// TODO: optimize this transmission with varints
 template<>
 struct adl<model::record> {
     void to(iobuf& ref, model::record&& record);

@@ -246,7 +246,7 @@ bool client_first_message::token_authenticated() const {
 }
 
 std::ostream& operator<<(std::ostream& os, const client_first_message&) {
-    // NOTE: this stream is intentially left minimal to err away from exposing
+    // NOTE: this stream is intentionally left minimal to err away from exposing
     // anything that may be useful for an attacker to use.
     return os << "{client_first_message}";
 }
@@ -257,7 +257,7 @@ ss::sstring server_first_message::sasl_message() const {
 }
 
 std::ostream& operator<<(std::ostream& os, const server_first_message&) {
-    // NOTE: this stream is intentially left minimal to err away from exposing
+    // NOTE: this stream is intentionally left minimal to err away from exposing
     // anything that may be useful for an attacker to use.
     return os << "{server_first_message}";
 }
@@ -285,7 +285,7 @@ ss::sstring client_final_message::msg_no_proof() const {
 }
 
 std::ostream& operator<<(std::ostream& os, const client_final_message&) {
-    // NOTE: this stream is intentially left minimal to err away from exposing
+    // NOTE: this stream is intentionally left minimal to err away from exposing
     // anything that may be useful for an attacker to use.
     return os << "{client_final_message}";
 }
@@ -298,7 +298,7 @@ ss::sstring server_final_message::sasl_message() const {
 }
 
 std::ostream& operator<<(std::ostream& os, const server_final_message&) {
-    // NOTE: this stream is intentially left minimal to err away from exposing
+    // NOTE: this stream is intentionally left minimal to err away from exposing
     // anything that may be useful for an attacker to use.
     return os << "{server_final_message}";
 }

@@ -174,7 +174,7 @@ private:
       cluster::replication_factor,
       model::timeout_clock::time_point);
 
-    using new_replicas_assigment = std::vector<move_topic_replicas_data>;
+    using new_replicas_assignment = std::vector<move_topic_replicas_data>;
     ss::future<std::error_code> increase_replication_factor(
       model::topic_namespace,
       cluster::replication_factor,

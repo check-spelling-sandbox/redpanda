@@ -60,7 +60,7 @@ async_event_handler::process(absl::btree_map<script_id, parsed_event> wsas) {
         }
     }
     /// TODO: In the future, maybe it would be cleaner to have a add/remove
-    /// endpoint, instead of two seperate RPC endpoints
+    /// endpoint, instead of two separate RPC endpoints
     if (!enables.empty()) {
         enable_copros_request req{.inputs = std::move(enables)};
         auto ec = co_await _dispatcher.enable_coprocessors(std::move(req));

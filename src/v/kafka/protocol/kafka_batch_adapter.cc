@@ -106,7 +106,7 @@ void kafka_batch_adapter::verify_crc(int32_t expected_crc, iobuf_parser in) {
     //   - 4 batch length
     //   - 4 partition leader epoch
     //   - 1 magic
-    //   - 4 exepcted crc
+    //   - 4 expected crc
     //
     static constexpr size_t checksum_data_offset_start = 21;
     in.skip(checksum_data_offset_start);
@@ -124,7 +124,7 @@ void kafka_batch_adapter::verify_crc(int32_t expected_crc, iobuf_parser in) {
         valid_crc = false;
         vlog(
           klog.error,
-          "Cannot validate Kafka record batch. Missmatching CRC. Expected:{}, "
+          "Cannot validate Kafka record batch. Mismatching CRC. Expected:{}, "
           "Got:{}",
           expected_crc,
           crc.value());

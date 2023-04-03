@@ -37,7 +37,7 @@ struct basic_copro_base {
 /// Even though a redpanda_thread_fixture must be stood up to use this fixture,
 /// no coprocessors are ever deployed. This fixture reaches into the application
 /// to grab the partition manager and to create normal topics. After that it
-/// emmulates a single sharded fiber. The main advantage of this is that one can
+/// emulates a single sharded fiber. The main advantage of this is that one can
 /// look into the internal data structure \ref router_t to ensure the retry
 /// mechanism is working as expected
 class fiber_mock_fixture
@@ -75,9 +75,9 @@ public:
 
     /// \brief Starts the pseudo-fiber
     ///
-    /// Emmulates a single sharded script_context. The main advantage of this
+    /// Emulates a single sharded script_context. The main advantage of this
     /// being its now possible to know when a fiber is 'done'. This is when all
-    /// outputs have cought up with their respective inputs.
+    /// outputs have caught up with their respective inputs.
     ///
     /// Throws ss::timed_out_error() if the described predicate isn't reached
     /// before \ref timeout expires
@@ -118,7 +118,7 @@ private:
     make_source(model::ntp input, state& s, test_parameters);
 
 private:
-    /// Static script id, never changes as only emmulates 1 fiber at once
+    /// Static script id, never changes as only emulates 1 fiber at once
     coproc::script_id _id{1};
 
     /// Includes a router + coprocessor per shard

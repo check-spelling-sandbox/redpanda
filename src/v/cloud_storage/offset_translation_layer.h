@@ -43,7 +43,7 @@ public:
     ///
     /// Patch stream content by removing all non-data batches and adjusting the
     /// record batch offsets/checksums.
-    /// The caller is responsible for patching the segement file name and
+    /// The caller is responsible for patching the segment file name and
     /// passing correct base_offset of the original segment.
     ss::future<stream_stats> copy_stream(
       ss::input_stream<char> src,

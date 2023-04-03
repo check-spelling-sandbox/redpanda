@@ -219,7 +219,7 @@ reconciliation_backend::process_update(model::ntp ntp, update_t delta) {
     case op_t::force_abort_update:
     case op_t::update_properties:
         /// All other case statements are no-ops because those events are
-        /// expected to be handled in cluster::controller_backend. Convsersely
+        /// expected to be handled in cluster::controller_backend. Conversely
         /// the controller_backend will not handle the types of events that
         /// reconciliation_backend is responsible for
         return ss::make_ready_future<std::error_code>(errc::success);

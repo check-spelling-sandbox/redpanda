@@ -203,7 +203,7 @@ BOOST_AUTO_TEST_CASE(test_self_test_network_plan) {
     for (unsigned int i = 2; i < 100; ++i) {
         auto nodes = make_nodes(i);
         auto results = cft::netcheck::network_test_plan(nodes);
-        /// math::binominal_coefficent calculates the number of combinations of
+        /// math::binominal_coefficient calculates the number of combinations of
         /// i in groups of 2
         BOOST_CHECK_EQUAL(
           num_tests(results), boost::math::binomial_coefficient<double>(i, 2));

@@ -7,14 +7,14 @@
 #include <absl/container/flat_hash_map.h>
 #include <boost/test/tools/old/interface.hpp>
 
-FIXTURE_TEST(test_single_node_decomissioning, rebalancing_tests_fixture) {
+FIXTURE_TEST(test_single_node_decommissioning, rebalancing_tests_fixture) {
     start_cluster(3);
     create_topic(create_topic_cfg("test-1", 3, 1));
     create_topic(create_topic_cfg("test-2", 4, 3));
     create_topic(create_topic_cfg("test-3", 1, 3));
     create_topic(create_topic_cfg("test-4", 2, 3));
     populate_all_topics_with_data();
-    // decomission single-node
+    // decommission single-node
     auto res = (*get_leader_node_application())
                  ->controller->get_members_frontend()
                  .local()
@@ -30,13 +30,13 @@ FIXTURE_TEST(test_single_node_decomissioning, rebalancing_tests_fixture) {
 
 // TODO: enable when after we investigate issues on aarch_64
 #if 0
-FIXTURE_TEST(test_two_nodes_decomissioning, rebalancing_tests_fixture) {
+FIXTURE_TEST(test_two_nodes_decommissioning, rebalancing_tests_fixture) {
     create_topic(create_topic_cfg("test-1", 3, 1));
     create_topic(create_topic_cfg("test-2", 4, 3));
     create_topic(create_topic_cfg("test-3", 1, 3));
     create_topic(create_topic_cfg("test-4", 2, 3));
     populate_all_topics_with_data();
-    // decomission single-node
+    // decommission single-node
     info("decommissioning node - 0");
     auto res_1 = (*get_leader_node_application())
                    ->controller->get_members_frontend()

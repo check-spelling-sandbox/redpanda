@@ -554,7 +554,7 @@ class CreateTopicUpgradeTest(RedpandaTest):
         assert described['redpanda.remote.write'] == ('true', 'DEFAULT_CONFIG')
         assert described['redpanda.remote.read'] == ('true', 'DEFAULT_CONFIG')
 
-        # Switching off cluster defaults shoudln't affect existing topic
+        # Switching off cluster defaults shouldn't affect existing topic
         self.redpanda.set_cluster_config(
             {
                 'cloud_storage_enable_remote_read': False,

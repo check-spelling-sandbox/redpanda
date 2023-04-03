@@ -104,7 +104,7 @@ ssx::semaphore_units materialized_segments::get_reader_units() {
         trim_readers(max_readers() / 2);
     }
 
-    // TOOD: make this function async so that it can wait until we succeed
+    // TODO: make this function async so that it can wait until we succeed
     // in evicting some readers: trim_readers is not
     // guaranteed to do this, if all readers are in use.
 
@@ -195,7 +195,7 @@ void materialized_segments::trim_readers(size_t target_free) {
  * eviction of the underlying segment and reader objects.
  *
  * This method does not guarantee to free any resources: it will not do
- * anything if no segments have an atime older than the TTL.  Ssee trim_readers
+ * anything if no segments have an atime older than the TTL.  See trim_readers
  * for how to trim the reader population back to a specific size
  *
  * NOTE: This method must never be made async or yield while iterating over

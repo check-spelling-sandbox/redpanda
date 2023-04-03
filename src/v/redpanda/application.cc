@@ -145,13 +145,13 @@ static void set_local_kafka_client_config(
 
 static void
 set_sr_kafka_client_defaults(kafka::client::configuration& client_config) {
-    if (!client_config.produce_batch_delay.is_overriden()) {
+    if (!client_config.produce_batch_delay.is_overridden()) {
         client_config.produce_batch_delay.set_value(0ms);
     }
-    if (!client_config.produce_batch_record_count.is_overriden()) {
+    if (!client_config.produce_batch_record_count.is_overridden()) {
         client_config.produce_batch_record_count.set_value(int32_t(0));
     }
-    if (!client_config.produce_batch_size_bytes.is_overriden()) {
+    if (!client_config.produce_batch_size_bytes.is_overridden()) {
         client_config.produce_batch_size_bytes.set_value(int32_t(0));
     }
 }
@@ -718,7 +718,7 @@ void application::check_for_crash_loop() {
         } catch (const serde::serde_exception&) {
             // A malformed log file, ignore and reset it later.
             // We truncate it below.
-            vlog(_log.warn, "Ignorning malformed tracker file {}", file_path);
+            vlog(_log.warn, "Ignoring malformed tracker file {}", file_path);
         }
     }
 
@@ -731,7 +731,7 @@ void application::check_for_crash_loop() {
         auto& crash_md = maybe_crash_md.value();
         auto& limit = config::node().crash_loop_limit.value();
 
-        // Check if it has been atleast 1h since last unsuccessful restart.
+        // Check if it has been at least 1h since last unsuccessful restart.
         // Tracking resets every 1h.
         auto time_since_last_start
           = model::duration_since_epoch(model::timestamp::now())
@@ -788,7 +788,7 @@ void application::check_for_crash_loop() {
 
 void application::schedule_crash_tracker_file_cleanup() {
     // Schedule a deletion of the tracker file. On a clean shutdown,
-    // the tracker file should be deleted thus reseting the crash count on the
+    // the tracker file should be deleted thus resetting the crash count on the
     // next run. In case of an unclean shutdown, we already bumped
     // the crash count and that should be taken into account in the
     // next run.
@@ -1005,14 +1005,14 @@ void application::wire_up_redpanda_services(model::node_id node_id) {
     syschecks::systemd_message("Building shard-lookup tables").get();
     construct_service(shard_table).get();
 
-    syschecks::systemd_message("Intializing raft recovery throttle").get();
+    syschecks::systemd_message("Initializing raft recovery throttle").get();
     recovery_throttle
       .start(ss::sharded_parameter([] {
           return config::shard_local_cfg().raft_learner_recovery_rate.bind();
       }))
       .get();
 
-    syschecks::systemd_message("Intializing raft group manager").get();
+    syschecks::systemd_message("Initializing raft group manager").get();
     raft_group_manager
       .start(
         node_id,
@@ -1420,7 +1420,7 @@ void application::wire_up_redpanda_services(model::node_id node_id) {
                 = config::shard_local_cfg().kafka_rpc_server_stream_recv_buf;
               auto& tls_config = config::node().kafka_api_tls.value();
               for (const auto& ep : config::node().kafka_api()) {
-                  ss::shared_ptr<ss::tls::server_credentials> credentails;
+                  ss::shared_ptr<ss::tls::server_credentials> credentials;
                   // find credentials for this endpoint
                   auto it = find_if(
                     tls_config.begin(),
@@ -1429,14 +1429,14 @@ void application::wire_up_redpanda_services(model::node_id node_id) {
                         return cfg.name == ep.name;
                     });
                   // if tls is configured for this endpoint build reloadable
-                  // credentails
+                  // credentials
                   if (it != tls_config.end()) {
                       syschecks::systemd_message(
                         "Building TLS credentials for kafka")
                         .get();
                       auto kafka_builder
                         = it->config.get_credentials_builder().get0();
-                      credentails
+                      credentials
                         = kafka_builder
                             ? kafka_builder
                                 ->build_reloadable_server_credentials(
@@ -1452,7 +1452,7 @@ void application::wire_up_redpanda_services(model::node_id node_id) {
                   }
 
                   c.addrs.emplace_back(
-                    ep.name, net::resolve_dns(ep.address).get0(), credentails);
+                    ep.name, net::resolve_dns(ep.address).get0(), credentials);
               }
 
               c.disable_metrics = net::metrics_disabled(
@@ -1929,7 +1929,7 @@ void application::start_runtime_services(
 
     // FIXME: in first patch explain why this is started after the
     // controller so the broker set will be available. Then next patch fix.
-    syschecks::systemd_message("Starting metadata dissination service").get();
+    syschecks::systemd_message("Starting metadata dissemination service").get();
     md_dissemination_service
       .invoke_on_all(&cluster::metadata_dissemination_service::start)
       .get();
@@ -2122,7 +2122,7 @@ void application::load_feature_table_snapshot() {
         // to decode anything it sees on the network or on disk.
         //
         // This case will have stricter enforcement in future, to protect the
-        // user from acccidentally getting a cluster into a broken state by
+        // user from accidentally getting a cluster into a broken state by
         // downgrading too far:
         // https://github.com/redpanda-data/redpanda/issues/7018
 #ifndef NDEBUG

@@ -93,7 +93,7 @@ ss::future<> fiber_mock_fixture::do_run(
         return true;
     };
 
-    /// Emmulates a single script_context fiber, only instead of looping
+    /// Emulates a single script_context fiber, only instead of looping
     /// until shutdown, this loops until single input has been
     /// successfully read
     while (!finished()) {

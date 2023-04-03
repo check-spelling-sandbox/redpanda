@@ -139,7 +139,7 @@ configuration::configuration()
   , coproc_max_inflight_bytes(
       *this,
       "coproc_max_inflight_bytes",
-      "Maximum amountt of inflight bytes when sending data to wasm engine",
+      "Maximum amount of inflight bytes when sending data to wasm engine",
       {.visibility = visibility::tunable},
       10_MiB)
   , coproc_max_ingest_bytes(
@@ -423,7 +423,7 @@ configuration::configuration()
   , metadata_dissemination_interval_ms(
       *this,
       "metadata_dissemination_interval_ms",
-      "Interaval for metadata dissemination batching",
+      "Interval for metadata dissemination batching",
       {.example = "5000", .visibility = visibility::tunable},
       3'000ms)
   , metadata_dissemination_retry_delay_ms(
@@ -476,7 +476,7 @@ configuration::configuration()
       *this,
       "alter_topic_cfg_timeout_ms",
       "Time to wait for entries replication in controller log when executing "
-      "alter configuration requst",
+      "alter configuration request",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
       5s)
   , log_cleanup_policy(
@@ -1242,7 +1242,7 @@ configuration::configuration()
   , cloud_storage_initial_backoff_ms(
       *this,
       "cloud_storage_initial_backoff_ms",
-      "Initial backoff time for exponetial backoff algorithm (ms)",
+      "Initial backoff time for exponential backoff algorithm (ms)",
       {.visibility = visibility::tunable},
       100ms)
   , cloud_storage_segment_upload_timeout_ms(
@@ -1667,7 +1667,7 @@ configuration::configuration()
   , storage_space_alert_free_threshold_percent(
       *this,
       "storage_space_alert_free_threshold_percent",
-      "Threshold of minimim percent free space before setting storage space "
+      "Threshold of minimum percent free space before setting storage space "
       "alert",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
       5,
@@ -1675,7 +1675,7 @@ configuration::configuration()
   , storage_space_alert_free_threshold_bytes(
       *this,
       "storage_space_alert_free_threshold_bytes",
-      "Threshold of minimim bytes free space before setting storage space "
+      "Threshold of minimum bytes free space before setting storage space "
       "alert",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
       0,
@@ -1698,7 +1698,7 @@ configuration::configuration()
       *this,
       "memory_abort_on_alloc_failure",
       "If true, the redpanda process will terminate immediately when an "
-      "allocation cannot be satisfied due to memory exhasution. If false, an "
+      "allocation cannot be satisfied due to memory exhaustion. If false, an "
       "exception is thrown instead.",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
       true)
@@ -1758,9 +1758,9 @@ configuration::configuration()
       "Rate limit for controller topic operations",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
       1000)
-  , controller_log_accummulation_rps_capacity_topic_operations(
+  , controller_log_accumulation_rps_capacity_topic_operations(
       *this,
-      "controller_log_accummulation_rps_capacity_topic_operations",
+      "controller_log_accumulation_rps_capacity_topic_operations",
       "Maximum capacity of rate limit accumulation"
       "in controller topic operations limit",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
@@ -1771,9 +1771,9 @@ configuration::configuration()
       "Rate limit for controller acls and users operations",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
       1000)
-  , controller_log_accummulation_rps_capacity_acls_and_users_operations(
+  , controller_log_accumulation_rps_capacity_acls_and_users_operations(
       *this,
-      "controller_log_accummulation_rps_capacity_acls_and_users_operations",
+      "controller_log_accumulation_rps_capacity_acls_and_users_operations",
       "Maximum capacity of rate limit accumulation"
       "in controller acls and users operations limit",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
@@ -1784,9 +1784,9 @@ configuration::configuration()
       "Rate limit for controller node management operations",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
       1000)
-  , controller_log_accummulation_rps_capacity_node_management_operations(
+  , controller_log_accumulation_rps_capacity_node_management_operations(
       *this,
-      "controller_log_accummulation_rps_capacity_node_management_operations",
+      "controller_log_accumulation_rps_capacity_node_management_operations",
       "Maximum capacity of rate limit accumulation"
       "in controller node management operations limit",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
@@ -1797,9 +1797,9 @@ configuration::configuration()
       "Rate limit for controller move operations",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
       1000)
-  , controller_log_accummulation_rps_capacity_move_operations(
+  , controller_log_accumulation_rps_capacity_move_operations(
       *this,
-      "controller_log_accummulation_rps_capacity_move_operations",
+      "controller_log_accumulation_rps_capacity_move_operations",
       "Maximum capacity of rate limit accumulation"
       "in controller move operations limit",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
@@ -1810,9 +1810,9 @@ configuration::configuration()
       "Rate limit for controller configuration operations",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},
       1000)
-  , controller_log_accummulation_rps_capacity_configuration_operations(
+  , controller_log_accumulation_rps_capacity_configuration_operations(
       *this,
-      "controller_log_accummulation_rps_capacity_configuration_operations",
+      "controller_log_accumulation_rps_capacity_configuration_operations",
       "Maximum capacity of rate limit accumulation"
       "in controller configuration operations limit",
       {.needs_restart = needs_restart::no, .visibility = visibility::tunable},

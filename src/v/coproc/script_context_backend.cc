@@ -104,7 +104,7 @@ static ss::future<> do_write_materialized_partition(
     }
     if (!all_headers_valid) {
         throw malformed_batch_exception(
-          "Wasm engine returned malformatted batch/header");
+          "Wasm engine returned malformed batch/header");
     }
 
     /// Compress the data before writing...
@@ -158,10 +158,10 @@ static ss::future<> maybe_make_materialized_log(
             new_materialized));
     }
     /// Leader could be on a different machine, can only wait until log comes
-    /// into existance
+    /// into existence
     if (!is_leader) {
         throw follower_create_topic_exception(fmt::format(
-          "Follower of source topic {} attempted to created materialzied "
+          "Follower of source topic {} attempted to created materialized "
           "topic {} before leader partition had a chance to, sleeping "
           "1s...",
           source,
@@ -172,7 +172,7 @@ static ss::future<> maybe_make_materialized_log(
       .source = std::move(source), .name = std::move(new_materialized)};
     std::vector<cluster::non_replicable_topic> topics{std::move(mt)};
     /// All requests are debounced, therefore if multiple entities attempt to
-    /// create a materialzied topic, all requests will wait for the first to
+    /// create a materialized topic, all requests will wait for the first to
     /// complete.
     co_return co_await args.frontend.invoke_on(
       cluster::non_replicable_topics_frontend_shard,
@@ -225,7 +225,7 @@ static ss::future<> process_one_reply(
     if (e.id != args.id()) {
         /// Engine got response mixed up with another request, protocol error
         throw bad_reply_exception(ssx::sformat(
-          "erranous reply from wasm engine, mismatched id observed, expected: "
+          "erroneous reply from wasm engine, mismatched id observed, expected: "
           "{} and observed {}",
           args.id,
           e.id));
@@ -244,7 +244,7 @@ static ss::future<> process_one_reply(
     if (args.denylist.contains(e.ntp)) {
         /// The script attempted to write to a blacklisted ntp, meaning that
         /// this ntp has been marked for deletion. Ignore this particular
-        /// portion of the request, until the ntp leaves the denlylist (after it
+        /// portion of the request, until the ntp leaves the denylist (after it
         /// has been fully torn down). If the script later responds with this
         /// ntp, it will be eventually re-created.
         co_return;
@@ -319,7 +319,7 @@ static ss::future<> process_reply_group(
     /// loop.
     for (auto& [_, o] : src_ptr->wctx.offsets) {
         if (o <= src_ptr->rctx.last_read) {
-            /// Omit increasing offets that are ahead of current read, this
+            /// Omit increasing offsets that are ahead of current read, this
             /// could occur upon load of a stored offset thats further ahead.
             /// Also during retry avoids promoting offsets of materialized
             /// topics that are ahead of the materialized topic that is the
@@ -333,7 +333,7 @@ ss::future<>
 write_materialized(output_write_inputs replies, output_write_args args) {
     if (replies.empty()) {
         vlog(
-          coproclog.error, "Wasm engine interpreted the request as erraneous");
+          coproclog.error, "Wasm engine interpreted the request as erroneous");
         co_return;
     }
     grouping_t grs = group_replies(std::move(replies));

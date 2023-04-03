@@ -41,7 +41,7 @@ ss::future<compaction_result> self_compact_segment(
   offset_delta_time apply_offset);
 
 /*
- * Concatentate segments into a minimal new segment.
+ * Concatenate segments into a minimal new segment.
  *
  * This is effectively equivalent to acquiring the proper locks while
  * concatenating segment data into the given path and then building an open
@@ -131,7 +131,7 @@ uint64_t segment_size_from_config(const storage::ntp_config&);
 
 /// \brief this is a 0-based index (i.e.: i++) of the entries we need to
 /// save starting at 0 on a *new* `.compacted_index` file this represents
-/// the fully dedupped entries, clean of truncations, etc
+/// the fully deduped entries, clean of truncations, etc
 ss::future<roaring::Roaring>
   natural_index_of_entries_to_keep(compacted_index_reader);
 

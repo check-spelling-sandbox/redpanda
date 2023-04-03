@@ -66,7 +66,7 @@ private:
     // Which peers have told us they entered the barrier
     absl::flat_hash_map<model::node_id, bool> _nodes_entered;
 
-    // Have we passed through or pre-emptively cancelled the barrier?
+    // Have we passed through or preemptively cancelled the barrier?
     bool _exited{false};
     ss::condition_variable _exit_wait;
 };

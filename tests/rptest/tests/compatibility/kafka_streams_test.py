@@ -74,7 +74,7 @@ class KafkaStreamsDriverBase(KafkaStreamsTest):
     def test_kafka_streams(self):
         example = self.create_example()
 
-        # This will raise TypeError if DriverHeler is undefined
+        # This will raise TypeError if DriverHelper is undefined
         driver_helper = self.Driver(self.redpanda, True)
         driver = ExampleRunner(self._ctx,
                                driver_helper,
@@ -403,7 +403,7 @@ class WordProducer(KafProducer):
 class KafkaStreamsWordCount(KafkaStreamsProdConsBase):
     """
     Test KafkaStreams WordCount example which does simple prod-cons with
-    KStreams and computes a historgram for word occurence
+    KStreams and computes a histogram for word occurence
     """
 
     topics = (

@@ -172,7 +172,7 @@ class NodeStorage:
                  partition_idx: int) -> Optional[list[Segment]]:
         partitions = self.partitions(ns, topic)
         if len(partitions) <= partition_idx:
-            # Segments for unkown partition requested
+            # Segments for unknown partition requested
             raise PartitionNotFoundError(
                 f"Partition {partition_idx} of topic {topic} is not present on node {self.name}"
             )

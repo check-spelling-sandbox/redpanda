@@ -17,7 +17,7 @@ license_key: ""
 
 redpanda:
   # Data directory where all the files will be stored.
-  # This directory MUST resides on xfs partion.
+  # This directory MUST resides on xfs partition.
   data_directory: "/var/lib/redpanda/data"
 
   # The initial cluster nodes addresses
@@ -38,7 +38,7 @@ redpanda:
     port: 9644
 
   # Skips most of the checks performed at startup (i.e. memory, xfs)
-  # not recomended for production use
+  # not recommended for production use
   developer_mode: true
 
 # Enable Pandaproxy

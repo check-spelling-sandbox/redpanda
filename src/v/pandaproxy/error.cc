@@ -86,7 +86,7 @@ struct reply_error_category final : std::error_category {
         case reply_error_code::expectation_failed:
             return "HTTP 417 Expectation Failed";
         case reply_error_code::unprocessable_entity:
-            return "HTTP 422 Unprocesable Entity";
+            return "HTTP 422 Unprocessable Entity";
         case reply_error_code::upgrade_required:
             return "HTTP 426 Upgrade Required";
         case reply_error_code::too_many_requests:

@@ -108,7 +108,7 @@ class OffsetForLeaderEpochTest(PreallocNodesTest):
 
         for o in leader_epoch_offsets:
             # check if the offset epoch matches what is expected or it is not available
-            # (may be the case if leader wasn't elected in term 1 but other term in this case the offset for term 1 will not be presetn)
+            # (may be the case if leader wasn't elected in term 1 but other term in this case the offset for term 1 will not be present)
             assert initial_offsets[(o.topic,
                                     o.partition)] == o.epoch_end_offset or (
                                         o.epoch_end_offset == -1

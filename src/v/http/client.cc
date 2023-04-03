@@ -104,7 +104,7 @@ ss::future<client::request_response_t> client::make_request(
               std::make_tuple(req, res));
         } else {
             vlog(ctxlog.debug, "shutdown connection, age {}", age.count());
-            // Connection is too old and likeley already received
+            // Connection is too old and likely already received
             // RST packet from the server. If we will try to use
             // it the broken pipe (32) error will be triggered.
             shutdown();
@@ -147,7 +147,7 @@ ss::future<reconnect_result_t> client::get_connected(
         // Reconnect attempts have to stop if:
         // - shutdown method was called
         // - abort was requested
-        // - unrecoverable error occured
+        // - unrecoverable error occurred
         // - timeout reached
         try {
             // base_transport::connect calls _dispatcher_gate.close
@@ -585,7 +585,7 @@ ss::future<client::response_stream_ref> client::request(
                 [request = request]() { return request->send_eof(); });
           } else {
               // since the input stream has some data we can use
-              // output_stream interace of the request
+              // output_stream interface of the request
               fsend = ss::do_with(
                 request->as_output_stream(),
                 [&input](ss::output_stream<char>& output) {

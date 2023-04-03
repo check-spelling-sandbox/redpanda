@@ -610,7 +610,7 @@ class AdminOperationsFuzzer():
                     f"wait: terminating for error {self.error}")
                 raise self.error
 
-            # the attempted condition gurantees that we measure progress
+            # the attempted condition guarantees that we measure progress
             # by use an operation which started after ensure_progress is
             # invoked
             if self.executed > executed and self.attempted > attempted:

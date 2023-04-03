@@ -1,5 +1,5 @@
 - Feature Name: cluster::controller 2-phase local node bootstrap
-- Status: draf
+- Status: draft
 - Start Date: 2019-09-26
 - Authors: alex
 - Issue: (one or more # from the issue tracker)
@@ -13,7 +13,7 @@ controller is effectively a global metadata cache. It is a compacted topic.
 
 Upon local node start, restart, crash, etc,
 we bootstrap by read the controller contents entirely. We expect the
-ammount of data to be actually small, i.e.: less than 1GB of content.
+amount of data to be actually small, i.e.: less than 1GB of content.
 
 While we are reading the contents, we delegate to
 `sharded<cluster::partition_manager> pm` the recovery of particular `ntp` via
@@ -63,7 +63,7 @@ write-path    |            +          +         |
 
 # Motivation
 
-We need to have a sound bootstraping and log recovery mechanism
+We need to have a sound bootstrapping and log recovery mechanism
 upon a machine restart (from shutdown, reboot, crash, etc)
 
 # Guide-level explanation
@@ -134,8 +134,8 @@ A cache of assignments.
 - What other designs have been considered and what is the rationale for not choosing them?
 
 * Static partitioning:
-  `model::parition_id::type % smp::core_count` is fragile and offers no real
-  load balacing system. For example, core0 will always do a little more work
+  `model::partition_id::type % smp::core_count` is fragile and offers no real
+  load balancing system. For example, core0 will always do a little more work
   in most systems because it is the only core guaranteed to exist.
   Second, having a cluster level knowledge gives us the opportunity to optimize
   physical core placement.

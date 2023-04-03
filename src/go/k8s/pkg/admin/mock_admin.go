@@ -325,7 +325,7 @@ func (s *ScopedMockAdminAPI) GetNodeConfig(
 }
 
 func (m *MockAdminAPI) SetDirectValidationEnabled(directValidation bool) {
-	m.Log.WithName("SetDirectValicationEnabled").WithValues("directValidation", directValidation).Info("called")
+	m.Log.WithName("SetDirectValidationEnabled").WithValues("directValidation", directValidation).Info("called")
 	m.monitor.Lock()
 	defer m.monitor.Unlock()
 	m.directValidation = directValidation

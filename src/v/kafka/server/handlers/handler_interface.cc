@@ -97,7 +97,7 @@ private:
 /**
  * @brief Instance holder for the handler_base.
  *
- * Given a handler type H, exposes a static instance of the assoicated handler
+ * Given a handler type H, exposes a static instance of the associated handler
  * base object.
  *
  * @tparam H the handler type.

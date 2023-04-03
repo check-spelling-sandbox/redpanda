@@ -153,16 +153,16 @@ auto tx_gateway_frontend::with_stm(Func&& func) {
     });
 }
 
-static add_paritions_tx_reply make_add_partitions_error_response(
-  add_paritions_tx_request request, tx_errc ec) {
-    add_paritions_tx_reply response;
+static add_partitions_tx_reply make_add_partitions_error_response(
+  add_partitions_tx_request request, tx_errc ec) {
+    add_partitions_tx_reply response;
     response.results.reserve(request.topics.size());
     for (auto& req_topic : request.topics) {
-        add_paritions_tx_reply::topic_result res_topic;
+        add_partitions_tx_reply::topic_result res_topic;
         res_topic.name = req_topic.name;
         res_topic.results.reserve(req_topic.partitions.size());
         for (model::partition_id req_partition : req_topic.partitions) {
-            add_paritions_tx_reply::partition_result res_partition;
+            add_partitions_tx_reply::partition_result res_partition;
             res_partition.partition_index = req_partition;
             res_partition.error_code = ec;
             res_topic.results.push_back(res_partition);
@@ -206,7 +206,7 @@ tx_gateway_frontend::tx_gateway_frontend(
   , _transactions_enabled(
       config::shard_local_cfg().enable_transactions.value()) {
     /**
-     * do not start expriry timer when transactions are disabled
+     * do not start expiry timer when transactions are disabled
      */
     if (_transactions_enabled) {
         start_expire_timer();
@@ -219,7 +219,7 @@ void tx_gateway_frontend::start_expire_timer() {
         // service (run on all cores) so constraining it to a core will
         // guarantee that there is only one active gc process.
         //
-        // the gc part (expire_old_txs) does the shard managment and
+        // the gc part (expire_old_txs) does the shard management and
         // relays the execution to the right core so it's enough to
         // have only one timer/loop
         return;
@@ -467,7 +467,7 @@ ss::future<try_abort_reply> tx_gateway_frontend::try_abort(
       pid,
       tx_seq,
       reply.ec,
-      reply.commited,
+      reply.committed,
       reply.aborted);
 
     co_return reply;
@@ -516,7 +516,7 @@ ss::future<try_abort_reply> tx_gateway_frontend::try_abort_locally(
       pid,
       tx_seq,
       reply.ec,
-      reply.commited,
+      reply.committed,
       reply.aborted);
     co_return reply;
 }
@@ -658,7 +658,7 @@ ss::future<try_abort_reply> tx_gateway_frontend::do_try_abort(
           tx.tx_seq,
           tx.status);
         // when it's ready it means in-memory state was lost
-        // so can't be comitted and it's save to aborted
+        // so can't be committed and it's save to aborted
         co_return try_abort_reply::make_aborted();
     } else if (tx.status == tm_transaction::tx_status::preparing) {
         ssx::spawn_with_gate(_gate, [this, stm, tx, timeout] {
@@ -1163,13 +1163,13 @@ ss::future<cluster::init_tm_tx_reply> tx_gateway_frontend::do_init_tm_tx(
     co_return reply;
 }
 
-ss::future<add_paritions_tx_reply> tx_gateway_frontend::add_partition_to_tx(
-  add_paritions_tx_request request, model::timeout_clock::duration timeout) {
+ss::future<add_partitions_tx_reply> tx_gateway_frontend::add_partition_to_tx(
+  add_partitions_tx_request request, model::timeout_clock::duration timeout) {
     auto shard = _shard_table.local().shard_for(model::tx_manager_ntp);
 
     if (shard == std::nullopt) {
         vlog(txlog.trace, "can't find a shard for {}", model::tx_manager_ntp);
-        return ss::make_ready_future<add_paritions_tx_reply>(
+        return ss::make_ready_future<add_partitions_tx_reply>(
           make_add_partitions_error_response(
             request, tx_errc::coordinator_not_available));
     }
@@ -1185,7 +1185,7 @@ ss::future<add_paritions_tx_reply> tx_gateway_frontend::add_partition_to_tx(
                   [request = std::move(request), timeout, &self](
                     checked<ss::shared_ptr<tm_stm>, tx_errc> r) {
                       if (!r) {
-                          return ss::make_ready_future<add_paritions_tx_reply>(
+                          return ss::make_ready_future<add_partitions_tx_reply>(
                             make_add_partitions_error_response(
                               request, r.error()));
                       }
@@ -1212,9 +1212,9 @@ ss::future<add_paritions_tx_reply> tx_gateway_frontend::add_partition_to_tx(
       });
 }
 
-ss::future<add_paritions_tx_reply> tx_gateway_frontend::do_add_partition_to_tx(
+ss::future<add_partitions_tx_reply> tx_gateway_frontend::do_add_partition_to_tx(
   ss::shared_ptr<tm_stm> stm,
-  add_paritions_tx_request request,
+  add_partitions_tx_request request,
   model::timeout_clock::duration timeout) {
     model::producer_identity pid{request.producer_id, request.producer_epoch};
 
@@ -1248,12 +1248,12 @@ ss::future<add_paritions_tx_reply> tx_gateway_frontend::do_add_partition_to_tx(
           request, tx_errc::invalid_txn_state);
     }
 
-    add_paritions_tx_reply response;
+    add_partitions_tx_reply response;
 
     std::vector<model::ntp> new_partitions;
 
     for (auto& req_topic : request.topics) {
-        add_paritions_tx_reply::topic_result res_topic;
+        add_partitions_tx_reply::topic_result res_topic;
         res_topic.name = req_topic.name;
 
         model::topic topic(req_topic.name);
@@ -1266,7 +1266,7 @@ ss::future<add_paritions_tx_reply> tx_gateway_frontend::do_add_partition_to_tx(
               tx.partitions.end(),
               [ntp](const auto& rm) { return rm.ntp == ntp; });
             if (has_ntp) {
-                add_paritions_tx_reply::partition_result res_partition;
+                add_partitions_tx_reply::partition_result res_partition;
                 res_partition.partition_index = req_partition;
                 res_partition.error_code = tx_errc::none;
                 res_topic.results.push_back(res_partition);
@@ -1351,7 +1351,7 @@ ss::future<add_paritions_tx_reply> tx_gateway_frontend::do_add_partition_to_tx(
           response.results.end(),
           [&br](const auto& r) { return r.name == br.ntp.tp.topic(); });
 
-        add_paritions_tx_reply::partition_result res_partition;
+        add_partitions_tx_reply::partition_result res_partition;
         res_partition.partition_index = br.ntp.tp.partition;
         if (has_added && br.ec == tx_errc::none) {
             res_partition.error_code = tx_errc::none;
@@ -1455,7 +1455,7 @@ ss::future<add_offsets_tx_reply> tx_gateway_frontend::do_add_offsets_to_tx(
     auto group_info = co_await _rm_group_proxy->begin_group_tx(
       request.group_id, pid, tx.tx_seq, tx.timeout_ms);
     if (group_info.ec != tx_errc::none) {
-        vlog(txlog.warn, "error on begining group tx: {}", group_info.ec);
+        vlog(txlog.warn, "error on beginning group tx: {}", group_info.ec);
         co_return add_offsets_tx_reply{.error_code = group_info.ec};
     }
 
@@ -1518,7 +1518,7 @@ ss::future<end_tx_reply> tx_gateway_frontend::do_end_txn(
     // execution. however the outcome of the commit/abort operation
     // is already known before the cleanup started. to optimize this
     // they return the outcome promise to return the outcome before
-    // cleaning up and before returing the actual control flow
+    // cleaning up and before returning the actual control flow
     auto decided = outcome->get_future();
 
     // re-entering the gate to keep its open until the spawned fiber
@@ -1809,7 +1809,7 @@ tx_gateway_frontend::remove_deleted_partitions_from_tx(
         if (result) {
             vlog(
               txlog.info,
-              "Deleted non existent partition {} from tx {}",
+              "Deleted nonexistent partition {} from tx {}",
               part.ntp,
               tx);
             tx = result.value();
@@ -1867,7 +1867,7 @@ tx_gateway_frontend::do_abort_tm_tx(
         if (!ready_tx.has_value()) {
             vlog(
               txlog.trace,
-              "reseting tx as ready failed with {} tx:{} etag:{} pid:{} "
+              "resetting tx as ready failed with {} tx:{} etag:{} pid:{} "
               "tx_seq:{} term:{}",
               ready_tx.error(),
               tx.id,
@@ -1928,7 +1928,7 @@ tx_gateway_frontend::do_abort_tm_tx(
                 } else if (
                   old_tx.status == tm_transaction::tx_status::ongoing) {
                     if (old_tx.tx_seq() == tx.tx_seq() + 1) {
-                        // intentially empty
+                        // intentionally empty
                         // abort has passed and previous coordinator started a
                         // new transaction
                     } else if (old_tx.tx_seq == tx.tx_seq) {
@@ -2093,7 +2093,7 @@ tx_gateway_frontend::do_abort_tm_tx(
       && tx.status != tm_transaction::tx_status::aborting) {
         vlog(
           txlog.warn,
-          "abort encontered a tx with unexpected status:{} (tx:{} etag:{} "
+          "abort encountered a tx with unexpected status:{} (tx:{} etag:{} "
           "pid:{} tx_seq:{}) in term:{}",
           tx.status,
           tx.id,
@@ -2269,13 +2269,13 @@ tx_gateway_frontend::do_commit_tm_tx(
                     //   1. a client commits a transaction
                     //   2. the transaction is committed
                     //   3. the client initiates next transaction
-                    //   4. tx cordinator reboots before the prepare phase
-                    //   5. the client retries the commit, tx coordiantor sees
+                    //   4. tx coordinator reboots before the prepare phase
+                    //   5. the client retries the commit, tx coordinator sees
                     //   prepared
                     //      state of the previous transaction
                     //   6. if we roll it forward the client will think that the
                     //   current
-                    //      transaciton is committed
+                    //      transaction is committed
                     //
                     // so we fail the request with unknow error and let user to
                     // recover
@@ -2575,10 +2575,10 @@ tx_gateway_frontend::do_commit_tm_tx(
 
     // We can reduce the number of disk operation if we will not write
     // preparing state on disk. But after it we should ans to client when we
-    // sure that tx will be recommited after fail. We can guarantee it only
-    // if we ans after marking tx prepared. Becase after fail tx will be
-    // recommited again and client will see expected bechavior.
-    // Also we do not need to support old bechavior with feature flag, because
+    // sure that tx will be recommitted after fail. We can guarantee it only
+    // if we ans after marking tx prepared. Because after fail tx will be
+    // recommitted again and client will see expected behavior.
+    // Also we do not need to support old behavior with feature flag, because
     // now we will ans client later than in old versions. So we do not break
     // anything
     outcome->set_value(tx_errc::none);
@@ -3395,7 +3395,7 @@ ss::future<result<tm_transaction, tx_errc>> tx_gateway_frontend::describe_tx(
         // We can just ignore this statuses
         co_return tx;
     } else if (tx.status == tm_transaction::tx_status::killed) {
-        // We can just return current tx, becasue old tx also should be expired
+        // We can just return current tx, because old tx also should be expired
         co_return tx;
     } else if (tx.status == tm_transaction::tx_status::ready) {
         auto r1 = co_await fetch_tx(tx.id, tx.etag);

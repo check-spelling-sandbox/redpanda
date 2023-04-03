@@ -34,7 +34,7 @@ private:
 
 /*
  * Retention strategy for use with 'retention_calculator'.
- * Segments are accumulated from the beggining of the "log" (read as manifest)
+ * Segments are accumulated from the beginning of the "log" (read as manifest)
  * until enough has been reclaimed to cover for the provided overshoot.
  */
 class size_based_strategy final : public retention_strategy {

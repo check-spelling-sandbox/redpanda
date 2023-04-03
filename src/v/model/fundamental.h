@@ -88,7 +88,7 @@ std::istream& operator>>(std::istream&, cleanup_policy_bitflags&);
 
 // Named after Kafka compaction.strategy topic property
 enum class compaction_strategy : int8_t {
-    /// \brief offset compaction means the old schoold kafka compacted topics
+    /// \brief offset compaction means the old school kafka compacted topics
     /// strategy before KIP 280
     offset,
     /// \brief timestamp compaction is not yet supported
@@ -161,8 +161,8 @@ operator-(model::offset r, kafka::offset k) {
 ///
 /// The purpose of this function is to mark every place where we converting
 /// from offset-delta to model::offset. This is done in places where the delta
-/// is represetnted as an instance of the model::offset. Once we convert every
-/// delta offset to model::delta_offset we will be able to depricate and remove
+/// is represented as an instance of the model::offset. Once we convert every
+/// delta offset to model::delta_offset we will be able to deprecate and remove
 /// this function.
 inline constexpr model::offset offset_cast(model::offset_delta d) {
     return model::offset{d()};
@@ -423,8 +423,8 @@ namespace kafka {
 ///
 /// The purpose of this function is to mark every place where we converting
 /// from kafka offset to model::offset. This is done in places where the kafka
-/// offset is represetnted as an instance of the model::offset. Once we convert
-/// every such field to kafka::delta_offset we will be able to depricate and
+/// offset is represented as an instance of the model::offset. Once we convert
+/// every such field to kafka::delta_offset we will be able to deprecate and
 /// remove this function.
 inline constexpr model::offset offset_cast(kafka::offset k) {
     return model::offset{k()};

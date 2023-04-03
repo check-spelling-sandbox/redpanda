@@ -63,13 +63,13 @@ struct compat_check<cluster::try_abort_reply> {
     }
     static void to_json(
       cluster::try_abort_reply obj, json::Writer<json::StringBuffer>& wr) {
-        json_write(commited);
+        json_write(committed);
         json_write(aborted);
         json_write(ec);
     }
     static cluster::try_abort_reply from_json(json::Value& rd) {
         cluster::try_abort_reply obj;
-        json_read(commited);
+        json_read(committed);
         json_read(aborted);
         json_read(ec);
         return obj;

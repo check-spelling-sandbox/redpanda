@@ -332,7 +332,7 @@ func TestClusterCertificates(t *testing.T) {
 				},
 			},
 		}, []string{"test-proxy-selfsigned-issuer", "test-proxy-root-certificate", "test-proxy-root-issuer", "test-proxy-api-node", "test-proxy-api-client"}, 2, nil, nil},
-		{"schematregistry api tls disabled", &v1alpha1.Cluster{
+		{"schemaregistry api tls disabled", &v1alpha1.Cluster{
 			ObjectMeta: v1.ObjectMeta{Name: "test", Namespace: "test"},
 			Spec: v1alpha1.ClusterSpec{
 				Configuration: v1alpha1.RedpandaConfig{
@@ -345,7 +345,7 @@ func TestClusterCertificates(t *testing.T) {
 			},
 		}, []string{}, 0, nil, nil},
 		{
-			"schematregistry api tls", &v1alpha1.Cluster{
+			"schemaregistry api tls", &v1alpha1.Cluster{
 				ObjectMeta: v1.ObjectMeta{Name: "test", Namespace: "test"},
 				Spec: v1alpha1.ClusterSpec{
 					Configuration: v1alpha1.RedpandaConfig{
@@ -361,7 +361,7 @@ func TestClusterCertificates(t *testing.T) {
 			1, nil, nil,
 		},
 		{
-			"schematregistry api mutual tls", &v1alpha1.Cluster{
+			"schemaregistry api mutual tls", &v1alpha1.Cluster{
 				ObjectMeta: v1.ObjectMeta{Name: "test", Namespace: "test"},
 				Spec: v1alpha1.ClusterSpec{
 					Configuration: v1alpha1.RedpandaConfig{
@@ -378,7 +378,7 @@ func TestClusterCertificates(t *testing.T) {
 			2, nil, nil,
 		},
 		{
-			"kafka and schematregistry with nodesecretref", &v1alpha1.Cluster{
+			"kafka and schemaregistry with nodesecretref", &v1alpha1.Cluster{
 				ObjectMeta: v1.ObjectMeta{Name: "test", Namespace: "test"},
 				Spec: v1alpha1.ClusterSpec{
 					Configuration: v1alpha1.RedpandaConfig{

@@ -56,7 +56,7 @@ static bool fold_enable_codes(const std::vector<coproc::errc>& codes) {
     if (contains_code(codes, coproc::errc::internal_error)) {
         vlog(
           coproclog.error,
-          "Internal error encountered when internally regisering script");
+          "Internal error encountered when internally registering script");
         return true;
     }
     /// For identifiable errors, all shards should have agreed on the error
@@ -113,7 +113,7 @@ static bool should_immediately_deregister(
         /// acks correspond to what topics
         results.push_back(fold_enable_codes(cross_shard_codes));
     }
-    /// Only if 100% of the subscribtions are invalid should the
+    /// Only if 100% of the subscriptions are invalid should the
     /// coprocessor be deregistered.
     return std::all_of(results.cbegin(), results.cend(), xform::identity());
 }
@@ -216,7 +216,7 @@ script_dispatcher::enable_coprocessors(enable_copros_request req) {
         auto itopics = enrich_topics(std::move(r.script_meta.input_topics));
         auto results = co_await add_sources(id, itopics);
 
-        /// 5. If there was a failure, we must deregisetr the coprocessor.
+        /// 5. If there was a failure, we must deregister the coprocessor.
         /// There are only 2 possibilities for this scenario:
         ///
         /// a. wasm engine didn't properly validate something that didn't
@@ -376,7 +376,7 @@ ss::future<result<bool>> script_dispatcher::heartbeat(int8_t connect_attempts) {
     if (heartbeat.value().data.size == static_cast<long>(size)) {
         co_return true;
     }
-    /// There is a discrepency between the number of registered coprocs
+    /// There is a discrepancy between the number of registered coprocs
     /// according to redpanda and according to the wasm engine.
     /// Reconcile all state from offset 0.
     co_await disable_all_coprocessors();
@@ -395,7 +395,7 @@ script_dispatcher::get_client() {
         if (!transport) {
             vlog(
               coproclog.error,
-              "script_dispatcher failed to aquire a connection to the wasm "
+              "script_dispatcher failed to acquire a connection to the wasm "
               "engine (to deploy or remove a script), retrying... ");
             co_await ss::sleep(dur);
             dur = std::min(model::timeout_clock::duration(10s), dur * 2);

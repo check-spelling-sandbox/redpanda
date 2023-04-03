@@ -806,7 +806,7 @@ ss::future<> disk_log_impl::remove_empty_segments() {
 
 model::term_id disk_log_impl::term() const {
     if (_segs.empty()) {
-        // does not make sense to return unitinialized term
+        // does not make sense to return uninitialized term
         // if we have no term, default to the first term.
         // the next append() will truncate if greater
         return model::term_id{0};
@@ -1340,7 +1340,7 @@ ss::future<> disk_log_impl::do_truncate_prefix(truncate_prefix_config cfg) {
      *     start offset <= committed offset <= dirty offset
      *
      * However, it might be that the new starting offset is ordered
-     * between the commited and dirty offsets. When this occurs we pay a
+     * between the committed and dirty offsets. When this occurs we pay a
      * small penalty to resolve the inconsistency by flushing the log and
      * advancing the committed offset to be the same as the dirty offset.
      */
@@ -1394,7 +1394,7 @@ ss::future<> disk_log_impl::do_truncate(
 
     co_await last->flush();
     /**
-     * We look for the offset preceding the the requested truncation offset.
+     * We look for the offset preceding the requested truncation offset.
      *
      * This guarantee that the offset to file position translating consumer will
      * see at least one batch that precedes the truncation point. This will
@@ -1778,7 +1778,7 @@ ss::future<usage_report> disk_log_impl::disk_usage(compaction_config cfg) {
 
     /*
      * usage is the persistent size of on disk segment components (e.g. data and
-     * indicies) accumulated across all segments.
+     * indices) accumulated across all segments.
      */
     usage usage = retention + available + remaining;
 

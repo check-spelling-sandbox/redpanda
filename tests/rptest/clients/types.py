@@ -20,7 +20,7 @@ class TopicSpec:
     CLEANUP_COMPACT = "compact"
     CLEANUP_DELETE = "delete"
 
-    PROPERTY_COMPRESSSION = "compression.type"
+    PROPERTY_COMPRESSION = "compression.type"
     PROPERTY_CLEANUP_POLICY = "cleanup.policy"
     PROPERTY_COMPACTION_STRATEGY = "compaction.strategy"
     PROPERTY_TIMESTAMP_TYPE = "message.timestamp.type"

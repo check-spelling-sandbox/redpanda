@@ -52,7 +52,7 @@ func TestDoNotValidateWhenDeleted(t *testing.T) {
 	}
 
 	cfg, err := testEnv.Start()
-	defer testEnv.Stop() //nolint:errcheck // in test test env error is not relevant
+	defer testEnv.Stop() //nolint:errcheck // in test env error is not relevant
 	require.NoError(t, err)
 	require.NotNil(t, cfg)
 
@@ -381,7 +381,7 @@ func TestValidatePrometheus(t *testing.T) {
 					PasswordRef: v1alpha1.SecretKeyRef{
 						Name:      secretName,
 						Namespace: consoleNamespace,
-						Key:       "nonexistingkey",
+						Key:       "nonexistentkey",
 					},
 				},
 				Prometheus: &v1alpha1.PrometheusConfig{

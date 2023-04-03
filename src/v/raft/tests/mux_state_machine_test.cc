@@ -434,7 +434,7 @@ FIXTURE_TEST(test_stm_recovery, mux_state_machine_fixture) {
     }
 }
 
-FIXTURE_TEST(test_mulitple_states, mux_state_machine_fixture) {
+FIXTURE_TEST(test_multiple_states, mux_state_machine_fixture) {
     start_raft();
     simple_kv<batch_type_1> state_1;
     simple_kv<batch_type_2> state_2;

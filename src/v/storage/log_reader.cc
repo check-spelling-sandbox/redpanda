@@ -64,7 +64,7 @@ batch_consumer::consume_result skipping_consumer::accept_batch_start(
         return batch_consumer::consume_result::skip_batch;
     }
     if (_reader._config.first_timestamp > header.max_timestamp) {
-        // kakfa requires that we return messages >= the timestamp, it is
+        // kafka requires that we return messages >= the timestamp, it is
         // permitted to include a few earlier
         _reader._config.start_offset = header.last_offset() + model::offset(1);
         return batch_consumer::consume_result::skip_batch;
@@ -315,7 +315,7 @@ log_reader::do_load_slice(model::timeout_clock::time_point timeout) {
                 recs.error().message());
 
               auto const batch_parse_err
-                = recs.error() == parser_errc::header_only_crc_missmatch
+                = recs.error() == parser_errc::header_only_crc_mismatch
                   || recs.error() == parser_errc::input_stream_not_enough_bytes;
 
               if (batch_parse_err) {

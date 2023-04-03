@@ -413,7 +413,7 @@ class AccessControlListTest(RedpandaTest):
 
         # Once restart is complete, check permissions should succeed when authn_method
         # is sasl because the system will validate against SASL/SCRAM creds already stored
-        # on the brokers. However, when authn_method is mtls_identiy, check permissions
+        # on the brokers. However, when authn_method is mtls_identity, check permissions
         # should fail because no principal mapping rule is set yet.
         if authn_method == 'sasl':
             self.check_permissions(

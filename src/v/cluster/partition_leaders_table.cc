@@ -151,7 +151,7 @@ void partition_leaders_table::update_partition_leader(
          */
 
         // Currently we have to check if revision id is valid since not all
-        // the code paths devlivers revision information
+        // the code paths delivers revision information
         //
         // TODO: always check revision after we will add revision to
         // metadata dissemination requests

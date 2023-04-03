@@ -98,7 +98,7 @@ class BytesSentTest(RedpandaTest):
         self.logger.debug(f"Bytes received: {self._bytes_received}")
 
         # Get the number of bytes sent up to this point
-        # and calcuate total
+        # and calculate total
         end_bytes = self._bytes_sent()
         total_sent = end_bytes - start_bytes
         self.logger.debug(f"End bytes: {end_bytes}")

@@ -39,7 +39,7 @@ struct coprocessor {
 
     virtual ~coprocessor() = default;
 
-    /// \brief The unique identitifer of the coprocessor, this is unique across
+    /// \brief The unique identifier of the coprocessor, this is unique across
     /// all instances of coprocessors of the same kind/type
     coproc::script_id get_script_id() const { return _sid; }
 
@@ -72,7 +72,7 @@ private:
     coproc::script_id _sid;
 
     /// Configurable (at construction time) set of topics the coprocessor will
-    /// be registered to recieve input from
+    /// be registered to receive input from
     input_set _input_topics;
 };
 

@@ -29,7 +29,7 @@ using namespace cloud_storage;
 BOOST_AUTO_TEST_CASE(remote_segment_index_search_test) {
     // This value is a power of two - 1 on purpose. This way we
     // will read from the compressed part and from the buffer of
-    // recent values. This is because the row widht is 16 and the
+    // recent values. This is because the row width is 16 and the
     // buffer has 16 elements. 1024 is 64 rows and 1023 is 63
     // rows + almost full buffer.
     size_t segment_num_batches = 1023;

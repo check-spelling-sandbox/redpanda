@@ -26,7 +26,7 @@ namespace cluster {
 /**
  * The health_monitor_frontend is the main cluster health monitor entry point.
  * It provides an interface that allow callers to query cluster health and
- * request current node state collection proccess.
+ * request current node state collection process.
  * Health monitor frontend is available on every node and dispatches requests to
  * health monitor backend which lives on single shard.
  * Most requests are forwarded to the backend shard, except cluster-level disk
@@ -54,7 +54,7 @@ public:
 
     storage::disk_space_alert get_cluster_disk_health();
 
-    // Collcts and returns current node health report according to provided
+    // Collects and returns current node health report according to provided
     // filters list
     ss::future<result<node_health_report>>
       collect_node_health(node_report_filter);
@@ -74,9 +74,9 @@ public:
      *  Return cluster health overview
      *
      *  Health overview is based on the information available in health monitor.
-     *  Cluster is considered as healthy when follwing conditions are met:
+     *  Cluster is considered as healthy when following conditions are met:
      *
-     * - all nodes that are are responding
+     * - all nodes that are responding
      * - all partitions have leaders
      * - cluster controller is present (_raft0 leader)
      */

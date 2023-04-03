@@ -519,7 +519,7 @@ ss::future<bool> sharded_store::is_compatible(
         throw as_exception(invalid_schema_type(new_schema.type()));
     }
 
-    // if transitive, search all, otherwise seach forwards from version
+    // if transitive, search all, otherwise search forwards from version
     if (
       compat == compatibility_level::backward_transitive
       || compat == compatibility_level::forward_transitive

@@ -133,7 +133,7 @@ cluster::errc map_errc(std::error_code ec) {
     if (ec == errc::success) {
         return errc::success;
     }
-    // error comming from raft
+    // error coming from raft
     if (ec.category() == raft::error_category()) {
         switch (static_cast<raft::errc>(ec.value())) {
         case raft::errc::timeout:
@@ -145,7 +145,7 @@ cluster::errc map_errc(std::error_code ec) {
         }
     }
 
-    // error comming from raft
+    // error coming from raft
     if (ec.category() == rpc::error_category()) {
         switch (static_cast<rpc::errc>(ec.value())) {
         case rpc::errc::client_request_timeout:
@@ -1075,13 +1075,13 @@ ss::future<topics_frontend::capacity_info> topics_frontend::get_health_info(
   model::topic_namespace topic, int32_t partition_count) const {
     capacity_info info;
 
-    partitions_filter::partitions_set_t parititon_set;
+    partitions_filter::partitions_set_t partition_set;
     for (auto i = 0; i < partition_count; ++i) {
-        parititon_set.emplace(i);
+        partition_set.emplace(i);
     }
 
     partitions_filter::topic_map_t topic_map;
-    topic_map.emplace(topic.tp, std::move(parititon_set));
+    topic_map.emplace(topic.tp, std::move(partition_set));
 
     partitions_filter partitions_for_report;
     partitions_for_report.namespaces.emplace(topic.ns, std::move(topic_map));
@@ -1177,7 +1177,7 @@ ss::future<std::error_code> topics_frontend::increase_replication_factor(
 
     auto partition_count = tp_metadata->get_configuration().partition_count;
 
-    // units shold exist during replicate_and_wait call
+    // units should exist during replicate_and_wait call
     using units_from_allocator
       = ss::foreign_ptr<std::unique_ptr<allocation_units>>;
     std::vector<units_from_allocator> units;
@@ -1185,7 +1185,7 @@ ss::future<std::error_code> topics_frontend::increase_replication_factor(
 
     std::optional<std::error_code> error;
 
-    auto healt_report = co_await get_health_info(topic, partition_count);
+    auto health_report = co_await get_health_info(topic, partition_count);
 
     auto hard_max_disk_usage_ratio = (100 - _hard_max_disk_usage_ratio())
                                      / 100.0;
@@ -1194,7 +1194,7 @@ ss::future<std::error_code> topics_frontend::increase_replication_factor(
       model::partition_id(0),
       new_replication_factor,
       hard_max_disk_usage_ratio,
-      healt_report);
+      health_report);
 
     co_await ss::max_concurrent_for_each(
       tp_metadata->get_assignments(),

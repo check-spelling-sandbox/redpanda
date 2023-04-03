@@ -112,7 +112,7 @@ FIXTURE_TEST(max_allocation, partition_allocator_fixture) {
     BOOST_REQUIRE(result.has_error());
 }
 
-FIXTURE_TEST(unsatisfyable_diversity_assignment, partition_allocator_fixture) {
+FIXTURE_TEST(unsatisfiable_diversity_assignment, partition_allocator_fixture) {
     register_node(0, 8);
     register_node(1, 4);
     register_node(2, 6);
@@ -373,7 +373,7 @@ FIXTURE_TEST(updating_nodes_properties, partition_allocator_fixture) {
     register_node(1, 4);
     register_node(2, 7);
 
-    // change node 1 core coung from 4 to 10
+    // change node 1 core count from 4 to 10
     for (int i = 0; i < 50; ++i) {
         // try to allocate single partition
         auto req = make_allocation_request(1, 1);
@@ -553,7 +553,7 @@ FIXTURE_TEST(even_distribution_pri_allocation, partition_allocator_fixture) {
                      == n.partition_capacity();
           }));
 
-        // occassionaly deallocate prior allocations
+        // occasionally deallocate prior allocations
         if (i % 2 == 0) {
             units.pop_front();
             // after deallocation, partitions in the priority domain are not

@@ -112,7 +112,7 @@ enum class tx_errc {
     pid_not_found,
     // when a request times out a client should not do any assumptions about its
     // effect. the request may time out before reaching the server, the request
-    // may be successuly processed or may fail and the reply times out
+    // may be successfully processed or may fail and the reply times out
     timeout,
     conflict,
     fenced,
@@ -157,7 +157,7 @@ struct kafka_stages {
     kafka_stages(ss::future<>, ss::future<result<kafka_result>>);
     explicit kafka_stages(raft::errc);
     // after this future is ready, request in enqueued in raft and it will not
-    // be reorderd
+    // be reordered
     ss::future<> request_enqueued;
     // after this future is ready, request was successfully replicated with
     // requested consistency level
@@ -213,14 +213,14 @@ struct try_abort_reply
     using committed_type = ss::bool_class<struct committed_type_tag>;
     using aborted_type = ss::bool_class<struct aborted_type_tag>;
 
-    committed_type commited;
+    committed_type committed;
     aborted_type aborted;
     tx_errc ec;
 
     try_abort_reply() noexcept = default;
 
     try_abort_reply(committed_type committed, aborted_type aborted, tx_errc ec)
-      : commited(committed)
+      : committed(committed)
       , aborted(aborted)
       , ec(ec) {}
 
@@ -240,7 +240,7 @@ struct try_abort_reply
         return {committed_type::yes, aborted_type::no, tx_errc::none};
     }
 
-    auto serde_fields() { return std::tie(commited, aborted, ec); }
+    auto serde_fields() { return std::tie(committed, aborted, ec); }
 };
 
 struct init_tm_tx_request
@@ -297,7 +297,7 @@ struct init_tm_tx_reply
     auto serde_fields() { return std::tie(pid, ec); }
 };
 
-struct add_paritions_tx_request {
+struct add_partitions_tx_request {
     struct topic {
         model::topic name{};
         std::vector<model::partition_id> partitions{};
@@ -307,16 +307,16 @@ struct add_paritions_tx_request {
     int16_t producer_epoch{};
     std::vector<topic> topics{};
 };
-struct add_paritions_tx_reply {
+struct add_partitions_tx_reply {
     struct partition_result {
         model::partition_id partition_index{};
         tx_errc error_code{};
     };
     struct topic_result {
         model::topic name{};
-        std::vector<add_paritions_tx_reply::partition_result> results{};
+        std::vector<add_partitions_tx_reply::partition_result> results{};
     };
-    std::vector<add_paritions_tx_reply::topic_result> results{};
+    std::vector<add_partitions_tx_reply::topic_result> results{};
 };
 struct add_offsets_tx_request {
     kafka::transactional_id transactional_id{};
@@ -1486,7 +1486,7 @@ struct topic_properties_update
       topic_properties_update,
       serde::version<0>,
       serde::compat_version<0>> {
-    // We need version to indetify request with custom_properties
+    // We need version to identify request with custom_properties
     static constexpr int32_t version = -1;
     topic_properties_update() noexcept = default;
     explicit topic_properties_update(model::topic_namespace tp_ns)
@@ -1502,7 +1502,7 @@ struct topic_properties_update
 
     model::topic_namespace tp_ns;
 
-    // Tihs properties is serialized to update_topic_properties_cmd by
+    // These properties are serialized to update_topic_properties_cmd by
     // topic_frontend
     incremental_topic_updates properties;
 
@@ -3021,7 +3021,7 @@ struct cloud_storage_usage_reply
 
     // When replies are handled in 'cloud_storage_size_reducer'
     // only the size of this list is currently used. However,
-    // having the actual missing ntps allws for future optimisations:
+    // having the actual missing ntps allows for future optimisations:
     // the request can be retried only for the 'missing_partitions'.
     std::vector<model::ntp> missing_partitions;
 
@@ -3201,7 +3201,7 @@ struct node_decommission_progress {
  * Negative values are used for hardcoded domains, positive values are reserved
  * for future use as user assigned domains, and may be used for a feature that
  * would allow users to designate certain topics to have their partition
- * replicas and leaders evenly distrbuted regardless of other topics.
+ * replicas and leaders evenly distributed regardless of other topics.
  */
 using partition_allocation_domain
   = named_type<int32_t, struct partition_allocation_domain_tag>;
@@ -3717,7 +3717,7 @@ struct adl<cluster::try_abort_request> {
 template<>
 struct adl<cluster::try_abort_reply> {
     void to(iobuf& out, cluster::try_abort_reply&& r) {
-        serialize(out, bool(r.commited), bool(r.aborted), r.ec);
+        serialize(out, bool(r.committed), bool(r.aborted), r.ec);
     }
     cluster::try_abort_reply from(iobuf_parser& in) {
         using committed_type = cluster::try_abort_reply::committed_type;

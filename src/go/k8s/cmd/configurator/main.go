@@ -181,7 +181,7 @@ func main() {
 	log.Printf("Configuration saved to: %s", c.configDestination)
 }
 
-var errInternalPortMissing = errors.New("port configration is missing internal port")
+var errInternalPortMissing = errors.New("port configuration is missing internal port")
 
 func getZoneLabels(nodeName string) (zone, zoneID string, err error) {
 	node, err := getNode(nodeName)
@@ -455,7 +455,7 @@ func checkEnvVars() (configuratorConfig, error) {
 	return c, result
 }
 
-// hostIndex takes advantage of pod naming convention in Kubernetes StatfulSet
+// hostIndex takes advantage of pod naming convention in Kubernetes StatefulSet
 // the last number is the index of replica. This index is then propagated
 // to redpanda.node_id.
 func hostIndex(hostName string) (brokerID, error) {

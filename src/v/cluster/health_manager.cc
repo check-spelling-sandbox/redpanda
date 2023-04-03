@@ -112,7 +112,7 @@ ss::future<bool> health_manager::ensure_partition_replication(model::ntp ntp) {
 
     /*
      * TODO: this check that the replicas are on different nodes should be
-     * unncessary and removed once the allocation constraints are setup
+     * unnecessary and removed once the allocation constraints are setup
      * correctly. current the following bug is related to the allocator
      * constraints not being applied properly:
      *
@@ -149,7 +149,7 @@ ss::future<bool> health_manager::ensure_partition_replication(model::ntp ntp) {
       ntp,
       it->replicas.size());
 
-    // short delay for things to stablize
+    // short delay for things to stabilize
     co_await ss::sleep_abortable(stabilize_delay, _as.local());
     co_return true;
 }

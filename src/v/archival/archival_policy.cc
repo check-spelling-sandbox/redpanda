@@ -106,7 +106,7 @@ bool archival_policy::upload_deadline_reached() {
         return false;
     } else if (_upload_limit.value() == 0s) {
         // This code path is only used to trigger partial upload
-        // in test envronment.
+        // in test environment.
         return true;
     }
     auto now = ss::lowres_clock::now();
@@ -223,7 +223,7 @@ archival_policy::lookup_result archival_policy::find_segment(
     return {.segment = *it, .ntp_conf = &ntp_conf, .forced = force_upload};
 }
 
-/// This function computes offsets for the upload (inc. file offets)
+/// This function computes offsets for the upload (inc. file offsets)
 /// If the full segment is uploaded the segment is not scanned.
 /// If the upload is partial, the partial scan will be performed if
 /// the segment has the index and full scan otherwise.
@@ -245,8 +245,8 @@ static ss::future<std::optional<std::error_code>> get_file_range(
     upl->base_timestamp = segment->index().base_timestamp();
     upl->max_timestamp = segment->index().max_timestamp();
     if (!end_inclusive && segment->offsets().base_offset == begin_inclusive) {
-        // Fast path, the upload is started at the begining of the segment
-        // and not truncted at the end.
+        // Fast path, the upload is started at the beginning of the segment
+        // and not truncated at the end.
         vlog(
           archival_log.debug,
           "Full segment upload {}, file size: {}",
@@ -314,7 +314,7 @@ static ss::future<std::optional<std::error_code>> get_file_range(
 ///
 /// \note Normally, the segments on a single node doesn't overlap,
 ///       but when leadership changes the new node will have to deal
-///       with the situaiton when 'last_offset' doesn't match base
+///       with the situation when 'last_offset' doesn't match base
 ///       offset of any segment. In this situation we need to find
 ///       the segment that contains the 'last_offset' and find the
 ///       exact location of the 'last_offset' inside the segment (

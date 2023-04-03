@@ -16,7 +16,7 @@
 namespace security {
 
 std::ostream& operator<<(std::ostream& os, const scram_credential&) {
-    // NOTE: this stream is intentially left minimal to err away from exposing
+    // NOTE: this stream is intentionally left minimal to err away from exposing
     // anything that may be useful for an attacker to use.
     return os << "{scram_credential}";
 }

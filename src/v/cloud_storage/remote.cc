@@ -273,7 +273,8 @@ ss::future<download_result> remote::do_download_manifest(
     if (!result) {
         vlog(
           ctxlog.warn,
-          "Downloading manifest from {}, backoff quota exceded, manifest at {} "
+          "Downloading manifest from {}, backoff quota exceeded, manifest at "
+          "{} "
           "not available",
           bucket,
           path);
@@ -304,7 +305,7 @@ ss::future<upload_result> remote::upload_manifest(
           bucket, path, size, std::move(is), tags, fib.get_timeout());
 
         if (res) {
-            vlog(ctxlog.debug, "Successfuly uploaded manifest to {}", path);
+            vlog(ctxlog.debug, "Successfully uploaded manifest to {}", path);
             switch (manifest.get_manifest_type()) {
             case manifest_type::partition:
                 _probe.partition_manifest_upload();
@@ -354,7 +355,7 @@ ss::future<upload_result> remote::upload_manifest(
     if (!result) {
         vlog(
           ctxlog.warn,
-          "Uploading manifest {} to {}, backoff quota exceded, manifest not "
+          "Uploading manifest {} to {}, backoff quota exceeded, manifest not "
           "uploaded",
           path,
           bucket);
@@ -490,7 +491,7 @@ ss::future<upload_result> remote::upload_segment(
     if (!result) {
         vlog(
           ctxlog.warn,
-          "Uploading segment {} to {}, backoff quota exceded, segment not "
+          "Uploading segment {} to {}, backoff quota exceeded, segment not "
           "uploaded",
           segment_path,
           bucket);
@@ -570,7 +571,7 @@ ss::future<download_result> remote::download_segment(
     if (!result) {
         vlog(
           ctxlog.warn,
-          "Downloading segment from {}, backoff quota exceded, segment at {} "
+          "Downloading segment from {}, backoff quota exceeded, segment at {} "
           "not available",
           bucket,
           path);
@@ -642,7 +643,7 @@ ss::future<download_result> remote::segment_exists(
     if (!result) {
         vlog(
           ctxlog.warn,
-          "HeadObject from {}, backoff quota exceded, segment at {} "
+          "HeadObject from {}, backoff quota exceeded, segment at {} "
           "not available",
           bucket,
           path);
@@ -720,7 +721,7 @@ ss::future<upload_result> remote::delete_object(
     if (!result) {
         vlog(
           ctxlog.warn,
-          "DeleteObject {}, {}, backoff quota exceded, object not deleted",
+          "DeleteObject {}, {}, backoff quota exceeded, object not deleted",
           path,
           bucket);
         result = upload_result::timedout;
@@ -803,7 +804,7 @@ ss::future<upload_result> remote::delete_objects(
     if (!result) {
         vlog(
           ctxlog.warn,
-          "DeleteObjects {}, {}, backoff quota exceded, objects not deleted",
+          "DeleteObjects {}, {}, backoff quota exceeded, objects not deleted",
           keys.size(),
           bucket);
         result = upload_result::timedout;
@@ -1062,7 +1063,7 @@ ss::future<upload_result> remote::upload_object(
     if (!result) {
         vlog(
           ctxlog.warn,
-          "Uploading object {} to {}, backoff quota exceded, object not "
+          "Uploading object {} to {}, backoff quota exceeded, object not "
           "uploaded",
           object_path,
           bucket);

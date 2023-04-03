@@ -1351,7 +1351,7 @@ class PandaProxyBasicAuthTest(PandaProxyEndpoints):
 
     @cluster(num_nodes=3)
     def test_get_brokers(self):
-        # Regular user without authz priviledges
+        # Regular user without authz privileges
         # should fail
         res = self._get_brokers(auth=(self.username, self.password)).json()
         assert res['error_code'] == 40101
@@ -1367,7 +1367,7 @@ class PandaProxyBasicAuthTest(PandaProxyEndpoints):
 
     @cluster(num_nodes=3)
     def test_list_topics(self):
-        # Regular user without authz priviledges
+        # Regular user without authz privileges
         # should fail
         result = self._get_topics(auth=(self.username, self.password)).json()
         assert result['error_code'] == 40101
@@ -1401,7 +1401,7 @@ class PandaProxyBasicAuthTest(PandaProxyEndpoints):
             ]
         }'''
 
-        # Regular user without authz priviledges
+        # Regular user without authz privileges
         # should fail
         result = self._produce_topic(self.topic,
                                      data,
@@ -1451,7 +1451,7 @@ class PandaProxyBasicAuthTest(PandaProxyEndpoints):
         self.topics = [TopicSpec(partition_count=3)]
         self._create_initial_topics()
 
-        # Regular user without authz priviledges
+        # Regular user without authz privileges
         # should fail
         result = self._fetch_topic(self.topic,
                                    data,
@@ -2075,7 +2075,7 @@ class BasicAuthUpgradeTest(PandaProxyEndpoints):
     ]
 
     def __init__(self, context):
-        # Dissable pandaproxy by default since it is set later in the test
+        # Disable pandaproxy by default since it is set later in the test
         super(BasicAuthUpgradeTest, self).__init__(context,
                                                    pandaproxy_config=None)
 

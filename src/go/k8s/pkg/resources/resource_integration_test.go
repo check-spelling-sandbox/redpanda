@@ -196,7 +196,7 @@ func TestEnsure_ConfigMap(t *testing.T) {
 func TestEnsure_HeadlessService(t *testing.T) {
 	t.Run("create-headless-service", func(t *testing.T) {
 		cluster := pandaCluster()
-		cluster.Name = "create-headles-service"
+		cluster.Name = "create-headless-service"
 
 		hsvc := res.NewHeadlessService(
 			c,
@@ -218,7 +218,7 @@ func TestEnsure_HeadlessService(t *testing.T) {
 
 	t.Run("create headless service idempotency", func(t *testing.T) {
 		cluster := pandaCluster()
-		cluster.Name = "create-headles-service-idempotency"
+		cluster.Name = "create-headless-service-idempotency"
 
 		hsvc := res.NewHeadlessService(
 			c,
@@ -247,7 +247,7 @@ func TestEnsure_HeadlessService(t *testing.T) {
 
 	t.Run("updating headless service", func(t *testing.T) {
 		cluster := pandaCluster()
-		cluster.Name = "update-headles-service"
+		cluster.Name = "update-headless-service"
 
 		hsvc := res.NewHeadlessService(
 			c,
@@ -286,7 +286,7 @@ func TestEnsure_HeadlessService(t *testing.T) {
 
 	t.Run("HeadlessServiceFQDN with trailing dot", func(t *testing.T) {
 		cluster := pandaCluster()
-		cluster.Name = "trailing-dot-headles-service"
+		cluster.Name = "trailing-dot-headless-service"
 		cluster.Namespace = "some-namespace"
 
 		hsvc := res.NewHeadlessService(
@@ -299,12 +299,12 @@ func TestEnsure_HeadlessService(t *testing.T) {
 			ctrl.Log.WithName("test"))
 
 		fqdn := hsvc.HeadlessServiceFQDN("some.domain")
-		assert.Equal(t, "trailing-dot-headles-service.some-namespace.svc.some.domain.", fqdn)
+		assert.Equal(t, "trailing-dot-headless-service.some-namespace.svc.some.domain.", fqdn)
 	})
 
 	t.Run("HeadlessServiceFQDN without trailing dot", func(t *testing.T) {
 		cluster := pandaCluster()
-		cluster.Name = "without-trailing-dot-headles-service"
+		cluster.Name = "without-trailing-dot-headless-service"
 		cluster.Namespace = "different-namespace"
 		cluster.Spec.DNSTrailingDotDisabled = true
 
@@ -318,7 +318,7 @@ func TestEnsure_HeadlessService(t *testing.T) {
 			ctrl.Log.WithName("test"))
 
 		fqdn := hsvc.HeadlessServiceFQDN("some.domain")
-		assert.Equal(t, "without-trailing-dot-headles-service.different-namespace.svc.some.domain", fqdn)
+		assert.Equal(t, "without-trailing-dot-headless-service.different-namespace.svc.some.domain", fqdn)
 	})
 }
 

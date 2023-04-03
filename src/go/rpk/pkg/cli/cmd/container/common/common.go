@@ -400,11 +400,11 @@ func CheckIfImgPresent(c Client, image string) (bool, error) {
 func getHostPort(
 	containerPort int, containerJSON types.ContainerJSON,
 ) (uint, error) {
-	natContianerPort, err := nat.NewPort("tcp", fmt.Sprint(containerPort))
+	natContainerPort, err := nat.NewPort("tcp", fmt.Sprint(containerPort))
 	if err != nil {
 		return uint(0), err
 	}
-	bindings, exists := containerJSON.NetworkSettings.Ports[natContianerPort]
+	bindings, exists := containerJSON.NetworkSettings.Ports[natContainerPort]
 	if exists {
 		if len(bindings) > 0 {
 			hostPort, err := strconv.Atoi(bindings[0].HostPort)

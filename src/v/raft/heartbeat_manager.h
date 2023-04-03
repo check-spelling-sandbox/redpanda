@@ -54,7 +54,7 @@ extern ss::logger hbeatlog;
 /**
  * The heartbeat manager addresses the scalability challenge of handling
  * heartbeats for a large number of raft groups by batching many heartbeats into
- * a fewer set of requests than would othewise be required.
+ * a fewer set of requests than would otherwise be required.
  *
  * For example, consider three nodes `node-{a,b,c}`, and two groups, 0 and 1,
  * where L0, L1 are the group leaders and F0 and F1 denote any follower in these

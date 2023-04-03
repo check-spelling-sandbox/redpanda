@@ -68,7 +68,7 @@ class StatusGraph:
         self.edges[generated_id] = ConnectionStatus.ALIVE
         self.edges[:, generated_id] = ConnectionStatus.ALIVE
 
-    def mark_node_unknwon(self, available_node: ClusterNode):
+    def mark_node_unknown(self, available_node: ClusterNode):
         generated_id = self.node_to_vertex[available_node]
         self.edges[generated_id] = ConnectionStatus.UNKNOWN
         self.edges[:, generated_id] = ConnectionStatus.UNKNOWN
@@ -92,7 +92,7 @@ class StatusGraph:
             peer_status = self._get_peer_status(admin, node, peer)
 
             if expected_status == ConnectionStatus.UNKNOWN:
-                assert peer_status is None, f"Expected no reponse from node {peer.name}"
+                assert peer_status is None, f"Expected no response from node {peer.name}"
             if expected_status == ConnectionStatus.ALIVE:
                 ms_since_last_status = peer_status["since_last_status"]
                 assert is_live(
@@ -164,7 +164,7 @@ class NodeStatusStartupTest(RedpandaTest):
 
         # Check the cluster status with the unavailable node
         status_graph = StatusGraph(self.redpanda)
-        status_graph.mark_node_unknwon(late_joiner)
+        status_graph.mark_node_unknown(late_joiner)
         status_graph.check_cluster_status()
 
         # Start the late joiner

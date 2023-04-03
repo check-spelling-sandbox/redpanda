@@ -235,7 +235,7 @@ ss::future<> heartbeat_manager::do_heartbeat(node_heartbeat&& r) {
     auto gate = _bghbeats.hold();
     vlog(
       hbeatlog.trace,
-      "Dispatching hearbeats for {} groups to node: {}",
+      "Dispatching heartbeats for {} groups to node: {}",
       r.meta_map.size(),
       r.target);
 
@@ -256,7 +256,7 @@ ss::future<> heartbeat_manager::do_heartbeat(node_heartbeat&& r) {
                    process_reply(node, std::move(groups), std::move(ret));
                });
     // fail fast to make sure that not lagging nodes will be able to receive
-    // hearteats
+    // heartbeats
     return ss::with_timeout(next_heartbeat_timeout(), std::move(f))
       .handle_exception_type([n = r.target](const ss::timed_out_error&) {
           vlog(hbeatlog.trace, "Heartbeat timeout, node: {}", n);

@@ -41,7 +41,7 @@ metadata:
   namespace: console-kafka-mtls
 spec:
   dnsNames:
-    # Kakfa API
+    # Kafka API
     - "*.cluster.console-kafka-mtls.svc.cluster.local"
   issuerRef:
     kind: Issuer

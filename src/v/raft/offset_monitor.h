@@ -25,14 +25,14 @@ namespace raft {
 /**
  * Offset monitor.
  *
- * Utility for manging waiters based on a threshold offset. Supports multiple
+ * Utility for managing waiters based on a threshold offset. Supports multiple
  * waiters on the same offset, as well as timeout and abort source methods of
  * aborting a wait.
  */
 class offset_monitor {
 public:
     /**
-     * Exisiting waiters receive wait_aborted exception.
+     * Existing waiters receive wait_aborted exception.
      */
     void stop();
 

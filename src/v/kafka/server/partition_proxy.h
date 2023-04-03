@@ -26,7 +26,7 @@ namespace kafka {
 
 /**
  * Kafka layer wrapper for partition, this wrapper performs offsets translation
- * to eliminate offset skew caused by existantece of Raft configuration batches.
+ * to eliminate offset skew caused by existence of Raft configuration batches.
  */
 class partition_proxy {
 public:

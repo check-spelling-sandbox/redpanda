@@ -665,7 +665,7 @@ FIXTURE_TEST(test_filter_by_source, s3_imposter_fixture) { // NOLINT
     BOOST_REQUIRE(!subscription.available());
 
     // In this case the caller is different and the manifest download
-    // shold trigger notification.
+    // should trigger notification.
     retry_chain_node other_rtc(never_abort, 100ms, 20ms);
     res = remote
             .download_manifest(

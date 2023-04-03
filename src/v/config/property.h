@@ -115,7 +115,7 @@ public:
 
     bool is_array() const override;
 
-    bool is_overriden() const { return is_required() || _value != _default; }
+    bool is_overridden() const { return is_required() || _value != _default; }
 
     bool is_default() const override { return _value == _default; }
 

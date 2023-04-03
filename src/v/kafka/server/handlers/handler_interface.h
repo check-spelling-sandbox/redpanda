@@ -47,7 +47,7 @@ struct handler_interface {
     /**
      * @brief Estimates the memory used to process the request.
      *
-     * Returns an esimate of the memory needed to process a request. This is
+     * Returns an estimate of the memory needed to process a request. This is
      * used to block the request until sufficient memory is available using the
      * "memory units" semaphore. Ideally this should be a conservative request
      * (i.e., a possible overestimate in cases where the memory use may vary
@@ -98,7 +98,7 @@ using handler = const handler_interface*;
  *
  * Returns a pointer to a constant singleton handler for the given
  * key, or an empty optional if no such handler exists. The contained
- * any_hanlder is guaranteed to be non-null if the optional as a value.
+ * any_handler is guaranteed to be non-null if the optional as a value.
  *
  * This method looks up the handler in a table populated by all handlers
  * in kafka::request_types.

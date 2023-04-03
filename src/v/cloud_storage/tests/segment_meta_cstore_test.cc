@@ -810,7 +810,7 @@ BOOST_AUTO_TEST_CASE(test_segment_meta_cstore_serde_roundtrip) {
 
     BOOST_REQUIRE_EQUAL(store.size(), manifest.size());
 
-    // NOTE: store.begin() returns an interator that can't be copied around.
+    // NOTE: store.begin() returns an iterator that can't be copied around.
     // can't use std::equal needs to copy the iterators around (a quirk of this
     // implementation) with clang15 we have std::views::ref_view +
     // std::ranges::subranges that take care of this

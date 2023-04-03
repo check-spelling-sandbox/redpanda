@@ -38,7 +38,7 @@ class segment_meta_frame_const_iterator
     using self_t = segment_meta_frame_const_iterator<value_t, decoder_t>;
 
 public:
-    /// Create iterator that points to the begining
+    /// Create iterator that points to the beginning
     explicit segment_meta_frame_const_iterator(
       decoder_t decoder,
       const std::array<value_t, buffer_depth>& head,
@@ -152,7 +152,7 @@ public:
     // The method returns an optional with the state of the
     // transaction. If the append operation doesn't require
     // memory allocation the optional is null. Otherwise it
-    // will contain a transaction which need to be commited.
+    // will contain a transaction which need to be committed.
     // The actual append operation can allocate memory and
     // can throw but 'commit' method of the transaction
     // doesn't allocate and doesn't throw.
@@ -527,7 +527,7 @@ public:
     // The method returns an optional with the state of the
     // transaction. If the append operation doesn't require
     // memory allocation the optional is null. Otherwise it
-    // will contain a transaction which need to be commited.
+    // will contain a transaction which need to be committed.
     // The actual append operation can allocate memory and
     // can throw but 'commit' method of the transaction
     // doesn't allocate and doesn't throw.
@@ -728,10 +728,10 @@ public:
 /// Segment metadata column for monotonic sequences.
 ///
 /// Optimized for quick append/at/find operations.
-/// Find/lower_bound/upper_bound operations are complited within
+/// Find/lower_bound/upper_bound operations are completed within
 /// single digit microsecond intervals even with millions of elements
 /// in the column. The actual decoding is only performed for a single frame.
-/// The access by index is also fast (same order of magnitued as search).
+/// The access by index is also fast (same order of magnitude as search).
 template<class value_t>
 class segment_meta_column<value_t, details::delta_delta<value_t>>
   : public segment_meta_column_impl<

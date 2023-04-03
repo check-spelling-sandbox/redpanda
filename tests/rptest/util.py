@@ -61,7 +61,7 @@ def wait_until_result(condition, *args, **kwargs):
     wait_until and the final value will be returned to the caller.
 
     when a tuple is returned the first element is used as the value of the
-    conditionl, and the remaining elements in the tuple are returned to the
+    condition, and the remaining elements in the tuple are returned to the
     caller. special cases for {1,2}-tuple are handled for convenience:
 
        (cond,)          -> None
@@ -219,7 +219,7 @@ def wait_for_local_storage_truncate(redpanda,
                                     timeout_sec: Optional[int] = None,
                                     nodes: Optional[list] = None):
     """
-    For use in tiered storage tests: wait until the locally etained data
+    For use in tiered storage tests: wait until the locally retained data
     size for this partition is below a threshold on all nodes.
     """
 
@@ -342,7 +342,7 @@ class firewall_blocked:
     def __enter__(self):
         """Isolate certain ips from the nodes using firewall rules"""
         cmd = []
-        mode_for_inut = "sport"
+        mode_for_input = "sport"
         cmd.append(
             f"iptables -A INPUT -p tcp --{self.mode_for_input} {self._port} -j DROP"
         )

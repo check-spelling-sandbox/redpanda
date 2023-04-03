@@ -72,13 +72,13 @@ private:
 /// tracks both the copy and the source objects.
 ///
 /// When the enclosing container is moved, the underlying mem_tracker now
-/// tracks the the object that is moved into.
+/// tracks the object that is moved into.
 ///
 /// When the enclosing container is swapped, the underlying mem_trackers
 /// are swapped.
 
 /// Note on thread-safety: This allocator implementation has the same thread
-/// safetly guantees as the underlying allocator when used in a seastar
+/// safety guarantees as the underlying allocator when used in a seastar
 /// context. All the shard local read/writes can be lock free and safe by
 /// default. All cross shard/thread accesses are safe owing to the use
 /// of atomics for accounting consumption.
@@ -130,7 +130,7 @@ public:
 
 private:
     /// It is a conscious choice to use a shared_ptr instead of an
-    /// lw_shared_ptr to allow threaad-safety when shared across cores.
+    /// lw_shared_ptr to allow thread-safety when shared across cores.
     ss::shared_ptr<mem_tracker> _tracker;
 };
 

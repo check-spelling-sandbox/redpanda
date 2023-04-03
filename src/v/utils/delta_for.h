@@ -65,9 +65,9 @@ struct delta_xor {
  *
  * The encoder can work only with non-decreasing integer sequences
  * with 64-bit values. It uses delta-delta algorithm to compute delta values.
- * The alg. computes delta values by subtacting consequtive values from
+ * The alg. computes delta values by subtracting consecutive values from
  * each other and then it subtracts the pre-defined step value out of every
- * delta. The step value is a minimal possible delta between two consequitive
+ * delta. The step value is a minimal possible delta between two consecutive
  * elements.
  */
 template<class ValueT>
@@ -189,7 +189,7 @@ struct deltafor_stream_pos_t
  * The alternative to this is to implement 63 bit-packing functions that
  * can pack all possible values. The approach used here requires only
  * 7 custom bit-packing functions + 4 bit-packing functions for different
- * size classes (8, 16, 32, 64) which is much easier to impelment and
+ * size classes (8, 16, 32, 64) which is much easier to implement and
  * test.
  *
  * It's also beneficial for further compression using general purpose
@@ -260,7 +260,7 @@ public:
     // This c-tor creates shallow copy of the encoder.
     //
     // The underlying iobuf is shared which makes the operation
-    // relatively lightweiht. The signature is different from
+    // relatively lightweight. The signature is different from
     // copy c-tor on purpose. The 'other' object is modified
     // and not just copied. If the c-tor throws the 'other' is
     // not affected.
@@ -283,7 +283,7 @@ public:
         _cnt++;
     }
 
-    /// Return ppsition inside the stream
+    /// Return position inside the stream
     deltafor_stream_pos_t<TVal> get_position() const {
         return {
           .initial = _last,

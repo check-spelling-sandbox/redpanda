@@ -695,7 +695,7 @@ FIXTURE_TEST(test_upload_segments_leadership_transfer, archiver_fixture) {
     old_manifest.add(oldname, old_meta);
     ss::sstring segment3_url = "/dfee62b1/kafka/test-topic/42_0/2-2-v1.log";
 
-    // Simulate pre-existing state in the snapshot
+    // Simulate preexisting state in the snapshot
     std::vector<cloud_storage::segment_meta> old_segments;
     for (const auto& s : old_manifest) {
         old_segments.push_back(s.second);
@@ -1048,7 +1048,7 @@ FIXTURE_TEST(test_upload_segments_with_overlap, archiver_fixture) {
     // For instance if we have segments A with base offset 0 committed offset
     // 100 and dirty offset 101, and B with base offset 100 and committed offset
     // 200, the archival_policy should return A and then B. Before the fix this
-    // is not the case and it always retuns A.
+    // is not the case and it always returns A.
     const auto offset1 = model::offset(0);
     const auto offset2 = model::offset(1000);
     const auto offset3 = model::offset(2000);

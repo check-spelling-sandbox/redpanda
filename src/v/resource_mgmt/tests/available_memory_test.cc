@@ -23,7 +23,7 @@ auto& local() { return resources::available_memory::local(); }
 } // namespace
 
 // clang is pretty adept at optimizing away heap allocations, when the
-// pointer doens't escape out into the wild, which applies to allocations
+// pointer doesn't escape out into the wild, which applies to allocations
 // we want to do here, so we "sink" the value by writing it to a global
 // volatile which prevents optimization.
 void* volatile sink;
@@ -100,7 +100,7 @@ SEASTAR_THREAD_TEST_CASE(check_low_water_mark) {
     BOOST_CHECK_EQUAL(lwm_after, am.available_low_water_mark());
 
     // check that a large allocation without any corresponding
-    // update_low_water_mark() call is "invisble" to the LVM
+    // update_low_water_mark() call is "invisible" to the LVM
     bytes = std::make_unique<char[]>(large_size * 2);
     BOOST_CHECK(am.available() < free_after);
     bytes.reset();

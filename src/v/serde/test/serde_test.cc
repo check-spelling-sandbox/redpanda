@@ -70,9 +70,9 @@ struct test_msg1
     int _b, _c;
 };
 
-struct test_msg1_imcompatible
+struct test_msg1_incompatible
   : serde::envelope<test_msg1, serde::version<5>, serde::compat_version<5>> {
-    bool operator==(const test_msg1_imcompatible&) const = default;
+    bool operator==(const test_msg1_incompatible&) const = default;
 
     test_msg0 _m;
 };
@@ -109,7 +109,7 @@ static_assert(test_msg1::redpanda_serde_compat_version == 0);
 
 SEASTAR_THREAD_TEST_CASE(incompatible_version_throws) {
     BOOST_CHECK_THROW(
-      serde::from_iobuf<test_msg1_imcompatible>(serde::to_iobuf(test_msg1{})),
+      serde::from_iobuf<test_msg1_incompatible>(serde::to_iobuf(test_msg1{})),
       serde::serde_exception);
 }
 

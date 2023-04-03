@@ -468,7 +468,7 @@ class UpgradeFromPriorFeatureVersionCloudStorageTest(RedpandaTest):
         # Verify all data readable
         verify()
 
-        # Pick some arbitrary partition to write data to via a new-verison node
+        # Pick some arbitrary partition to write data to via a new-version node
         newdata_p = 0
 
         # There might not be any partitions with leadership on new version

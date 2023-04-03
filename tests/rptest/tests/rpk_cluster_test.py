@@ -118,7 +118,7 @@ class RpkClusterTest(RedpandaTest):
 
         # Per-node admin API calls:
         for n in self.redpanda.started_nodes():
-            # rpk will save 2 snapsots per metrics endpoint:
+            # rpk will save 2 snapshots per metrics endpoint:
             assert f'metrics/{n.account.hostname}-9644/t0_metrics.txt' in files
             assert f'metrics/{n.account.hostname}-9644/t1_metrics.txt' in files
             assert f'metrics/{n.account.hostname}-9644/t0_public_metrics.txt' in files

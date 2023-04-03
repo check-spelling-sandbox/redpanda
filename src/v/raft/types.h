@@ -83,7 +83,7 @@ struct follower_index_metadata {
     follower_index_metadata& operator=(const follower_index_metadata&) = delete;
     follower_index_metadata(follower_index_metadata&&) = default;
     follower_index_metadata& operator=(follower_index_metadata&&) = delete;
-    // resets the follower state i.e. all indicies and sequence numbers
+    // resets the follower state i.e. all indices and sequence numbers
     void reset();
 
     vnode node_id;
@@ -152,7 +152,7 @@ struct follower_index_metadata {
 
     follower_req_seq last_sent_seq{0};
     follower_req_seq last_received_seq{0};
-    // sequence number of last received successfull append entries request
+    // sequence number of last received successful append entries request
     follower_req_seq last_successful_received_seq{0};
     bool is_learner = true;
     bool is_recovering = false;
@@ -295,7 +295,7 @@ private:
  * append_entries_reply uses two different types of serialization: when
  * encoding/decoding directly normal adl/serde per-field serialization is used.
  * the second type is a custom encoding used by heartbeat_reply for more
- * efficient encoding of a vectory of append_entries_reply.
+ * efficient encoding of a vector of append_entries_reply.
  */
 struct append_entries_reply
   : serde::envelope<
@@ -311,10 +311,10 @@ struct append_entries_reply
     };
     // node id to validate on receiver
     vnode target_node_id;
-    /// \brief callee's node_id; work-around for batched heartbeats
+    /// \brief callee's node_id; workaround for batched heartbeats
     vnode node_id;
     group_id group;
-    /// \brief callee's term, for the caller to upate itself
+    /// \brief callee's term, for the caller to update itself
     model::term_id term;
     /// \brief The recipient's last log index after it applied changes to
     /// the log. This is used to speed up finding the correct value for the
@@ -322,7 +322,7 @@ struct append_entries_reply
     model::offset last_flushed_log_index;
     model::offset last_dirty_log_index;
     // the last entry base offset used for the recovery speed up, the value is
-    // only valid for not successfull append_entries reply
+    // only valid for not successful append_entries reply
     model::offset last_term_base_offset;
     /// \brief did the rpc succeed or not
     status result = status::failure;
@@ -441,7 +441,7 @@ struct vote_reply
     using rpc_adl_exempt = std::true_type;
     // node id to validate on receiver
     vnode target_node_id;
-    /// \brief callee's term, for the caller to upate itself
+    /// \brief callee's term, for the caller to update itself
     model::term_id term;
 
     /// True if the follower granted the candidate it's vote, false otherwise
@@ -484,7 +484,7 @@ struct replicate_stages {
     replicate_stages(ss::future<>, ss::future<result<replicate_result>>);
     explicit replicate_stages(raft::errc);
     // after this future is ready, request in enqueued in raft and it will not
-    // be reorderd
+    // be reordered
     ss::future<> request_enqueued;
     // after this future is ready, request was successfully replicated with
     // requested consistency level
@@ -508,7 +508,7 @@ struct replicate_options {
 
 using offset_translator_delta = named_type<int64_t, struct ot_delta_tag>;
 struct snapshot_metadata {
-    // we start snasphot metadata version at 64 to leave room for configuration
+    // we start snapshot metadata version at 64 to leave room for configuration
     // version updates
     static constexpr int8_t initial_version = 64;
     static constexpr int8_t current_version = initial_version;
@@ -527,7 +527,7 @@ struct snapshot_metadata {
     static_assert(
       group_configuration::current_version <= initial_version,
       "snapshot metadata is based on the assumption that group configuration "
-      "version is equal to 3, please change it accordignly");
+      "version is equal to 3, please change it accordingly");
 };
 
 struct install_snapshot_request
@@ -623,7 +623,7 @@ struct install_snapshot_reply
     //  when a follower reboots, it returns 0 here and the leader starts at
     //  offset 0 in the next request).
     uint64_t bytes_stored = 0;
-    // indicates if the request was successfull
+    // indicates if the request was successful
     bool success = false;
 
     // replying node

@@ -19,7 +19,7 @@
 #include <algorithm>
 #include <limits>
 
-// rougly equivalent to the test harness:
+// roughly equivalent to the test harness:
 //   https://github.com/apache/kafka/blob/8e16158/core/src/test/scala/unit/kafka/server/AbstractCreateTopicsRequestTest.scala
 class create_topic_fixture : public redpanda_thread_fixture {
 public:
@@ -119,7 +119,7 @@ public:
             // fixture and enable multiple RP instances to run at the same time
             // in the test, then we should create two clients in this test where
             // one of the client is not connected to the controller, and verify
-            // that the topic creation is correctly propogated to the
+            // that the topic creation is correctly propagated to the
             // non-controller broker.
         }
 
@@ -262,7 +262,7 @@ public:
             // FIXME: this is a temporary fix. what we really want is to use
             // BOOST_TEST_REQUIRE for this condition, but there does seem to be
             // something preventing the partitions from being reported
-            // reliabily.
+            // reliably.
             BOOST_TEST(!topic_metadata->partitions.empty());
             if (topic_metadata->partitions.empty()) {
                 return;
@@ -284,7 +284,7 @@ public:
     void foo() { BOOST_TEST(false); }
 };
 
-// This is rougly equivalent to
+// This is roughly equivalent to
 //   https://github.com/apache/kafka/blob/8e16158/core/src/test/scala/unit/kafka/server/CreateTopicsRequestTest.scala#L27
 FIXTURE_TEST(create_topics, create_topic_fixture) {
     wait_for_controller_leadership().get();

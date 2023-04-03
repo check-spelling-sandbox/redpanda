@@ -42,12 +42,12 @@ enum class segment_upload_kind { compacted, non_compacted };
 
 std::ostream& operator<<(std::ostream& os, segment_upload_kind upload_kind);
 
-/// This class performs per-ntp arhcival workload. Every ntp can be
+/// This class performs per-ntp archival workload. Every ntp can be
 /// processed independently, without the knowledge about others. All
-/// 'ntp_archiver' instances that the shard posesses are supposed to be
+/// 'ntp_archiver' instances that the shard processes are supposed to be
 /// aggregated on a higher level in the 'archiver_service'.
 ///
-/// The 'ntp_archiver' is responsible for manifest manitpulations and
+/// The 'ntp_archiver' is responsible for manifest manipulations and
 /// generation of per-ntp candidate set. The actual file uploads are
 /// handled by 'archiver_service'.
 ///
@@ -91,7 +91,7 @@ public:
     model::initial_revision_id get_revision_id() const;
 
     /// Get time when partition manifest was last uploaded
-    const ss::lowres_clock::time_point get_last_manfiest_upload_time() const {
+    const ss::lowres_clock::time_point get_last_manifest_upload_time() const {
         return _last_manifest_upload_time;
     }
 
@@ -100,7 +100,7 @@ public:
         return _last_segment_upload_time;
     }
 
-    /// Download manifest from pre-defined S3 locatnewion
+    /// Download manifest from pre-defined S3 location
     ///
     /// \return future that returns true if the manifest was found in S3
     ss::future<std::pair<
@@ -147,12 +147,12 @@ public:
     /// \brief Perform housekeeping operations.
     ss::future<> housekeeping();
 
-    /// \brief Advance the start offest for the remote partition
+    /// \brief Advance the start offset for the remote partition
     /// according to the retention policy specified by the partition
     /// configuration. This function does *not* delete any data.
     ss::future<manifest_updated> apply_retention();
 
-    /// \brief Remove segments that are no longer queriable by:
+    /// \brief Remove segments that are no longer queryable by:
     /// segments that are below the current start offset and segments
     /// that have been replaced with their compacted equivalent.
     ss::future<manifest_updated> garbage_collect();
@@ -284,7 +284,7 @@ private:
         std::optional<cloud_storage::partition_manifest::segment_meta> meta;
         /// Name of the uploaded segment
         std::optional<ss::sstring> name;
-        /// Offset range convered by the upload
+        /// Offset range covered by the upload
         std::optional<model::offset> delta;
         /// Contains 'no' if the method can be called another time or 'yes'
         /// if it shouldn't be called (if there is no data to upload).

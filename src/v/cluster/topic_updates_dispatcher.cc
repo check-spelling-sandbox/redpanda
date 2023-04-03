@@ -383,16 +383,16 @@ topic_updates_dispatcher::apply_update(model::record_batch b) {
                       if (ec == errc::success) {
                           for (const auto& [partition_id, replicas] :
                                cmd.value) {
-                              auto assigment_it = assignments.value().find(
+                              auto assignment_it = assignments.value().find(
                                 partition_id);
                               auto ntp = model::ntp(
                                 cmd.key.ns, cmd.key.tp, partition_id);
-                              if (assigment_it == assignments.value().end()) {
+                              if (assignment_it == assignments.value().end()) {
                                   return std::error_code(
                                     errc::partition_not_exists);
                               }
                               auto to_add = subtract_replica_sets(
-                                replicas, assigment_it->replicas);
+                                replicas, assignment_it->replicas);
                               _partition_allocator.local().add_allocations(
                                 to_add, get_allocation_domain(ntp));
                               _partition_balancer_state.local()
@@ -400,7 +400,7 @@ topic_updates_dispatcher::apply_update(model::record_batch b) {
                                   ntp.ns,
                                   ntp.tp.topic,
                                   ntp.tp.partition,
-                                  assigment_it->replicas,
+                                  assignment_it->replicas,
                                   replicas);
                           }
                       }

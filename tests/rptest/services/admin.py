@@ -156,7 +156,7 @@ class Admin:
         hosts see the same leader.
 
         When replication is provided the method also checks that the confi-
-        guration has exactly that amout of nodes.
+        guration has exactly that amount of nodes.
 
         When the configuration isn't stable the method returns None
         """
@@ -753,7 +753,7 @@ class Admin:
 
     def maintenance_start(self, node, dst_node=None):
         """
-        Start maintenanceing on 'node', sending the request to 'dst_node'.
+        Start maintenance on 'node', sending the request to 'dst_node'.
         """
         id = self.redpanda.node_id(node)
         url = f"brokers/{id}/maintenance"
@@ -763,7 +763,7 @@ class Admin:
 
     def maintenance_stop(self, node, dst_node=None):
         """
-        Stop maintenanceing on 'node', sending the request to 'dst_node'.
+        Stop maintenance on 'node', sending the request to 'dst_node'.
         """
         id = self.redpanda.node_id(node)
         url = f"brokers/{id}/maintenance"

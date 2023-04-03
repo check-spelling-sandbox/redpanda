@@ -25,20 +25,20 @@ public:
 };
 
 /*
- * This utility class performs a map-reduce operation accross the cluster
+ * This utility class performs a map-reduce operation across the cluster
  * in order to determine the total number of cloud storage bytes used by
  * all partitions.
  *
- * It iterates across the current topic table in batche. For each batch,
+ * It iterates across the current topic table in batches. For each batch,
  * the following sequence of operations is performed:
  * 1. Find the first live replica of each partition in the batch
  * 2. Prepare `cloud_storage_usage` RPC requests for each node in the cluster.
  * The request will contain the partitions being queried by shard.
- * 3. Reduce the reponses and update the accumulator.
+ * 3. Reduce the responses and update the accumulator.
  *
  * One important thing to note is that this operation requires topic table
  * stability (i.e. the topic table does not change in the meantime). This
- * property is enfored by the `topic_table_partition_generator`, which will
+ * property is enforced by the `topic_table_partition_generator`, which will
  * throw if the topic table has been updated during the iteration. If such
  * a change does happen, it's treated as a retryable error.
  *

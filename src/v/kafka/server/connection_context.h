@@ -203,7 +203,7 @@ private:
     bool is_finished_parsing() const;
 
     // Reserve units from memory from the memory semaphore in proportion
-    // to the number of bytes the request procesisng is expected to
+    // to the number of bytes the request processing is expected to
     // take.
     ss::future<ssx::semaphore_units>
     reserve_request_units(api_key key, size_t size);
@@ -223,7 +223,7 @@ private:
     };
 
     /// Update throughput trackers (per-client, per-shard, and whatever are
-    /// going to emerge) on ingress traffic and claculate aggregated throttle
+    /// going to emerge) on ingress traffic and calculate aggregated throttle
     /// delays from all of them.
     delay_t record_tp_and_calculate_throttle(
       const request_header& hdr, size_t request_size);
@@ -233,7 +233,7 @@ private:
     // too few server resources are available to accomodate the request
     // currently.
     // When the returned future resolves, the throttling period is over and
-    // the associated resouces have been obtained and are tracked by the
+    // the associated resources have been obtained and are tracked by the
     // contained session_resources object.
     ss::future<session_resources>
     throttle_request(const request_header&, size_t sz);

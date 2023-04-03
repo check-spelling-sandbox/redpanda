@@ -53,14 +53,14 @@ id_allocator_stm::sync(model::timeout_clock::duration timeout) {
             _processed = 0;
             _next_snapshot = _insync_offset;
         }
-        if (_procesing_legacy) {
+        if (_processing_legacy) {
             for (auto& cmd : _cache) {
                 _state += cmd.range;
             }
             is_synced = co_await set_state(_state + 1, timeout);
             if (is_synced) {
                 _cache.clear();
-                _procesing_legacy = false;
+                _processing_legacy = false;
             }
         }
     }
@@ -154,7 +154,7 @@ ss::future<> id_allocator_stm::apply(model::record_batch b) {
             _should_cache = false;
         }
     } else if (rk == state_cmd::record_key) {
-        _procesing_legacy = false;
+        _processing_legacy = false;
         state_cmd cmd = reflection::adl<state_cmd>{}.from(
           record.release_value());
         _state = cmd.next_state;

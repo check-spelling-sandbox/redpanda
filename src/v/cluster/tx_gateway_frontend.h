@@ -63,8 +63,8 @@ public:
       std::chrono::milliseconds,
       model::timeout_clock::duration,
       model::producer_identity);
-    ss::future<add_paritions_tx_reply> add_partition_to_tx(
-      add_paritions_tx_request, model::timeout_clock::duration);
+    ss::future<add_partitions_tx_reply> add_partition_to_tx(
+      add_partitions_tx_request, model::timeout_clock::duration);
     ss::future<add_offsets_tx_reply>
       add_offsets_to_tx(add_offsets_tx_request, model::timeout_clock::duration);
     ss::future<end_tx_reply>
@@ -103,7 +103,7 @@ private:
 
     // Transaction GA includes: KIP_447, KIP-360, fix for compaction tx_group*
     // records, perf fix#1(Do not writing preparing state on disk in tm_stn),
-    // perf fix#2(Do not writeing prepared marker in rm_stm)
+    // perf fix#2(Do not writing prepared marker in rm_stm)
     bool is_transaction_ga() {
         return _feature_table.local().is_active(
           features::feature::transaction_ga);
@@ -220,9 +220,9 @@ private:
     template<typename Func>
     auto with_stm(Func&& func);
 
-    ss::future<add_paritions_tx_reply> do_add_partition_to_tx(
+    ss::future<add_partitions_tx_reply> do_add_partition_to_tx(
       ss::shared_ptr<tm_stm>,
-      add_paritions_tx_request,
+      add_partitions_tx_request,
       model::timeout_clock::duration);
     ss::future<add_offsets_tx_reply> do_add_offsets_to_tx(
       ss::shared_ptr<tm_stm>,

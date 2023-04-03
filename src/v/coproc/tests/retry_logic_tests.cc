@@ -72,7 +72,7 @@ FIXTURE_TEST(identity_offset_test, fiber_mock_fixture) {
     verify_results(std::move(et)).get();
 }
 
-/// Test that an output that recieves data once and no more doesn't cause an
+/// Test that an output that receives data once and no more doesn't cause an
 /// infinite loop. This coprocessor produces onto \ref output_a_ntp() only once,
 /// after that it produces onto all other topics in its output set (3 others).
 FIXTURE_TEST(lagging_topic_test, fiber_mock_fixture) {

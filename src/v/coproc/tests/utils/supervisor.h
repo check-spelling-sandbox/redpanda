@@ -25,7 +25,7 @@
 namespace coproc {
 using script_map_t = absl::btree_map<script_id, std::unique_ptr<coprocessor>>;
 
-// A super simplistic form of the javascript supervisor soley used for
+// A super simplistic form of the javascript supervisor solely used for
 // the purposes of testing. The sharded instance of script_map_t contains the
 // same coprocessors across all cores. However due to the distribution of NTPs
 // across shards, record_batches from a particular input topic will always
@@ -35,7 +35,7 @@ public:
     /// class constructor
     ///
     /// Reference to sharded state map is passed so unit tests can query it
-    /// poking and proding the internal state of the service for validity
+    /// poking and prodding the internal state of the service for validity
     supervisor(
       ss::scheduling_group,
       ss::smp_service_group,
@@ -60,7 +60,7 @@ public:
     ss::future<disable_copros_reply>
     disable_all_coprocessors(empty_request&&, rpc::streaming_context&) final;
 
-    /// Called when when new data from registered input topics arrives
+    /// Called when new data from registered input topics arrives
     ///
     /// Call apply() on matching scripts, returning their transformed results.
     ss::future<process_batch_reply>

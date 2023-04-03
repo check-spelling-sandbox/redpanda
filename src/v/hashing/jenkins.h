@@ -31,7 +31,7 @@ inline uint32_t jenkins_rev_mix32(uint32_t key) noexcept {
 /*
  * Inverse of jenkins_rev_mix32
  *
- * Note that jenkinks_rev_unmix32 is significantly slower than
+ * Note that jenkins_rev_unmix32 is significantly slower than
  * jenkins_rev_mix32.
  */
 

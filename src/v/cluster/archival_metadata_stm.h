@@ -140,7 +140,7 @@ public:
     std::vector<cloud_storage::partition_manifest::lw_segment_meta>
     get_segments_to_cleanup() const;
 
-    /// Create batch builder that can be used to combine and replicate multipe
+    /// Create batch builder that can be used to combine and replicate multiple
     /// STM commands together
     command_batch_builder batch_start(
       ss::lowres_clock::time_point deadline,

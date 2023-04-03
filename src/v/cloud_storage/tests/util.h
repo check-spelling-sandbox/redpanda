@@ -120,7 +120,7 @@ struct in_memory_segment {
     int num_config_batches{0};
     int num_config_records{0};
     bool do_not_reupload{false};
-    // (Optional) If the segment overlaps with the prevoius segment this field
+    // (Optional) If the segment overlaps with the previous segment this field
     // should contain number of config records inside the overlapping area. This
     // is needed to compute the offset_delta field in the manifest correctly.
     //
@@ -333,7 +333,7 @@ copy_subsegment(const in_memory_segment& src, size_t shift, size_t length) {
         }
     }
     // we have an overlap between to segments, the delta_offset_shift
-    // has to store number of configuration records that overalp in both
+    // has to store number of configuration records that overlap in both
     // segments
     for (const auto& h : src.headers) {
         auto o = h.base_offset;

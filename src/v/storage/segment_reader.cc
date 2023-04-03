@@ -97,7 +97,7 @@ segment_reader::data_stream(size_t pos, const ss::io_priority_class pc) {
     // note: this file _must_ be open in `ro` mode only. Seastar uses dma
     // files with no shared buffer cache around them. When we use a writer
     // w/ dma at the same time as the reader, we need a way to synchronize
-    // filesytem metadata. In order to prevent expensive synchronization
+    // filesystem metadata. In order to prevent expensive synchronization
     // primitives fsyncing both *reads* and *writes* we open this file in ro
     // mode and if raft requires truncation, we open yet-another handle w/
     // rw mode just for the truncation which gives us all the benefits of

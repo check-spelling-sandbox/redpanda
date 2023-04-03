@@ -33,7 +33,7 @@ namespace cluster {
  * movements will fail and the groups being moved with be temporarily muted from
  * further movement. Thus the mute timeout should be chosen with this in mind:
  * too long, and leadership recovery will take a long time. Too short and it
- * will be very noise with timeouts and RPC errros.
+ * will be very noise with timeouts and RPC errors.
  *
  * TODO:
  *   - One approach to dealing with such situations in a smarter way might be to
@@ -124,7 +124,7 @@ private:
     /*
      * the balancer will go idle in different scenarios such as losing raft0
      * leadership, or when leadership balance cannot be improved.  for good
-     * responsivenss, sub-system upcalls may wake-up the balancer when
+     * responsiveness, sub-system upcalls may wake-up the balancer when
      * leadership is regained or some threshold set of leadership change is
      * identified. as a defensive measure, we set an idle timeout to run a
      * balancing tick at low frequency in case some upcall is missed.
@@ -132,7 +132,7 @@ private:
      * TODO:
      *   - raft0 leadership upcall is active, but we require polling to wake-up
      *   the balancer when it has gone idel because balancing completed. for
-     *   this we need ot add an upcall notification mechanism to the leaders
+     *   this we need to add an upcall notification mechanism to the leaders
      *   table / dissemination framework.
      *
      *      See: https://github.com/redpanda-data/redpanda/issues/2031
@@ -145,7 +145,7 @@ private:
     /*
      * timeout used to mute groups. groups are muted in various scenarios such
      * as if they experience errors being moved, but also if they are moved
-     * successfully so that we do not pertrub them too much on accident.
+     * successfully so that we do not perturb them too much on accident.
      */
     config::binding<std::chrono::milliseconds> _mute_timeout;
 

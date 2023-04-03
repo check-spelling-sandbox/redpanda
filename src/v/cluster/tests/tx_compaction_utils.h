@@ -337,7 +337,7 @@ private:
 
     ss::shared_ptr<linear_int_kv_batch_generator> _data_gen
       = ss::make_shared<linear_int_kv_batch_generator>();
-    // We track the commited/aborted pids as we build the tx workload
+    // We track the committed/aborted pids as we build the tx workload
     // and tally them with the batches in the final compacted segment file.
     std::set<model::producer_identity> _aborted_pids;
     std::set<model::producer_identity> _committed_pids;

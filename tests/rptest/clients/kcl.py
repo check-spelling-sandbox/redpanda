@@ -177,8 +177,8 @@ class KCL:
                        with_types: bool = False):
         """
         :param topic: the name of the topic to describe
-        :param with_docs: if true, include documention strings in the response
-        :param with_types: if true, include config type information in the reponse
+        :param with_docs: if true, include documentation strings in the response
+        :param with_types: if true, include config type information in the response
         :return: stdout string
         """
         cmd = ["admin", "configs", "describe", topic, "--type", "topic"]
@@ -296,7 +296,7 @@ class KCL:
                         'Number of replicas != topic replication factor')
 
                 # RP may report that the topic does not exist, this can
-                # happen when the recieving broker has out-of-date metadata. So
+                # happen when the receiving broker has out-of-date metadata. So
                 # retry the request.
                 m = unknown_tp_re.match(l)
                 if m is not None:

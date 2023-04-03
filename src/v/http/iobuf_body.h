@@ -33,7 +33,7 @@ namespace http {
 /// for parser. After the buffer was parsed client should call
 /// 'consume' method to produce an iobuf instance. Same buffer that
 /// was used to call parser.put should be used to call body.consume.
-/// Every call to parser.put shold be matched with the body.consume
+/// Every call to parser.put should be matched with the body.consume
 /// call. Otherwise the error will be triggered.
 ///
 /// \code

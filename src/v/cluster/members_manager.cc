@@ -860,7 +860,7 @@ members_manager::dispatch_join_to_seed_server(
         vlog(clusterlog.debug, "Using current node as a seed server");
         f = handle_join_request(req);
     } else {
-        // If seed is the other server then dispatch join requst to it.
+        // If seed is the other server then dispatch join request to it.
         // Copy request because if this fails we will proceed to next
         // see server and reuse original request object
         f = dispatch_join_to_remote(*it, join_node_request(req));
@@ -1214,7 +1214,7 @@ model::broker get_update_request_target(
 ss::future<>
 members_manager::dispatch_configuration_update(model::broker broker) {
     // right after start current node has no information about the current
-    // leader (it may never receive one as its addres might have been
+    // leader (it may never receive one as its address might have been
     // changed), dispatch request to any cluster node, it will eventually
     // forward it to current leader
     bool update_success = false;
@@ -1333,7 +1333,7 @@ members_manager::handle_configuration_update_request(
           req.node.id());
         return ss::make_ready_future<ret_t>(errc::no_leader_controller);
     }
-    // curent node is a leader
+    // current node is a leader
     if (leader_id == _self.id()) {
         // Just update raft0 configuration
         return update_node(std::move(req.node)).then([](std::error_code ec) {

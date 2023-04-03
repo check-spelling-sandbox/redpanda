@@ -46,7 +46,7 @@ using namespace std::chrono_literals;
 class partition_record_batch_reader_impl;
 struct materialized_segment_state;
 
-/// Remote partition manintains list of remote segments
+/// Remote partition maintains list of remote segments
 /// and list of active readers. Only one reader can be
 /// maintained per segment. The idea here is that the
 /// subsequent `make_reader` calls should reuse cached

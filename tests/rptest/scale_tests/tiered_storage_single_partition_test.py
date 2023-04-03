@@ -63,7 +63,7 @@ class TieredStorageSinglePartitionTest(RedpandaTest):
 
         produce_byte_rate = 50 * 1024 * 1024
 
-        # Large messages, this is a bandwith test for uploads, we do not
+        # Large messages, this is a bandwidth test for uploads, we do not
         # want CPU handling of small records to be a bottleneck
         msg_size = 32768
 

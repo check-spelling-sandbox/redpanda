@@ -415,11 +415,11 @@ guess_peer_listener(request_context& ctx, const cluster::node_metadata& nm) {
     }
 }
 
-// If node isolated or decomissioned it can not handle kafka requests from
-// client, so in this case we need to signal client comunicate with another
+// If node isolated or decommissioned it can not handle kafka requests from
+// client, so in this case we need to signal client communicate with another
 // broker. For this we need to exclude isolated node from brokers list and
 // return -1 for controller_id, after it client will send metadata request to
-// another broker and will comunicate with it
+// another broker and will communicate with it
 static ss::future<metadata_response> fill_info_about_brokers_and_controller_id(
   request_context& ctx, is_node_isolated_or_decommissioned isolated_flag) {
     metadata_response reply;
@@ -570,14 +570,14 @@ metadata_memory_estimator(size_t request_size, connection_context& conn_ctx) {
 
     // Finally, we double the estimate, because the highwater mark for memory
     // use comes when the in-memory structures (metadata_response_data and
-    // subobjects) exist on the heap and they are encoded into the reponse,
+    // subobjects) exist on the heap and they are encoded into the response,
     // which will also exist on the heap. The calculation above handles the
     // first size, and the encoded response ends up being very similar in size,
     // so we double the estimate to account for both.
     size_estimate *= 2;
 
     // We still add on the default_estimate to handle the size of the request
-    // itself and miscellaneous other procesing (this is a small adjustment,
+    // itself and miscellaneous other processing (this is a small adjustment,
     // generally ~8000 bytes).
     return default_memory_estimate(request_size) + size_estimate;
 }

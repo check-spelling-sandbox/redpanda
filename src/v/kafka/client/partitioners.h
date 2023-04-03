@@ -58,7 +58,7 @@ partitioner murmur2_key_partitioner();
 partitioner roundrobin_partitioner(model::partition_id initial);
 
 /// \brief Returns the partition_id if one exists in the record, or,
-/// returns the murmer2 hash of the key if there is one, or,
+/// returns the murmur2 hash of the key if there is one, or,
 /// returns partition_id based on round-robin.
 partitioner default_partitioner(model::partition_id initial);
 

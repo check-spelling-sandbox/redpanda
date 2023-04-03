@@ -39,7 +39,7 @@ def retry_on_slowdown(tries=4, delay=1.0, backoff=2.0):
                     sleep(sec_delay)
                     ntries -= 1
                     sec_delay *= backoff
-            # will stop filtering SlowDown exception when quota is reache
+            # will stop filtering SlowDown exception when quota is reached
             return fn(*args, **kwargs)
 
         return do_retry
@@ -221,7 +221,7 @@ class S3Client:
         return res
 
     def _wait_no_key(self, bucket, key, timeout_sec=10):
-        """Wait for the key to apper in the bucket"""
+        """Wait for the key to appear in the bucket"""
         deadline = datetime.datetime.now() + datetime.timedelta(
             seconds=timeout_sec)
         try:

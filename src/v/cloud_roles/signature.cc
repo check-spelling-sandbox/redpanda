@@ -173,7 +173,7 @@ ss::sstring uri_encode(const ss::sstring& input, bool encode_slash) {
 struct target_parts {
     /// \brief URI Encoded canonical URI
     /// Canonical URI is everything that follows domain name starting with '/'
-    /// without parameters (everythng after '?' including '?'). The uri is URI
+    /// without parameters (everything after '?' including '?'). The uri is URI
     /// encoded. e.g. https://foo.bar/canonical-url?param=value
     ss::sstring canonical_uri;
     /// \brief Query parameters extracted from target
@@ -350,7 +350,7 @@ inline result<ss::sstring> create_canonical_request(
       hashed_payload);
 }
 
-/// Genertes string-to-sign (in spec terms), example:
+/// Generates string-to-sign (in spec terms), example:
 ///
 ///   "AWS4-HMAC-SHA256" + "\n" +
 ///   timeStampISO8601Format + "\n" +

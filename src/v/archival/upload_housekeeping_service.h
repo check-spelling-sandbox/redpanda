@@ -78,7 +78,7 @@ public:
     /// If 'drain' is false, the workflow will continue executing jobs until the
     /// backlog will become empty or the workflow will be put on pause by
     /// calling a 'pause' method. When the backlog will become empty the
-    /// workflow will go into idle state until the next call to 'resume' methd.
+    /// workflow will go into idle state until the next call to 'resume' method.
     void resume(bool drain);
 
     /// Pause running jobs.
@@ -119,7 +119,7 @@ private:
 };
 
 /// Housekeeping service is used to perform periodic
-/// data maintenence tasks. Every ntp_archiver_service
+/// data maintenance tasks. Every ntp_archiver_service
 /// provides the list of periodic jobs. The service tries
 /// to run all jobs once per epoch.
 ///
@@ -162,11 +162,11 @@ private:
 /// storage do not reset it. So it will be triggered eventually if the cloud
 /// storage is always busy. The callback of the epoch timer initiates transition
 /// to the active state. It's purpose is to make sure that the housekeeping job
-/// is perfomed even when the cloud storage is always busy. This will drain the
+/// is performed even when the cloud storage is always busy. This will drain the
 /// backlog (the job queue) so it's guaranteed that every job is executed at
 /// least once per epoch.
 ///
-/// The noticifactions from the cloud storage API reset the idle timer so if the
+/// The notifications from the cloud storage API reset the idle timer so if the
 /// cloud storage is busy it will never be triggered. If any of the jobs uses
 /// the cloud storage API the notifications from it will be ignored.
 ///

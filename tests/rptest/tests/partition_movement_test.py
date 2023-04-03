@@ -46,7 +46,7 @@ class PartitionMovementTest(PartitionMovementMixin, EndToEndTest):
     TODO
     - Add tests with node failures
     - Add settings for scaling up tests
-    - Add tests guarnateeing multiple segments
+    - Add tests guaranteeing multiple segments
     """
     def __init__(self, ctx, *args, **kwargs):
         super(PartitionMovementTest, self).__init__(
@@ -385,7 +385,7 @@ class PartitionMovementTest(PartitionMovementMixin, EndToEndTest):
     @matrix(num_to_upgrade=[0, 2])
     def test_invalid_destination(self, num_to_upgrade):
         """
-        Check that requuests to move to non-existent locations are properly rejected.
+        Check that requests to move to nonexistent locations are properly rejected.
         """
 
         test_mixed_versions = num_to_upgrade > 0
@@ -573,7 +573,7 @@ class PartitionMovementTest(PartitionMovementMixin, EndToEndTest):
         """
         Delete topic which partitions are being moved and check status after 
         topic is created again, old move 
-        opeartions should not influcence newly created topic
+        operations should not influence newly created topic
         """
         test_mixed_versions = num_to_upgrade > 0
         install_opts = InstallOptions(

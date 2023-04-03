@@ -109,7 +109,7 @@ FIXTURE_TEST(test_replicate_with_expected_term_leader, raft_test_fixture) {
     leader_id = wait_for_group_leader(gr);
     leader_raft = gr.get_member(leader_id).consensus;
     auto new_term = leader_raft->term();
-    // require call to be successfull only if there was no leader election
+    // require call to be successful only if there was no leader election
     if (new_term == term) {
         BOOST_REQUIRE(success);
     }
@@ -129,7 +129,7 @@ FIXTURE_TEST(test_replicate_with_expected_term_quorum, raft_test_fixture) {
     leader_id = wait_for_group_leader(gr);
     leader_raft = gr.get_member(leader_id).consensus;
     auto new_term = leader_raft->term();
-    // require call to be successfull only if there was no leader election
+    // require call to be successful only if there was no leader election
     if (new_term == term) {
         BOOST_REQUIRE(success);
     }
@@ -148,7 +148,7 @@ FIXTURE_TEST(test_replicate_violating_expected_term_leader, raft_test_fixture) {
     leader_id = wait_for_group_leader(gr);
     leader_raft = gr.get_member(leader_id).consensus;
     auto new_term = leader_raft->term();
-    // require call to be successfull only if there was no leadership change
+    // require call to be successful only if there was no leadership change
     if (new_term == term) {
         BOOST_REQUIRE(success);
     }
@@ -297,7 +297,7 @@ FIXTURE_TEST(test_single_node_recovery_multi_terms, raft_test_fixture) {
     wait_for(
       10s,
       [&gr] { return are_all_commit_indexes_the_same(gr); },
-      "State is conistent after recovery");
+      "State is consistent after recovery");
     validate_offset_translation(gr);
 };
 
@@ -527,7 +527,7 @@ FIXTURE_TEST(test_collected_log_recovery, raft_test_fixture) {
       = replicate_compactible_batches(gr, first_ts).get0();
 
     auto second_ts = model::timestamp(first_ts() + 100);
-    info("Triggerring log collection with timestamp {}", first_ts);
+    info("Triggering log collection with timestamp {}", first_ts);
     // append some more entries
     res = replicate_compactible_batches(gr, second_ts).get0();
 
@@ -713,7 +713,7 @@ FIXTURE_TEST(test_last_visible_offset_relaxed_consistency, raft_test_fixture) {
     BOOST_REQUIRE_GT(updated_last_visible, last_visible);
 };
 
-FIXTURE_TEST(test_mixed_consisteny_levels, raft_test_fixture) {
+FIXTURE_TEST(test_mixed_consistency_levels, raft_test_fixture) {
     raft_group gr = raft_group(raft::group_id(0), 3);
     gr.enable_all();
     bool success = false;
@@ -734,7 +734,7 @@ FIXTURE_TEST(test_mixed_consisteny_levels, raft_test_fixture) {
     validate_offset_translation(gr);
 };
 
-FIXTURE_TEST(test_linarizable_barrier, raft_test_fixture) {
+FIXTURE_TEST(test_linearizable_barrier, raft_test_fixture) {
     raft_group gr = raft_group(raft::group_id(0), 3);
     gr.enable_all();
     auto leader_id = wait_for_group_leader(gr);
@@ -760,7 +760,7 @@ FIXTURE_TEST(test_linarizable_barrier, raft_test_fixture) {
     }
 };
 
-FIXTURE_TEST(test_linarizable_barrier_single_node, raft_test_fixture) {
+FIXTURE_TEST(test_linearizable_barrier_single_node, raft_test_fixture) {
     raft_group gr = raft_group(raft::group_id(0), 1);
     gr.enable_all();
     auto leader_id = wait_for_group_leader(gr);
@@ -833,7 +833,7 @@ struct request_ordering_test_fixture : public raft_test_fixture {
               make_indexed_batch_reader(i),
               raft::replicate_options(consistency));
             // wait for request to be enqueued before dispatching next one
-            // (comenting this out should cause this test to fail)
+            // (commenting this out should cause this test to fail)
             r.request_enqueued.get0();
             results.push_back(std::move(r.replicate_finished));
         }

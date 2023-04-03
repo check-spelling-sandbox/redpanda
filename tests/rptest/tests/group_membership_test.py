@@ -249,7 +249,7 @@ class GroupMetricsTest(RedpandaTest):
         wait_until(lambda: self._get_offset_from_metrics(group) is None,
                    timeout_sec=10,
                    backoff_sec=1,
-                   err_msg="Topic metrics haven't dissapeared")
+                   err_msg="Topic metrics haven't disappeared")
 
         self.client().create_topic(topic_spec)
         wait_until(lambda: check_metric(),

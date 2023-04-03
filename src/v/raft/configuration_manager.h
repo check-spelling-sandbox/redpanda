@@ -44,7 +44,7 @@ namespace raft {
  * to this when raft group is starting it only has to read up to 64MB of data to
  * find configurations that may not be included in the configuration manager.
  * The highest known offset is not group_configuration offset, it is an offset
- * up to which all configuration are guranted to be present in configuration
+ * up to which all configuration are guaranteed to be present in configuration
  * manager.
  */
 class configuration_manager {
@@ -65,7 +65,7 @@ public:
     using underlying_t = absl::btree_map<model::offset, indexed_configuration>;
     using const_iterator = underlying_t::const_iterator;
 
-    static constexpr size_t offset_update_treshold = 64_MiB;
+    static constexpr size_t offset_update_threshold = 64_MiB;
 
     configuration_manager(
       group_configuration, raft::group_id, storage::api&, ctx_log&);
@@ -141,7 +141,7 @@ public:
     }
     /**
      * Waits for changes in configuration newer than requested offset, if latest
-     * configuration has offset greater then the one requested it will return
+     * configuration has offset greater than the one requested it will return
      * immediately
      */
     ss::future<offset_configuration>

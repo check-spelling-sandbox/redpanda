@@ -140,7 +140,7 @@ class CloudStorageCompactionTest(EndToEndTest):
                                           num_brokers=3,
                                           si_settings=self.rr_si_settings)
 
-    def _create_read_repica_topic_success(self):
+    def _create_read_replica_topic_success(self):
         try:
             rpk_rr_cluster = RpkTool(self.rr_cluster)
             conf = {
@@ -159,7 +159,7 @@ class CloudStorageCompactionTest(EndToEndTest):
     def _setup_read_replica(self):
         self._init_redpanda_read_replica()
         self.rr_cluster.start(start_si=False)
-        wait_until(self._create_read_repica_topic_success,
+        wait_until(self._create_read_replica_topic_success,
                    timeout_sec=30,
                    backoff_sec=5)
 
@@ -168,7 +168,7 @@ class CloudStorageCompactionTest(EndToEndTest):
     # TODO: remove this low allow-list when that issue is resolved.
     @cluster(num_nodes=9,
              log_allow_list=[
-                 "Cannot validate Kafka record batch. Missmatching CRC",
+                 "Cannot validate Kafka record batch. Mismatching CRC",
                  "batch has invalid CRC"
              ])
     @matrix(
@@ -190,7 +190,7 @@ class CloudStorageCompactionTest(EndToEndTest):
         self.run_consumer_validation(enable_compaction=True,
                                      consumer_timeout_sec=600)
 
-        upload_sucess = sum([
+        upload_success = sum([
             sample.value for sample in self.redpanda.metrics_sample(
                 "successful_uploads",
                 metrics_endpoint=MetricsEndpoint.METRICS).samples
@@ -200,7 +200,7 @@ class CloudStorageCompactionTest(EndToEndTest):
                 "failed_uploads",
                 metrics_endpoint=MetricsEndpoint.METRICS).samples
         ])
-        download_sucess = sum([
+        download_success = sum([
             sample.value for sample in self.rr_cluster.metrics_sample(
                 "successful_downloads",
                 metrics_endpoint=MetricsEndpoint.METRICS).samples
@@ -211,9 +211,9 @@ class CloudStorageCompactionTest(EndToEndTest):
                 metrics_endpoint=MetricsEndpoint.METRICS).samples
         ])
 
-        assert upload_sucess > 0
-        assert download_sucess > 0
-        assert download_sucess <= upload_sucess, \
-            f"Downloaded {download_sucess}, uploaded {upload_sucess}"
+        assert upload_success > 0
+        assert download_success > 0
+        assert download_success <= upload_success, \
+            f"Downloaded {download_success}, uploaded {upload_success}"
         assert upload_fails == 0
         assert download_fails == 0

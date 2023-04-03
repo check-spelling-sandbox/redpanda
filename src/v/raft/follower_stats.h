@@ -35,7 +35,7 @@ public:
         auto it = _followers.find(n);
         vassert(
           it != _followers.end(),
-          "Cannot get non-existent follower index {}, key:{}",
+          "Cannot get nonexistent follower index {}, key:{}",
           *this,
           n);
         return it->second;
@@ -44,7 +44,7 @@ public:
         auto it = _followers.find(n);
         vassert(
           it != _followers.end(),
-          "Cannot get non-existent follower index {}, key:{}",
+          "Cannot get nonexistent follower index {}, key:{}",
           *this,
           n);
         return it->second;

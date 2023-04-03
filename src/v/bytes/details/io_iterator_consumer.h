@@ -29,7 +29,7 @@
  * wrap the iobuf and iterator consumer in a heap allocated state structure
  * which can be moved without altering the saved iobuf::end() iterator.
  *
- * Alteratives:
+ * Alternatives:
  *
  * - Store std::distance(begin, end) instead of end. This would eliminate the
  *   issue, but requires o(n) operations in the general case. we could switch to
@@ -114,7 +114,7 @@ public:
     requires requires(Consumer c, const char* src, size_t max) {
         { c(src, max) } -> std::same_as<ss::stop_iteration>;
     }
-    /// takes a Consumer object and iteraters over the chunks in oder, from
+    /// takes a Consumer object and iterators over the chunks in oder, from
     /// the given buffer index position. Use a stop_iteration::yes for early
     /// exit;
     size_t consume(const size_t n, Consumer&& f) {

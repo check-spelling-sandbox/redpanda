@@ -78,7 +78,7 @@ Other instruction will be visible after installation.
 | nameOverride | string | `""` | Override name of app |
 | nodeSelector | object | `{}` | Allows to schedule Redpanda Operator on specific nodes |
 | podAnnotations | object | `{}` | Allows setting additional annotations for Redpanda Operator PODs |
-| podLabels | object | `{}` | Allows setting additional labels for for Redpanda Operator PODs |
+| podLabels | object | `{}` | Allows setting additional labels for Redpanda Operator PODs |
 | rbac.create | bool | `true` | Specifies whether the RBAC resources should be created |
 | replicaCount | int | `1` | Number of instances of Redpanda Operator |
 | resources | object | `{}` | Set resources requests/limits for Redpanda Operator PODs |

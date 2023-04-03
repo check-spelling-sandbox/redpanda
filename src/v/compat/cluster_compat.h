@@ -428,7 +428,7 @@ struct compat_check<cluster::topic_configuration> {
             verify_serde_only(obj, test);
             return;
         }
-        vassert(test.name == "adl", "Unknown compat_binary format encounterd");
+        vassert(test.name == "adl", "Unknown compat_binary format encountered");
         iobuf_parser iobp(std::move(test.data));
         auto cfg = reflection::adl<cluster::topic_configuration>{}.from(iobp);
         obj.properties.read_replica = std::nullopt;
@@ -488,7 +488,7 @@ struct compat_check<cluster::create_topics_request> {
             verify_serde_only(obj, test);
             return;
         }
-        vassert(test.name == "adl", "Unknown compat_binary format encounterd");
+        vassert(test.name == "adl", "Unknown compat_binary format encountered");
         iobuf_parser iobp(std::move(test.data));
         auto req = reflection::adl<cluster::create_topics_request>{}.from(iobp);
         for (auto& topic : obj.topics) {
@@ -506,7 +506,7 @@ struct compat_check<cluster::create_topics_request> {
         }
         if (req != obj) {
             throw compat_error(fmt::format(
-              "Verify of {{cluster::create_toics_request}} decoding "
+              "Verify of {{cluster::create_topics_request}} decoding "
               "failed:\n Expected: {}\nDecoded: {}",
               obj,
               req));
@@ -547,7 +547,7 @@ struct compat_check<cluster::create_topics_reply> {
             verify_serde_only(obj, test);
             return;
         }
-        vassert(test.name == "adl", "Unknown compat_binary format encounterd");
+        vassert(test.name == "adl", "Unknown compat_binary format encountered");
         iobuf_parser iobp(std::move(test.data));
         auto reply = reflection::adl<cluster::create_topics_reply>{}.from(iobp);
         for (auto& topic : obj.configs) {
@@ -564,7 +564,7 @@ struct compat_check<cluster::create_topics_reply> {
         }
         if (reply != obj) {
             throw compat_error(fmt::format(
-              "Verify of {{cluster::create_toics_reply}} decoding "
+              "Verify of {{cluster::create_topics_reply}} decoding "
               "failed:\n Expected: {}\nDecoded: {}",
               obj,
               reply));

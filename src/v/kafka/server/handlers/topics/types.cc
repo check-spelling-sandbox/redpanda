@@ -35,7 +35,7 @@ namespace kafka {
 
 template<typename T>
 concept CreatableTopicCfg = std::is_same_v<T, creatable_topic_configs> || std::
-  is_same_v<T, createable_topic_config>;
+  is_same_v<T, creatable_topic_config>;
 
 template<CreatableTopicCfg T>
 config_map_t make_config_map(const std::vector<T>& config) {
@@ -49,7 +49,7 @@ config_map_t make_config_map(const std::vector<T>& config) {
     return ret;
 }
 
-config_map_t config_map(const std::vector<createable_topic_config>& config) {
+config_map_t config_map(const std::vector<creatable_topic_config>& config) {
     return make_config_map(config);
 }
 

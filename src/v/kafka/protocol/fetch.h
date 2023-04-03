@@ -75,7 +75,7 @@ struct fetch_request final {
 
     /*
      * iterator over request partitions. this adapter iterator is used because
-     * the partitions are decoded off the wire directly into a hierarhical
+     * the partitions are decoded off the wire directly into a hierarchical
      * representation:
      *
      *       [
@@ -284,7 +284,7 @@ struct fetch_response final {
                 }
             }
 
-            // filter responsens that we do not want to include
+            // filter responses that we do not want to include
             if (
               filter_ && state_.partition != t_end_
               && !state_.partition_response->has_to_be_included) {

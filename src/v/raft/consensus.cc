@@ -379,7 +379,7 @@ consensus::success_reply consensus::update_follower_index(
         return success_reply::no;
     }
     /**
-     * Even though we allow some of the reordered responsens to be proccessed we
+     * Even though we allow some of the reordered responses to be processed we
      * do not want it to update last received response sequence. This may lead
      * to processing one of the response that were reordered and should be
      * discarded.
@@ -428,7 +428,7 @@ consensus::success_reply consensus::update_follower_index(
     }
 
     if (reply.result == append_entries_reply::status::success) {
-        successfull_append_entries_reply(idx, std::move(reply));
+        successful_append_entries_reply(idx, std::move(reply));
         return success_reply::yes;
     } else {
         idx.last_sent_offset = idx.last_dirty_log_index;
@@ -516,7 +516,7 @@ void consensus::process_append_entries_reply(
     }
 }
 
-void consensus::successfull_append_entries_reply(
+void consensus::successful_append_entries_reply(
   follower_index_metadata& idx, append_entries_reply reply) {
     // follower and leader logs matches
     idx.last_dirty_log_index = reply.last_dirty_log_index;
@@ -643,7 +643,7 @@ ss::future<result<model::offset>> consensus::linearizable_barrier() {
 
     u.return_all();
 
-    // wait for responsens in background
+    // wait for responses in background
     ssx::spawn_with_gate(_bg, [futures = std::move(send_futures)]() mutable {
         return ss::when_all_succeed(futures.begin(), futures.end());
     });
@@ -1234,7 +1234,7 @@ ss::future<> consensus::do_start() {
            * temporary workaround:
            *
            * if the group's ntp matches the pattern, then do not load the
-           * initial configuration snapshto from the keyvalue store. more info
+           * initial configuration snapshot from the keyvalue store. more info
            * here:
            *
            * https://github.com/redpanda-data/redpanda/issues/1870
@@ -1305,7 +1305,7 @@ ss::future<> consensus::do_start() {
                 vlog(_ctxlog.info, "Read bootstrap state: {}", st);
                 vlog(_ctxlog.info, "Current log offsets: {}", lstats);
 
-                // if log term is newer than the one comming from voted_for
+                // if log term is newer than the one coming from voted_for
                 // state, we reset voted_for state
                 if (lstats.dirty_offset_term > _term) {
                     _term = lstats.dirty_offset_term;
@@ -1319,7 +1319,7 @@ ss::future<> consensus::do_start() {
                  */
                 _flushed_offset = lstats.dirty_offset;
                 /**
-                 * The configuration manager state may be divereged from the log
+                 * The configuration manager state may be diverged from the log
                  * state, as log is flushed lazily, we have to make sure that
                  * the log and configuration manager has exactly the same
                  * offsets range
@@ -1353,12 +1353,12 @@ ss::future<> consensus::do_start() {
                 /**
                  * fix for incorrectly persisted configuration index. In
                  * previous version of redpanda due to the issue with
-                 * incorrectly assigned raft configuration indicies
+                 * incorrectly assigned raft configuration indices
                  * (https://github.com/redpanda-data/redpanda/issues/2326) there
                  * may be a persistent corruption in offset translation caused
-                 * by incorrectly persited configuration index. It may cause log
-                 * offset to be negative. Here we check if this problem exists
-                 * and if so apply necessary offset translation.
+                 * by incorrectly persisted configuration index. It may cause
+                 * log offset to be negative. Here we check if this problem
+                 * exists and if so apply necessary offset translation.
                  */
                 const auto so = start_offset();
                 // no prefix truncation was applied we do not need adjustment
@@ -1500,7 +1500,7 @@ void consensus::read_voted_for() {
               storage::kvstore::key_space::consensus, key);
             vlog(
               _ctxlog.info,
-              "triggerred voter for read fallback, reading previous version of "
+              "triggered voter for read fallback, reading previous version of "
               "voted for configuration");
             // fallback to old version
             auto config
@@ -1615,7 +1615,7 @@ ss::future<vote_reply> consensus::do_vote(vote_request&& r) {
     /// Stable leadership optimization
     ///
     /// When current node is a leader (we set _hbeat to max after
-    /// successfull election) or already processed request from active
+    /// successful election) or already processed request from active
     /// leader  do not grant a vote to follower. This will prevent restarted
     /// nodes to disturb all groups leadership
     // Check if we updated the heartbeat timepoint in the last election
@@ -1832,7 +1832,7 @@ consensus::do_append_entries(append_entries_request&& r) {
     // as timeouts are asynchronous to append calls and can have stall data
     if (r.batches().is_end_of_stream()) {
         if (r.meta.prev_log_index < last_log_offset) {
-            // do not tuncate on heartbeat just response with false
+            // do not truncate on heartbeat just response with false
             reply.result = append_entries_reply::status::failure;
             return ss::make_ready_future<append_entries_reply>(
               std::move(reply));
@@ -2099,7 +2099,7 @@ consensus::do_install_snapshot(install_snapshot_request r) {
 
     // Create new snapshot file if first chunk (offset is 0) (§7.2)
     if (r.file_offset == 0) {
-        // discard old chunks, previous snaphost wasn't finished
+        // discard old chunks, previous snapshot wasn't finished
         if (_snapshot_writer) {
             co_await _snapshot_writer->close();
             co_await _snapshot_mgr.remove_partial_snapshots();
@@ -2415,7 +2415,7 @@ ss::future<> consensus::flush_log() {
     return _log.flush().then([this, flushed_up_to] {
         auto lstats = _log.offsets();
         /**
-         * log flush may be interleaved with trucation, hence we need to check
+         * log flush may be interleaved with truncation, hence we need to check
          * if log was truncated, if so we do nothing, flushed offset will be
          * updated in the truncation path.
          */
@@ -2481,7 +2481,7 @@ ss::future<storage::append_result> consensus::disk_append(
               /**
                * We have to update last quorum replicated index before we
                * trigger read for followers recovery as recovery_stm will have
-               * to deceide if follower flush is required basing on last quorum
+               * to decide if follower flush is required basing on last quorum
                * replicated index.
                */
               _last_quorum_replicated_index = ret.last_offset;
@@ -2709,7 +2709,7 @@ consensus::do_maybe_update_leader_commit_idx(ssx::semaphore_units u) {
     // of matchIndex[i] ≥ N, and log[N].term == currentTerm:
     // set commitIndex = N (§5.3, §5.4).
     auto majority_match = config().quorum_match([this](vnode id) {
-        // current node - we just return commited offset
+        // current node - we just return committed offset
         if (id == _self) {
             return _flushed_offset;
         }
@@ -2725,7 +2725,7 @@ consensus::do_maybe_update_leader_commit_idx(ssx::semaphore_units u) {
     /**
      * we have to make sure that we do not advance committed_index beyond the
      * point which is readable in log. Since we are not waiting for flush to
-     * happen before updating leader commited index we have to limit committed
+     * happen before updating leader committed index we have to limit committed
      * index to the log committed offset. This way we make sure that when read
      * is handled all batches up to committed offset will be visible. Allowing
      * committed offset to be greater than leader flushed offset may result in
@@ -3108,7 +3108,7 @@ consensus::do_transfer_leadership(std::optional<model::node_id> target) {
          * transfer completes this flag is cleared; either transfer was
          * successful or not, but operations may continue.
          *
-         * NOTE: for acks=quroum recovery is usually quite fast or
+         * NOTE: for acks=quorum recovery is usually quite fast or
          * unnecessary because followers are kept up-to-date. but for
          * asynchronous replication this is not true. a more
          * sophisticated strategy can be taken from online vm transfer:
@@ -3363,7 +3363,7 @@ voter_priority consensus::get_node_priority(vnode rni) const {
     auto idx = std::distance(nodes.begin(), it);
 
     /**
-     * Voter priority is inversly proportion to node position in brokers
+     * Voter priority is inversely proportion to node position in brokers
      * vector.
      */
     return voter_priority(

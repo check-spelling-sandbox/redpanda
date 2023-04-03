@@ -195,7 +195,7 @@ class WriteRejectTest(RedpandaTest):
         # RP should now accept writes after clearing space
         self._send_all_topics("A: A RAM!")
 
-        # Expect the disk health check to tranistion from degraded to ok
+        # Expect the disk health check to transition from degraded to ok
         check_health_monitor_frontend(disk_space_change="degraded -> ok")
 
 

@@ -32,7 +32,7 @@
  *    ```
  * The first argument of `with` and `lock` is const char* lock_holder_id.
  * timed_mutex doesn't make any copy of the string, just pass the pointer
- * around and may store it indefinely long so it should have unlimited
+ * around and may store it indefinitely long so it should have unlimited
  * lifetime. From the caller perspective it means they can't really pass
  * in a dynamic or stack-allocated string: it should really only be a string
  * literal. This is important for performance to avoid allocating on every

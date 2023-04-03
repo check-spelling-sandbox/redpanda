@@ -30,7 +30,7 @@ template<typename Rep, typename Period, typename Predicate>
 requires ss::ApplyReturns<Predicate, bool> ||
          ss::ApplyReturns<Predicate, ss::future<bool>>
     // clang-format on
-    /// Used to wait for Prediacate to become true
+    /// Used to wait for Predicate to become true
     ss::future<> cooperative_spin_wait_with_timeout(
       std::chrono::duration<Rep, Period> timeout, Predicate p) {
     using futurator = ss::futurize<std::invoke_result_t<Predicate>>;

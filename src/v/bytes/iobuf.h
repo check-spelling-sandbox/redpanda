@@ -118,7 +118,7 @@ public:
     /// don't violate the reservation size here
     placeholder reserve(size_t reservation);
 
-    /// only ensures that a segment of at least reservation is avaible
+    /// only ensures that a segment of at least reservation is available
     /// as an empty details::io_fragment
     void reserve_memory(size_t reservation);
 
@@ -241,7 +241,7 @@ inline void iobuf::create_new_fragment(size_t sz) {
     auto f = new fragment(ss::temporary_buffer<char>(asz), fragment::empty{});
     append_take_ownership(f);
 }
-/// only ensures that a segment of at least reservation is avaible
+/// only ensures that a segment of at least reservation is available
 /// as an empty details::io_fragment
 inline void iobuf::reserve_memory(size_t reservation) {
     oncore_debug_verify(_verify_shard);

@@ -113,7 +113,7 @@ class consensus;
  *
  * The class is taking additional advantage by setting all replies committed
  * offset to the latest value updated by log::flush. Since all the requests were
- * already sent by the leader it means that leader already appendend all
+ * already sent by the leader it means that leader already appended all
  * entries to its local log. It can therefore update commit_index as soon as it
  * will receive the first response, still being correct and guaranteeing safety.
  *

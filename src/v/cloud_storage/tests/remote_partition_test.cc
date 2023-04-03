@@ -69,7 +69,7 @@ static void print_segments(const std::vector<in_memory_segment>& segments) {
     }
 }
 
-/// Return vector<bool> which have a value for every recrod_batch_header in
+/// Return vector<bool> which have a value for every record_batch_header in
 /// 'segments' If i'th value is true then the value are present in both
 /// 'headers' and 'segments' Otherwise the i'th value will be false.
 static std::vector<bool> get_coverage(
@@ -784,9 +784,9 @@ FIXTURE_TEST(test_remote_partition_read_cached_index, cloud_storage_fixture) {
     // This test checks index materialization code path.
     // It's triggered when the segment is already present in the cache
     // when the remote_segment is created.
-    // In oreder to have the segment hydrated we need to access it first and
+    // In order to have the segment hydrated we need to access it first and
     // then wait until eviction will collect unused remote_segment (60s).
-    // This is unreliable and lengthy, so instead of doing this this test
+    // This is unreliable and lengthy, so instead of doing this test
     // uses two remote_partition instances. First one hydrates segment in
     // the cache. The second one is used to materialize the segment.
     constexpr int num_segments = 3;

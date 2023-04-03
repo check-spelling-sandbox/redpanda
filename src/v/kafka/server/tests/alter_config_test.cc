@@ -252,7 +252,7 @@ FIXTURE_TEST(
       "log.dirs",
       "auto.create.topics.enable"};
 
-    // All properies_request
+    // All properties_request
     auto all_describe_resp = describe_configs(
       broker_id, std::nullopt, kafka::config_resource_type::broker);
     assert_properties_amount(
@@ -261,7 +261,7 @@ FIXTURE_TEST(
         assert_property_presented(broker_id, property, all_describe_resp, true);
     }
 
-    // Single properies_request
+    // Single properties_request
     for (const auto& request_property : all_properties) {
         std::vector<ss::sstring> request_properties = {request_property};
         auto single_describe_resp = describe_configs(
@@ -543,7 +543,7 @@ FIXTURE_TEST(
       test_tp, "retention.ms", fmt::format("{}", 1234ms), describe_resp);
 
     /**
-     * Set custom retention.bytes, previous settings should be overriden
+     * Set custom retention.bytes, previous settings should be overridden
      */
     absl::flat_hash_map<ss::sstring, ss::sstring> new_properties;
     new_properties.emplace("retention.bytes", "4096");

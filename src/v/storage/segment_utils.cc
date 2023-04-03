@@ -735,7 +735,7 @@ ss::future<std::vector<compacted_index_reader>> make_indices_readers(
       });
 }
 
-ss::future<> rewrite_concatenated_indicies(
+ss::future<> rewrite_concatenated_indices(
   compacted_index_writer writer, std::vector<compacted_index_reader>& readers) {
     return ss::do_with(
       std::move(writer), [&readers](compacted_index_writer& writer) {
@@ -765,7 +765,7 @@ ss::future<> do_write_concatenated_compacted_index(
     return make_indices_readers(segments, cfg.iopc, cfg.sanitize)
       .then([cfg, target_path = std::move(target_path), &resources](
               std::vector<compacted_index_reader> readers) mutable {
-          vlog(gclog.debug, "concatenating {} indicies", readers.size());
+          vlog(gclog.debug, "concatenating {} indices", readers.size());
           return ss::do_with(
             std::move(readers),
             [cfg, target_path = std::move(target_path), &resources](
@@ -797,7 +797,7 @@ ss::future<> do_write_concatenated_compacted_index(
                       return make_compacted_index_writer(
                                target_path, cfg.sanitize, cfg.iopc, resources)
                         .then([&readers](compacted_index_writer writer) {
-                            return rewrite_concatenated_indicies(
+                            return rewrite_concatenated_indices(
                               std::move(writer), readers);
                         });
                   })

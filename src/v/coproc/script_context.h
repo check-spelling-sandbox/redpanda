@@ -26,7 +26,7 @@
 namespace coproc {
 
 /// Raised when futures enqueued by an async update were failed to be
-/// fufilled due to shutdown before the event occurring
+/// fulfilled due to shutdown before the event occurring
 class wait_future_stranded final : public exception {
     using exception::exception;
 };
@@ -43,13 +43,13 @@ class wait_future_stranded final : public exception {
  *
  * Since each script_context has one of these fibers of its own, no one context
  * will wait for work to be finished by another in order to continue making
- * progress. They all operate independently of eachother.
+ * progress. They all operate independently of each other.
  */
 class script_context {
 public:
     /**
      * class constructor
-     * @param script_id Uniquely identifyable id
+     * @param script_id Uniquely identifiable id
      * @param ctx Shared state, shared across all script_contexts on a shard
      * @param ntp_ctxs Map of interested ntps, strongly retained by 'this'
      **/

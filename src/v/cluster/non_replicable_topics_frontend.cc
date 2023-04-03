@@ -44,7 +44,7 @@ void non_replicable_topics_frontend::topic_creation_resolved(
             } else {
                 vlog(
                   clusterlog.debug,
-                  "Non replicable log has come into existance via "
+                  "Non replicable log has come into existence via "
                   "another node: {}",
                   result.tp_ns);
             }

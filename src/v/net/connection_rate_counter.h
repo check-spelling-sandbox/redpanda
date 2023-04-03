@@ -47,10 +47,10 @@ public:
           std::max(1000 / max_tokens, 1l));
 
         if (diff > 0) {
-            auto need_add = max_tokens - avaiable_new_connections();
+            auto need_add = max_tokens - available_new_connections();
             bucket.signal(need_add);
         } else {
-            auto need_move = avaiable_new_connections() - max_tokens;
+            auto need_move = available_new_connections() - max_tokens;
             if (need_move > 0) {
                 bucket.consume(need_move);
             }
@@ -65,14 +65,14 @@ public:
         last_update_time = time;
     }
 
-    int64_t avaiable_new_connections() {
+    int64_t available_new_connections() {
         return static_cast<int64_t>(bucket.current());
     }
 
     ss::future<>
     wait(typename Clock::duration max_wait_time, server_probe& probe) {
         if (need_wait()) {
-            probe.waiting_for_conection_rate();
+            probe.waiting_for_connection_rate();
         }
         co_await bucket.wait(max_wait_time, 1);
     }
@@ -85,7 +85,7 @@ public:
     std::chrono::milliseconds one_token_time;
 
 private:
-    bool need_wait() { return avaiable_new_connections() == 0; }
+    bool need_wait() { return available_new_connections() == 0; }
 
     ssx::named_semaphore<Clock> bucket;
     typename Clock::time_point last_update_time;

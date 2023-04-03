@@ -33,7 +33,7 @@ class id_allocator;
 // frontend bypasses the network and directly engages with the state
 // machine (id_allocator_stm.cc)
 //
-// when the service recieves a call it triggers id_allocator_frontend
+// when the service receives a call it triggers id_allocator_frontend
 // which in its own turn pass the request to the id_allocator_stm
 class id_allocator_frontend {
 public:

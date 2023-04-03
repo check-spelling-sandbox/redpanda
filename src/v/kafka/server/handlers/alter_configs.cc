@@ -63,7 +63,7 @@ create_topic_properties_update(alter_configs_resource& resource) {
      * override for this value has to be removed. We override all defaults to
      * set, even if value for given property isn't set it will override
      * configuration in topic table, the only difference is the replication
-     * factor, if not set in the request explicitly it will not be overriden.
+     * factor, if not set in the request explicitly it will not be overridden.
      */
     update.properties.cleanup_policy_bitflags.op
       = cluster::incremental_update_operation::set;
@@ -221,7 +221,7 @@ create_topic_properties_update(alter_configs_resource& resource) {
               error_code::invalid_config,
               fmt::format(
                 "unable to parse property {} value {}", cfg.name, cfg.value));
-        } catch (const v8_engine::data_policy_exeption& e) {
+        } catch (const v8_engine::data_policy_exception& e) {
             return make_error_alter_config_resource_response<
               alter_configs_resource_response>(
               resource,
@@ -258,7 +258,7 @@ alter_topic_configuration(
 }
 
 static ss::future<std::vector<alter_configs_resource_response>>
-alter_broker_configuartion(std::vector<alter_configs_resource> resources) {
+alter_broker_configuration(std::vector<alter_configs_resource> resources) {
     return unsupported_broker_configuration<
       alter_configs_resource,
       alter_configs_resource_response>(
@@ -275,24 +275,24 @@ ss::future<response_ptr> alter_configs_handler::handle(
     request.decode(ctx.reader(), ctx.header().version);
     log_request(ctx.header(), request);
 
-    auto groupped = group_alter_config_resources(
+    auto grouped = group_alter_config_resources(
       std::move(request.data.resources));
 
-    auto unauthorized_responsens = authorize_alter_config_resources<
+    auto unauthorized_responses = authorize_alter_config_resources<
       alter_configs_resource,
-      alter_configs_resource_response>(ctx, groupped);
+      alter_configs_resource_response>(ctx, grouped);
 
     std::vector<ss::future<std::vector<alter_configs_resource_response>>>
       futures;
     futures.reserve(2);
     futures.push_back(alter_topic_configuration(
-      ctx, std::move(groupped.topic_changes), request.data.validate_only));
+      ctx, std::move(grouped.topic_changes), request.data.validate_only));
     futures.push_back(
-      alter_broker_configuartion(std::move(groupped.broker_changes)));
+      alter_broker_configuration(std::move(grouped.broker_changes)));
 
     auto ret = co_await ss::when_all_succeed(futures.begin(), futures.end());
     // include authorization errors
-    ret.push_back(std::move(unauthorized_responsens));
+    ret.push_back(std::move(unauthorized_responses));
 
     co_return co_await ctx.respond(
       assemble_alter_config_response<

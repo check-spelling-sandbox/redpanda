@@ -367,7 +367,7 @@ ss::future<> cache::trim() {
         }
 
         // We aim to keep current_cache_size continuously up to date, but
-        // in case of housekeeping issues, correct it if it apepars to have
+        // in case of housekeeping issues, correct it if it appears to have
         // drifted too far from the result of our directory walk.
         // This is a lower bound that permits current cache size to deviate
         // by the amount of data currently in tmp files, because they may be

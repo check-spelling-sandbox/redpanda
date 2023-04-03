@@ -167,7 +167,7 @@ public:
      * Sends a round of heartbeats to followers, when majority of followers
      * replied with success to either this of any following request all reads up
      * to returned offsets are linearizable. (i.e. majority of followers have
-     * updated their commit indices to at least reaturned offset). For more
+     * updated their commit indices to at least returned offset). For more
      * details see paragraph 6.4 of Raft protocol dissertation.
      */
     ss::future<result<model::offset>> linearizable_barrier();
@@ -187,7 +187,7 @@ public:
     /**
      * \brief Persist snapshot with given data and start offset
      *
-     * The write snaphot API is called by the state machine implementation
+     * The write snapshot API is called by the state machine implementation
      * whenever it decides to take a snapshot. Write snapshot is executed under
      * consensus operations lock.
      */
@@ -240,7 +240,7 @@ public:
      *   1. when a cached term matches consensus.term() call replicate using
      *      the cached term as expected_term
      *   2. otherwise:
-     *      a. abrt all incoming requests
+     *      a. abort all incoming requests
      *      b. call consensus meta() to get the latest offset and a term
      *      c. wait until the state caches up with the latest offset
      *      d. cache the term
@@ -268,8 +268,8 @@ public:
      *
      * Last visible offset is updated in two scenarios
      *
-     * - commited offset is updated (consistency_level=quorum)
-     * - when batch that was appendend to the leader log is safely replicated on
+     * - committed offset is updated (consistency_level=quorum)
+     * - when batch that was appended to the leader log is safely replicated on
      *   majority of nodes
      *
      * We always update last visible index with std::max(prev,
@@ -461,7 +461,7 @@ private:
     ss::future<storage::append_result>
     disk_append(model::record_batch_reader&&, update_last_quorum_index);
 
-    using success_reply = ss::bool_class<struct successfull_reply_tag>;
+    using success_reply = ss::bool_class<struct successful_reply_tag>;
 
     success_reply update_follower_index(
       model::node_id,
@@ -469,7 +469,7 @@ private:
       follower_req_seq seq_id,
       model::offset);
 
-    void successfull_append_entries_reply(
+    void successful_append_entries_reply(
       follower_index_metadata&, append_entries_reply);
 
     bool needs_recovery(const follower_index_metadata&, model::offset);
@@ -564,7 +564,7 @@ private:
       model::node_id requested_node_id) {
         if (reply) {
             // since we are not going to introduce the node in ADL versions of
-            // replies it may be not initialzed, in this case just ignore the
+            // replies it may be not initialized, in this case just ignore the
             // check
             if (unlikely(
                   reply.value().node_id != vnode{}
@@ -725,7 +725,7 @@ private:
     size_t _received_snapshot_bytes = 0;
 
     /**
-     * We keep an idex of the most recent entry replicated with quorum
+     * We keep an index of the most recent entry replicated with quorum
      * consistency level to make sure that all requests replicated with quorum
      * consistency level will not be visible before they are committed by
      * majority.

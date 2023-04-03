@@ -73,7 +73,7 @@ struct log_config {
       config::binding<std::chrono::milliseconds> compaction_ival,
       config::binding<std::optional<std::chrono::milliseconds>> del_ret,
       with_cache c,
-      batch_cache::reclaim_options recopts,
+      batch_cache::reclaim_options receipts,
       std::chrono::milliseconds rdrs_cache_eviction_timeout,
       ss::scheduling_group compaction_sg) noexcept;
 
@@ -171,7 +171,7 @@ public:
      */
     ss::future<> remove(model::ntp);
     /**
-     * This function walsk through entire directory structure in an async fiber
+     * This function walks through entire directory structure in an async fiber
      * to remove all orphan files in that directory. It checks if file is orphan
      * with special orphan_filter
      */

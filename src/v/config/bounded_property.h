@@ -16,7 +16,7 @@ namespace config {
 
 /**
  * Detail section for concepts used in public class definitions, avoid
- * polluating the overall config:: namespace with these.
+ * polluting the overall config:: namespace with these.
  */
 namespace detail {
 

@@ -18,7 +18,7 @@ namespace storage {
 enum class parser_errc {
     none = 0,
     end_of_stream,
-    header_only_crc_missmatch,
+    header_only_crc_mismatch,
     input_stream_not_enough_bytes,
     fallocated_file_read_zero_bytes_for_header,
     not_enough_bytes_in_parser_for_one_record,
@@ -32,8 +32,8 @@ struct parser_errc_category final : public std::error_category {
             return "storage::parser_errc::success";
         case parser_errc::end_of_stream:
             return "parser_errc::end_of_stream";
-        case parser_errc::header_only_crc_missmatch:
-            return "parser_errc::header_only_crc_missmatch";
+        case parser_errc::header_only_crc_mismatch:
+            return "parser_errc::header_only_crc_mismatch";
         case parser_errc::input_stream_not_enough_bytes:
             return "parser_errc::input_stream_not_enough_bytes";
         case parser_errc::fallocated_file_read_zero_bytes_for_header:

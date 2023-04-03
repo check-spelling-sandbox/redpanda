@@ -27,9 +27,9 @@ namespace cluster {
 ///
 /// Within this class there is a mutex that ensures only one test can
 /// be executing at once. start_test() immediately returns and tests execute in
-/// the background, its the clients job to periodicially query for finished
+/// the background, its the clients job to periodically query for finished
 /// tests. The last successful test results and its test identifier are cached
-/// for later retrival.
+/// for later retrieval.
 class self_test_backend {
 public:
     static constexpr ss::shard_id shard = 0;
@@ -68,7 +68,7 @@ public:
     /// The encapsulated logic ensures that at most one benchmark using this
     /// node can run at a time. It runs by only positively acking requests that
     /// are sent by the same node within a small configured timeout. Negative
-    /// acks (empty response iobuf) will have clients sleep periodicially until
+    /// acks (empty response iobuf) will have clients sleep periodically until
     /// they get a chance use the endpoint with success.
     ss::future<netcheck_response> netcheck(model::node_id, iobuf&&);
 

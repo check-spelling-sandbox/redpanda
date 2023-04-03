@@ -195,7 +195,7 @@ std::optional<std::chrono::seconds> group_manager::offset_retention_enabled() {
 
     /*
      * log change to effective value of offset_retention_enabled flag since its
-     * value cannot easily be determiend by examining the current configuration.
+     * value cannot easily be determined by examining the current configuration.
      */
     if (_prev_offset_retention_enabled != enabled) {
         vlog(
@@ -357,10 +357,10 @@ ss::future<size_t> group_manager::delete_offsets(
 
 ss::future<> group_manager::stop() {
     /**
-     * This is not ususal as stop() method should only be called once. For the
+     * This is not usual as stop() method should only be called once. For the
      * purpose of migration we must stop all pending operations & notifications
      * in previous group manager implementation. This check allow us to call
-     * stop more than once and makes it idemtpotent.
+     * stop more than once and makes it idempotent.
      *
      * Stop may be first called during migration and then for the second time
      * during application shutdown
@@ -382,7 +382,7 @@ ss::future<> group_manager::stop() {
 
     return _gate.close().then([this]() {
         /**
-         * cancel all pending group opeartions
+         * cancel all pending group operations
          */
         return ss::do_for_each(
                  _groups, [](auto& p) { return p.second->shutdown(); })
@@ -405,7 +405,7 @@ ss::future<> group_manager::do_detach_partition(model::ntp ntp) {
     auto p = it->second;
     auto units = co_await p->catchup_lock.hold_write_lock();
 
-    // Becasue shutdown group is async operation we should run it after
+    // Because shutdown group is async operation we should run it after
     // rehash for groups map
     std::vector<group_ptr> groups_for_shutdown;
     for (auto g_it = _groups.begin(); g_it != _groups.end();) {
@@ -521,7 +521,7 @@ void group_manager::handle_leader_change(
              * before we set loading=true to block operations while recover
              * happens.
              *
-             * since upcall happens synchrnously from rafter on leadership
+             * since upcall happens synchronously from rafter on leadership
              * change, we early set this flag to block out any requests in case
              * we would end up waiting on recovery and cause the situation
              * above.
@@ -563,7 +563,7 @@ group_manager::gc_partition_state(ss::lw_shared_ptr<attached_partition> p) {
 
     auto units = co_await p->catchup_lock.hold_write_lock();
 
-    // Becasue shutdown group is async operation we should run it after rehash
+    // Because shutdown group is async operation we should run it after rehash
     // for groups map
     std::vector<group_ptr> groups_for_shutdown;
     for (auto it = _groups.begin(); it != _groups.end();) {

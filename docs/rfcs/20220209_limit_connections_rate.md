@@ -16,7 +16,7 @@ Similar to KIP-612, adapted to Redpanda's thread per core model
 
 New configuration properties (For start we choose global config for connection rate):
 - kafka_max_connection_creation_rate (optional integer, default unset)
-- kafka_max_connection_creation_rate_ovverides (string, default "")
+- kafka_max_connection_creation_rate_overrides (string, default "")
 
 
 When a connection is accepted which exceeds one of the configured
@@ -83,12 +83,12 @@ Changes to the configuration properties affect all outstanding
 connection_rate objects: the `kafka_max_connection_creation_rate` attribute must be recalculated.
 
 ### Metrics
-We should reprot about current rate on each shard
+We should report about current rate on each shard
 
 ## Impact
 
 1. Each connection will store start connection time
-2. Use clock to comapre times, but we will use ss::lower_clock
+2. Use clock to compare times, but we will use ss::lower_clock
 3. Background fiber to update rate limit in semaphore
 
 # Guide-level explanation
@@ -122,13 +122,13 @@ connections in one second. This is okay as long as all clients are well-behaved 
 system is carefully sized for its workload, neither of which are reliably true
 in real life deployments.
 
-### Run backround fiber
+### Run background fiber
 We can run background fiber each second to refresh tokens count in semaphore.
 In thins case we will avoid getting and comparing time for each connection,
 and only fiber will run signal()
 
 ### Node limits (not shard)
 
-It will add more compexity to share info about current rate to each core.
-Also we should sharding info about ovverides and map each ip to core for saving
+It will add more complexity to share info about current rate to each core.
+Also we should sharding info about overrides and map each ip to core for saving
 info about rate per ip

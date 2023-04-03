@@ -160,8 +160,8 @@ ss::future<> readers_cache::stop() {
      */
     co_await wait_for_no_inuse_readers();
     /**
-     * At this poit we are sure that all cached readers are not used anymore and
-     * no new readers will be added to _readers list.
+     * At this point we are sure that all cached readers are not used anymore
+     * and no new readers will be added to _readers list.
      *
      * Close and dispose cached readers
      */
@@ -172,7 +172,7 @@ ss::future<> readers_cache::stop() {
         delete e; // NOLINT
     });
     /**
-     * Stop and clear metrics as well or risk a double registrion on partition
+     * Stop and clear metrics as well or risk a double registration on partition
      * movements. For details see
      * https://github.com/redpanda-data/redpanda/issues/5938
      */
@@ -274,7 +274,7 @@ readers_cache::entry::make_cached_reader(readers_cache* cache) {
 readers_cache::~readers_cache() {
     vassert(
       _readers.empty() && _in_use.empty(),
-      "readers cache have to be closed before destorying");
+      "readers cache have to be closed before destroying");
 }
 
 ss::future<>
@@ -310,9 +310,9 @@ void readers_cache::dispose_in_background(entry* e) {
          * add it back to _readers list, it will be gracefully closed in
          * `readers_cache::close`.
          * NOTE:
-         * _readers intrusive list is supposed to keep resusable readers but
-         * when gate closed exception is thrwon we are certain that no more
-         * oprations will be executed on the cache so we can reuse the _readers
+         * _readers intrusive list is supposed to keep reusable readers but
+         * when gate closed exception is thrown we are certain that no more
+         * operations will be executed on the cache so we can reuse the _readers
          * list to gracefully shutdown readers.
          */
         _readers.push_back(*e);

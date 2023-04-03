@@ -136,7 +136,7 @@ public:
     /// perform syscall stat
     ss::future<struct stat> stat();
 
-    /// truncates file starting at this phyiscal offset
+    /// truncates file starting at this physical offset
     ss::future<> truncate(size_t sz);
 
     /// create an input stream _sharing_ the underlying file handle
@@ -166,7 +166,7 @@ private:
     unsigned _read_ahead{0};
     debug_sanitize_files _sanitize;
 
-    // Keeps track of operations that cannot be pre-empted by close()
+    // Keeps track of operations that cannot be preempted by close()
     ss::gate _gate;
     // Acquire a handle to use the underlying file handle
     ss::future<segment_reader_handle> get();

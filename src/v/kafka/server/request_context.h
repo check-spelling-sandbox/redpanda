@@ -245,7 +245,7 @@ private:
         } else if constexpr (std::is_same_v<ResponseType, fetch_response>) {
             internal_bytes_sent = r.internal_topic_bytes;
         }
-        /// Bytes recieved by redpanda
+        /// Bytes received by redpanda
         vassert(
           _request_size >= internal_bytes_recv,
           "Observed bigger internal bytes accounting then entire request size");

@@ -19,7 +19,7 @@ import (
 )
 
 type scriptRenderingExecutor struct {
-	deffered error
+	deferred error
 	writer   *bufio.Writer
 }
 
@@ -29,7 +29,7 @@ func NewScriptRenderingExecutor(fs afero.Fs, filename string) Executor {
 	file, err := fs.OpenFile(filename, os.O_CREATE|os.O_TRUNC|os.O_RDWR, 0o755)
 	if err != nil {
 		return &scriptRenderingExecutor{
-			deffered: err,
+			deferred: err,
 			writer:   nil,
 		}
 	}
@@ -44,7 +44,7 @@ func NewScriptRenderingExecutor(fs afero.Fs, filename string) Executor {
 	_, _ = fmt.Fprint(w, header)
 	_ = w.Flush()
 	return &scriptRenderingExecutor{
-		deffered: nil,
+		deferred: nil,
 		writer:   w,
 	}
 }

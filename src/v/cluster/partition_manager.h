@@ -104,7 +104,7 @@ public:
      * the callback must not block.
      *
      * we don't currently have any mechanism for un-managing partitions, so
-     * that interface is non-existent.
+     * that interface is nonexistent.
      */
     notification_id_type register_manage_notification(
       const model::ns& ns, const model::topic& topic, manage_cb_t cb) {
@@ -120,7 +120,7 @@ public:
             init.notify(e.first, e.second);
         }
 
-        // now setup the permenant callback for new partitions
+        // now setup the permanent callback for new partitions
         return _manage_watchers.register_notify(ns, topic, std::move(cb));
     }
 
@@ -132,7 +132,7 @@ public:
      * the callback must not block.
      *
      * we don't currently have any mechanism for un-managing partitions, so
-     * that interface is non-existent.
+     * that interface is nonexistent.
      */
     notification_id_type register_unmanage_notification(
       const model::ns& ns, const model::topic& topic, unmanage_cb_t cb) {

@@ -377,7 +377,7 @@ ss::future<checked<model::term_id, tx_errc>> rm_stm::do_begin_tx(
         //
         // at the same time it's possible that it already aborted the old
         // tx before starting this. do_abort_tx is idempotent so calling it
-        // just in case to proactivly abort the tx instead of waiting for
+        // just in case to proactively abort the tx instead of waiting for
         // the timeout
         //
         // moreover do_abort_tx is co-idempotent with do_commit_tx so if a
@@ -523,7 +523,7 @@ ss::future<checked<model::term_id, tx_errc>> rm_stm::do_begin_tx(
     }
 
     // a client may start new transaction only when the previous
-    // tx is committed. since a client commits a transacitons
+    // tx is committed. since a client commits a transactions
     // strictly after all records are written it means that it
     // won't be retrying old writes and we may reset the seq cache
     _log_state.erase_pid_from_seq_table(pid);
@@ -592,7 +592,7 @@ ss::future<tx_errc> rm_stm::do_prepare_tx(
         if (_log_state.tx_seqs[pid] != tx_seq) {
             vlog(
               _ctx_log.warn,
-              "expectd tx_seq {} doesn't match gived {} for pid {}",
+              "expected tx_seq {} doesn't match given {} for pid {}",
               _log_state.tx_seqs[pid],
               tx_seq,
               pid);
@@ -726,7 +726,7 @@ ss::future<tx_errc> rm_stm::do_commit_tx(
             // existence of {pid, tx_seq+1} implies {pid, tx_seq} is committed
             vlog(
               _ctx_log.trace,
-              "Already commited pid:{} tx_seq:{} - a higher tx_seq:{} was "
+              "Already committed pid:{} tx_seq:{} - a higher tx_seq:{} was "
               "observed",
               pid,
               tx_seq,
@@ -781,7 +781,7 @@ ss::future<tx_errc> rm_stm::do_commit_tx(
             // existence of {pid, tx_seq+1} implies {pid, tx_seq} is committed
             vlog(
               _ctx_log.trace,
-              "Already commited pid:{} tx_seq:{} - a higher tx_seq:{} was "
+              "Already committed pid:{} tx_seq:{} - a higher tx_seq:{} was "
               "observed",
               pid,
               tx_seq,
@@ -967,12 +967,12 @@ ss::future<tx_errc> rm_stm::do_abort_tx(
         auto origin = get_abort_origin(pid, tx_seq.value());
         if (origin == abort_origin::past) {
             // An abort request has older tx_seq. It may mean than the request
-            // was dublicated, delayed and retried later.
+            // was duplicated, delayed and retried later.
             //
             // Or it may mean that a tx coordinator
             //   - lost its state
             //   - rolled back to previous op
-            //   - the previous op happend to be an abort
+            //   - the previous op happened to be an abort
             //   - the coordinator retried it
             //
             // In the first case the least impactful way to reject the request.
@@ -990,7 +990,7 @@ ss::future<tx_errc> rm_stm::do_abort_tx(
             if (expiration_it != _log_state.expiration.end()) {
                 expiration_it->second.is_expiration_requested = true;
             }
-            // spawing abort in the background and returning an error to
+            // spawning abort in the background and returning an error to
             // release locks on the tx coordinator to prevent distributed
             // deadlock
             ssx::spawn_with_gate(
@@ -1017,7 +1017,7 @@ ss::future<tx_errc> rm_stm::do_abort_tx(
         }
     }
 
-    // preventing prepare and replicte once we
+    // preventing prepare and replicate once we
     // know we're going to abort tx and abandon pid
     _mem_state.expected.erase(pid);
 
@@ -1404,7 +1404,7 @@ rm_stm::replicate_tx(model::batch_identity bid, model::record_batch_reader br) {
                     // re-election we sync and it catches up with all records
                     // replicated in previous term. since the cached offset for
                     // a given seq is still -1 it means that the replication
-                    // hasn't passed so we updating the term to pretent that the
+                    // hasn't passed so we updating the term to pretend that the
                     // retry (seqs match) put it there
                     pid_seq->second.term = synced_term;
                 }
@@ -1533,7 +1533,7 @@ ss::future<result<kafka_result>> rm_stm::replicate_seq(
     auto units = co_await idempotent_lock->hold_read_lock();
 
     // Double check that after hold read lock rw_lock still exists in rw map.
-    // Becasue we can not continue replicate_seq if pid was deleted from state
+    // Because we can not continue replicate_seq if pid was deleted from state
     // after we lock mutex
     if (!_idempotent_producer_locks.contains(bid.pid)) {
         vlog(
@@ -1629,8 +1629,8 @@ ss::future<result<kafka_result>> rm_stm::replicate_seq(
         }
     }
 
-    // apparantly we process an unseen request
-    // checking if it isn't out of order with the already procceses
+    // apparently we process an unseen request
+    // checking if it isn't out of order with the already processes
     // or inflight requests
     if (session->cache.size() == 0) {
         // no inflight requests > checking processed
@@ -1644,7 +1644,7 @@ ss::future<result<kafka_result>> rm_stm::replicate_seq(
                   bid.pid,
                   bid.first_seq,
                   tail.value());
-                // there is a gap between the request'ss seq number
+                // there is a gap between the request's seq number
                 // and the seq number of the latest processed request
                 co_return errc::sequence_out_of_order;
             }
@@ -1667,14 +1667,14 @@ ss::future<result<kafka_result>> rm_stm::replicate_seq(
               "[pid: {}] replication failed with {}",
               bid.pid,
               std::current_exception());
-            // there is a gap between the request'ss seq number
+            // there is a gap between the request's seq number
             // and the seq number of the latest inflight request
             co_return errc::sequence_out_of_order;
         }
     }
 
     // updating last observed seq, since we hold the mutex
-    // it's guranteed to be latest
+    // it's guaranteed to be latest
     session->tail_seq = bid.last_seq;
 
     auto request = ss::make_lw_shared<inflight_request>();
@@ -1793,7 +1793,7 @@ ss::future<result<kafka_result>> rm_stm::replicate_seq(
     }
 
     // We can not do any async work after replication is finished and we marked
-    // request as finished. Becasue it can do reordering for requests. So we
+    // request as finished. Because it can do reordering for requests. So we
     // need to spawn background cleaning thread
     spawn_background_clean_for_pids(rm_stm::clear_type::idempotent_pids);
 
@@ -2134,16 +2134,16 @@ ss::future<> rm_stm::do_try_abort_old_tx(model::producer_identity pid) {
     }
 
     if (tx_seq) {
-        vlog(_ctx_log.trace, "trying to exprire pid:{} tx_seq:{}", pid, tx_seq);
+        vlog(_ctx_log.trace, "trying to expire pid:{} tx_seq:{}", pid, tx_seq);
         // It looks like a partition is fixed now but actually partitioning
         // of the tx coordinator isn't support yet so it doesn't matter see
         // https://github.com/redpanda-data/redpanda/issues/6137
-        // In order to support it we ned to update begin_tx to accept the id
+        // In order to support it we need to update begin_tx to accept the id
         // and use the true partition_id here
         auto r = co_await _tx_gateway_frontend.local().try_abort(
           model::partition_id(0), pid, *tx_seq, _sync_timeout);
         if (r.ec == tx_errc::none) {
-            if (r.commited) {
+            if (r.committed) {
                 vlog(
                   _ctx_log.trace, "pid:{} tx_seq:{} is committed", pid, tx_seq);
                 auto batch = make_tx_control_batch(
@@ -2661,7 +2661,7 @@ ss::future<> rm_stm::offload_aborted_txns() {
     // We should prevent it because an update invalidates the ite-
     // rator and may lead to undefined behavior. In order to avoid
     // this situation, offload_aborted_txns should be invoked only
-    // under _state_lock's write lock because all the other updators
+    // under _state_lock's write lock because all the other updaters
     // use the read lock.
     std::sort(
       std::begin(_log_state.aborted),
@@ -2741,7 +2741,7 @@ ss::future<stm_snapshot> rm_stm::take_snapshot() {
               [this](ss::basic_rwlock<>::holder unit) {
                   // software engineer be careful and do not cause a deadlock.
                   // take_snapshot is invoked under the persisted_stm::_op_lock
-                  // and here here we take write lock (_state_lock). most rm_stm
+                  // and here we take write lock (_state_lock). most rm_stm
                   // operations require its read lock. however they don't depend
                   // of _op_lock so things are safe now
                   return offload_aborted_txns().finally(
